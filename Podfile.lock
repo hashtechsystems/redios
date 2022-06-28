@@ -1,0 +1,20 @@
+PODS:
+  - SkyFloatingLabelTextField (3.8.0)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - SkyFloatingLabelTextField (~> 3.0)
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - SkyFloatingLabelTextField
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 6ff2b843c1e9d6ac2805f5e569540508c75d14d3
+
+COCOAPODS: 1.11.3

@@ -1,0 +1,6 @@
+framework module Pods_REDE {
+  umbrella header "Pods-REDE-umbrella.h"
+
+  export *
+  module * { export * }
+}
