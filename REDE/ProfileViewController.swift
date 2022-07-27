@@ -7,9 +7,8 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
 
-    @IBOutlet weak var navbar: NavigationBar!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
@@ -19,14 +18,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        self.hideKeyboardWhenTappedAround()
-        
+               
         self.enableEdit(enable: false)
         
-        self.navbar.setOnClickLeftButton {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        self.navbar.isLeftButtonHidden = true
     }
     
     

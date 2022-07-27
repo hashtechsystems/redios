@@ -20,6 +20,8 @@
 		7134384C28676902005D0EBD /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134384B28676902005D0EBD /* DashboardViewController.swift */; };
 		7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134384D28676D6F005D0EBD /* NavigationBar.swift */; };
 		7134385328677252005D0EBD /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134385228677252005D0EBD /* UIControl+Extension.swift */; };
+		714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714581562889207000634022 /* ChargerDetailsViewController.swift */; };
+		7145815928892F4E00634022 /* StopChargingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7145815828892F4E00634022 /* StopChargingViewController.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		7134384B28676902005D0EBD /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		7134384D28676D6F005D0EBD /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		7134385228677252005D0EBD /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
+		714581562889207000634022 /* ChargerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerDetailsViewController.swift; sourceTree = "<group>"; };
+		7145815828892F4E00634022 /* StopChargingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopChargingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				7134384B28676902005D0EBD /* DashboardViewController.swift */,
 				71343849286768DB005D0EBD /* ProfileViewController.swift */,
 				713438472866E5C6005D0EBD /* MapViewController.swift */,
+				714581562889207000634022 /* ChargerDetailsViewController.swift */,
+				7145815828892F4E00634022 /* StopChargingViewController.swift */,
 				713438332866D038005D0EBD /* Main.storyboard */,
 				713438362866D03F005D0EBD /* Assets.xcassets */,
 				713438382866D03F005D0EBD /* LaunchScreen.storyboard */,
@@ -250,10 +256,12 @@
 			files = (
 				7134384A286768DB005D0EBD /* ProfileViewController.swift in Sources */,
 				7134384C28676902005D0EBD /* DashboardViewController.swift in Sources */,
+				714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */,
 				713438432866D46B005D0EBD /* UIViewController+Extension.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,
 				7134382E2866D038005D0EBD /* AppDelegate.swift in Sources */,
+				7145815928892F4E00634022 /* StopChargingViewController.swift in Sources */,
 				713438482866E5C6005D0EBD /* MapViewController.swift in Sources */,
 				7134385328677252005D0EBD /* UIControl+Extension.swift in Sources */,
 				713438302866D038005D0EBD /* SceneDelegate.swift in Sources */,

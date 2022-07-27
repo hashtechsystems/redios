@@ -8,16 +8,13 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: BaseViewController {
     
-    @IBOutlet weak var navbar: NavigationBar!
     @IBOutlet weak var mapview: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navbar.setOnClickLeftButton {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        self.navbar.isLeftButtonHidden = true
     }
 }
