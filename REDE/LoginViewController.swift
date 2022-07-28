@@ -22,8 +22,9 @@ class LoginViewController: UIViewController {
         
         self.txtUsername.delegate = self
         self.txtPassword.delegate = self
-        //        self.txtUsername.text = "neeta12@gmail.com"
-        //        self.txtPassword.text = "Neetaj44@"
+        
+        self.txtUsername.text = "1234567890"
+        self.txtPassword.text = "123456"
         
         self.checkbox.borderStyle = .square
         self.checkbox.checkmarkStyle = .tick
@@ -60,16 +61,13 @@ extension LoginViewController {
     
     @IBAction func onClickLogin(){
         
-        guard let controller = UIViewController.instantiateVC(viewController: DashboardViewController.self) else { return }
-        self.navigationController?.pushViewController(controller, animated: true)
-        
-        /*guard let username = txtUsername.text, let pin = txtPassword.text else {
+        guard let phoneNumber = txtUsername.text, let password = txtPassword.text else {
             return
         }
         
         SVProgressHUD.show()
-        NetworkManager().login(username: username, pin: pin) { career, error in
-            guard let career = career else {
+        NetworkManager().login(phone_number: phoneNumber, password: password) { user, error in
+            guard let _ = user else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.showAlert(title: "Error", message: error)
@@ -79,14 +77,10 @@ extension LoginViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                guard let controller = UIViewController.instantiateVC(viewController: EventListViewController.self), let sceneDelegate = UIApplication.shared.connectedScenes
-                    .first?.delegate as? SceneDelegate else { return }
-                controller.career = career
-                let navCntrl = UINavigationController.init(rootViewController: controller)
-                navCntrl.isNavigationBarHidden = true
-                sceneDelegate.window?.rootViewController = navCntrl
+                guard let controller = UIViewController.instantiateVC(viewController: DashboardViewController.self) else { return }
+                self.navigationController?.pushViewController(controller, animated: true)
             }
-        }*/
+        }
     }
     
     @IBAction func onDismiss(_ sender: Any) {

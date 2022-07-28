@@ -34,16 +34,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-sZ-drD">
-                                        <rect key="frame" x="67" y="254.5" width="280" height="180"/>
+                                        <rect key="frame" x="67" y="254.5" width="280" height="230"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wGI-h8-pGr">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="230"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KT-EB-RAF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-0L-k1C" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="33.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -94,10 +94,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1II-lA-Kay">
-                                                        <rect key="frame" x="0.0" y="48.5" width="280" height="34"/>
+                                                        <rect key="frame" x="0.0" y="61" width="280" height="46.5"/>
                                                         <subviews>
                                                             <textField opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rSx-OL-jDz" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="46.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -148,16 +148,16 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OH-0L-N89">
-                                                        <rect key="frame" x="0.0" y="97.5" width="280" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="122.5" width="280" height="46"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Oy1-0J-FL3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="33.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCN-qb-Klw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="33.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="46"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDQ-M1-cyh" customClass="Checkbox" customModule="SimpleCheckbox">
-                                                                                <rect key="frame" x="0.0" y="4.5" width="25" height="25"/>
+                                                                                <rect key="frame" x="0.0" y="10.5" width="25" height="25"/>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="25" id="as8-Gq-JeK"/>
@@ -165,7 +165,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Pu-qte">
-                                                                                <rect key="frame" x="33" y="0.0" width="107" height="33.5"/>
+                                                                                <rect key="frame" x="33" y="0.0" width="107" height="46"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -182,10 +182,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqV-TD-UNI">
-                                                                        <rect key="frame" x="140" y="0.0" width="140" height="33.5"/>
+                                                                        <rect key="frame" x="140" y="0.0" width="140" height="46"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zio-jF-06j">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="33.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="46"/>
                                                                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                                 <state key="normal" title="Forget Password?">
@@ -214,10 +214,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCR-sL-889">
-                                                        <rect key="frame" x="0.0" y="146" width="280" height="34"/>
+                                                        <rect key="frame" x="0.0" y="183.5" width="280" height="46.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJO-xf-OYa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="46.5"/>
                                                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                 <state key="normal" title="LOGIN"/>
@@ -240,7 +240,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="180" id="5yt-bL-LBv"/>
+                                            <constraint firstAttribute="height" constant="230" id="5yt-bL-LBv"/>
                                             <constraint firstAttribute="bottom" secondItem="wGI-h8-pGr" secondAttribute="bottom" id="Aw6-wy-nIz"/>
                                             <constraint firstAttribute="trailing" secondItem="wGI-h8-pGr" secondAttribute="trailing" id="oha-BE-Fhi"/>
                                             <constraint firstItem="wGI-h8-pGr" firstAttribute="top" secondItem="dIw-sZ-drD" secondAttribute="top" id="v4A-sE-WGF"/>
@@ -1137,6 +1137,14 @@
             <point key="canvasLocation" x="4482.608695652174" y="-80.357142857142847"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="rSx-OL-jDz">
+            <size key="intrinsicContentSize" width="280" height="43.994140625"/>
+        </designable>
+        <designable name="xaS-0L-k1C">
+            <size key="intrinsicContentSize" width="280" height="43.994140625"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow" width="1000" height="15"/>
         <image name="battery-icon" width="79" height="39"/>
