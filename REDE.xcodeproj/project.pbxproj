@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711EAF7D2897F2550092B29C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EAF7C2897F2550092B29C /* ScannerViewController.swift */; };
+		711EAF82289813790092B29C /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EAF81289813790092B29C /* MultipartFormData.swift */; };
 		7134382E2866D038005D0EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134382D2866D038005D0EBD /* AppDelegate.swift */; };
 		713438302866D038005D0EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134382F2866D038005D0EBD /* SceneDelegate.swift */; };
 		713438322866D038005D0EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713438312866D038005D0EBD /* LoginViewController.swift */; };
@@ -34,6 +36,7 @@
 		713C9E9B28910AB200F8F3AE /* UserDefault+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713C9E9A28910AB200F8F3AE /* UserDefault+Extension.swift */; };
 		714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714581562889207000634022 /* ChargerDetailsViewController.swift */; };
 		7145815928892F4E00634022 /* StopChargingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7145815828892F4E00634022 /* StopChargingViewController.swift */; };
+		716362412897E174003ADFF6 /* SiteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716362402897E174003ADFF6 /* SiteDetailsViewController.swift */; };
 		719353422891160F00FF676E /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 719353412891160F00FF676E /* AlamofireImage */; };
 		719746A62892792B001490C0 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719746A52892792B001490C0 /* Site.swift */; };
 		719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719746A72892B1E5001490C0 /* CoreLocation.framework */; };
@@ -44,6 +47,8 @@
 		2A599344D37568E44066C63C /* Pods_REDE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_REDE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94DAA5761D839589C09025 /* Pods-REDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REDE.debug.xcconfig"; path = "Target Support Files/Pods-REDE/Pods-REDE.debug.xcconfig"; sourceTree = "<group>"; };
 		7101B04D52457366EE8B0E58 /* Pods-REDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REDE.release.xcconfig"; path = "Target Support Files/Pods-REDE/Pods-REDE.release.xcconfig"; sourceTree = "<group>"; };
+		711EAF7C2897F2550092B29C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		711EAF81289813790092B29C /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		7134382A2866D038005D0EBD /* REDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7134382D2866D038005D0EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7134382F2866D038005D0EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 		713C9E9A28910AB200F8F3AE /* UserDefault+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+Extension.swift"; sourceTree = "<group>"; };
 		714581562889207000634022 /* ChargerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerDetailsViewController.swift; sourceTree = "<group>"; };
 		7145815828892F4E00634022 /* StopChargingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopChargingViewController.swift; sourceTree = "<group>"; };
+		716362402897E174003ADFF6 /* SiteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailsViewController.swift; sourceTree = "<group>"; };
 		719746A52892792B001490C0 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		719746A72892B1E5001490C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -91,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		711EAF802898135F0092B29C /* FormData */ = {
+			isa = PBXGroup;
+			children = (
+				711EAF81289813790092B29C /* MultipartFormData.swift */,
+			);
+			path = FormData;
+			sourceTree = "<group>";
+		};
 		713438212866D038005D0EBD = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +137,8 @@
 				713438472866E5C6005D0EBD /* MapViewController.swift */,
 				714581562889207000634022 /* ChargerDetailsViewController.swift */,
 				7145815828892F4E00634022 /* StopChargingViewController.swift */,
+				716362402897E174003ADFF6 /* SiteDetailsViewController.swift */,
+				711EAF7C2897F2550092B29C /* ScannerViewController.swift */,
 				713438332866D038005D0EBD /* Main.storyboard */,
 				713438362866D03F005D0EBD /* Assets.xcassets */,
 				713438382866D03F005D0EBD /* LaunchScreen.storyboard */,
@@ -198,6 +214,7 @@
 		713C9E812891046200F8F3AE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				711EAF802898135F0092B29C /* FormData */,
 				713C9E712891046200F8F3AE /* Encoding */,
 				713C9E822891046200F8F3AE /* HTTPTask.swift */,
 				713C9E832891046200F8F3AE /* HTTPMethod.swift */,
@@ -356,12 +373,14 @@
 				713C9E942891046200F8F3AE /* HTTPMethod.swift in Sources */,
 				714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */,
 				713438432866D46B005D0EBD /* UIViewController+Extension.swift in Sources */,
+				716362412897E174003ADFF6 /* SiteDetailsViewController.swift in Sources */,
 				713C9E952891046200F8F3AE /* Router.swift in Sources */,
 				713C9E932891046200F8F3AE /* HTTPTask.swift in Sources */,
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
+				711EAF82289813790092B29C /* MultipartFormData.swift in Sources */,
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,
 				713C9E872891046200F8F3AE /* ParameterEncoding.swift in Sources */,
 				713C9E972891046200F8F3AE /* EndPointType.swift in Sources */,
@@ -371,6 +390,7 @@
 				7134385328677252005D0EBD /* UIControl+Extension.swift in Sources */,
 				713C9E8A2891046200F8F3AE /* NetworkManager.swift in Sources */,
 				713C9E9B28910AB200F8F3AE /* UserDefault+Extension.swift in Sources */,
+				711EAF7D2897F2550092B29C /* ScannerViewController.swift in Sources */,
 				713C9E892891046200F8F3AE /* JSONParameterEncoder.swift in Sources */,
 				713438302866D038005D0EBD /* SceneDelegate.swift in Sources */,
 			);
@@ -523,6 +543,7 @@
 				DEVELOPMENT_TEAM = KG73CT3GYP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
@@ -538,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede.rede;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -557,6 +578,7 @@
 				DEVELOPMENT_TEAM = KG73CT3GYP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
@@ -572,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede.rede;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

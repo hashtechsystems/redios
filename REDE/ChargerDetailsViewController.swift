@@ -15,11 +15,13 @@ class ChargerDetailsViewController: BaseViewController {
     @IBOutlet weak var viewPlugIn: UIView!
     
     var site: Site?
+    var chargerStation:ChargerStation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
-        lblLocation.text = site?.address
+        lblLocation.text = site?.getFullAdress()
+        lblId.text = chargerStation?.name
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
 
@@ -36,7 +37,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     func cancel() {
         self.task?.cancel()
     }
-    
+
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
         
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
@@ -67,11 +68,22 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                              bodyEncoding: bodyEncoding,
                                              urlParameters: urlParameters,
                                              request: &request)
+                
+            case .uploadFormDataAndHeaders(let formDataParameters, let additionalHeaders):
+                self.addAdditionalHeaders(additionalHeaders, request: &request)
+                self.configureMultipartFormData(param: formDataParameters, request: &request)
             }
             return request
         } catch {
             throw error
         }
+    }
+    
+    
+    fileprivate func configureMultipartFormData(param: MultipartFormData?, request: inout URLRequest) {
+        guard let formDataParameters = param else { return }
+        formDataParameters.configure(request: &request)
+
     }
     
     fileprivate func configureParameters(bodyParameters: Parameters?,
@@ -95,3 +107,73 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     
 }
 
+struct MultipartFormDataRequest {
+    private let boundary: String = UUID().uuidString
+    private var httpBody = NSMutableData()
+    let url: URL
+
+    init(url: URL) {
+        self.url = url
+    }
+
+    func addTextField(named name: String, value: String) {
+        httpBody.append(textFormField(named: name, value: value))
+    }
+
+    private func textFormField(named name: String, value: String) -> String {
+        var fieldString = "--\(boundary)\r\n"
+        fieldString += "Content-Disposition: form-data; name=\"\(name)\"\r\n"
+        fieldString += "Content-Type: text/plain; charset=ISO-8859-1\r\n"
+        fieldString += "Content-Transfer-Encoding: 8bit\r\n"
+        fieldString += "\r\n"
+        fieldString += "\(value)\r\n"
+
+        return fieldString
+    }
+
+    func addDataField(named name: String, data: Data, mimeType: String) {
+        httpBody.append(dataFormField(named: name, data: data, mimeType: mimeType))
+    }
+
+    private func dataFormField(named name: String,
+                               data: Data,
+                               mimeType: String) -> Data {
+        let fieldData = NSMutableData()
+
+        fieldData.append("--\(boundary)\r\n")
+        fieldData.append("Content-Disposition: form-data; name=\"\(name)\"\r\n")
+        fieldData.append("Content-Type: \(mimeType)\r\n")
+        fieldData.append("\r\n")
+        fieldData.append(data)
+        fieldData.append("\r\n")
+
+        return fieldData as Data
+    }
+
+    func asURLRequest() -> URLRequest {
+        var request = URLRequest(url: url)
+
+        request.httpMethod = "POST"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        httpBody.append("--\(boundary)--")
+        request.httpBody = httpBody as Data
+        return request
+    }
+}
+
+extension NSMutableData {
+  func append(_ string: String) {
+    if let data = string.data(using: .utf8) {
+      self.append(data)
+    }
+  }
+}
+
+extension URLSession {
+    func dataTask(with request: MultipartFormDataRequest,
+                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
+    -> URLSessionDataTask {
+        return dataTask(with: request.asURLRequest(), completionHandler: completionHandler)
+    }
+}

@@ -27,6 +27,10 @@ struct Site: Codable {
         case status
         case chargerStations = "charger_stations"
     }
+    
+    func getFullAdress() -> String {
+        return "\(address), \(city), \(state) : \(postalCode)"
+    }
 }
 
 // MARK: - ChargerStation

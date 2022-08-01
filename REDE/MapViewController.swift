@@ -19,7 +19,11 @@ class MapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navbar.isLeftButtonHidden = true
+        self.navbar.setOnClickLeftButton {
+            guard let controller = UIViewController.instantiateVC(viewController: ScannerViewController.self) else { return }
+            controller.delegate = self
+            self.present(controller, animated: true)
+        }
         
         mapview.delegate = self
         mapview.userTrackingMode = .follow
@@ -113,7 +117,7 @@ extension MapViewController : MKMapViewDelegate{
     /// Called whent he user taps the disclosure button in the bridge callout.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? SiteAnnotation {
-            guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self) else { return }
+            guard let controller = UIViewController.instantiateVC(viewController: SiteDetailsViewController.self) else { return }
             controller.site = annotation.site
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -183,6 +187,13 @@ extension MKMapView {
         let span = self.coordinateSpan(withMapView: self, centerCoordinate: centerCoordinate, zoomLevel: zoomLevel)
         let region = MKCoordinateRegion(center: centerCoordinate, span: span)
         self.setRegion(region, animated: true)
+        
+    }
+}
+
+extension MapViewController: ScannerDelegate{
+    
+    func onQRDetection(code: String) {
         
     }
 }
