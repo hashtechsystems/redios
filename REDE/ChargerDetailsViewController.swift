@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ChargerDetailsViewController: BaseViewController {
 
@@ -14,13 +15,17 @@ class ChargerDetailsViewController: BaseViewController {
     @IBOutlet weak var lblConnector: UILabel!
     @IBOutlet weak var viewPlugIn: UIView!
     
-    var site: Site?
-    var chargerStation:ChargerStation?
+    var chargerId: Int?
+    fileprivate var chargerStation:ChargerStation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
-        lblLocation.text = site?.getFullAdress()
+        self.fetchChargerDetails()
+    }
+    
+    func updateUI(){
+        lblLocation.text = chargerStation?.site?.getFullAdress()
         lblId.text = chargerStation?.name
     }
 }
@@ -29,5 +34,30 @@ extension ChargerDetailsViewController {
     
     @IBAction func onClickConfirm(){
 
+    }
+}
+
+extension ChargerDetailsViewController {
+    
+    func fetchChargerDetails(){
+        
+        guard let chargerId = self.chargerId else { return }
+        
+        SVProgressHUD.show()
+        NetworkManager().fetchChargerDetails(chargerId: chargerId) { charger, error  in
+            guard let _ = charger else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.chargerStation = charger
+                self.updateUI()
+            }
+        }
     }
 }

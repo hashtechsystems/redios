@@ -26,13 +26,13 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return site?.chargerStations.count ?? 0
+        return site?.chargerStations?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        let chargerStation = self.site?.chargerStations[indexPath.row]
+        let chargerStation = self.site?.chargerStations?[indexPath.row]
         cell.textLabel?.text = chargerStation?.name
         cell.selectionStyle = .none
         return cell
@@ -43,9 +43,8 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self), let chargerStation = self.site?.chargerStations[indexPath.row] else { return }
-        controller.chargerStation = chargerStation
-        controller.site = self.site
+        guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self), let chargerStation = self.site?.chargerStations?[indexPath.row] else { return }
+        controller.chargerId = chargerStation.id
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

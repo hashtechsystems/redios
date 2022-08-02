@@ -93,9 +93,10 @@ struct NetworkManager {
         }
     }
     
-    func uploadProfilePic(image: Data, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
-        
-        router.request(.uploadProfilePic(image: image)) { data, response, error in
+    
+    
+    func uploadProfilePic(data: Data, key: String, mimeType: String, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
+        router.upload(.uploadProfilePic, data: data, key: key, mimeType: mimeType) { data, response, error in
 
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -111,7 +112,9 @@ struct NetworkManager {
                     }
                     do {
                         print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        let str = String(decoding: responseData, as: UTF8.self)
+                        print(str)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(ProfilePicUpdateResponse.self, from: responseData)
                         completion(apiResponse.data, nil)
@@ -125,9 +128,10 @@ struct NetworkManager {
             }
         }
     }
-    
-    func fetProfile( user: User?, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
-        router.request(.fetchProfile(user: nil)) { data, response, error in
+
+
+    func fetchProfile( user: User?, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
+        router.request(.fetchProfile) { data, response, error in
 
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -144,6 +148,36 @@ struct NetworkManager {
                     do {
                         let apiResponse = try JSONDecoder().decode(FetchProfileResponse.self, from: responseData)
                         UserDefaults.standard.setUser(value: apiResponse.data)
+                        completion(apiResponse.data, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func fetchChargerDetails( chargerId: Int, completion: @escaping (_ user: ChargerStation?, _ error: String?) -> ()) {
+        
+        router.request(.chargerDetails(chargerId: chargerId)) { data, response, error in
+
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(ChargerStationDetailsResponse.self, from: responseData)
                         completion(apiResponse.data, nil)
                     }catch {
                         print(error)

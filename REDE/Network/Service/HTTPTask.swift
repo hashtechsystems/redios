@@ -22,7 +22,7 @@ public enum HTTPTask {
         urlParameters: Parameters?,
         additionHeaders: HTTPHeaders?)
     
-    case uploadFormDataAndHeaders(param: MultipartFormData?, additionHeaders: HTTPHeaders?)
+    case requestFormDataHeaders(additionHeaders: HTTPHeaders?)
 }
 
 

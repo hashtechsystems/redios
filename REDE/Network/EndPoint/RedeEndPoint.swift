@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 public enum REDEApi {
+    case uploadProfilePic
     case login(phone_number:String, password:String)
     case sites(lat:Double, long:Double)
-    case uploadProfilePic(image: Data)
-    case fetchProfile(user: User?)
+    case fetchProfile
+    case chargerDetails(chargerId: Int)
 }
 
 extension REDEApi: EndPointType {
@@ -32,12 +33,14 @@ extension REDEApi: EndPointType {
             return "change-profile-pic"
         case .fetchProfile:
             return "get-profile"
+        case .chargerDetails:
+            return "get-charging-station-by-id"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic:
+        case .login, .sites, .uploadProfilePic, .chargerDetails:
             return .post
         case .fetchProfile:
             return .get
@@ -57,22 +60,18 @@ extension REDEApi: EndPointType {
                                                 bodyEncoding: .jsonEncoding,
                                                 urlParameters: nil,
                                                 additionHeaders: ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"])
-        case .uploadProfilePic(let image):
-            let data = MultipartFormData()
-            data.addData(named: "profile_pic", data: image, mimeType: "img/jpeg")
-            return .uploadFormDataAndHeaders(param: data, additionHeaders: ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"])
+        case .uploadProfilePic:
+            return .requestFormDataHeaders(additionHeaders: ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"])
         case .fetchProfile:
             return .requestParametersAndHeaders(bodyParameters: nil,
                                                 bodyEncoding: .jsonEncoding,
                                                 urlParameters: nil,
                                                 additionHeaders: ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"])
+        case .chargerDetails(let chargerId):
+            return .requestParametersAndHeaders(bodyParameters: ["charger_id":chargerId],
+                                                bodyEncoding: .jsonEncoding,
+                                                urlParameters: nil,
+                                                additionHeaders: ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"])
         }
     }
-    
-//    var headers: HTTPHeaders? {
-//        switch self {
-//        case .login, .sites, .uploadProfilePic:
-//            return nil
-//        }
-//    }
 }

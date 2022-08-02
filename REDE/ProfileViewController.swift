@@ -135,7 +135,7 @@ extension ProfileViewController {
     func uploadProfilePic(profilePic: Data){
         
         SVProgressHUD.show()
-        NetworkManager().uploadProfilePic(image: profilePic) { response, error in
+        NetworkManager().uploadProfilePic(data: profilePic, key: "profile_pic", mimeType: "image/png") { response, error in
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
@@ -157,7 +157,7 @@ extension ProfileViewController {
     func getUserProfile(){
         
         SVProgressHUD.show()
-        NetworkManager().fetProfile(user: self.user) { user, error  in
+        NetworkManager().fetchProfile(user: self.user) { user, error  in
             guard let _ = user else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()

@@ -166,12 +166,13 @@
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-Pu-qte">
                                                                                 <rect key="frame" x="33" y="0.0" width="107" height="46"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="qDQ-M1-cyh" firstAttribute="leading" secondItem="pCN-qb-Klw" secondAttribute="leading" id="5nf-x9-WRD"/>
                                                                             <constraint firstItem="3dC-Pu-qte" firstAttribute="leading" secondItem="qDQ-M1-cyh" secondAttribute="trailing" constant="8" id="NHd-kV-CZL"/>
@@ -193,7 +194,7 @@
                                                                                 </state>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="zio-jF-06j" firstAttribute="top" secondItem="fqV-TD-UNI" secondAttribute="top" id="CiS-VX-QtY"/>
                                                                             <constraint firstAttribute="bottom" secondItem="zio-jF-06j" secondAttribute="bottom" id="uqm-Ki-GMJ"/>
@@ -202,6 +203,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
