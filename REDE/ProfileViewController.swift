@@ -117,12 +117,9 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
             selectedImage = image
         }
 
-        guard let selectedImage = selectedImage, let data = selectedImage.jpegData(compressionQuality: 1) ?? selectedImage.pngData() else {
-            return
-        }
-    
-        self.imgvwProfile.image = nil
-        self.uploadProfilePic(profilePic: data)
+        guard let selectedImage = selectedImage else { return }
+        self.imgvwProfile.image = selectedImage
+        self.uploadProfilePic(image: selectedImage)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -132,10 +129,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
 
 extension ProfileViewController {
     
-    func uploadProfilePic(profilePic: Data){
+    func uploadProfilePic(image: UIImage){
         
         SVProgressHUD.show()
-        NetworkManager().uploadProfilePic(data: profilePic, key: "profile_pic", mimeType: "image/png") { response, error in
+        NetworkManager().uploadProfilePic(image: image, key: "profile_pic") { response, error in
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()

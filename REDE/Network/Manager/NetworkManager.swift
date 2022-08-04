@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum NetworkResponse:String {
     case success
@@ -95,8 +96,8 @@ struct NetworkManager {
     
     
     
-    func uploadProfilePic(data: Data, key: String, mimeType: String, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
-        router.upload(.uploadProfilePic, data: data, key: key, mimeType: mimeType) { data, response, error in
+    func uploadProfilePic(image: UIImage, key: String, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
+        router.request(.uploadProfilePic(image: image, key: key)) { data, response, error in
 
             if error != nil {
                 completion(nil, "Please check your network connection.")

@@ -1364,10 +1364,10 @@
     </scenes>
     <designables>
         <designable name="rSx-OL-jDz">
-            <size key="intrinsicContentSize" width="280" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="76.5" height="22"/>
         </designable>
         <designable name="xaS-0L-k1C">
-            <size key="intrinsicContentSize" width="280" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="82" height="23"/>
         </designable>
     </designables>
     <resources>
