@@ -1,38 +1,30 @@
 //
-//  LoginViewController.swift
+//  RegistrationViewController.swift
 //  REDE
 //
-//  Created by Avishek on 25/06/22.
+//  Created by Avishek on 05/08/22.
 //
 
 import UIKit
 import SkyFloatingLabelTextField
 import SVProgressHUD
-import SimpleCheckbox
 
-class LoginViewController: UIViewController {
+class RegistrationViewController: UIViewController {
     
     @IBOutlet weak var txtUsername: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var txtPhoneNumber: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var txtEmail: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var txtPassword: SkyFloatingLabelTextFieldWithIcon!
-    @IBOutlet weak var checkbox: Checkbox!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         
         self.txtUsername.delegate = self
+        self.txtPhoneNumber.delegate = self
+        self.txtEmail.delegate = self
         self.txtPassword.delegate = self
-        
-        self.txtUsername.text = "1234567890"
-        self.txtPassword.text = "123456"
-        
-        self.checkbox.borderStyle = .square
-        self.checkbox.checkmarkStyle = .tick
-        self.checkbox.checkmarkColor = .blue
-        self.checkbox.valueChanged = { (isChecked) in
-            print("checkbox is checked: \(isChecked)")
-        }
-        
+
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -43,31 +35,39 @@ class LoginViewController: UIViewController {
 }
 
 
-extension LoginViewController: UITextFieldDelegate{
+extension RegistrationViewController: UITextFieldDelegate{
     
     //UITextField delegate method
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtUsername {
             textField.resignFirstResponder()
+            txtPhoneNumber.becomeFirstResponder()
+        } else if textField == txtPhoneNumber {
+            textField.resignFirstResponder()
+            txtEmail.becomeFirstResponder()
+        }
+        else if textField == txtEmail {
+            textField.resignFirstResponder()
             txtPassword.becomeFirstResponder()
-        } else if textField == txtPassword {
+        }
+        else if textField == txtPassword {
             textField.resignFirstResponder()
         }
         return true
     }
 }
 
-extension LoginViewController {
+extension RegistrationViewController {
     
-    @IBAction func onClickLogin(){
+    @IBAction func onSubmit(){
         
-        guard let phoneNumber = txtUsername.text, let password = txtPassword.text else {
+        guard let name = txtUsername.text, let password = txtPassword.text, let phoneNumber = txtPhoneNumber.text, let email = txtEmail.text else {
             return
         }
         
         SVProgressHUD.show()
-        NetworkManager().login(phone_number: phoneNumber, password: password) { user, error in
-            guard let _ = user else {
+        NetworkManager().register(name: name, email: email, phone_number: phoneNumber, password: password) { response, error in
+            guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.showAlert(title: "Error", message: error)
@@ -77,8 +77,8 @@ extension LoginViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                guard let controller = UIViewController.instantiateVC(viewController: DashboardViewController.self) else { return }
-                self.navigationController?.pushViewController(controller, animated: true)
+                self.showAlert(title: "RED E", message: response)
+                self.navigationController?.popToRootViewController(animated: false)
             }
         }
     }
@@ -87,9 +87,8 @@ extension LoginViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func showRegistration(_ sender: Any) {
-        guard let controller = UIViewController.instantiateVC(viewController: RegistrationViewController.self) else { return }
-        self.navigationController?.pushViewController(controller, animated: false)
+    @IBAction func showLogin(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: false)
     }
 }
 

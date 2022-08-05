@@ -7,6 +7,12 @@
 
 import Foundation
 
+
+struct RegistrationResponse: Codable {
+    let status: Bool
+    let data: String
+}
+
 struct LoginResponse: Codable {
     let success: Bool
     let token: String

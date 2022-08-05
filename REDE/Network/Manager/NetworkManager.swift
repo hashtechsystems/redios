@@ -27,6 +27,38 @@ enum Result<String>{
 struct NetworkManager {
 
     let router = Router<REDEApi>()
+
+    func register(name: String, email: String, phone_number: String, password: String, completion: @escaping (_ response: String?,_ error: String?) -> ()) {
+        router.request(.register(name: name, email: email, phone_number: phone_number, password: password)) { data, response, error in
+
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        print(responseData)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(RegistrationResponse.self, from: responseData)
+                        completion(apiResponse.data,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
     
     func login(phone_number: String, password: String, completion: @escaping (_ response: User?,_ error: String?) -> ()) {
         router.request(.login(phone_number: phone_number, password: password)) { data, response, error in

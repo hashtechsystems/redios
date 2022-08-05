@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public enum REDEApi {
+    case register(name:String, email:String, phone_number:String, password:String)
     case uploadProfilePic(image: UIImage, key: String)
     case login(phone_number:String, password:String)
     case sites(lat:Double, long:Double)
@@ -21,6 +22,8 @@ extension REDEApi: EndPointType {
     var url: URL {
         guard let url = URL(string: "http://44.196.217.181/redepay/redepay_laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
         switch self {
+        case .register:
+            return url.appendingPathComponent("register-user")
         case .login:
             return url.appendingPathComponent("login")
         case .sites:
@@ -37,6 +40,9 @@ extension REDEApi: EndPointType {
     
     var httpBody: Parameters? {
         switch self {
+        case .register(let name, let email, let phone_number, let password):
+            return ["phone_number": phone_number, "email": email, "name": name,
+                    "password": password]
         case .login(let phone_number, let password):
             return ["phone_number": phone_number,
                     "password": password]
@@ -54,7 +60,7 @@ extension REDEApi: EndPointType {
     
     var httpHeaders: HTTPHeaders? {
         switch self {
-        case .login:
+        case .login, .register:
             return nil
         case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
@@ -63,7 +69,7 @@ extension REDEApi: EndPointType {
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -72,7 +78,7 @@ extension REDEApi: EndPointType {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic, .chargerDetails:
+        case .login, .sites, .uploadProfilePic, .chargerDetails, .register:
             return .post
         case .fetchProfile:
             return .get

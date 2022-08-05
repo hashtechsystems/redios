@@ -19,6 +19,7 @@ class SiteDetailsViewController: BaseViewController {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
         lblLocation.text = site?.getFullAdress()
+        tblChargers.separatorColor = UIColor.init(patternImage: UIImage.init(named: "dotted_line")!)
     }
 }
 

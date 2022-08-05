@@ -39,6 +39,7 @@
 		719353422891160F00FF676E /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 719353412891160F00FF676E /* AlamofireImage */; };
 		719746A62892792B001490C0 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719746A52892792B001490C0 /* Site.swift */; };
 		719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719746A72892B1E5001490C0 /* CoreLocation.framework */; };
+		71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		716E7467289BF4F400F02342 /* NetworkParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
 		719746A52892792B001490C0 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		719746A72892B1E5001490C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				7134382D2866D038005D0EBD /* AppDelegate.swift */,
 				7134382F2866D038005D0EBD /* SceneDelegate.swift */,
 				713438312866D038005D0EBD /* LoginViewController.swift */,
+				71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */,
 				7134384B28676902005D0EBD /* DashboardViewController.swift */,
 				71343849286768DB005D0EBD /* ProfileViewController.swift */,
 				713438472866E5C6005D0EBD /* MapViewController.swift */,
@@ -359,6 +362,7 @@
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
+				71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,
 				716E7468289BF4F400F02342 /* NetworkParameters.swift in Sources */,
