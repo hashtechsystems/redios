@@ -34,7 +34,10 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         let chargerStation = self.site?.chargerStations?[indexPath.row]
+        cell.textLabel?.font = UIFont.init(name: "Aldrich-Regular", size: 18)
+        cell.textLabel?.textColor = UIColor.init(red: 189.0/255.0, green: 35.0/255.0, blue: 35.0/255.0, alpha: 1.0)
         cell.textLabel?.text = chargerStation?.name
+        cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         return cell
     }

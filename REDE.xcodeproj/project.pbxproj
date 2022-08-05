@@ -39,6 +39,7 @@
 		719353422891160F00FF676E /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 719353412891160F00FF676E /* AlamofireImage */; };
 		719746A62892792B001490C0 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719746A52892792B001490C0 /* Site.swift */; };
 		719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719746A72892B1E5001490C0 /* CoreLocation.framework */; };
+		71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */; };
 		71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		716E7467289BF4F400F02342 /* NetworkParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
 		719746A52892792B001490C0 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		719746A72892B1E5001490C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 		7134382C2866D038005D0EBD /* REDE */ = {
 			isa = PBXGroup;
 			children = (
+				71CF94D7289CCEF6002186EA /* Font */,
 				713C9E702891046200F8F3AE /* Network */,
 				7134385128676DB3005D0EBD /* Views */,
 				713438412866D43E005D0EBD /* Extension */,
@@ -209,6 +212,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		71CF94D7289CCEF6002186EA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		B9882915053D1D299CCF8952 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7134383A2866D03F005D0EBD /* LaunchScreen.storyboard in Resources */,
+				71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */,
 				713438372866D03F005D0EBD /* Assets.xcassets in Resources */,
 				713438352866D038005D0EBD /* Main.storyboard in Resources */,
 			);
