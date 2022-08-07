@@ -36,6 +36,7 @@
 		714CEF752899551A00528ACF /* Url+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714CEF742899551A00528ACF /* Url+Extension.swift */; };
 		716362412897E174003ADFF6 /* SiteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716362402897E174003ADFF6 /* SiteDetailsViewController.swift */; };
 		716E7468289BF4F400F02342 /* NetworkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E7467289BF4F400F02342 /* NetworkParameters.swift */; };
+		717A996E289FF41D00AD6646 /* ConnectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717A996D289FF41D00AD6646 /* ConnectorCell.swift */; };
 		719353422891160F00FF676E /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 719353412891160F00FF676E /* AlamofireImage */; };
 		719746A62892792B001490C0 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719746A52892792B001490C0 /* Site.swift */; };
 		719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719746A72892B1E5001490C0 /* CoreLocation.framework */; };
@@ -78,6 +79,7 @@
 		714CEF742899551A00528ACF /* Url+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Url+Extension.swift"; sourceTree = "<group>"; };
 		716362402897E174003ADFF6 /* SiteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailsViewController.swift; sourceTree = "<group>"; };
 		716E7467289BF4F400F02342 /* NetworkParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
+		717A996D289FF41D00AD6646 /* ConnectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorCell.swift; sourceTree = "<group>"; };
 		719746A52892792B001490C0 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		719746A72892B1E5001490C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				7134384D28676D6F005D0EBD /* NavigationBar.swift */,
+				717A996D289FF41D00AD6646 /* ConnectorCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				713C9E8B2891046200F8F3AE /* RedeEndPoint.swift in Sources */,
 				713C9E942891046200F8F3AE /* HTTPMethod.swift in Sources */,
 				714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */,
+				717A996E289FF41D00AD6646 /* ConnectorCell.swift in Sources */,
 				713438432866D46B005D0EBD /* UIViewController+Extension.swift in Sources */,
 				716362412897E174003ADFF6 /* SiteDetailsViewController.swift in Sources */,
 				713C9E952891046200F8F3AE /* Router.swift in Sources */,
