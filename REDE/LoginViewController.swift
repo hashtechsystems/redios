@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         self.checkbox.checkmarkStyle = .tick
         self.checkbox.checkmarkColor = .blue
         self.checkbox.valueChanged = { (isChecked) in
-            print("checkbox is checked: \(isChecked)")
+            UserDefaults.standard.setActiveVisit(value: isChecked)
         }
         
         self.hideKeyboardWhenTappedAround()
@@ -39,6 +39,13 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        
+        if UserDefaults.standard.getActiveVisit(){
+            self.gotoDashboard()
+        }
+        else{
+            self.checkbox.isChecked = false
+        }
     }
 }
 
@@ -77,10 +84,14 @@ extension LoginViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                guard let controller = UIViewController.instantiateVC(viewController: DashboardViewController.self) else { return }
-                self.navigationController?.pushViewController(controller, animated: true)
+                self.gotoDashboard()
             }
         }
+    }
+    
+    func gotoDashboard(){
+        guard let controller = UIViewController.instantiateVC(viewController: DashboardViewController.self) else { return }
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func onDismiss(_ sender: Any) {

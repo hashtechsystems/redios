@@ -28,6 +28,7 @@ class BaseViewController: UIViewController{
         }
         
         self.navbar.setOnClickRightButton {
+            UserDefaults.standard.clearAll()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

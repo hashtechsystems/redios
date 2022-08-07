@@ -23,13 +23,13 @@ extension UserDefaults{
         synchronize()
     }
     
-    func setActiveVisit(value: Int) {
+    func setActiveVisit(value: Bool) {
         set(value, forKey: UserDefaultsKeys.activeVisit.rawValue)
         synchronize()
     }
     
-    func getActiveVisit()-> Int {
-        return integer(forKey: UserDefaultsKeys.activeVisit.rawValue)
+    func getActiveVisit()-> Bool {
+        return bool(forKey: UserDefaultsKeys.activeVisit.rawValue)
     }
     
     func clearActiveVisit(){
@@ -55,6 +55,12 @@ extension UserDefaults{
     func clearUser(){
         removeObject(forKey: UserDefaultsKeys.user.rawValue)
         synchronize()
+    }
+    
+    func clearAll(){
+        clearUser()
+        clearActiveVisit()
+        clearLoggedInToken()
     }
 }
 
