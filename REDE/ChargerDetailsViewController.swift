@@ -45,7 +45,7 @@ extension ChargerDetailsViewController {
         guard let chargerId = self.chargerId else { return }
         
         SVProgressHUD.show()
-        NetworkManager().fetchChargerDetails(chargerId: 7) { charger, error  in
+        NetworkManager().fetchChargerDetails(chargerId: chargerId) { charger, error  in
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
@@ -102,6 +102,6 @@ extension ChargerDetailsViewController : UICollectionViewDelegateFlowLayout{
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
 }

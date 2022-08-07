@@ -45,7 +45,7 @@ struct ChargerStation: Codable {
     let name: String
     let ocppCbid: String?
     let site: Site?
-    let connectors: [Connector]
+    var connectors: [Connector]
 
     enum CodingKeys: String, CodingKey {
         case id
