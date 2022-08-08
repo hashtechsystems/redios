@@ -34,7 +34,12 @@ class ChargerDetailsViewController: BaseViewController {
 extension ChargerDetailsViewController {
     
     @IBAction func onClickConfirm(){
-
+        self.viewPlugIn.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            guard let controller = UIViewController.instantiateVC(viewController: StopChargingViewController.self) else { return }
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

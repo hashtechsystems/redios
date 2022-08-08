@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711C8E4D28A159A700F50ABC /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711C8E4C28A159A600F50ABC /* UINavigationController+Extension.swift */; };
 		711EAF7D2897F2550092B29C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EAF7C2897F2550092B29C /* ScannerViewController.swift */; };
 		7134382E2866D038005D0EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134382D2866D038005D0EBD /* AppDelegate.swift */; };
 		713438302866D038005D0EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134382F2866D038005D0EBD /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		2A599344D37568E44066C63C /* Pods_REDE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_REDE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B94DAA5761D839589C09025 /* Pods-REDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REDE.debug.xcconfig"; path = "Target Support Files/Pods-REDE/Pods-REDE.debug.xcconfig"; sourceTree = "<group>"; };
 		7101B04D52457366EE8B0E58 /* Pods-REDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-REDE.release.xcconfig"; path = "Target Support Files/Pods-REDE/Pods-REDE.release.xcconfig"; sourceTree = "<group>"; };
+		711C8E4C28A159A600F50ABC /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		711EAF7C2897F2550092B29C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		7134382A2866D038005D0EBD /* REDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7134382D2866D038005D0EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				7134385228677252005D0EBD /* UIControl+Extension.swift */,
 				713C9E9A28910AB200F8F3AE /* UserDefault+Extension.swift */,
 				714CEF742899551A00528ACF /* Url+Extension.swift */,
+				711C8E4C28A159A600F50ABC /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,
 				716E7468289BF4F400F02342 /* NetworkParameters.swift in Sources */,
 				713C9E872891046200F8F3AE /* ParameterEncoding.swift in Sources */,
+				711C8E4D28A159A700F50ABC /* UINavigationController+Extension.swift in Sources */,
 				713C9E972891046200F8F3AE /* EndPointType.swift in Sources */,
 				7134382E2866D038005D0EBD /* AppDelegate.swift in Sources */,
 				7145815928892F4E00634022 /* StopChargingViewController.swift in Sources */,

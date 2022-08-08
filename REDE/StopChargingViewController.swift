@@ -24,6 +24,6 @@ class StopChargingViewController: BaseViewController {
 extension StopChargingViewController {
     
     @IBAction func onClickStopCharging(){
-        
+        self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
     }
 }
