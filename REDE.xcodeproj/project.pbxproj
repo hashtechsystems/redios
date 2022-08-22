@@ -43,6 +43,7 @@
 		719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719746A72892B1E5001490C0 /* CoreLocation.framework */; };
 		71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */; };
 		71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */; };
+		71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		719746A72892B1E5001490C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizePaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				7145815828892F4E00634022 /* StopChargingViewController.swift */,
 				716362402897E174003ADFF6 /* SiteDetailsViewController.swift */,
 				711EAF7C2897F2550092B29C /* ScannerViewController.swift */,
+				71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */,
 				713438332866D038005D0EBD /* Main.storyboard */,
 				713438362866D03F005D0EBD /* Assets.xcassets */,
 				713438382866D03F005D0EBD /* LaunchScreen.storyboard */,
@@ -381,6 +384,7 @@
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
+				71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */,
 				71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,

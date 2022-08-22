@@ -102,6 +102,9 @@ extension LoginViewController {
         guard let controller = UIViewController.instantiateVC(viewController: RegistrationViewController.self) else { return }
         self.navigationController?.pushViewController(controller, animated: false)
     }
+    
+    @IBAction func onForgetPassword(){
+    }
 }
 
 

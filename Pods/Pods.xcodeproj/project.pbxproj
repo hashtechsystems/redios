@@ -7,39 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D325CFE11FE13A075C835E922BE1017 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E06EAEBB79D3D179125208D3C5DA1F3 /* SVRadialGradientLayer.m */; };
-		1F4A13FD6675FCFCD9C19DF350348899 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 590AB3DFD13E897807327F3DF062E1A3 /* SVProgressAnimatedView.m */; };
-		22029F92C2A477C0915DBC6F86544C33 /* Pods-REDE-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B31855FF652B661193EE1DB0ED65A734 /* Pods-REDE-dummy.m */; };
-		3BD12189D022ECE46E433856A3B3A073 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		4DC032894868226AE220360BADB2C237 /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B11A9DAB7B3BB90C5E12341BB4EDA79E /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52BCC3B2F8AE7F59556925DEC603C634 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 986FC1AED84A482C0D8CFB69252EDA49 /* SVIndefiniteAnimatedView.m */; };
+		0EC917185C8D9E1D0EB6185C1CE52342 /* AcceptSDKBaseInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7734FE34BDFBDA97F274433F1F6FE24 /* AcceptSDKBaseInterfaceBuilder.swift */; };
+		162127842876F38C00B638A7BAD87EAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		18C5D93D4F62A420CF6565776263C198 /* AuthorizeNetAccept-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BADC6B2E2E63943E23213E235C2C5337 /* AuthorizeNetAccept-dummy.m */; };
+		18FC1628C1396237778070F179EDF1E1 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F808AB4EF460A5CD2BFE65B38A5E57 /* CustomInputField.swift */; };
+		1D16EAB1B48BA70987694C5BFDEBEC5A /* AcceptSDKTokenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0118F36A0A3CC6599E464351B45A47D3 /* AcceptSDKTokenInterface.swift */; };
+		1D325CFE11FE13A075C835E922BE1017 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CAECE718ED21DA3989AB140F1875A597 /* SVRadialGradientLayer.m */; };
+		1F4A13FD6675FCFCD9C19DF350348899 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFFA7E473CCC41FD016B98DB40B6E24 /* SVProgressAnimatedView.m */; };
+		2EBBCD97F3F7282144239780760AB88F /* AcceptSDKTokenAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A9FE965E3B32BCD5532A5FA9D80DD /* AcceptSDKTokenAPIBuilder.swift */; };
+		2F98409857500128B6CE8DCB59C2A21E /* CreditCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF126C459D1251937933929017B6208E /* CreditCardData.swift */; };
+		479200EFBFD66802DBDF803A2DAE8D4E /* AcceptSDKSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D6632EE96ADBCA95CC51037684D952 /* AcceptSDKSettings.swift */; };
+		493C2FFC8202F14FAE4519F2977271C4 /* CardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F67CDF56F41311DBDE34944958A1A8 /* CardProvider.swift */; };
+		49E163D78BF4084A5451FEA05DE40B33 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 60CA5A445911EECC405EAE447E9CBDC0 /* visa.png */; };
+		4D62CA3BD2358C382FF7B0037BB7D232 /* FingerPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860D2C0C5C03F8C5D76CEA9C6E38E1D /* FingerPrint.swift */; };
+		4DC032894868226AE220360BADB2C237 /* SVProgressHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B615107F8561A488C87B21759346BE7E /* SVProgressHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E601C594EE868A62EA0E523CBBC8869 /* Pods-REDE-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B31855FF652B661193EE1DB0ED65A734 /* Pods-REDE-dummy.m */; };
+		52BCC3B2F8AE7F59556925DEC603C634 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AAC5C7EFEAC9839AAE379E231A173F /* SVIndefiniteAnimatedView.m */; };
+		53A836BB65F61A687C0243E4E0661E50 /* AcceptSDKHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD015734C8759140370AEADCBE06A12C /* AcceptSDKHandler.swift */; };
 		53BECA6AA55F80D63F104475EE6524CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */; };
+		57F6CEF1DD0AF1CAA11BF02EE8EA021B /* AcceptSDKErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CE267FA266B9DAF9616D3785EC087C /* AcceptSDKErrorResponse.swift */; };
 		5ABF5005394286424D09C497637250A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		69C454BB3248AF5B39142B95250D1C6A /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C098285F13EA8F0BA85E8F46B17A2F6 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
-		6D1E33469FB8FBE812956B0076A7B28F /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F091E934E054A30741A7214E32CFF82 /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		620E23D5F9C2EFF9EEDA4FB1B80072BF /* MerchantAuthenticaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AD5825879D6E676EC53304E096C67A /* MerchantAuthenticaton.swift */; };
+		64AF4EA636465517374A513BD9C8E950 /* AccepSDKtHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8019049E1B29C7C26360E1318CCD652 /* AccepSDKtHttp.swift */; };
+		69C454BB3248AF5B39142B95250D1C6A /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D764DEF3CCB43B9BCF2EA2DAC2C15F /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		6A0C50E6D21E69210CE0756FD646B4FF /* CreditCardDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA3222DC89D45946BA5FBB774A93E11 /* CreditCardDataDelegate.swift */; };
+		6D1E33469FB8FBE812956B0076A7B28F /* SVRadialGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B4246509D2393CB6BCDB910C58EC6EAB /* SVRadialGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FB6C29A16A0B6C592506019F94A254C /* AcceptSDKInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECEF6287A5ED4E02846A8A22693405 /* AcceptSDKInternal.swift */; };
+		734488F22A17AAE87186CDBD0B8C4B66 /* Pods-REDE-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7330EBD1FD36F38BA755B27647A4ED01 /* Pods-REDE-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		751484CEA9B3E09056EC9DF505A294A5 /* AcceptSDKTokenInterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDD0B97FB83245331E9B5B8DACBE83 /* AcceptSDKTokenInterfaceBuilder.swift */; };
+		790DEFC8F8A0FCF570907B4599AE6AAB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D304AF5D828B799F90BC59E1FA28511 /* CardView.swift */; };
 		798FA71F8CAE44D05016FFF767100375 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		878035B27CC6F4ADFB8E5393164F0002 /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C559CB9C7BB01C0BD722098BDEF55734 /* SkyFloatingLabelTextField-dummy.m */; };
-		89DF2D9C5EFB02A72EC0CE2138B77F35 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 63465C572D515D5D9572AA538EE0B3BE /* SVProgressHUD.m */; };
-		943B0A1B436BAF4D419574466EF70FB3 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA7DE64CDB01EF9158BF52DCDBFFDA7A /* SVProgressHUD.bundle */; };
-		C15B3F89E6F83DC9CCB14903FC5D80C5 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF160D110ED4A3D66CD957F9BF2D236 /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C335CE2E7A4B79EEA3123281F49999F9 /* Pods-REDE-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7330EBD1FD36F38BA755B27647A4ED01 /* Pods-REDE-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2ABE924B2D77383C50E0BAD47F1A2CE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C876651744EF5F5253787FFD8BECB /* UITextField+fixCaretPosition.swift */; };
-		E70EBA16751054574A227A6432CCE4B0 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E3DBDB3E0EC362352626B0FC63863F6 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC5246CB6C26D6680D741F077F20F0DE /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D9296C9AEF72A912BD4D67391FC59843 /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EF188EC048AF7BB0EC67B7E36A84F36A /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00A40A22595680447F434FBEF347A6 /* SkyFloatingLabelTextField.swift */; };
-		F77280E74EB91678AA294E66DD6070E2 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = D41DCB6B39397799E0B8CF31CCAA0DF2 /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FFD43D91BF1FA4ADF714D56E7A10B2A8 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D854E8F0B225B955DE8D9461C99336F1 /* SVProgressHUD-dummy.m */; };
+		7D358F6B3D4E6371E4290E5264A58AEE /* SecurePaymentContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40B161462EB83ABA317B1B01267F49 /* SecurePaymentContainerRequest.swift */; };
+		813F3BD1A657CD09C539787684D51418 /* CardViewInputdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D2630D72FB0AAE87F140F1AAE117E3 /* CardViewInputdelegate.swift */; };
+		82C71D792AF89F18A347C079CAB3F0CF /* AnimatedCardInput-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D1644F407AF667A1C395155CCDE49FC /* AnimatedCardInput-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		878035B27CC6F4ADFB8E5393164F0002 /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 672C9B79F1B2BA3D29953637CB35503C /* SkyFloatingLabelTextField-dummy.m */; };
+		89DF2D9C5EFB02A72EC0CE2138B77F35 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBDB1374F7BA139FDB4E3F81DE8853 /* SVProgressHUD.m */; };
+		8B3D4BD0CA6052B85C0579882F6DCE1E /* CardSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDC4F27C45F3F0BAAEB44FDD12EBA15 /* CardSideView.swift */; };
+		8C6301A7D06FA7DF45F9065D19A340F6 /* AcceptSDKBaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAABB2765158B74CC2C73426A4D256A4 /* AcceptSDKBaseInterface.swift */; };
+		8D0C66773B49E5452933EEEB065637FE /* CardBackSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6037468BA46576CDD2B5C2C8353CC4 /* CardBackSideView.swift */; };
+		93C8AE6A0095D43ACD50E488AE5C2E93 /* AcceptSDKHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE6875F432DCFDCF74E8260F8C3297 /* AcceptSDKHttpConnection.swift */; };
+		943B0A1B436BAF4D419574466EF70FB3 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD7C01F80011771BEACDB4465F09BFFC /* SVProgressHUD.bundle */; };
+		95704BFB9A45F8BC6C82BD20B99D864E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		A2AEBAFE689AD26CDA11AEB55C7CDD9A /* AcceptSDKStringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535AB1EFB062BE1B3657E48674A3AC42 /* AcceptSDKStringValidator.swift */; };
+		A65CCDCB9801045D61F77C5D1ACB156C /* AnimatedCardInput-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E619AD5F0716331B9212329B744A40 /* AnimatedCardInput-dummy.m */; };
+		AA10D6C08F2B490DDAC0B2346855B0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		ADC8990542DE1B255F353027361852EA /* diners_club.png in Resources */ = {isa = PBXBuildFile; fileRef = AC16A2B9228E5AADFF77E1715F260A03 /* diners_club.png */; };
+		B4390BE206E0C0E1A91B602042FC7417 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0902E0B22F865C26325E26D5E1A7F5 /* discover.png */; };
+		B48C5DAA642FE10F19DFD6B455F76ADE /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A95993DE79F6C5EF63BE75BAE21407 /* jcb.png */; };
+		B6DCECF0FE5A51E48BD84E21F8EE2642 /* AcceptSDKPaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5547A59C1D2FF11D9EEFD7A6367D295 /* AcceptSDKPaymentRequest.swift */; };
+		C14F92D087FD37442F1598E08B1EBD3B /* CreditCardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51358EB9C843C52583C2FC13BBD98A46 /* CreditCardDataProvider.swift */; };
+		C15B3F89E6F83DC9CCB14903FC5D80C5 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D4BBBA5696540505BFEF240097B919DA /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9ACC369CA85B9D2C4B1D36C7BE90D8A /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018CE7A07CACB3FD4BB4316A53372B89 /* TextFieldType.swift */; };
+		CF9AE7DD4A6047662FD22849D01DC2DF /* AcceptSDKBaseURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EC319977AD0C5E2BEB2A67E50FF7E7 /* AcceptSDKBaseURLBuilder.swift */; };
+		D240FD6923C2CF305C886BC2640BE077 /* AcceptSDKCardFieldsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF042F3D2F4F49242B9D362BA1FF3D2A /* AcceptSDKCardFieldsValidator.swift */; };
+		E237E90EF20E2675190F9F4BB48594D1 /* AuthorizeNetAccept-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ECE60DC2DB8D36EC7409080EBF181FE /* AuthorizeNetAccept-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2ABE924B2D77383C50E0BAD47F1A2CE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648F5C644F411B0F4300CAC90167068F /* UITextField+fixCaretPosition.swift */; };
+		E70EBA16751054574A227A6432CCE4B0 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BD4B24DFC0B04CBA320600255DE20F /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput-AnimatedCardInput in Resources */ = {isa = PBXBuildFile; fileRef = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */; };
+		EA0798D7CE1663487C34B9B4390A5F36 /* mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = A082A8F0B8762A037F6431D3EC279943 /* mastercard.png */; };
+		EC5246CB6C26D6680D741F077F20F0DE /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD3E04E7B2602F2B84AEF58FF870139D /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDC2F4B02F5F41D246F5B13603FDCDED /* CardInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582CDD3042AE9C5111E79196DD0B950A /* CardInputField.swift */; };
+		EEDE70D9D8641F7358C145CA5FF6AA87 /* AcceptSDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA2A7BB3298A4434E439C3B091A5A0C /* AcceptSDKTokenResponse.swift */; };
+		EF188EC048AF7BB0EC67B7E36A84F36A /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA10E4F1AE70B5E6D14D7395C22D208E /* SkyFloatingLabelTextField.swift */; };
+		F0D560F1FCC987E96891EF7FD2BC034B /* CardFrontSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F09BACDBC45C8EDA0B74D9661418FF /* CardFrontSideView.swift */; };
+		F1C45ECAFDEC343621781DF3748570CB /* american_express.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DB5846DE7A8D06379E6001F8537CE0 /* american_express.png */; };
+		F77280E74EB91678AA294E66DD6070E2 /* SVProgressAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 156FF1634C43E4E70528889DA4CF14BF /* SVProgressAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA051ED079ECAF11C308107AB7AD03A5 /* CardInputsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2475739F487CF25858792447DF93EEB /* CardInputsView.swift */; };
+		FFD43D91BF1FA4ADF714D56E7A10B2A8 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6967BD1A5372D985F5D1FE9F67E523F5 /* SVProgressHUD-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0B4225C823305F6BBF5832110FCD39A2 /* PBXContainerItemProxy */ = {
+		0124623EF0B69C46E9B1A1A40F7221F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CA5A396BE4F0547369C4161B33F6F9E;
+			remoteInfo = "AnimatedCardInput-AnimatedCardInput";
+		};
+		16012DCB42140E74395E60C5A815304F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1C8D67D8B72D6BA42CCEDB648537A340;
 			remoteInfo = SVProgressHUD;
 		};
-		ABA7F7500B852960C064E66B352412D4 /* PBXContainerItemProxy */ = {
+		552F1947BF2EF555682E00FB6CD68832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 131425EFF4891A8D073DD17E4FDB0EDC;
+			remoteInfo = AuthorizeNetAccept;
+		};
+		88F02E429EE56F83E7423F27B7684421 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 156A077F7C30B86E57114F572DD8BA38;
+			remoteInfo = AnimatedCardInput;
+		};
+		92EB611D99B79141A96E9DA1462E8C43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -49,55 +115,126 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05D80AB75789120CE50C7033DCE083D9 /* SVProgressHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVProgressHUD-Info.plist"; sourceTree = "<group>"; };
+		0118F36A0A3CC6599E464351B45A47D3 /* AcceptSDKTokenInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKTokenInterface.swift; path = AcceptSDK/Interface/AcceptSDKTokenInterface.swift; sourceTree = "<group>"; };
+		018CE7A07CACB3FD4BB4316A53372B89 /* TextFieldType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFieldType.swift; path = AnimatedCardInput/Classes/Models/TextFieldType.swift; sourceTree = "<group>"; };
+		04A95993DE79F6C5EF63BE75BAE21407 /* jcb.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = jcb.png; path = AnimatedCardInput/Assets/jcb.png; sourceTree = "<group>"; };
+		06AD5825879D6E676EC53304E096C67A /* MerchantAuthenticaton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MerchantAuthenticaton.swift; path = AcceptSDK/Request/MerchantAuthenticaton.swift; sourceTree = "<group>"; };
+		09DE6875F432DCFDCF74E8260F8C3297 /* AcceptSDKHttpConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKHttpConnection.swift; path = AcceptSDK/Network/AcceptSDKHttpConnection.swift; sourceTree = "<group>"; };
 		0C74448889A98F30E193356C47223C66 /* Pods-REDE-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-REDE-acknowledgements.markdown"; sourceTree = "<group>"; };
-		141B3C47DDD18AAAFAFAB50562564E64 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
+		1317E0C6A5B4799B9841501608779744 /* SVProgressHUD-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVProgressHUD-Info.plist"; sourceTree = "<group>"; };
+		156FF1634C43E4E70528889DA4CF14BF /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		16D2630D72FB0AAE87F140F1AAE117E3 /* CardViewInputdelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardViewInputdelegate.swift; path = AnimatedCardInput/Classes/Protocols/CardViewInputdelegate.swift; sourceTree = "<group>"; };
 		18F776C2A99C5A33B37712E3ADE9325B /* Pods-REDE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-REDE.release.xcconfig"; sourceTree = "<group>"; };
-		2CF160D110ED4A3D66CD957F9BF2D236 /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
-		2E06EAEBB79D3D179125208D3C5DA1F3 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		19B2CAE63BF17618206DC4F5DBAEDDC6 /* AnimatedCardInput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AnimatedCardInput.release.xcconfig; sourceTree = "<group>"; };
+		1CA999EAFD41DDD1899B62AE8FB82875 /* AuthorizeNetAccept.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AuthorizeNetAccept.modulemap; sourceTree = "<group>"; };
+		21BD4B24DFC0B04CBA320600255DE20F /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		21EC319977AD0C5E2BEB2A67E50FF7E7 /* AcceptSDKBaseURLBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKBaseURLBuilder.swift; path = AcceptSDK/AcceptBuilder/AcceptSDKBaseURLBuilder.swift; sourceTree = "<group>"; };
+		24F808AB4EF460A5CD2BFE65B38A5E57 /* CustomInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInputField.swift; path = "AnimatedCardInput/Classes/Card View/CustomInputField.swift"; sourceTree = "<group>"; };
+		260AF7619A8255600C2911C27F87F833 /* ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist"; sourceTree = "<group>"; };
+		26C4034CE08CDC9BF76220C126F6D1E0 /* SkyFloatingLabelTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.release.xcconfig; sourceTree = "<group>"; };
+		2996C21ACFF3D47D9454C5612A9FE391 /* SkyFloatingLabelTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.debug.xcconfig; sourceTree = "<group>"; };
+		2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AnimatedCardInput-AnimatedCardInput"; path = AnimatedCardInput.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D304AF5D828B799F90BC59E1FA28511 /* CardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = "AnimatedCardInput/Classes/Card View/CardView.swift"; sourceTree = "<group>"; };
+		2EEBDB1374F7BA139FDB4E3F81DE8853 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		34DC2BCF1DC48F1084FF9F377B90F795 /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
-		3825C2B4F824449BC515FA307FB9663D /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
-		4289C41DBB5E6BAD707B7112A7D6CFAC /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
-		590AB3DFD13E897807327F3DF062E1A3 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		33E2941187870DDE35B17A997E86DF7D /* AnimatedCardInput-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AnimatedCardInput-Info.plist"; sourceTree = "<group>"; };
+		35CE267FA266B9DAF9616D3785EC087C /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKErrorResponse.swift; path = AcceptSDK/Response/AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
+		37388B4EF6268AD334BE923BD306BFCE /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		3EF708E560406CD6479C284C185DCEAD /* AuthorizeNetAccept-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthorizeNetAccept-prefix.pch"; sourceTree = "<group>"; };
+		4EEDD0B97FB83245331E9B5B8DACBE83 /* AcceptSDKTokenInterfaceBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKTokenInterfaceBuilder.swift; path = AcceptSDK/AcceptBuilder/AcceptSDKTokenInterfaceBuilder.swift; sourceTree = "<group>"; };
+		51358EB9C843C52583C2FC13BBD98A46 /* CreditCardDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardDataProvider.swift; path = AnimatedCardInput/Classes/Protocols/CreditCardDataProvider.swift; sourceTree = "<group>"; };
+		52D764DEF3CCB43B9BCF2EA2DAC2C15F /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		535AB1EFB062BE1B3657E48674A3AC42 /* AcceptSDKStringValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKStringValidator.swift; path = AcceptSDK/Validators/AcceptSDKStringValidator.swift; sourceTree = "<group>"; };
+		582CDD3042AE9C5111E79196DD0B950A /* CardInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardInputField.swift; path = "AnimatedCardInput/Classes/Card Inputs/CardInputField.swift"; sourceTree = "<group>"; };
 		5B63A4D72E306BFCAA06A8831EB32BD2 /* Pods-REDE-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-REDE-acknowledgements.plist"; sourceTree = "<group>"; };
-		5E1C876651744EF5F5253787FFD8BECB /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
-		5F091E934E054A30741A7214E32CFF82 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		63465C572D515D5D9572AA538EE0B3BE /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
-		6F22987EA6A85507A7734AB8DD04A96A /* SkyFloatingLabelTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.release.xcconfig; sourceTree = "<group>"; };
+		5D1644F407AF667A1C395155CCDE49FC /* AnimatedCardInput-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AnimatedCardInput-umbrella.h"; sourceTree = "<group>"; };
+		5E6037468BA46576CDD2B5C2C8353CC4 /* CardBackSideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardBackSideView.swift; path = "AnimatedCardInput/Classes/Card View/CardBackSideView.swift"; sourceTree = "<group>"; };
+		5ECE60DC2DB8D36EC7409080EBF181FE /* AuthorizeNetAccept-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthorizeNetAccept-umbrella.h"; sourceTree = "<group>"; };
+		5FF5246A393A603DEB27649850BD4E20 /* AnimatedCardInput.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AnimatedCardInput.modulemap; sourceTree = "<group>"; };
+		60CA5A445911EECC405EAE447E9CBDC0 /* visa.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = visa.png; path = AnimatedCardInput/Assets/visa.png; sourceTree = "<group>"; };
+		60D81F1323C3A8D71C1802DFE19350AD /* SVProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.debug.xcconfig; sourceTree = "<group>"; };
+		63ECEF6287A5ED4E02846A8A22693405 /* AcceptSDKInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKInternal.swift; path = AcceptSDK/AcceptSDKInternal.swift; sourceTree = "<group>"; };
+		648F5C644F411B0F4300CAC90167068F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AuthorizeNetAccept; path = AuthorizeNetAccept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		672C9B79F1B2BA3D29953637CB35503C /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
+		6967BD1A5372D985F5D1FE9F67E523F5 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		7330EBD1FD36F38BA755B27647A4ED01 /* Pods-REDE-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-REDE-umbrella.h"; sourceTree = "<group>"; };
-		7801BEA073A8548C1D350656EC30C851 /* SVProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.release.xcconfig; sourceTree = "<group>"; };
-		7E3DBDB3E0EC362352626B0FC63863F6 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		80A21AA0C8E9A974B67DD9AFE0EC6B96 /* SkyFloatingLabelTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.debug.xcconfig; sourceTree = "<group>"; };
-		8C098285F13EA8F0BA85E8F46B17A2F6 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		75F67CDF56F41311DBDE34944958A1A8 /* CardProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardProvider.swift; path = AnimatedCardInput/Classes/Models/CardProvider.swift; sourceTree = "<group>"; };
+		766326753AA1B833B5A28B035821401F /* SVProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.release.xcconfig; sourceTree = "<group>"; };
+		771534F2A7E964985DD7D0144984E4E2 /* AnimatedCardInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AnimatedCardInput.debug.xcconfig; sourceTree = "<group>"; };
+		82744312CF7FB365EE36DBA2594B25FD /* SVProgressHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVProgressHUD.modulemap; sourceTree = "<group>"; };
+		83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AnimatedCardInput; path = AnimatedCardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		854A9FE965E3B32BCD5532A5FA9D80DD /* AcceptSDKTokenAPIBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKTokenAPIBuilder.swift; path = AcceptSDK/AcceptBuilder/AcceptSDKTokenAPIBuilder.swift; sourceTree = "<group>"; };
+		85DB5846DE7A8D06379E6001F8537CE0 /* american_express.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = american_express.png; path = AnimatedCardInput/Assets/american_express.png; sourceTree = "<group>"; };
+		85E619AD5F0716331B9212329B744A40 /* AnimatedCardInput-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AnimatedCardInput-dummy.m"; sourceTree = "<group>"; };
+		9161FF8DB049C9E72C0D6AEEFC697B91 /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
 		935E294E42159A866DE02B36CD774531 /* Pods-REDE-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-REDE-frameworks.sh"; sourceTree = "<group>"; };
-		944D25A6232E3FF2C6D77896E2337190 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
-		986FC1AED84A482C0D8CFB69252EDA49 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		95D6632EE96ADBCA95CC51037684D952 /* AcceptSDKSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKSettings.swift; path = AcceptSDK/AcceptSDKSettings.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AA00A40A22595680447F434FBEF347A6 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		9FDC4F27C45F3F0BAAEB44FDD12EBA15 /* CardSideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardSideView.swift; path = "AnimatedCardInput/Classes/Card View/CardSideView.swift"; sourceTree = "<group>"; };
+		A082A8F0B8762A037F6431D3EC279943 /* mastercard.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = mastercard.png; path = AnimatedCardInput/Assets/mastercard.png; sourceTree = "<group>"; };
+		A7734FE34BDFBDA97F274433F1F6FE24 /* AcceptSDKBaseInterfaceBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKBaseInterfaceBuilder.swift; path = AcceptSDK/AcceptBuilder/AcceptSDKBaseInterfaceBuilder.swift; sourceTree = "<group>"; };
+		A8019049E1B29C7C26360E1318CCD652 /* AccepSDKtHttp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccepSDKtHttp.swift; path = AcceptSDK/Network/AccepSDKtHttp.swift; sourceTree = "<group>"; };
 		ABAD9B1FE8475D5B156B6A68418396E6 /* Pods-REDE */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-REDE"; path = Pods_REDE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B11A9DAB7B3BB90C5E12341BB4EDA79E /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		AC16A2B9228E5AADFF77E1715F260A03 /* diners_club.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = diners_club.png; path = AnimatedCardInput/Assets/diners_club.png; sourceTree = "<group>"; };
+		AC40B161462EB83ABA317B1B01267F49 /* SecurePaymentContainerRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecurePaymentContainerRequest.swift; path = AcceptSDK/Request/SecurePaymentContainerRequest.swift; sourceTree = "<group>"; };
+		AD3E04E7B2602F2B84AEF58FF870139D /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
 		B31855FF652B661193EE1DB0ED65A734 /* Pods-REDE-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-REDE-dummy.m"; sourceTree = "<group>"; };
+		B4246509D2393CB6BCDB910C58EC6EAB /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		B615107F8561A488C87B21759346BE7E /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
+		B9EEDF5E6A024D5A3C56A9841646CC62 /* AuthorizeNetAccept.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthorizeNetAccept.debug.xcconfig; sourceTree = "<group>"; };
+		BADC6B2E2E63943E23213E235C2C5337 /* AuthorizeNetAccept-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AuthorizeNetAccept-dummy.m"; sourceTree = "<group>"; };
 		BCC3A3DCF0B5EFB48880E88A74D8A9F3 /* Pods-REDE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-REDE.debug.xcconfig"; sourceTree = "<group>"; };
-		C559CB9C7BB01C0BD722098BDEF55734 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
-		D1272BDBB7A0AE1DD8A9EFB0B339A10B /* SVProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.debug.xcconfig; sourceTree = "<group>"; };
+		BD015734C8759140370AEADCBE06A12C /* AcceptSDKHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKHandler.swift; path = AcceptSDK/AcceptSDKHandler.swift; sourceTree = "<group>"; };
+		BD7C01F80011771BEACDB4465F09BFFC /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		BE0902E0B22F865C26325E26D5E1A7F5 /* discover.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = discover.png; path = AnimatedCardInput/Assets/discover.png; sourceTree = "<group>"; };
+		BF042F3D2F4F49242B9D362BA1FF3D2A /* AcceptSDKCardFieldsValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKCardFieldsValidator.swift; path = AcceptSDK/Validators/AcceptSDKCardFieldsValidator.swift; sourceTree = "<group>"; };
+		C1F6E1849DB8004AD35727B329D8EBF8 /* SkyFloatingLabelTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SkyFloatingLabelTextField-Info.plist"; sourceTree = "<group>"; };
+		C2475739F487CF25858792447DF93EEB /* CardInputsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardInputsView.swift; path = "AnimatedCardInput/Classes/Card Inputs/CardInputsView.swift"; sourceTree = "<group>"; };
+		CAECE718ED21DA3989AB140F1875A597 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		CDA3222DC89D45946BA5FBB774A93E11 /* CreditCardDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardDataDelegate.swift; path = AnimatedCardInput/Classes/Protocols/CreditCardDataDelegate.swift; sourceTree = "<group>"; };
+		D0F09BACDBC45C8EDA0B74D9661418FF /* CardFrontSideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardFrontSideView.swift; path = "AnimatedCardInput/Classes/Card View/CardFrontSideView.swift"; sourceTree = "<group>"; };
+		D280AEFED07D892C1F7C76C3694C8FF2 /* AnimatedCardInput-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AnimatedCardInput-prefix.pch"; sourceTree = "<group>"; };
 		D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D41DCB6B39397799E0B8CF31CCAA0DF2 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		D854E8F0B225B955DE8D9461C99336F1 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		D9296C9AEF72A912BD4D67391FC59843 /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
-		DA7DE64CDB01EF9158BF52DCDBFFDA7A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D4BBBA5696540505BFEF240097B919DA /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		D5547A59C1D2FF11D9EEFD7A6367D295 /* AcceptSDKPaymentRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKPaymentRequest.swift; path = AcceptSDK/Request/AcceptSDKPaymentRequest.swift; sourceTree = "<group>"; };
+		DAA2A7BB3298A4434E439C3B091A5A0C /* AcceptSDKTokenResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKTokenResponse.swift; path = AcceptSDK/Response/AcceptSDKTokenResponse.swift; sourceTree = "<group>"; };
 		DB7C3BA2E245B657B8CABBF2D4E03C40 /* Pods-REDE-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-REDE-Info.plist"; sourceTree = "<group>"; };
+		E477F7625C2B394321B7A7BE88DFA1F0 /* AuthorizeNetAccept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthorizeNetAccept.release.xcconfig; sourceTree = "<group>"; };
+		E48F23677F12338421582B5A32ED4882 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
+		E5AAC5C7EFEAC9839AAE379E231A173F /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVProgressHUD; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA10E4F1AE70B5E6D14D7395C22D208E /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		EAABB2765158B74CC2C73426A4D256A4 /* AcceptSDKBaseInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKBaseInterface.swift; path = AcceptSDK/Interface/AcceptSDKBaseInterface.swift; sourceTree = "<group>"; };
+		F860D2C0C5C03F8C5D76CEA9C6E38E1D /* FingerPrint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FingerPrint.swift; path = AcceptSDK/Request/FingerPrint.swift; sourceTree = "<group>"; };
+		FAFFA7E473CCC41FD016B98DB40B6E24 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		FC7D7D9168E852DEC0CC4571D89EAF97 /* Pods-REDE.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-REDE.modulemap"; sourceTree = "<group>"; };
+		FF126C459D1251937933929017B6208E /* CreditCardData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardData.swift; path = AnimatedCardInput/Classes/Models/CreditCardData.swift; sourceTree = "<group>"; };
+		FFAF85F0727F6401A7AB76D4C26F47EC /* AuthorizeNetAccept-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AuthorizeNetAccept-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A6EEB779D8802E31A3E30D9854A6CA6 /* Frameworks */ = {
+		0DE09E91EE447B4517547779E910F1E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD12189D022ECE46E433856A3B3A073 /* Foundation.framework in Frameworks */,
+				162127842876F38C00B638A7BAD87EAE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8E5A9442C26E728C3A895385F5B5FA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F0F8B0907BBBF387440A7D4A86D593 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95704BFB9A45F8BC6C82BD20B99D864E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +243,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ABF5005394286424D09C497637250A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DECC746DF0DE25C5EB53E1AB17FD063B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA10D6C08F2B490DDAC0B2346855B0DC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,37 +266,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14E7684F4DB84E2D05ABFBDDCC387DB3 /* SVProgressHUD */ = {
+		04EB6115DDA5354289F65DD33FB35E01 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7E3DBDB3E0EC362352626B0FC63863F6 /* SVIndefiniteAnimatedView.h */,
-				986FC1AED84A482C0D8CFB69252EDA49 /* SVIndefiniteAnimatedView.m */,
-				D41DCB6B39397799E0B8CF31CCAA0DF2 /* SVProgressAnimatedView.h */,
-				590AB3DFD13E897807327F3DF062E1A3 /* SVProgressAnimatedView.m */,
-				2CF160D110ED4A3D66CD957F9BF2D236 /* SVProgressHUD.h */,
-				63465C572D515D5D9572AA538EE0B3BE /* SVProgressHUD.m */,
-				5F091E934E054A30741A7214E32CFF82 /* SVRadialGradientLayer.h */,
-				2E06EAEBB79D3D179125208D3C5DA1F3 /* SVRadialGradientLayer.m */,
-				5D8E931E5EDC36C59C8FC53AEB51B18C /* Resources */,
-				C9F07538B684139B8050E0E1D21E9ABD /* Support Files */,
+				BD7C01F80011771BEACDB4465F09BFFC /* SVProgressHUD.bundle */,
 			);
-			name = SVProgressHUD;
-			path = SVProgressHUD;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		154E83C4940B92523B6281720BCE1FCB /* Support Files */ = {
+		0CFF9A9F6DE197C17617E7CD9ED7E8BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				141B3C47DDD18AAAFAFAB50562564E64 /* SkyFloatingLabelTextField.modulemap */,
-				C559CB9C7BB01C0BD722098BDEF55734 /* SkyFloatingLabelTextField-dummy.m */,
-				4289C41DBB5E6BAD707B7112A7D6CFAC /* SkyFloatingLabelTextField-Info.plist */,
-				3825C2B4F824449BC515FA307FB9663D /* SkyFloatingLabelTextField-prefix.pch */,
-				D9296C9AEF72A912BD4D67391FC59843 /* SkyFloatingLabelTextField-umbrella.h */,
-				80A21AA0C8E9A974B67DD9AFE0EC6B96 /* SkyFloatingLabelTextField.debug.xcconfig */,
-				6F22987EA6A85507A7734AB8DD04A96A /* SkyFloatingLabelTextField.release.xcconfig */,
+				882F99C2C3E1DE8BA259FC65CA3FE8BE /* AnimatedCardInput */,
+				F9F7C8F009327F5415883FE55A9CCB77 /* AuthorizeNetAccept */,
+				60A1007B397777827C5DEA1BA7063F1B /* SkyFloatingLabelTextField */,
+				9CAD924493C4A2F09E16B1520E82E4F4 /* SVProgressHUD */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SkyFloatingLabelTextField";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -160,6 +291,22 @@
 				D325A42620E7427FB70FB046C7B7B240 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		256ACF16AC120E487674D56E9F9821E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FF5246A393A603DEB27649850BD4E20 /* AnimatedCardInput.modulemap */,
+				85E619AD5F0716331B9212329B744A40 /* AnimatedCardInput-dummy.m */,
+				33E2941187870DDE35B17A997E86DF7D /* AnimatedCardInput-Info.plist */,
+				D280AEFED07D892C1F7C76C3694C8FF2 /* AnimatedCardInput-prefix.pch */,
+				5D1644F407AF667A1C395155CCDE49FC /* AnimatedCardInput-umbrella.h */,
+				771534F2A7E964985DD7D0144984E4E2 /* AnimatedCardInput.debug.xcconfig */,
+				19B2CAE63BF17618206DC4F5DBAEDDC6 /* AnimatedCardInput.release.xcconfig */,
+				260AF7619A8255600C2911C27F87F833 /* ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AnimatedCardInput";
 			sourceTree = "<group>";
 		};
 		47B07561BFE2D35D22891F85E392D4D0 /* Pods-REDE */ = {
@@ -179,21 +326,67 @@
 			path = "Target Support Files/Pods-REDE";
 			sourceTree = "<group>";
 		};
-		5D8E931E5EDC36C59C8FC53AEB51B18C /* Resources */ = {
+		4B462C7A2A5D0AB7C624E26CA2428F63 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA7DE64CDB01EF9158BF52DCDBFFDA7A /* SVProgressHUD.bundle */,
+				83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */,
+				2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */,
+				65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */,
+				ABAD9B1FE8475D5B156B6A68418396E6 /* Pods-REDE */,
+				D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */,
+				E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD */,
 			);
-			name = Resources;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		62810C43DB584206B4F6F5D37905E040 /* Pods */ = {
+		60A1007B397777827C5DEA1BA7063F1B /* SkyFloatingLabelTextField */ = {
 			isa = PBXGroup;
 			children = (
-				97D39DE56E28D9EF5C9525116ABE0ACC /* SkyFloatingLabelTextField */,
-				14E7684F4DB84E2D05ABFBDDCC387DB3 /* SVProgressHUD */,
+				EA10E4F1AE70B5E6D14D7395C22D208E /* SkyFloatingLabelTextField.swift */,
+				52D764DEF3CCB43B9BCF2EA2DAC2C15F /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				648F5C644F411B0F4300CAC90167068F /* UITextField+fixCaretPosition.swift */,
+				8FB35285250C1D7515780BC7996A2A67 /* Support Files */,
 			);
-			name = Pods;
+			name = SkyFloatingLabelTextField;
+			path = SkyFloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		882F99C2C3E1DE8BA259FC65CA3FE8BE /* AnimatedCardInput */ = {
+			isa = PBXGroup;
+			children = (
+				5E6037468BA46576CDD2B5C2C8353CC4 /* CardBackSideView.swift */,
+				D0F09BACDBC45C8EDA0B74D9661418FF /* CardFrontSideView.swift */,
+				582CDD3042AE9C5111E79196DD0B950A /* CardInputField.swift */,
+				C2475739F487CF25858792447DF93EEB /* CardInputsView.swift */,
+				75F67CDF56F41311DBDE34944958A1A8 /* CardProvider.swift */,
+				9FDC4F27C45F3F0BAAEB44FDD12EBA15 /* CardSideView.swift */,
+				2D304AF5D828B799F90BC59E1FA28511 /* CardView.swift */,
+				16D2630D72FB0AAE87F140F1AAE117E3 /* CardViewInputdelegate.swift */,
+				FF126C459D1251937933929017B6208E /* CreditCardData.swift */,
+				CDA3222DC89D45946BA5FBB774A93E11 /* CreditCardDataDelegate.swift */,
+				51358EB9C843C52583C2FC13BBD98A46 /* CreditCardDataProvider.swift */,
+				24F808AB4EF460A5CD2BFE65B38A5E57 /* CustomInputField.swift */,
+				018CE7A07CACB3FD4BB4316A53372B89 /* TextFieldType.swift */,
+				97E0F49E314C9794290455AB37F75F9D /* Resources */,
+				256ACF16AC120E487674D56E9F9821E7 /* Support Files */,
+			);
+			name = AnimatedCardInput;
+			path = AnimatedCardInput;
+			sourceTree = "<group>";
+		};
+		8FB35285250C1D7515780BC7996A2A67 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E48F23677F12338421582B5A32ED4882 /* SkyFloatingLabelTextField.modulemap */,
+				672C9B79F1B2BA3D29953637CB35503C /* SkyFloatingLabelTextField-dummy.m */,
+				C1F6E1849DB8004AD35727B329D8EBF8 /* SkyFloatingLabelTextField-Info.plist */,
+				9161FF8DB049C9E72C0D6AEEFC697B91 /* SkyFloatingLabelTextField-prefix.pch */,
+				AD3E04E7B2602F2B84AEF58FF870139D /* SkyFloatingLabelTextField-umbrella.h */,
+				2996C21ACFF3D47D9454C5612A9FE391 /* SkyFloatingLabelTextField.debug.xcconfig */,
+				26C4034CE08CDC9BF76220C126F6D1E0 /* SkyFloatingLabelTextField.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SkyFloatingLabelTextField";
 			sourceTree = "<group>";
 		};
 		97B644F9DAE77D4E9883F798DC7439DC /* Targets Support Files */ = {
@@ -204,28 +397,47 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		97D39DE56E28D9EF5C9525116ABE0ACC /* SkyFloatingLabelTextField */ = {
+		97E0F49E314C9794290455AB37F75F9D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA00A40A22595680447F434FBEF347A6 /* SkyFloatingLabelTextField.swift */,
-				8C098285F13EA8F0BA85E8F46B17A2F6 /* SkyFloatingLabelTextFieldWithIcon.swift */,
-				5E1C876651744EF5F5253787FFD8BECB /* UITextField+fixCaretPosition.swift */,
-				154E83C4940B92523B6281720BCE1FCB /* Support Files */,
+				85DB5846DE7A8D06379E6001F8537CE0 /* american_express.png */,
+				AC16A2B9228E5AADFF77E1715F260A03 /* diners_club.png */,
+				BE0902E0B22F865C26325E26D5E1A7F5 /* discover.png */,
+				04A95993DE79F6C5EF63BE75BAE21407 /* jcb.png */,
+				A082A8F0B8762A037F6431D3EC279943 /* mastercard.png */,
+				60CA5A445911EECC405EAE447E9CBDC0 /* visa.png */,
 			);
-			name = SkyFloatingLabelTextField;
-			path = SkyFloatingLabelTextField;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		C9F07538B684139B8050E0E1D21E9ABD /* Support Files */ = {
+		9CAD924493C4A2F09E16B1520E82E4F4 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				34DC2BCF1DC48F1084FF9F377B90F795 /* SVProgressHUD.modulemap */,
-				D854E8F0B225B955DE8D9461C99336F1 /* SVProgressHUD-dummy.m */,
-				05D80AB75789120CE50C7033DCE083D9 /* SVProgressHUD-Info.plist */,
-				944D25A6232E3FF2C6D77896E2337190 /* SVProgressHUD-prefix.pch */,
-				B11A9DAB7B3BB90C5E12341BB4EDA79E /* SVProgressHUD-umbrella.h */,
-				D1272BDBB7A0AE1DD8A9EFB0B339A10B /* SVProgressHUD.debug.xcconfig */,
-				7801BEA073A8548C1D350656EC30C851 /* SVProgressHUD.release.xcconfig */,
+				21BD4B24DFC0B04CBA320600255DE20F /* SVIndefiniteAnimatedView.h */,
+				E5AAC5C7EFEAC9839AAE379E231A173F /* SVIndefiniteAnimatedView.m */,
+				156FF1634C43E4E70528889DA4CF14BF /* SVProgressAnimatedView.h */,
+				FAFFA7E473CCC41FD016B98DB40B6E24 /* SVProgressAnimatedView.m */,
+				D4BBBA5696540505BFEF240097B919DA /* SVProgressHUD.h */,
+				2EEBDB1374F7BA139FDB4E3F81DE8853 /* SVProgressHUD.m */,
+				B4246509D2393CB6BCDB910C58EC6EAB /* SVRadialGradientLayer.h */,
+				CAECE718ED21DA3989AB140F1875A597 /* SVRadialGradientLayer.m */,
+				04EB6115DDA5354289F65DD33FB35E01 /* Resources */,
+				ACBA75333252B175C4F51B030ABF77F1 /* Support Files */,
+			);
+			name = SVProgressHUD;
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		ACBA75333252B175C4F51B030ABF77F1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				82744312CF7FB365EE36DBA2594B25FD /* SVProgressHUD.modulemap */,
+				6967BD1A5372D985F5D1FE9F67E523F5 /* SVProgressHUD-dummy.m */,
+				1317E0C6A5B4799B9841501608779744 /* SVProgressHUD-Info.plist */,
+				37388B4EF6268AD334BE923BD306BFCE /* SVProgressHUD-prefix.pch */,
+				B615107F8561A488C87B21759346BE7E /* SVProgressHUD-umbrella.h */,
+				60D81F1323C3A8D71C1802DFE19350AD /* SVProgressHUD.debug.xcconfig */,
+				766326753AA1B833B5A28B035821401F /* SVProgressHUD.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SVProgressHUD";
@@ -236,8 +448,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				62810C43DB584206B4F6F5D37905E040 /* Pods */,
-				F82916F6752316B71D9B6EB49897B612 /* Products */,
+				0CFF9A9F6DE197C17617E7CD9ED7E8BE /* Pods */,
+				4B462C7A2A5D0AB7C624E26CA2428F63 /* Products */,
 				97B644F9DAE77D4E9883F798DC7439DC /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -251,27 +463,52 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F82916F6752316B71D9B6EB49897B612 /* Products */ = {
+		EA4DA7185B4F37C1931A21A0C325E459 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				ABAD9B1FE8475D5B156B6A68418396E6 /* Pods-REDE */,
-				D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */,
-				E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD */,
+				1CA999EAFD41DDD1899B62AE8FB82875 /* AuthorizeNetAccept.modulemap */,
+				BADC6B2E2E63943E23213E235C2C5337 /* AuthorizeNetAccept-dummy.m */,
+				FFAF85F0727F6401A7AB76D4C26F47EC /* AuthorizeNetAccept-Info.plist */,
+				3EF708E560406CD6479C284C185DCEAD /* AuthorizeNetAccept-prefix.pch */,
+				5ECE60DC2DB8D36EC7409080EBF181FE /* AuthorizeNetAccept-umbrella.h */,
+				B9EEDF5E6A024D5A3C56A9841646CC62 /* AuthorizeNetAccept.debug.xcconfig */,
+				E477F7625C2B394321B7A7BE88DFA1F0 /* AuthorizeNetAccept.release.xcconfig */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/AuthorizeNetAccept";
+			sourceTree = "<group>";
+		};
+		F9F7C8F009327F5415883FE55A9CCB77 /* AuthorizeNetAccept */ = {
+			isa = PBXGroup;
+			children = (
+				A8019049E1B29C7C26360E1318CCD652 /* AccepSDKtHttp.swift */,
+				EAABB2765158B74CC2C73426A4D256A4 /* AcceptSDKBaseInterface.swift */,
+				A7734FE34BDFBDA97F274433F1F6FE24 /* AcceptSDKBaseInterfaceBuilder.swift */,
+				21EC319977AD0C5E2BEB2A67E50FF7E7 /* AcceptSDKBaseURLBuilder.swift */,
+				BF042F3D2F4F49242B9D362BA1FF3D2A /* AcceptSDKCardFieldsValidator.swift */,
+				35CE267FA266B9DAF9616D3785EC087C /* AcceptSDKErrorResponse.swift */,
+				BD015734C8759140370AEADCBE06A12C /* AcceptSDKHandler.swift */,
+				09DE6875F432DCFDCF74E8260F8C3297 /* AcceptSDKHttpConnection.swift */,
+				63ECEF6287A5ED4E02846A8A22693405 /* AcceptSDKInternal.swift */,
+				D5547A59C1D2FF11D9EEFD7A6367D295 /* AcceptSDKPaymentRequest.swift */,
+				95D6632EE96ADBCA95CC51037684D952 /* AcceptSDKSettings.swift */,
+				535AB1EFB062BE1B3657E48674A3AC42 /* AcceptSDKStringValidator.swift */,
+				854A9FE965E3B32BCD5532A5FA9D80DD /* AcceptSDKTokenAPIBuilder.swift */,
+				0118F36A0A3CC6599E464351B45A47D3 /* AcceptSDKTokenInterface.swift */,
+				4EEDD0B97FB83245331E9B5B8DACBE83 /* AcceptSDKTokenInterfaceBuilder.swift */,
+				DAA2A7BB3298A4434E439C3B091A5A0C /* AcceptSDKTokenResponse.swift */,
+				F860D2C0C5C03F8C5D76CEA9C6E38E1D /* FingerPrint.swift */,
+				06AD5825879D6E676EC53304E096C67A /* MerchantAuthenticaton.swift */,
+				AC40B161462EB83ABA317B1B01267F49 /* SecurePaymentContainerRequest.swift */,
+				EA4DA7185B4F37C1931A21A0C325E459 /* Support Files */,
+			);
+			name = AuthorizeNetAccept;
+			path = AuthorizeNetAccept;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		613A165B90AA0A8AA27E2633FDE7DD51 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C335CE2E7A4B79EEA3123281F49999F9 /* Pods-REDE-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6DE9E7B34EB24769860A549107B4F04C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +521,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AE03E5774AE34440DDE69650E363490A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82C71D792AF89F18A347C079CAB3F0CF /* AnimatedCardInput-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0C96C5EDEA1256E3D515B772D897D55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,9 +537,79 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C5E8E8219B8414E15B6008CBE367F4F0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				734488F22A17AAE87186CDBD0B8C4B66 /* Pods-REDE-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E66A1043DEFC45D5462970CF5997E5D4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E237E90EF20E2675190F9F4BB48594D1 /* AuthorizeNetAccept-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0CA5A396BE4F0547369C4161B33F6F9E /* AnimatedCardInput-AnimatedCardInput */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86A58D958488DAD34BC9DDFD7FD0EE6D /* Build configuration list for PBXNativeTarget "AnimatedCardInput-AnimatedCardInput" */;
+			buildPhases = (
+				58C53E4A2D57A7FFCF5D042E06BCE552 /* Sources */,
+				A8E5A9442C26E728C3A895385F5B5FA2 /* Frameworks */,
+				39981AD6E94EA343FC094EDF187018DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AnimatedCardInput-AnimatedCardInput";
+			productName = AnimatedCardInput;
+			productReference = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */;
+			productType = "com.apple.product-type.bundle";
+		};
+		131425EFF4891A8D073DD17E4FDB0EDC /* AuthorizeNetAccept */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8075A6497AA4E884E5D687A8895AC91 /* Build configuration list for PBXNativeTarget "AuthorizeNetAccept" */;
+			buildPhases = (
+				E66A1043DEFC45D5462970CF5997E5D4 /* Headers */,
+				1B1185863BF26E2551465862511D0A4F /* Sources */,
+				D6F0F8B0907BBBF387440A7D4A86D593 /* Frameworks */,
+				F4DD3037884CB1E26F82DFB5343F83A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthorizeNetAccept;
+			productName = AuthorizeNetAccept;
+			productReference = 65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */;
+			productType = "com.apple.product-type.framework";
+		};
+		156A077F7C30B86E57114F572DD8BA38 /* AnimatedCardInput */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 439CF7E951C375BD5C02244416921298 /* Build configuration list for PBXNativeTarget "AnimatedCardInput" */;
+			buildPhases = (
+				AE03E5774AE34440DDE69650E363490A /* Headers */,
+				454D95D7A249B4FAB867639FB088123B /* Sources */,
+				DECC746DF0DE25C5EB53E1AB17FD063B /* Frameworks */,
+				0F4B5D6D1878E2D1CA693602A26EEB2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				251900E0E10F9FE7BF9FB330E66EE15C /* PBXTargetDependency */,
+			);
+			name = AnimatedCardInput;
+			productName = AnimatedCardInput;
+			productReference = 83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */;
+			productType = "com.apple.product-type.framework";
+		};
 		1C8D67D8B72D6BA42CCEDB648537A340 /* SVProgressHUD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 807FEF9D9629A72728B6B83F5CA12C85 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
@@ -315,18 +630,20 @@
 		};
 		CB0373C81B4E1300B589C300CB5F3574 /* Pods-REDE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFFF1A7FB3E12EF63D9D6A6C44B7F373 /* Build configuration list for PBXNativeTarget "Pods-REDE" */;
+			buildConfigurationList = 82567B4D84A16AA9410D0B22E700126D /* Build configuration list for PBXNativeTarget "Pods-REDE" */;
 			buildPhases = (
-				613A165B90AA0A8AA27E2633FDE7DD51 /* Headers */,
-				746638CADBF5186CD55AF511E5AEB86E /* Sources */,
-				0A6EEB779D8802E31A3E30D9854A6CA6 /* Frameworks */,
-				3CB2FCFECEB36849C23BC9CFA80E602B /* Resources */,
+				C5E8E8219B8414E15B6008CBE367F4F0 /* Headers */,
+				7EA674056268DE82D9A4525F4BD2ECD3 /* Sources */,
+				0DE09E91EE447B4517547779E910F1E5 /* Frameworks */,
+				F52F804578F1EAEABD0AF035536458C6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F652920C603DABC3806085205440CEF4 /* PBXTargetDependency */,
-				B020F1C5C1697085AEE35602441AC7A2 /* PBXTargetDependency */,
+				4EF14E4E1526E60BD0DCA61BFDB6B6BB /* PBXTargetDependency */,
+				B84972FA637C190A5A8CC8AC28DA9009 /* PBXTargetDependency */,
+				CC4B72F21BC164CF82C54010E7333EA2 /* PBXTargetDependency */,
+				3AF7F8356707AF4568337B2F06A90C60 /* PBXTargetDependency */,
 			);
 			name = "Pods-REDE";
 			productName = Pods_REDE;
@@ -369,10 +686,13 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = F82916F6752316B71D9B6EB49897B612 /* Products */;
+			productRefGroup = 4B462C7A2A5D0AB7C624E26CA2428F63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				156A077F7C30B86E57114F572DD8BA38 /* AnimatedCardInput */,
+				0CA5A396BE4F0547369C4161B33F6F9E /* AnimatedCardInput-AnimatedCardInput */,
+				131425EFF4891A8D073DD17E4FDB0EDC /* AuthorizeNetAccept */,
 				CB0373C81B4E1300B589C300CB5F3574 /* Pods-REDE */,
 				DFBAF98039AB4BA7927B611FB65B61BC /* SkyFloatingLabelTextField */,
 				1C8D67D8B72D6BA42CCEDB648537A340 /* SVProgressHUD */,
@@ -381,10 +701,24 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3CB2FCFECEB36849C23BC9CFA80E602B /* Resources */ = {
+		0F4B5D6D1878E2D1CA693602A26EEB2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput-AnimatedCardInput in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39981AD6E94EA343FC094EDF187018DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1C45ECAFDEC343621781DF3748570CB /* american_express.png in Resources */,
+				ADC8990542DE1B255F353027361852EA /* diners_club.png in Resources */,
+				B4390BE206E0C0E1A91B602042FC7417 /* discover.png in Resources */,
+				B48C5DAA642FE10F19DFD6B455F76ADE /* jcb.png in Resources */,
+				EA0798D7CE1663487C34B9B4390A5F36 /* mastercard.png in Resources */,
+				49E163D78BF4084A5451FEA05DE40B33 /* visa.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +731,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BB72A33DD8F816B8303665F0BDA97B68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4DD3037884CB1E26F82DFB5343F83A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F52F804578F1EAEABD0AF035536458C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -418,6 +766,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1B1185863BF26E2551465862511D0A4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64AF4EA636465517374A513BD9C8E950 /* AccepSDKtHttp.swift in Sources */,
+				8C6301A7D06FA7DF45F9065D19A340F6 /* AcceptSDKBaseInterface.swift in Sources */,
+				0EC917185C8D9E1D0EB6185C1CE52342 /* AcceptSDKBaseInterfaceBuilder.swift in Sources */,
+				CF9AE7DD4A6047662FD22849D01DC2DF /* AcceptSDKBaseURLBuilder.swift in Sources */,
+				D240FD6923C2CF305C886BC2640BE077 /* AcceptSDKCardFieldsValidator.swift in Sources */,
+				57F6CEF1DD0AF1CAA11BF02EE8EA021B /* AcceptSDKErrorResponse.swift in Sources */,
+				53A836BB65F61A687C0243E4E0661E50 /* AcceptSDKHandler.swift in Sources */,
+				93C8AE6A0095D43ACD50E488AE5C2E93 /* AcceptSDKHttpConnection.swift in Sources */,
+				6FB6C29A16A0B6C592506019F94A254C /* AcceptSDKInternal.swift in Sources */,
+				B6DCECF0FE5A51E48BD84E21F8EE2642 /* AcceptSDKPaymentRequest.swift in Sources */,
+				479200EFBFD66802DBDF803A2DAE8D4E /* AcceptSDKSettings.swift in Sources */,
+				A2AEBAFE689AD26CDA11AEB55C7CDD9A /* AcceptSDKStringValidator.swift in Sources */,
+				2EBBCD97F3F7282144239780760AB88F /* AcceptSDKTokenAPIBuilder.swift in Sources */,
+				1D16EAB1B48BA70987694C5BFDEBEC5A /* AcceptSDKTokenInterface.swift in Sources */,
+				751484CEA9B3E09056EC9DF505A294A5 /* AcceptSDKTokenInterfaceBuilder.swift in Sources */,
+				EEDE70D9D8641F7358C145CA5FF6AA87 /* AcceptSDKTokenResponse.swift in Sources */,
+				18C5D93D4F62A420CF6565776263C198 /* AuthorizeNetAccept-dummy.m in Sources */,
+				4D62CA3BD2358C382FF7B0037BB7D232 /* FingerPrint.swift in Sources */,
+				620E23D5F9C2EFF9EEDA4FB1B80072BF /* MerchantAuthenticaton.swift in Sources */,
+				7D358F6B3D4E6371E4290E5264A58AEE /* SecurePaymentContainerRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		404C51FACE5CFAC8FFF4FDC8C2AF9B6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,28 +804,74 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		746638CADBF5186CD55AF511E5AEB86E /* Sources */ = {
+		454D95D7A249B4FAB867639FB088123B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22029F92C2A477C0915DBC6F86544C33 /* Pods-REDE-dummy.m in Sources */,
+				A65CCDCB9801045D61F77C5D1ACB156C /* AnimatedCardInput-dummy.m in Sources */,
+				8D0C66773B49E5452933EEEB065637FE /* CardBackSideView.swift in Sources */,
+				F0D560F1FCC987E96891EF7FD2BC034B /* CardFrontSideView.swift in Sources */,
+				EDC2F4B02F5F41D246F5B13603FDCDED /* CardInputField.swift in Sources */,
+				FA051ED079ECAF11C308107AB7AD03A5 /* CardInputsView.swift in Sources */,
+				493C2FFC8202F14FAE4519F2977271C4 /* CardProvider.swift in Sources */,
+				8B3D4BD0CA6052B85C0579882F6DCE1E /* CardSideView.swift in Sources */,
+				790DEFC8F8A0FCF570907B4599AE6AAB /* CardView.swift in Sources */,
+				813F3BD1A657CD09C539787684D51418 /* CardViewInputdelegate.swift in Sources */,
+				2F98409857500128B6CE8DCB59C2A21E /* CreditCardData.swift in Sources */,
+				6A0C50E6D21E69210CE0756FD646B4FF /* CreditCardDataDelegate.swift in Sources */,
+				C14F92D087FD37442F1598E08B1EBD3B /* CreditCardDataProvider.swift in Sources */,
+				18FC1628C1396237778070F179EDF1E1 /* CustomInputField.swift in Sources */,
+				C9ACC369CA85B9D2C4B1D36C7BE90D8A /* TextFieldType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58C53E4A2D57A7FFCF5D042E06BCE552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA674056268DE82D9A4525F4BD2ECD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E601C594EE868A62EA0E523CBBC8869 /* Pods-REDE-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B020F1C5C1697085AEE35602441AC7A2 /* PBXTargetDependency */ = {
+		251900E0E10F9FE7BF9FB330E66EE15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AnimatedCardInput-AnimatedCardInput";
+			target = 0CA5A396BE4F0547369C4161B33F6F9E /* AnimatedCardInput-AnimatedCardInput */;
+			targetProxy = 0124623EF0B69C46E9B1A1A40F7221F3 /* PBXContainerItemProxy */;
+		};
+		3AF7F8356707AF4568337B2F06A90C60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SkyFloatingLabelTextField;
 			target = DFBAF98039AB4BA7927B611FB65B61BC /* SkyFloatingLabelTextField */;
-			targetProxy = ABA7F7500B852960C064E66B352412D4 /* PBXContainerItemProxy */;
+			targetProxy = 92EB611D99B79141A96E9DA1462E8C43 /* PBXContainerItemProxy */;
 		};
-		F652920C603DABC3806085205440CEF4 /* PBXTargetDependency */ = {
+		4EF14E4E1526E60BD0DCA61BFDB6B6BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AnimatedCardInput;
+			target = 156A077F7C30B86E57114F572DD8BA38 /* AnimatedCardInput */;
+			targetProxy = 88F02E429EE56F83E7423F27B7684421 /* PBXContainerItemProxy */;
+		};
+		B84972FA637C190A5A8CC8AC28DA9009 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AuthorizeNetAccept;
+			target = 131425EFF4891A8D073DD17E4FDB0EDC /* AuthorizeNetAccept */;
+			targetProxy = 552F1947BF2EF555682E00FB6CD68832 /* PBXContainerItemProxy */;
+		};
+		CC4B72F21BC164CF82C54010E7333EA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SVProgressHUD;
 			target = 1C8D67D8B72D6BA42CCEDB648537A340 /* SVProgressHUD */;
-			targetProxy = 0B4225C823305F6BBF5832110FCD39A2 /* PBXContainerItemProxy */;
+			targetProxy = 16012DCB42140E74395E60C5A815304F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -521,6 +942,57 @@
 			};
 			name = Debug;
 		};
+		110966AD3EA8D336412024DEC0B7B15B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 771534F2A7E964985DD7D0144984E4E2 /* AnimatedCardInput.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput.modulemap";
+				PRODUCT_MODULE_NAME = AnimatedCardInput;
+				PRODUCT_NAME = AnimatedCardInput;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2A51DA21D4E0CE3F70CCDE95368C32F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19B2CAE63BF17618206DC4F5DBAEDDC6 /* AnimatedCardInput.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
+				IBSC_MODULE = AnimatedCardInput;
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = AnimatedCardInput;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		2DE0D8898245310716431F92FA4989FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -585,7 +1057,7 @@
 		};
 		3A9EA29ED6921878E3F25F2AEACA9FB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1272BDBB7A0AE1DD8A9EFB0B339A10B /* SVProgressHUD.debug.xcconfig */;
+			baseConfigurationReference = 60D81F1323C3A8D71C1802DFE19350AD /* SVProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -617,7 +1089,148 @@
 			};
 			name = Debug;
 		};
-		86412477B58FA8608E1A897AB5CD7AD6 /* Release */ = {
+		429CC0818E12007A656F557529AF602C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC3A3DCF0B5EFB48880E88A74D8A9F3 /* Pods-REDE.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-REDE/Pods-REDE-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-REDE/Pods-REDE.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8E5897011B7AD5F0551D462E4FAABD0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19B2CAE63BF17618206DC4F5DBAEDDC6 /* AnimatedCardInput.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput.modulemap";
+				PRODUCT_MODULE_NAME = AnimatedCardInput;
+				PRODUCT_NAME = AnimatedCardInput;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9422C147501C92A6E686ED8C15F69AFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2996C21ACFF3D47D9454C5612A9FE391 /* SkyFloatingLabelTextField.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		99C7C3DCD0B7380BA6BB0A43C456D36C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9EEDF5E6A024D5A3C56A9841646CC62 /* AuthorizeNetAccept.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept.modulemap";
+				PRODUCT_MODULE_NAME = AuthorizeNetAccept;
+				PRODUCT_NAME = AuthorizeNetAccept;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9A715947DDFE97C822EBD3D0B65F8AEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 18F776C2A99C5A33B37712E3ADE9325B /* Pods-REDE.release.xcconfig */;
 			buildSettings = {
@@ -655,9 +1268,9 @@
 			};
 			name = Release;
 		};
-		9422C147501C92A6E686ED8C15F69AFC /* Debug */ = {
+		BF796F968EEF42E7D589E8824146D0B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80A21AA0C8E9A974B67DD9AFE0EC6B96 /* SkyFloatingLabelTextField.debug.xcconfig */;
+			baseConfigurationReference = E477F7625C2B394321B7A7BE88DFA1F0 /* AuthorizeNetAccept.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -667,68 +1280,48 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_MODULE_NAME = SkyFloatingLabelTextField;
-				PRODUCT_NAME = SkyFloatingLabelTextField;
+				MODULEMAP_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept.modulemap";
+				PRODUCT_MODULE_NAME = AuthorizeNetAccept;
+				PRODUCT_NAME = AuthorizeNetAccept;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		E0D8972600F976D06F7F1D54646FC481 /* Debug */ = {
+		DFB765FE4BF70BD9550179EB00844C80 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCC3A3DCF0B5EFB48880E88A74D8A9F3 /* Pods-REDE.debug.xcconfig */;
+			baseConfigurationReference = 771534F2A7E964985DD7D0144984E4E2 /* AnimatedCardInput.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-REDE/Pods-REDE-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-REDE/Pods-REDE.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
+				IBSC_MODULE = AnimatedCardInput;
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = AnimatedCardInput;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
 		E29A9A22B7AA0AADA5C18466690773E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F22987EA6A85507A7734AB8DD04A96A /* SkyFloatingLabelTextField.release.xcconfig */;
+			baseConfigurationReference = 26C4034CE08CDC9BF76220C126F6D1E0 /* SkyFloatingLabelTextField.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -763,7 +1356,7 @@
 		};
 		E7C4E72588BA38523B53DEC049091E02 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7801BEA073A8548C1D350656EC30C851 /* SVProgressHUD.release.xcconfig */;
+			baseConfigurationReference = 766326753AA1B833B5A28B035821401F /* SVProgressHUD.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -799,6 +1392,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		439CF7E951C375BD5C02244416921298 /* Build configuration list for PBXNativeTarget "AnimatedCardInput" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				110966AD3EA8D336412024DEC0B7B15B /* Debug */,
+				8E5897011B7AD5F0551D462E4FAABD0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -817,6 +1419,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		82567B4D84A16AA9410D0B22E700126D /* Build configuration list for PBXNativeTarget "Pods-REDE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				429CC0818E12007A656F557529AF602C /* Debug */,
+				9A715947DDFE97C822EBD3D0B65F8AEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86A58D958488DAD34BC9DDFD7FD0EE6D /* Build configuration list for PBXNativeTarget "AnimatedCardInput-AnimatedCardInput" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB765FE4BF70BD9550179EB00844C80 /* Debug */,
+				2A51DA21D4E0CE3F70CCDE95368C32F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A33CF291238FED53E179F23B383C4853 /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -826,11 +1446,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFFF1A7FB3E12EF63D9D6A6C44B7F373 /* Build configuration list for PBXNativeTarget "Pods-REDE" */ = {
+		E8075A6497AA4E884E5D687A8895AC91 /* Build configuration list for PBXNativeTarget "AuthorizeNetAccept" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E0D8972600F976D06F7F1D54646FC481 /* Debug */,
-				86412477B58FA8608E1A897AB5CD7AD6 /* Release */,
+				99C7C3DCD0B7380BA6BB0A43C456D36C /* Debug */,
+				BF796F968EEF42E7D589E8824146D0B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

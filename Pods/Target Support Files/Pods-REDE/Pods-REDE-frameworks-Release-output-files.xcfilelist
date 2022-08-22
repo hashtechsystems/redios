@@ -1,2 +1,4 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AnimatedCardInput.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AuthorizeNetAccept.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework

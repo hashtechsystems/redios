@@ -9,5 +9,7 @@ target 'REDE' do
 
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'SVProgressHUD'
-
+  pod 'AuthorizeNetAccept'
+  pod 'AnimatedCardInput'
+  
 end
