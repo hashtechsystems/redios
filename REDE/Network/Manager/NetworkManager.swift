@@ -193,9 +193,9 @@ struct NetworkManager {
         }
     }
     
-    func fetchChargerDetails( chargerId: Int, completion: @escaping (_ user: ChargerStation?, _ error: String?) -> ()) {
+    func fetchChargerDetails( qrCode: String, completion: @escaping (_ user: ChargerStation?, _ error: String?) -> ()) {
         
-        router.request(.chargerDetails(chargerId: chargerId)) { data, response, error in
+        router.request(.chargerDetails(qrCode: qrCode)) { data, response, error in
 
             if error != nil {
                 completion(nil, "Please check your network connection.")

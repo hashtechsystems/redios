@@ -13,14 +13,14 @@ import AuthorizeNetAccept
 class ChargerDetailsViewController: BaseViewController {
     
     private let kClientName = "5KP3u95bQpv"
-    private let kClientKey  = "5FcB6WrfHGS76gHW3v7btBCE3HuuBuke9Pj96Ztfn5R32G5ep42vne7MCWZtAucY"
+    private let kClientKey  = "2NU5ph424e5PjZ57p76PquLtBj9MT2smPCKpm43NEFhZ4gr8358zpG5dtBJSy2Qf"
     
     @IBOutlet weak var lblLocation: UILabel!
     @IBOutlet weak var lblId: UILabel!
     @IBOutlet weak var viewPlugIn: UIView!
     @IBOutlet weak var collectionConnectors: UICollectionView!
     
-    var chargerId: Int?
+    var qrCode: String?
     fileprivate var chargerStation:ChargerStation?
     private var selectedCellIndex: Int?
     
@@ -45,11 +45,16 @@ extension ChargerDetailsViewController {
             self.showAlert(title: "Error", message: "Please select connector")
             return
         }
-
-        guard let controller = UIViewController.instantiateVC(viewController: AuthorizePaymentViewController.self) else { return }
-        controller.delegate = self
-        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true)
+        
+       // if self.chargerStation?.site?.pricePlanId != nil {
+            guard let controller = UIViewController.instantiateVC(viewController: AuthorizePaymentViewController.self) else { return }
+            controller.delegate = self
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true)
+//        }
+//        else{
+//
+//        }
         
         /*self.viewPlugIn.isHidden = false
         
@@ -64,10 +69,10 @@ extension ChargerDetailsViewController {
     
     func fetchChargerDetails(){
         
-        guard let chargerId = self.chargerId else { return }
+        guard let qrCode = self.qrCode else { return }
         
         SVProgressHUD.show()
-        NetworkManager().fetchChargerDetails(chargerId: chargerId) { charger, error  in
+        NetworkManager().fetchChargerDetails(qrCode: qrCode) { charger, error  in
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()

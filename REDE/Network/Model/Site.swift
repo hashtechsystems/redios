@@ -20,12 +20,14 @@ struct Site: Codable {
     let status: Int
     let chargerStations: [ChargerStation]?
     let latitude, longitude: String
+    let pricePlanId: Int?
 
     enum CodingKeys: String, CodingKey {
         case id, name, address, city, state, latitude, longitude
         case postalCode = "postal_code"
         case status
         case chargerStations = "charger_stations"
+        case pricePlanId = "price_plan_id"
     }
     
     func getFullAdress() -> String {
@@ -44,6 +46,7 @@ struct ChargerStation: Codable {
     let id, siteID: Int
     let name: String
     let ocppCbid: String?
+    let qrCode: String?
     let site: Site?
     var connectors: [Connector]
 
@@ -51,6 +54,7 @@ struct ChargerStation: Codable {
         case id
         case siteID = "site_id"
         case ocppCbid = "ocpp_cbid"
+        case qrCode = "qr_code"
         case name, connectors, site
     }
 }

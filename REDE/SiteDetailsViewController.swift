@@ -48,7 +48,7 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self), let chargerStation = self.site?.chargerStations?[indexPath.row] else { return }
-        controller.chargerId = chargerStation.id
+        controller.qrCode = chargerStation.qrCode
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

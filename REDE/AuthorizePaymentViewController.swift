@@ -76,7 +76,7 @@ class AuthorizePaymentViewController: BaseViewController {
         ].forEach(viewScanner.addSubview)
 
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: viewScanner.topAnchor, constant: 100),
+            cardView.topAnchor.constraint(equalTo: viewScanner.topAnchor, constant: 60),
             cardView.leadingAnchor.constraint(equalTo: viewScanner.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             cardView.trailingAnchor.constraint(equalTo: viewScanner.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 

@@ -14,13 +14,15 @@ public enum REDEApi {
     case login(phone_number:String, password:String)
     case sites(lat:Double, long:Double)
     case fetchProfile
-    case chargerDetails(chargerId: Int)
+    case chargerDetails(qrCode: String)
 }
 
 extension REDEApi: EndPointType {
     
     var url: URL {
-        guard let url = URL(string: "http://44.196.217.181/redepay/redepay_laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+//        guard let url = URL(string: "http://44.196.217.181/redepay/redepay_laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+        
+        guard let url = URL(string: "http://13.59.84.54/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
         switch self {
         case .register:
             return url.appendingPathComponent("register-user")
@@ -53,8 +55,8 @@ extension REDEApi: EndPointType {
             return [key: image]
         case .fetchProfile:
             return nil
-        case .chargerDetails(let chargerId):
-            return ["charger_id": chargerId]
+        case .chargerDetails(let qrCode):
+            return ["qr_code": qrCode]
         }
     }
     

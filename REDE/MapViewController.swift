@@ -40,7 +40,7 @@ class MapViewController: BaseViewController {
 
 extension MapViewController{
     func fetchSites(lat: Double, long: Double){
-        NetworkManager().sites(lat: 41.12, long: -71.34) { sites, error in
+        NetworkManager().sites(lat: 0, long: 0) { sites, error in
             
             let annotations = sites.map { site -> SiteAnnotation in
                 let pin = SiteAnnotation()
@@ -137,13 +137,10 @@ extension MapViewController: ScannerDelegate{
     
     func onQRDetection(code: String) {
         guard let url = URL.init(string: code) else { return }
-        guard let components = URLComponents(string: url.absoluteString) else { return }
-        let path = components.path.components(separatedBy: "=").last
-        if let chargerId = path, let id = Int(chargerId) {
-            guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self) else { return }
-            controller.chargerId = id
-            self.navigationController?.pushViewController(controller, animated: true)
-
-        }
+        //guard let components = URLComponents(string: url.absoluteString) else { return }
+        //let path = components.path.components(separatedBy: "=").last
+        guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self) else { return }
+        controller.qrCode = url.lastPathComponent
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
