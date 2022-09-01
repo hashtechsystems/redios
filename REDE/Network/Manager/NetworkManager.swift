@@ -223,6 +223,67 @@ struct NetworkManager {
         }
     }
     
+    
+    func startCharging( ocppCbid: String, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
+        router.request(.startCharging(ocppCbid: ocppCbid)) { data, response, error in
+
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(FetchProfileResponse.self, from: responseData)
+                        UserDefaults.standard.setUser(value: apiResponse.data)
+                        completion(apiResponse.data, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    func stopCharging( ocppCbid: String, transactionId: String, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
+        router.request(.stopCharging(ocppCbid: ocppCbid, transactionId: transactionId)) { data, response, error in
+
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(FetchProfileResponse.self, from: responseData)
+                        UserDefaults.standard.setUser(value: apiResponse.data)
+                        completion(apiResponse.data, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
         case 200...299: return .success

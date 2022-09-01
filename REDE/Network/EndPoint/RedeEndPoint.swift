@@ -15,6 +15,8 @@ public enum REDEApi {
     case sites(lat:Double, long:Double)
     case fetchProfile
     case chargerDetails(qrCode: String)
+    case startCharging(ocppCbid: String)
+    case stopCharging(ocppCbid: String, transactionId: String)
 }
 
 extension REDEApi: EndPointType {
@@ -36,6 +38,10 @@ extension REDEApi: EndPointType {
             return url.appendingPathComponent("get-profile")
         case .chargerDetails:
             return url.appendingPathComponent("get-charging-station-by-id")
+        case .startCharging:
+            return url.appendingPathComponent("socket-remote-start")
+        case .stopCharging:
+            return url.appendingPathComponent("socket-remote-stop")
         }
     }
     
@@ -57,6 +63,10 @@ extension REDEApi: EndPointType {
             return nil
         case .chargerDetails(let qrCode):
             return ["qr_code": qrCode]
+        case .startCharging(let ocppCbid):
+            return ["ocpp_cbid": ocppCbid]
+        case .stopCharging(let ocppCbid, let transactionId):
+            return ["ocpp_cbid": ocppCbid, "transactionId": transactionId]
         }
     }
     
@@ -64,14 +74,14 @@ extension REDEApi: EndPointType {
         switch self {
         case .login, .register:
             return nil
-        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic:
+        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
         }
     }
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails, .register:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -80,7 +90,7 @@ extension REDEApi: EndPointType {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic, .chargerDetails, .register:
+        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging:
             return .post
         case .fetchProfile:
             return .get
