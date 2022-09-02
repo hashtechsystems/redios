@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class StopChargingViewController: BaseViewController {
     
@@ -13,6 +14,9 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var lblSiteId: UILabel!
     @IBOutlet weak var lblSocStatus: UILabel!
     @IBOutlet weak var lblCurrent: UILabel!
+    
+    var chargerStation:ChargerStation?
+    var transaction: Transaction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,31 @@ class StopChargingViewController: BaseViewController {
 extension StopChargingViewController {
     
     @IBAction func onClickStopCharging(){
+        self.stopCharging()
         self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+    }
+}
+
+extension StopChargingViewController {
+    
+    func stopCharging(){
+        guard let ocppCbid = self.chargerStation?.ocppCbid, let transactionId = transaction?.transactionId else {
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().stopCharging(ocppCbid: ocppCbid, transactionId: transactionId) { data, error in
+            guard let transaction = data else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+        }
     }
 }

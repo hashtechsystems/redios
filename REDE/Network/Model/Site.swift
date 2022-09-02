@@ -71,3 +71,12 @@ struct Connector: Codable {
         case type
     }
 }
+
+// MARK: - Transaction
+struct Transaction: Codable {
+    let transactionId: String
+
+    enum CodingKeys: String, CodingKey {
+        case transactionId
+    }
+}

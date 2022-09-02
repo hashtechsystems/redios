@@ -22,6 +22,7 @@ class ChargerDetailsViewController: BaseViewController {
     
     var qrCode: String?
     fileprivate var chargerStation:ChargerStation?
+    fileprivate var transaction: Transaction?
     private var selectedCellIndex: Int?
     
     override func viewDidLoad() {
@@ -55,13 +56,18 @@ extension ChargerDetailsViewController {
 //        else{
 //
 //        }
+    }
+    
+    func gotoStopCharging(){
         
-        /*self.viewPlugIn.isHidden = false
+        self.viewPlugIn.isHidden = false
         
         DispatchQueue.main.asyncAfter(deadline: .now()+2) {
             guard let controller = UIViewController.instantiateVC(viewController: StopChargingViewController.self) else { return }
+            controller.chargerStation = self.chargerStation
+            controller.transaction = self.transaction
             self.navigationController?.pushViewController(controller, animated: true)
-        }*/
+        }
     }
 }
 
@@ -85,6 +91,29 @@ extension ChargerDetailsViewController {
                 SVProgressHUD.dismiss()
                 self.chargerStation = charger
                 self.updateUI()
+            }
+        }
+    }
+    
+    func startCharging(){
+        guard let ocppCbid = self.chargerStation?.ocppCbid else {
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().startCharging(ocppCbid: ocppCbid) { transaction, error in
+            guard let transaction = transaction else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.transaction = transaction
+                self.gotoStopCharging()
             }
         }
     }

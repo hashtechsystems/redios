@@ -224,7 +224,7 @@ struct NetworkManager {
     }
     
     
-    func startCharging( ocppCbid: String, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
+    func startCharging( ocppCbid: String, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
         router.request(.startCharging(ocppCbid: ocppCbid)) { data, response, error in
 
             if error != nil {
@@ -240,9 +240,8 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(FetchProfileResponse.self, from: responseData)
-                        UserDefaults.standard.setUser(value: apiResponse.data)
-                        completion(apiResponse.data, nil)
+                        let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
+                        completion(apiResponse, nil)
                     }catch {
                         print(error)
                         completion(nil, error.localizedDescription)
