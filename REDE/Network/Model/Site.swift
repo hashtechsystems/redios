@@ -95,3 +95,12 @@ struct PaymentResponse: Codable {
     }
 }
 
+// MARK: - UpdatePaymentResponse
+struct UpdatePaymentResponse: Codable {
+    let status: Bool
+    let data: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case status, data
+    }
+}

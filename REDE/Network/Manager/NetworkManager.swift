@@ -312,9 +312,32 @@ struct NetworkManager {
     }
     
     
-    func updatePayment(uthId: String, sessionId: Int){
-        router.request(.updatePayment(uthId: uthId, sessionId: sessionId)) { data, response, error in
+    func updatePayment(authId: String, sessionId: Int, completion: @escaping (_ response: UpdatePaymentResponse?, _ error: String?) -> ()){
+        router.request(.updatePayment(authId: authId, sessionId: sessionId)) { data, response, error in
             
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(UpdatePaymentResponse.self, from: responseData)
+                        completion(apiResponse, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
         }
     }
     

@@ -40,6 +40,7 @@ extension StopChargingViewController {
 extension StopChargingViewController {
     
     func stopCharging(){
+        
         guard let ocppCbid = self.chargerStation?.ocppCbid, let transactionId = transaction?.transactionId else {
             self.gotoDashboard()
             return
@@ -47,11 +48,11 @@ extension StopChargingViewController {
         
         SVProgressHUD.show()
         NetworkManager().stopCharging(ocppCbid: ocppCbid, transactionId: transactionId) { data, error in
-            guard let transaction = data else {
+           
+            guard let transaction = data, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.showAlert(title: "Error", message: error)
-                    self.gotoDashboard()
                 }
                 return
             }
@@ -60,10 +61,43 @@ extension StopChargingViewController {
                 SVProgressHUD.dismiss()
                 
                 if self.chargerStation?.site?.pricePlanId != nil {
-                    //call update payment
+                    self.updatePayment()
                 }
                 else{
-                    //do nothing
+                    self.gotoDashboard()
+                }
+            }
+        }
+    }
+    
+    func updatePayment(){
+        
+        guard let authId = self.authId, let transactionId = transaction?.transactionId else {
+            self.gotoDashboard()
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().updatePayment(authId: authId, sessionId: transactionId) { response, error in
+            
+            guard let response = response else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                
+                if response.status{
+                    guard let controller = UIViewController.instantiateVC(viewController: TransactionHistoryViewController.self) else { return }
+                    controller.updatePaymentResponse = response
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+                else{
+                    self.showAlert(title: "Error", message: response.data)
                     self.gotoDashboard()
                 }
             }
