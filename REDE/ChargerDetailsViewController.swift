@@ -23,6 +23,8 @@ class ChargerDetailsViewController: BaseViewController {
     var qrCode: String?
     fileprivate var chargerStation:ChargerStation?
     fileprivate var transaction: Transaction?
+    fileprivate var authId: String?
+    
     private var selectedCellIndex: Int?
     
     override func viewDidLoad() {
@@ -42,20 +44,20 @@ extension ChargerDetailsViewController {
     
     @IBAction func onClickConfirm(){
         
-        guard let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
+        guard let index = selectedCellIndex, let _ = self.chargerStation?.connectors[index] else {
             self.showAlert(title: "Error", message: "Please select connector")
             return
         }
         
-       // if self.chargerStation?.site?.pricePlanId != nil {
+        if self.chargerStation?.site?.pricePlanId != nil {
             guard let controller = UIViewController.instantiateVC(viewController: AuthorizePaymentViewController.self) else { return }
             controller.delegate = self
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true)
-//        }
-//        else{
-//
-//        }
+        }
+        else{
+            self.startCharging()
+        }
     }
     
     func gotoStopCharging(){
@@ -66,6 +68,7 @@ extension ChargerDetailsViewController {
             guard let controller = UIViewController.instantiateVC(viewController: StopChargingViewController.self) else { return }
             controller.chargerStation = self.chargerStation
             controller.transaction = self.transaction
+            controller.authId = self.authId
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
@@ -91,29 +94,6 @@ extension ChargerDetailsViewController {
                 SVProgressHUD.dismiss()
                 self.chargerStation = charger
                 self.updateUI()
-            }
-        }
-    }
-    
-    func startCharging(){
-        guard let ocppCbid = self.chargerStation?.ocppCbid else {
-            return
-        }
-        
-        SVProgressHUD.show()
-        NetworkManager().startCharging(ocppCbid: ocppCbid) { transaction, error in
-            guard let transaction = transaction else {
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-                self.transaction = transaction
-                self.gotoStopCharging()
             }
         }
     }
@@ -203,18 +183,17 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
         request.securePaymentContainerRequest.webCheckOutDataType.token.expirationYear = expirationYear
         request.securePaymentContainerRequest.webCheckOutDataType.token.cardCode = cardCode
         
-        SVProgressHUD.dismiss()
+        SVProgressHUD.show()
 
         handler!.getTokenWithRequest(request, successHandler: { (inResponse:AcceptSDKTokenResponse) -> () in
             
             print("Token--->%@", inResponse.getOpaqueData().getDataValue())
+            
             var output = String(format: "Response: %@\nData Value: %@ \nDescription: %@", inResponse.getMessages().getResultCode(), inResponse.getOpaqueData().getDataValue(), inResponse.getOpaqueData().getDataDescriptor())
             output = output + String(format: "\nMessage Code: %@\nMessage Text: %@", inResponse.getMessages().getMessages()[0].getCode(), inResponse.getMessages().getMessages()[0].getText())
             print(output)
             
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-            }
+            self.makePayment(cardNumber: cardNumber, expirationMonth: expirationMonth, expirationYear: expirationYear, token: inResponse.getOpaqueData().getDataValue())
             
         }) { (inError:AcceptSDKErrorResponse) -> () in
             let output = String(format: "Response:  %@\nError code: %@\nError text:   %@", inError.getMessages().getResultCode(), inError.getMessages().getMessages()[0].getCode(), inError.getMessages().getMessages()[0].getText())
@@ -222,6 +201,59 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
+            }
+        }
+    }
+}
+
+extension ChargerDetailsViewController{
+    
+    func makePayment(cardNumber: String, expirationMonth: String, expirationYear: String, token: String){
+        
+        guard let qrCode = self.qrCode else{
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            return
+        }
+        
+        NetworkManager().makePayment(qrCode: qrCode, cardDate: "\(expirationYear)-\(expirationMonth)", cardNumber: cardNumber, cryptogram: token) { success, authId, error in
+
+            if let authId = authId, success {
+                self.authId = authId
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.startCharging()
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+            }
+        }
+    }
+    
+    func startCharging(){
+        guard let ocppCbid = self.chargerStation?.ocppCbid else {
+            return
+        }
+
+        SVProgressHUD.show()
+        NetworkManager().startCharging(ocppCbid: ocppCbid) { transaction, error in
+            guard let transaction = transaction else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.transaction = transaction
+                self.gotoStopCharging()
             }
         }
     }

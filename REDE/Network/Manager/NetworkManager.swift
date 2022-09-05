@@ -253,9 +253,9 @@ struct NetworkManager {
         }
     }
     
-    func stopCharging( ocppCbid: String, transactionId: String, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
+    func stopCharging( ocppCbid: String, transactionId: Int, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
         router.request(.stopCharging(ocppCbid: ocppCbid, transactionId: transactionId)) { data, response, error in
-
+            
             if error != nil {
                 completion(nil, "Please check your network connection.")
             }
@@ -269,9 +269,8 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(FetchProfileResponse.self, from: responseData)
-                        UserDefaults.standard.setUser(value: apiResponse.data)
-                        completion(apiResponse.data, nil)
+                        let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
+                        completion(apiResponse, nil)
                     }catch {
                         print(error)
                         completion(nil, error.localizedDescription)
@@ -280,6 +279,42 @@ struct NetworkManager {
                     completion(nil, networkFailureError)
                 }
             }
+        }
+    }
+
+    func makePayment(qrCode: String, cardDate: String, cardNumber: String, cryptogram: String, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
+        router.request(.makePayment(qrCode: qrCode, cardDate: cardDate, cardNumber: cardNumber, cryptogram: cryptogram)) { data, response, error in
+            
+            if error != nil {
+                completion(false, nil, "Please check your network connection.")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(false, nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(PaymentResponse.self, from: responseData)
+                        completion(apiResponse.status, apiResponse.authId, nil)
+                    }catch {
+                        print(error)
+                        completion(false, nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(false, nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    
+    func updatePayment(uthId: String, sessionId: Int){
+        router.request(.updatePayment(uthId: uthId, sessionId: sessionId)) { data, response, error in
+            
         }
     }
     

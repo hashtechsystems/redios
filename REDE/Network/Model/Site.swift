@@ -74,9 +74,24 @@ struct Connector: Codable {
 
 // MARK: - Transaction
 struct Transaction: Codable {
-    let transactionId: String
+    let transactionId: Int
 
     enum CodingKeys: String, CodingKey {
         case transactionId
     }
 }
+
+// MARK: - PaymentResponse
+struct PaymentResponse: Codable {
+    let status: Bool
+    let data: String?
+    let ocppCbid: String?
+    let authId: String?
+    let transactionId: String?
+
+    enum CodingKeys: String, CodingKey {
+        case status, data, ocppCbid
+        case authId, transactionId
+    }
+}
+

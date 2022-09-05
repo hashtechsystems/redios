@@ -17,6 +17,7 @@ class StopChargingViewController: BaseViewController {
     
     var chargerStation:ChargerStation?
     var transaction: Transaction?
+    var authId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,9 @@ extension StopChargingViewController {
     
     @IBAction func onClickStopCharging(){
         self.stopCharging()
+    }
+    
+    func gotoDashboard(){
         self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
     }
 }
@@ -37,6 +41,7 @@ extension StopChargingViewController {
     
     func stopCharging(){
         guard let ocppCbid = self.chargerStation?.ocppCbid, let transactionId = transaction?.transactionId else {
+            self.gotoDashboard()
             return
         }
         
@@ -46,12 +51,21 @@ extension StopChargingViewController {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.showAlert(title: "Error", message: error)
+                    self.gotoDashboard()
                 }
                 return
             }
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
+                
+                if self.chargerStation?.site?.pricePlanId != nil {
+                    //call update payment
+                }
+                else{
+                    //do nothing
+                    self.gotoDashboard()
+                }
             }
         }
     }
