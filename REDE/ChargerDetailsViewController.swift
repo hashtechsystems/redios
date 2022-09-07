@@ -12,7 +12,7 @@ import AuthorizeNetAccept
 
 class ChargerDetailsViewController: BaseViewController {
     
-    private let kClientName = "5KP3u95bQpv"
+    private let kClientName = "6938BCtt6n8"//"5KP3u95bQpv"
     private let kClientKey  = "2NU5ph424e5PjZ57p76PquLtBj9MT2smPCKpm43NEFhZ4gr8358zpG5dtBJSy2Qf"
     
     @IBOutlet weak var lblLocation: UILabel!
@@ -109,13 +109,6 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConnectorCell", for: indexPath) as? ConnectorCell
         
         let connector = self.chargerStation?.connectors[indexPath.row]
-        cell?.connector = connector
-        
-        cell?.isSelected = false
-        
-        if selectedCellIndex != indexPath.item {
-            cell?.toggleSelected()
-        }
         
         if connector?.type.elementsEqual("CHADEMO") ?? false {
             cell?.imgView.image = UIImage.init(named: "chdemo")
@@ -124,14 +117,24 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
             cell?.imgView.image = UIImage.init(named: "ccs")
         }
         
+        if let index = selectedCellIndex,  index == indexPath.item {
+            cell?.showCheck()
+        }
+        else{
+            cell?.hideCheck()
+        }
+        
         return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! ConnectorCell
-        cell.isSelected = true
-        selectedCellIndex = indexPath.item
-        cell.toggleSelected()
+        if let _ = selectedCellIndex {
+            selectedCellIndex = nil
+        }
+        else{
+            selectedCellIndex = indexPath.item
+        }
+        collectionView.reloadData()
     }
 }
 

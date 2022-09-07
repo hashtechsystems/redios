@@ -13,13 +13,12 @@ class ConnectorCell: UICollectionViewCell {
     
     @IBOutlet weak var checkImageView: UIImageView!
     
-    var connector: Connector?
+
+    public func showCheck(){
+        self.checkImageView.isHidden = false
+    }
     
-    public func toggleSelected() {
-        if (isSelected) {
-            self.checkImageView.isHidden = false
-        }else{
-            self.checkImageView.isHidden = true
-        }
+    public func hideCheck(){
+        self.checkImageView.isHidden = true
     }
 }

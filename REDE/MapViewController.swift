@@ -40,7 +40,7 @@ class MapViewController: BaseViewController {
 
 extension MapViewController{
     func fetchSites(lat: Double, long: Double){
-        NetworkManager().sites(lat: 0, long: 0) { sites, error in
+        NetworkManager().sites(lat: lat, long: long) { sites, error in
             
             let annotations = sites.map { site -> SiteAnnotation in
                 let pin = SiteAnnotation()
