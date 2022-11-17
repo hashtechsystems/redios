@@ -19,6 +19,7 @@ public enum REDEApi {
     case startCharging(ocppCbid: String)
     case stopCharging(ocppCbid: String, transactionId: Int)
     case updatePayment(authId: String, sessionId: Int)
+    case getTransactionDetails(transactionId: Int)
 }
 
 extension REDEApi: EndPointType {
@@ -48,6 +49,8 @@ extension REDEApi: EndPointType {
             return url.appendingPathComponent("make-mobile-payment")
         case .updatePayment:
             return url.appendingPathComponent("update-payment")
+        case .getTransactionDetails(let transactionId):
+            return url.appendingPathComponent("get-transaction-detail-by-id/\(transactionId)")
         }
     }
     
@@ -65,7 +68,7 @@ extension REDEApi: EndPointType {
                     "longitude": long]
         case .uploadProfilePic(let image, let key):
             return [key: image]
-        case .fetchProfile:
+        case .fetchProfile, .getTransactionDetails:
             return nil
         case .chargerDetails(let qrCode):
             return ["qr_code": qrCode]
@@ -84,14 +87,14 @@ extension REDEApi: EndPointType {
         switch self {
         case .login, .register:
             return nil
-        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment:
+        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
         }
     }
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -102,7 +105,7 @@ extension REDEApi: EndPointType {
         switch self {
         case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment:
             return .post
-        case .fetchProfile:
+        case .fetchProfile, .getTransactionDetails:
             return .get
         }
     }

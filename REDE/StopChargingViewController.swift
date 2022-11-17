@@ -15,6 +15,8 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var lblSocStatus: UILabel!
     @IBOutlet weak var lblCurrent: UILabel!
     
+    var updateTimer: Timer?
+    
     var chargerStation:ChargerStation?
     var transaction: Transaction?
     var authId: String?
@@ -23,6 +25,31 @@ class StopChargingViewController: BaseViewController {
         super.viewDidLoad()
         self.navbar.isLeftButtonHidden = true
         self.navbar.isRightButtonHidden = true
+        updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(getChargingProgressDetails), userInfo: nil, repeats: true)
+
+    }
+    
+    func updateUI(details: inout TransactionDetails){
+        self.lblSiteId.text = details.siteName
+        self.lblChargerStation.text = details.chargingStationName
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
+        
+        details.meterData.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
+            return dateFormatter.date(from: lhs.timestamp)?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp)?.timeIntervalSince1970 ?? 0
+        }
+
+        
+        let data = details.meterData.first
+        
+        if let item = data?.sampledValue.filter({ $0.measurand.elementsEqual("SoC")}).first{
+            self.lblSocStatus.text = "\(item.value) %"
+        }
+        
+        if let item = data?.sampledValue.filter({ $0.measurand.elementsEqual("Current.Import")}).first{
+            self.lblCurrent.text = "\(item.value) %"
+        }
     }
 }
 
@@ -30,6 +57,7 @@ extension StopChargingViewController {
     
     @IBAction func onClickStopCharging(){
         self.stopCharging()
+        self.updateTimer?.invalidate()
     }
     
     func gotoDashboard(){
@@ -103,4 +131,87 @@ extension StopChargingViewController {
             }
         }
     }
+    
+    @objc func getChargingProgressDetails(){
+       
+        guard let transactionId = transaction?.transactionId else {
+            return
+        }
+        
+        NetworkManager().getTransactionDetails(transactionId: transactionId) { transaction, error in
+            
+            guard var transaction = transaction else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if transaction.status.elementsEqual("Active"){
+                    self.updateUI(details: &transaction)
+                }
+                else if transaction.status.elementsEqual("Finished"){
+                    self.updateTimer?.invalidate()
+                    if self.chargerStation?.site?.pricePlanId != nil {
+                        self.updatePayment()
+                    }
+                    else{
+                        self.gotoDashboard()
+                    }
+                }
+                else if transaction.status.elementsEqual("Failed"){
+                    self.updateTimer?.invalidate()
+                    self.gotoDashboard()
+                }
+            }
+        }
+    }
 }
+
+/*
+[
+  {
+    "timestamp": "2022-07-29T15:44:25.000Z",
+    "sampledValue": [
+      {
+        "unit": "Wh",
+        "value": "701439",
+        "format": "Raw",
+        "context": "Sample.Periodic",
+        "location": "Outlet",
+        "measurand": "Energy.Active.Import.Register"
+      },
+      {
+        "unit": "W",
+        "value": "0.0",
+        "format": "Raw",
+        "context": "Sample.Periodic",
+        "location": "Outlet",
+        "measurand": "Power.Active.Import"
+      },
+      {
+        "unit": "Percent",
+        "value": "60",
+        "format": "Raw",
+        "context": "Sample.Periodic",
+        "location": "Outlet",
+        "measurand": "SoC"
+      },
+      {
+        "unit": "V",
+        "value": "427",
+        "format": "Raw",
+        "context": "Sample.Periodic",
+        "location": "Outlet",
+        "measurand": "Voltage"
+      },
+      {
+        "unit": "A",
+        "value": "0",
+        "format": "Raw",
+        "context": "Sample.Periodic",
+        "location": "Outlet",
+        "measurand": "Current.Import"
+      }
+    ]
+  }
+]
+*/

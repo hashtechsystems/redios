@@ -104,3 +104,56 @@ struct UpdatePaymentResponse: Codable {
         case status, data
     }
 }
+
+
+// MARK: - Welcome
+struct TransactionDetailsResponse: Codable {
+    let status: Bool
+    var data: TransactionDetails
+}
+
+// MARK: - DataClass
+struct TransactionDetails: Codable {
+    let id, connectorID: Int
+    let averageVoltage: Double
+    let meterStart, meterEnd: Int
+    let status: String
+    let sequenceNumber: Int
+    let chargingStationName, siteName: String
+    let amount: Int
+    let ocppCbid: String
+    let finalAmount: Int
+    let createdAt, sessionStart, sessionEnd: String
+    let meterDiff: Int
+    var meterData: [MeterData]
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case connectorID = "connector_id"
+        case averageVoltage = "average_voltage"
+        case meterStart = "meter_start"
+        case meterEnd = "meter_end"
+        case status
+        case sequenceNumber = "sequence_number"
+        case chargingStationName = "charging_station_name"
+        case siteName = "site_name"
+        case amount
+        case ocppCbid = "ocpp_cbid"
+        case finalAmount = "final_amount"
+        case createdAt = "created_at"
+        case meterData = "meter_data"
+        case sessionStart = "session_start"
+        case sessionEnd = "session_end"
+        case meterDiff = "meter_diff"
+    }
+}
+
+struct MeterData: Codable {
+    let timestamp: String
+    let sampledValue: [SampledValue]
+}
+
+struct SampledValue: Codable {
+    let unit, value, format: String
+    let location, measurand: String
+}

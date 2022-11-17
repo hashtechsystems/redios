@@ -85,7 +85,9 @@ extension ChargerDetailsViewController {
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "Error", message: error){
+                        self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+                    }
                 }
                 return
             }
@@ -204,6 +206,9 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
+                self.showAlert(title: "Error", message: output){
+                    self.onClickConfirm()
+                }
             }
         }
     }
@@ -232,7 +237,9 @@ extension ChargerDetailsViewController{
             else{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "Error", message: error){
+                        self.onClickConfirm()
+                    }
                 }
             }
         }
@@ -248,7 +255,9 @@ extension ChargerDetailsViewController{
             guard let transaction = transaction else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "Error", message: error){
+                        self.onClickConfirm()
+                    }
                 }
                 return
             }

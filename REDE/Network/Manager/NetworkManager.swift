@@ -32,7 +32,7 @@ struct NetworkManager {
         router.request(.register(name: name, email: email, phone_number: phone_number, password: password)) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -64,7 +64,7 @@ struct NetworkManager {
         router.request(.login(phone_number: phone_number, password: password)) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -132,7 +132,7 @@ struct NetworkManager {
         router.request(.uploadProfilePic(image: image, key: key)) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -167,7 +167,7 @@ struct NetworkManager {
         router.request(.fetchProfile) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -198,7 +198,7 @@ struct NetworkManager {
         router.request(.chargerDetails(qrCode: qrCode)) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -228,7 +228,7 @@ struct NetworkManager {
         router.request(.startCharging(ocppCbid: ocppCbid)) { data, response, error in
 
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -257,7 +257,7 @@ struct NetworkManager {
         router.request(.stopCharging(ocppCbid: ocppCbid, transactionId: transactionId)) { data, response, error in
             
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -316,7 +316,7 @@ struct NetworkManager {
         router.request(.updatePayment(authId: authId, sessionId: sessionId)) { data, response, error in
             
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, error!.localizedDescription)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -340,6 +340,39 @@ struct NetworkManager {
             }
         }
     }
+    
+    
+    func getTransactionDetails(transactionId: Int, completion: @escaping (_ response: TransactionDetails?, _ error: String?) -> ()) {
+       
+        router.request(.getTransactionDetails(transactionId: transactionId)) { data, response, error in
+            
+            if error != nil {
+                completion(nil, error!.localizedDescription)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(TransactionDetailsResponse.self, from: responseData)
+                        completion(apiResponse.data, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
