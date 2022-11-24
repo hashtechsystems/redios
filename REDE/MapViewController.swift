@@ -80,7 +80,7 @@ extension MapViewController : CLLocationManagerDelegate {
         if let location = locations.last {
             self.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             self.fetchSites(lat: location.coordinate.latitude, long: location.coordinate.longitude)
-            //self.setMapFocus(location: self.center!, radiusInKm: 1000)
+            self.setMapFocus(location: self.center!, radiusInKm: 1000)
         }
     }
     

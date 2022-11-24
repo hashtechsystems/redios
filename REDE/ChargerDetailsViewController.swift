@@ -12,8 +12,12 @@ import AuthorizeNetAccept
 
 class ChargerDetailsViewController: BaseViewController {
     
-    private let kClientName = "6938BCtt6n8"//"5KP3u95bQpv"
-    private let kClientKey  = "2NU5ph424e5PjZ57p76PquLtBj9MT2smPCKpm43NEFhZ4gr8358zpG5dtBJSy2Qf"
+//    private let kClientName = "6938BCtt6n8"//"5KP3u95bQpv"
+//    private let kClientKey  = "2NU5ph424e5PjZ57p76PquLtBj9MT2smPCKpm43NEFhZ4gr8358zpG5dtBJSy2Qf"
+
+    let kClientName = "8eeT945T5"
+    let kClientKey  = "5nKXgA5vg93r5A95drWZy246Ja32rS85nQv2N8HahH2Dum94B63HR3M8wsA5eBs2"
+
     
     @IBOutlet weak var lblLocation: UILabel!
     @IBOutlet weak var lblId: UILabel!

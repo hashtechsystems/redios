@@ -27,7 +27,10 @@ extension REDEApi: EndPointType {
     var url: URL {
 //        guard let url = URL(string: "http://44.196.217.181/redepay/redepay_laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
         
-        guard let url = URL(string: "http://13.59.84.54/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+        //guard let url = URL(string: "http://13.59.84.54/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+        
+        guard let url = URL(string: "https://pay.rede.network/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+        
         switch self {
         case .register:
             return url.appendingPathComponent("register-user")
