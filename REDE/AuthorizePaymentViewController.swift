@@ -54,7 +54,7 @@ class AuthorizePaymentViewController: BaseViewController {
         button.backgroundColor = .black
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(AuthorizePaymentViewController.self, action: #selector(retrieveTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(retrieveTapped), for: .touchUpInside)
         return button
     }()
 
