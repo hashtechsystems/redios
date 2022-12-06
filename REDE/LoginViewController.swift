@@ -34,16 +34,17 @@ class LoginViewController: UIViewController {
         }
         
         self.hideKeyboardWhenTappedAround()
+        
+        if UserDefaults.standard.getActiveVisit(){
+            self.gotoDashboard()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         
-        if UserDefaults.standard.getActiveVisit(){
-            self.gotoDashboard()
-        }
-        else{
+        if !UserDefaults.standard.getActiveVisit(){
             self.checkbox.isChecked = false
         }
     }

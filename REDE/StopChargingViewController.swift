@@ -30,8 +30,8 @@ class StopChargingViewController: BaseViewController {
     }
     
     func updateUI(details: inout TransactionDetails){
-        self.lblSiteId.text = details.siteName
-        self.lblChargerStation.text = details.chargingStationName
+        self.lblSiteId.text = details.siteName ?? ""
+        self.lblChargerStation.text = details.chargingStationName ?? ""
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
@@ -46,9 +46,15 @@ class StopChargingViewController: BaseViewController {
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
             self.lblSocStatus.text = "\(item.value ?? "0") %"
         }
+        else{
+            self.lblSocStatus.text = ""
+        }
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Current.Import") ?? false}).first{
             self.lblCurrent.text = "\(item.value ?? "0") %"
+        }
+        else{
+            self.lblCurrent.text = ""
         }
     }
 }
