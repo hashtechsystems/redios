@@ -88,6 +88,8 @@ class AuthorizePaymentViewController: BaseViewController {
             retrieveButton.centerXAnchor.constraint(equalTo: viewScanner.centerXAnchor),
             retrieveButton.topAnchor.constraint(equalTo: inputsView.bottomAnchor, constant: 24),
         ])
+        
+        inputsView.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {

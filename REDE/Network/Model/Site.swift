@@ -114,18 +114,18 @@ struct TransactionDetailsResponse: Codable {
 
 // MARK: - DataClass
 struct TransactionDetails: Codable {
-    let id, connectorID: Int
-    let averageVoltage: Double
-    let meterStart, meterEnd: Int
-    let status: String
-    let sequenceNumber: Int
-    let chargingStationName, siteName: String
-    let amount: Int
-    let ocppCbid: String
-    let finalAmount: Int
-    let createdAt, sessionStart, sessionEnd: String
-    let meterDiff: Int
-    var meterData: [MeterData]
+    let id, connectorID: Int?
+    let averageVoltage: Double?
+    let meterStart, meterEnd: Int?
+    let status: String?
+    let sequenceNumber: Int?
+    let chargingStationName, siteName: String?
+    let amount: Double?
+    let ocppCbid: String?
+    let finalAmount: Double?
+    let createdAt, sessionStart, sessionEnd: String?
+    let meterDiff: Int?
+    var meterData: [MeterData]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -149,11 +149,11 @@ struct TransactionDetails: Codable {
 }
 
 struct MeterData: Codable {
-    let timestamp: String
-    let sampledValue: [SampledValue]
+    let timestamp: String?
+    let sampledValue: [SampledValue]?
 }
 
 struct SampledValue: Codable {
-    let unit, value, format: String
-    let location, measurand: String
+    let unit, value, format: String?
+    let location, measurand: String?
 }

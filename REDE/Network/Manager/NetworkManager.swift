@@ -282,8 +282,8 @@ struct NetworkManager {
         }
     }
 
-    func makePayment(qrCode: String, cardDate: String, cardNumber: String, cryptogram: String, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
-        router.request(.makePayment(qrCode: qrCode, cardDate: cardDate, cardNumber: cardNumber, cryptogram: cryptogram)) { data, response, error in
+    func makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
+        router.request(.makePayment(qrCode: qrCode, /*cardDate: cardDate, cardNumber: cardNumber,*/ cryptogram: cryptogram)) { data, response, error in
             
             if error != nil {
                 completion(false, nil, "Please check your network connection.")

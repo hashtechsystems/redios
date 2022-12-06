@@ -45,7 +45,6 @@
 		71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */; };
 		71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */; };
 		71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */; };
-		A91AAF32293E5CC400E206D4 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91AAF31293E5CC400E206D4 /* PassKit.framework */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91AAF32293E5CC400E206D4 /* PassKit.framework in Frameworks */,
 				719746A82892B1E5001490C0 /* CoreLocation.framework in Frameworks */,
 				B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */,
 				713438462866E07E005D0EBD /* SimpleCheckbox in Frameworks */,

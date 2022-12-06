@@ -265,7 +265,7 @@ extension ChargerDetailsViewController{
             return
         }
         
-        NetworkManager().makePayment(qrCode: qrCode, cardDate: "\(expirationYear)-\(expirationMonth)", cardNumber: cardNumber, cryptogram: token) { success, authId, error in
+        NetworkManager().makePayment(qrCode: qrCode, /*cardDate: "\(expirationYear)-\(expirationMonth)", cardNumber: cardNumber,*/ cryptogram: token) { success, authId, error in
 
             if let authId = authId, success {
                 self.authId = authId
@@ -328,6 +328,7 @@ extension String {
 
 }
 
+/*
 extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (@escaping (PKPaymentAuthorizationStatus) -> Void)) {
@@ -364,4 +365,4 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
         
         return paymentString!
     }
-}
+}*/

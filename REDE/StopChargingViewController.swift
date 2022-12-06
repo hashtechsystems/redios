@@ -36,19 +36,19 @@ class StopChargingViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
         
-        details.meterData.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
-            return dateFormatter.date(from: lhs.timestamp)?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp)?.timeIntervalSince1970 ?? 0
+        details.meterData?.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
+            return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
 
         
-        let data = details.meterData.first
+        let data = details.meterData?.first
         
-        if let item = data?.sampledValue.filter({ $0.measurand.elementsEqual("SoC")}).first{
-            self.lblSocStatus.text = "\(item.value) %"
+        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
+            self.lblSocStatus.text = "\(item.value ?? "0") %"
         }
         
-        if let item = data?.sampledValue.filter({ $0.measurand.elementsEqual("Current.Import")}).first{
-            self.lblCurrent.text = "\(item.value) %"
+        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Current.Import") ?? false}).first{
+            self.lblCurrent.text = "\(item.value ?? "0") %"
         }
     }
 }
@@ -145,10 +145,10 @@ extension StopChargingViewController {
             }
             
             DispatchQueue.main.async {
-                if transaction.status.elementsEqual("Active"){
+                if transaction.status?.elementsEqual("Active") ?? false{
                     self.updateUI(details: &transaction)
                 }
-                else if transaction.status.elementsEqual("Finished"){
+                else if transaction.status?.elementsEqual("Finished") ?? false{
                     self.updateTimer?.invalidate()
                     if self.chargerStation?.site?.pricePlanId != nil {
                         self.updatePayment()
@@ -157,7 +157,7 @@ extension StopChargingViewController {
                         self.gotoDashboard()
                     }
                 }
-                else if transaction.status.elementsEqual("Failed"){
+                else if transaction.status?.elementsEqual("Failed") ?? false{
                     self.updateTimer?.invalidate()
                     self.gotoDashboard()
                 }
