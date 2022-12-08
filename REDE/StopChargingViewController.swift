@@ -25,6 +25,7 @@ class StopChargingViewController: BaseViewController {
         super.viewDidLoad()
         self.navbar.isLeftButtonHidden = true
         self.navbar.isRightButtonHidden = true
+        getChargingProgressDetails()
         updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(getChargingProgressDetails), userInfo: nil, repeats: true)
 
     }
@@ -151,10 +152,10 @@ extension StopChargingViewController {
             }
             
             DispatchQueue.main.async {
-                if transaction.status?.elementsEqual("Active") ?? false{
+                if transaction.status?.lowercased().elementsEqual("Active") ?? false{
                     self.updateUI(details: &transaction)
                 }
-                else if transaction.status?.elementsEqual("Finished") ?? false{
+                else if transaction.status?.lowercased().elementsEqual("Finished") ?? false{
                     self.updateTimer?.invalidate()
                     if self.chargerStation?.site?.pricePlanId != nil {
                         self.updatePayment()
@@ -163,7 +164,7 @@ extension StopChargingViewController {
                         self.gotoDashboard()
                     }
                 }
-                else if transaction.status?.elementsEqual("Failed") ?? false{
+                else if transaction.status?.lowercased().elementsEqual("Failed") ?? false{
                     self.updateTimer?.invalidate()
                     self.gotoDashboard()
                 }

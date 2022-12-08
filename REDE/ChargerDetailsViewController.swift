@@ -292,9 +292,10 @@ extension ChargerDetailsViewController{
 
         SVProgressHUD.show()
         NetworkManager().startCharging(ocppCbid: ocppCbid) { transaction, error in
-            guard let transaction = transaction else {
+            guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
+                    print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
                     self.showAlert(title: "Error", message: error){
                         self.onClickConfirm()
                     }
