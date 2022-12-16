@@ -70,6 +70,12 @@ extension StopChargingViewController {
     func gotoDashboard(){
         self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
     }
+    
+    func gotoTransactionHistory(){
+        guard let controller = UIViewController.instantiateVC(viewController: TransactionHistoryViewController.self) else { return }
+        controller.transaction = self.transaction
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension StopChargingViewController {
@@ -96,7 +102,9 @@ extension StopChargingViewController {
                 SVProgressHUD.dismiss()
                 
                 if self.chargerStation?.site?.pricePlanId != nil {
-                    self.updatePayment()
+                    //self.updatePayment()
+                    
+                    
                 }
                 else{
                     self.gotoDashboard()
@@ -127,9 +135,7 @@ extension StopChargingViewController {
                 SVProgressHUD.dismiss()
                 
                 if response.status{
-                    guard let controller = UIViewController.instantiateVC(viewController: TransactionHistoryViewController.self) else { return }
-                    controller.updatePaymentResponse = response
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    self.gotoTransactionHistory(data: response.data)
                 }
                 else{
                     self.showAlert(title: "Error", message: response.data)
