@@ -558,8 +558,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to show nearby services";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -594,8 +592,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location to show nearby services";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

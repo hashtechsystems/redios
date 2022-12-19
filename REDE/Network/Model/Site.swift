@@ -125,6 +125,7 @@ struct TransactionDetails: Codable {
     let finalAmount: Double?
     let createdAt, sessionStart, sessionEnd: String?
     let meterDiff: Int?
+    var meterValue: String?
     var meterData: [MeterData]?
 
     enum CodingKeys: String, CodingKey {
@@ -141,10 +142,18 @@ struct TransactionDetails: Codable {
         case ocppCbid = "ocpp_cbid"
         case finalAmount = "final_amount"
         case createdAt = "created_at"
-        case meterData = "meter_data"
+        case meterValue = "meter_data"
         case sessionStart = "session_start"
         case sessionEnd = "session_end"
         case meterDiff = "meter_diff"
+    }
+    
+    mutating func parseMeterValues(){
+        
+        guard let data = meterValue?.data(using: .utf8) else {
+            return
+        }
+        self.meterData = try? JSONDecoder().decode([MeterData].self, from: data)
     }
 }
 

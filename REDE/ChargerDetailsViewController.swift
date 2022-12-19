@@ -81,6 +81,10 @@ extension ChargerDetailsViewController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
+    
+    func gotoDashboard(){
+        self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+    }
 }
 
 extension ChargerDetailsViewController {
@@ -306,7 +310,38 @@ extension ChargerDetailsViewController{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.transaction = transaction
-                self.gotoStopCharging()
+                self.updatePayment()
+            }
+        }
+    }
+    
+    func updatePayment(){
+        
+        guard let authId = self.authId, let transactionId = self.transaction?.transactionId else {
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().updatePayment(authId: authId, sessionId: transactionId) { response, error in
+            
+            guard let response = response else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                
+                if response.status{
+                    self.gotoStopCharging()
+                }
+                else{
+                    self.showAlert(title: "Error", message: response.data)
+                    self.gotoDashboard()
+                }
             }
         }
     }

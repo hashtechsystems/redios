@@ -41,8 +41,7 @@ class StopChargingViewController: BaseViewController {
             return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
 
-        
-        let data = details.meterData?.first
+        let data = details.meterData?.last
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
             self.lblSocStatus.text = "\(item.value ?? "0") %"
@@ -102,43 +101,9 @@ extension StopChargingViewController {
                 SVProgressHUD.dismiss()
                 
                 if self.chargerStation?.site?.pricePlanId != nil {
-                    //self.updatePayment()
-                    
-                    
+                    self.gotoTransactionHistory()
                 }
                 else{
-                    self.gotoDashboard()
-                }
-            }
-        }
-    }
-    
-    func updatePayment(){
-        
-        guard let authId = self.authId, let transactionId = transaction?.transactionId else {
-            self.gotoDashboard()
-            return
-        }
-        
-        SVProgressHUD.show()
-        NetworkManager().updatePayment(authId: authId, sessionId: transactionId) { response, error in
-            
-            guard let response = response else {
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-                
-                if response.status{
-                    self.gotoTransactionHistory(data: response.data)
-                }
-                else{
-                    self.showAlert(title: "Error", message: response.data)
                     self.gotoDashboard()
                 }
             }
@@ -158,19 +123,20 @@ extension StopChargingViewController {
             }
             
             DispatchQueue.main.async {
-                if transaction.status?.lowercased().elementsEqual("Active") ?? false{
+                self.updateUI(details: &transaction)
+                /*if transaction.status?.lowercased().elementsEqual("active") ?? false{
                     self.updateUI(details: &transaction)
                 }
-                else if transaction.status?.lowercased().elementsEqual("Finished") ?? false{
+                else*/ if transaction.status?.lowercased().elementsEqual("finished") ?? false{
                     self.updateTimer?.invalidate()
                     if self.chargerStation?.site?.pricePlanId != nil {
-                        self.updatePayment()
+                        self.gotoTransactionHistory()
                     }
                     else{
                         self.gotoDashboard()
                     }
                 }
-                else if transaction.status?.lowercased().elementsEqual("Failed") ?? false{
+                else if transaction.status?.lowercased().elementsEqual("failed") ?? false{
                     self.updateTimer?.invalidate()
                     self.gotoDashboard()
                 }

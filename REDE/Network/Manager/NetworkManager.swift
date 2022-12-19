@@ -359,7 +359,8 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(TransactionDetailsResponse.self, from: responseData)
+                        var apiResponse = try JSONDecoder().decode(TransactionDetailsResponse.self, from: responseData)
+                        apiResponse.data.parseMeterValues()
                         completion(apiResponse.data, nil)
                     }catch {
                         print(error)

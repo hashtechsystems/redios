@@ -51,7 +51,7 @@ extension REDEApi: EndPointType {
         case .makePayment:
             return url.appendingPathComponent("make-mobile-payment")
         case .updatePayment:
-            return url.appendingPathComponent("update-payment")
+            return url.appendingPathComponent("update-payment-with-transaction")//("update-payment")
         case .getTransactionDetails(let transactionId):
             return url.appendingPathComponent("get-transaction-detail-by-id/\(transactionId)")
         }

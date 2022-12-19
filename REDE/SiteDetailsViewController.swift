@@ -18,6 +18,7 @@ class SiteDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
+        lblName.text = site?.name
         lblLocation.text = site?.getFullAdress()
         tblChargers.separatorColor = UIColor.init(patternImage: UIImage.init(named: "dotted_line")!)
     }
