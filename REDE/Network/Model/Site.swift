@@ -127,6 +127,8 @@ struct TransactionDetails: Codable {
     let meterDiff: Int?
     var meterValue: String?
     var meterData: [MeterData]?
+    let chargerType: String?
+    let connectorStatus: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -146,6 +148,8 @@ struct TransactionDetails: Codable {
         case sessionStart = "session_start"
         case sessionEnd = "session_end"
         case meterDiff = "meter_diff"
+        case chargerType = "charger_type"
+        case connectorStatus = "connector_status"
     }
     
     mutating func parseMeterValues(){

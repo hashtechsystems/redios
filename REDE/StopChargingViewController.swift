@@ -13,7 +13,9 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var lblChargerStation: UILabel!
     @IBOutlet weak var lblSiteId: UILabel!
     @IBOutlet weak var lblSocStatus: UILabel!
+    @IBOutlet weak var viewSocStatus: UIView!
     @IBOutlet weak var lblCurrent: UILabel!
+    @IBOutlet weak var lblEnegry: UILabel!
     
     var updateTimer: Timer?
     
@@ -27,12 +29,21 @@ class StopChargingViewController: BaseViewController {
         self.navbar.isRightButtonHidden = true
         getChargingProgressDetails()
         updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(getChargingProgressDetails), userInfo: nil, repeats: true)
-
     }
     
     func updateUI(details: inout TransactionDetails){
         self.lblSiteId.text = details.siteName ?? ""
         self.lblChargerStation.text = details.chargingStationName ?? ""
+        
+        //AC - Hide SOC
+        //DC - Visible SOC
+        if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
+            self.viewSocStatus.isHidden = true
+        }
+        else {
+            self.viewSocStatus.isHidden = false
+        }
+        
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
@@ -42,6 +53,13 @@ class StopChargingViewController: BaseViewController {
         }
 
         let data = details.meterData?.last
+        
+        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
+            self.lblEnegry.text = "\(item.value ?? "0") %"
+        }
+        else{
+            self.lblEnegry.text = ""
+        }
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
             self.lblSocStatus.text = "\(item.value ?? "0") %"
@@ -127,7 +145,7 @@ extension StopChargingViewController {
                 /*if transaction.status?.lowercased().elementsEqual("active") ?? false{
                     self.updateUI(details: &transaction)
                 }
-                else*/ if transaction.status?.lowercased().elementsEqual("finished") ?? false{
+                else*/ if transaction.status?.lowercased().elementsEqual("finished") ?? false {
                     self.updateTimer?.invalidate()
                     if self.chargerStation?.site?.pricePlanId != nil {
                         self.gotoTransactionHistory()
@@ -136,7 +154,7 @@ extension StopChargingViewController {
                         self.gotoDashboard()
                     }
                 }
-                else if transaction.status?.lowercased().elementsEqual("failed") ?? false{
+                else if transaction.status?.lowercased().elementsEqual("failed") ?? false {
                     self.updateTimer?.invalidate()
                     self.gotoDashboard()
                 }
@@ -144,6 +162,10 @@ extension StopChargingViewController {
         }
     }
 }
+
+//
+
+
 
 /*
 [
