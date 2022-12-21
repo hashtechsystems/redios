@@ -290,12 +290,12 @@ extension ChargerDetailsViewController{
     }
     
     func startCharging(){
-        guard let ocppCbid = self.chargerStation?.ocppCbid else {
+        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
             return
         }
 
         SVProgressHUD.show()
-        NetworkManager().startCharging(ocppCbid: ocppCbid) { transaction, error in
+        NetworkManager().startCharging(ocppCbid: ocppCbid, connectorId: connector.id) { transaction, error in
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()

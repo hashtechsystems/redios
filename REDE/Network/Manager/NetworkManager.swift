@@ -224,8 +224,8 @@ struct NetworkManager {
     }
     
     
-    func startCharging( ocppCbid: String, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
-        router.request(.startCharging(ocppCbid: ocppCbid)) { data, response, error in
+    func startCharging( ocppCbid: String, connectorId: Int, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
+        router.request(.startCharging(ocppCbid: ocppCbid, connectorId: connectorId)) { data, response, error in
 
             if error != nil {
                 completion(nil, error!.localizedDescription)

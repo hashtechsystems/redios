@@ -16,7 +16,7 @@ public enum REDEApi {
     case fetchProfile
     case chargerDetails(qrCode: String)
     case makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String)
-    case startCharging(ocppCbid: String)
+    case startCharging(ocppCbid: String, connectorId: Int)
     case stopCharging(ocppCbid: String, transactionId: Int)
     case updatePayment(authId: String, sessionId: Int)
     case getTransactionDetails(transactionId: Int)
@@ -75,7 +75,7 @@ extension REDEApi: EndPointType {
             return nil
         case .chargerDetails(let qrCode):
             return ["qr_code": qrCode]
-        case .startCharging(let ocppCbid):
+        case .startCharging(let ocppCbid, let connectorId):
             return ["ocpp_cbid": ocppCbid]
         case .stopCharging(let ocppCbid, let transactionId):
             return ["ocpp_cbid": ocppCbid, "transactionId": transactionId]
