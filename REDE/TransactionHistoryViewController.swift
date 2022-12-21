@@ -41,15 +41,11 @@ class TransactionHistoryViewController: BaseViewController {
             return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
         
-        let data = details.meterData?.last
+        let meterDataStart = details.meterData?.first?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first?.value ?? "0.0"
+        let meterDataEnd = details.meterData?.last?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first?.value ?? "0.0"
         
-        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
-            if let value = item.value, let kwh = Float(value){
-                self.lblEnergy.text = String(format:"%.4f kW h", kwh/1000)
-            }
-            else{
-                self.lblEnergy.text = ""
-            }
+        if let kwhStart = Float(meterDataStart), let kwhEnd = Float(meterDataEnd) {
+            self.lblEnergy.text = String(format:"%.4f kW h", (kwhEnd - kwhStart)/1000)
         }
         else{
             self.lblEnergy.text = ""
