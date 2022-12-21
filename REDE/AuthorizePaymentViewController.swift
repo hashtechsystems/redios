@@ -99,7 +99,19 @@ class AuthorizePaymentViewController: BaseViewController {
 
     @objc private func retrieveTapped() {
         let data = cardView.creditCardData
-        self.delegate?.creditCardData(data: data)
-        self.dismiss(animated: true)
+        
+        if data.cardNumber.isEmpty {
+            self.showAlert(title: "Error", message: "Please enter your card number")
+        }
+        else if data.validityDate.isEmpty {
+            self.showAlert(title: "Error", message: "Please enter validty date")
+        }
+        else if data.CVVNumber.isEmpty {
+            self.showAlert(title: "Error", message: "Please enter CVV")
+        }
+        else{
+            self.delegate?.creditCardData(data: data)
+            self.dismiss(animated: true)
+        }
     }
 }

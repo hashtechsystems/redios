@@ -34,32 +34,26 @@ class TransactionHistoryViewController: BaseViewController {
         
         self.lblDate.text = details.sessionEnd
         
-        //self.lblEnergy.text = details.sessionEnd
-        
-/*
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
         
         details.meterData?.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
             return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
-
         
-        let data = details.meterData?.first
+        let data = details.meterData?.last
         
-        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
-            self.lblSocStatus.text = "\(item.value ?? "0") %"
+        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
+            if let value = item.value, let kwh = Float(value){
+                self.lblEnergy.text = String(format:"%.4f kW h", kwh/1000)
+            }
+            else{
+                self.lblEnergy.text = ""
+            }
         }
         else{
-            self.lblSocStatus.text = ""
+            self.lblEnergy.text = ""
         }
-        
-        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Current.Import") ?? false}).first{
-            self.lblCurrent.text = "\(item.value ?? "0") %"
-        }
-        else{
-            self.lblCurrent.text = ""
-        }*/
     }
 }
 

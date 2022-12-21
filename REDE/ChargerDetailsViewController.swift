@@ -82,8 +82,9 @@ extension ChargerDetailsViewController {
         }
     }
     
-    func gotoDashboard(){
-        self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+    func gotoLastScreen(){
+        //self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -98,8 +99,8 @@ extension ChargerDetailsViewController {
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error){
-                        self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+                    self.showAlert(title: "Error", message: "Charger unavailable"){
+                        self.gotoLastScreen()
                     }
                 }
                 return
@@ -295,7 +296,7 @@ extension ChargerDetailsViewController{
         }
 
         SVProgressHUD.show()
-        NetworkManager().startCharging(ocppCbid: ocppCbid, connectorId: connector.id) { transaction, error in
+        NetworkManager().startCharging(ocppCbid: ocppCbid, sequenceNumber: connector.sequence_number) { transaction, error in
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
@@ -322,7 +323,7 @@ extension ChargerDetailsViewController{
         }
         
         SVProgressHUD.show()
-        NetworkManager().updatePayment(authId: authId, sessionId: transactionId) { response, error in
+        NetworkManager().updatePaymentWithTransaction(authId: authId, sessionId: transactionId) { response, error in
             
             guard let response = response else {
                 DispatchQueue.main.async {
@@ -340,7 +341,7 @@ extension ChargerDetailsViewController{
                 }
                 else{
                     self.showAlert(title: "Error", message: response.data)
-                    self.gotoDashboard()
+                    self.gotoLastScreen()
                 }
             }
         }

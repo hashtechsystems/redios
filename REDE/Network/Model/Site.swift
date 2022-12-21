@@ -47,11 +47,12 @@ struct ChargerStation: Codable {
     let name: String
     let ocppCbid: String?
     let qrCode: String?
+    let manufacturer_id: Int?
     let site: Site?
     var connectors: [Connector]
 
     enum CodingKeys: String, CodingKey {
-        case id
+        case id, manufacturer_id
         case siteID = "site_id"
         case ocppCbid = "ocpp_cbid"
         case qrCode = "qr_code"
@@ -61,7 +62,7 @@ struct ChargerStation: Codable {
 
 // MARK: - Connector
 struct Connector: Codable {
-    let id, chargingStationID, voltage: Int
+    let id, chargingStationID, voltage, sequence_number: Int
     let type: String
 
     enum CodingKeys: String, CodingKey {
@@ -69,6 +70,7 @@ struct Connector: Codable {
         case chargingStationID = "charging_station_id"
         case voltage
         case type
+        case sequence_number
     }
 }
 

@@ -45,7 +45,7 @@ class StopChargingViewController: BaseViewController {
         }
         else {
             self.viewSocStatus.isHidden = false
-            self.viewSocStatusHeightConstarint.constant = 48
+            self.viewSocStatusHeightConstarint.constant = 49.5
         }
         
         
@@ -55,11 +55,16 @@ class StopChargingViewController: BaseViewController {
         details.meterData?.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
             return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
-
+        
         let data = details.meterData?.last
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
-            self.lblEnegry.text = "\(item.value ?? "0") %"
+            if let value = item.value, let kwh = Float(value){
+                self.lblEnegry.text = String(format:"%.4f kW h", kwh/1000)
+            }
+            else{
+                self.lblEnegry.text = ""
+            }
         }
         else{
             self.lblEnegry.text = ""
@@ -110,7 +115,7 @@ extension StopChargingViewController {
         
         SVProgressHUD.show()
         NetworkManager().stopCharging(ocppCbid: ocppCbid, transactionId: transactionId) { data, error in
-           
+            
             guard let transaction = data, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
@@ -133,7 +138,7 @@ extension StopChargingViewController {
     }
     
     @objc func getChargingProgressDetails(){
-       
+        
         guard let transactionId = transaction?.transactionId else {
             return
         }
@@ -146,17 +151,22 @@ extension StopChargingViewController {
             
             DispatchQueue.main.async {
                 self.updateUI(details: &transaction)
-                /*if transaction.status?.lowercased().elementsEqual("active") ?? false{
-                    self.updateUI(details: &transaction)
-                }
-                else*/ if transaction.status?.lowercased().elementsEqual("finished") ?? false {
-                    self.updateTimer?.invalidate()
-                    if self.chargerStation?.site?.pricePlanId != nil {
-                        self.gotoTransactionHistory()
+                
+                if (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false) ||
+                    (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false) {
+                    if self.chargerStation?.site?.pricePlanId != nil{
+                        self.updatePayment()
                     }
                     else{
                         self.gotoDashboard()
                     }
+                }
+                /*else if transaction.status?.lowercased().elementsEqual("active") ?? false{
+                 self.updateUI(details: &transaction)
+                 }*/
+                else if transaction.status?.lowercased().elementsEqual("finished") ?? false {
+                    self.updateTimer?.invalidate()
+                    self.gotoTransactionHistory()
                 }
                 else if transaction.status?.lowercased().elementsEqual("failed") ?? false {
                     self.updateTimer?.invalidate()
@@ -165,58 +175,87 @@ extension StopChargingViewController {
             }
         }
     }
+    
+    
+    
+    func updatePayment(){
+        
+        guard let authId = self.authId, let transactionId = self.transaction?.transactionId else {
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().updatePayment(authId: authId, sessionId: transactionId) { response, error in
+            
+            guard let response = response else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.showAlert(title: "Error", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                
+                if response.status{
+                    self.updateTimer?.invalidate()
+                    self.gotoDashboard()
+                }
+                else{
+                    self.showAlert(title: "Error", message: response.data)
+                }
+            }
+        }
+    }
 }
 
-//
-
-
-
 /*
-[
-  {
-    "timestamp": "2022-07-29T15:44:25.000Z",
-    "sampledValue": [
-      {
-        "unit": "Wh",
-        "value": "701439",
-        "format": "Raw",
-        "context": "Sample.Periodic",
-        "location": "Outlet",
-        "measurand": "Energy.Active.Import.Register"
-      },
-      {
-        "unit": "W",
-        "value": "0.0",
-        "format": "Raw",
-        "context": "Sample.Periodic",
-        "location": "Outlet",
-        "measurand": "Power.Active.Import"
-      },
-      {
-        "unit": "Percent",
-        "value": "60",
-        "format": "Raw",
-        "context": "Sample.Periodic",
-        "location": "Outlet",
-        "measurand": "SoC"
-      },
-      {
-        "unit": "V",
-        "value": "427",
-        "format": "Raw",
-        "context": "Sample.Periodic",
-        "location": "Outlet",
-        "measurand": "Voltage"
-      },
-      {
-        "unit": "A",
-        "value": "0",
-        "format": "Raw",
-        "context": "Sample.Periodic",
-        "location": "Outlet",
-        "measurand": "Current.Import"
-      }
-    ]
-  }
-]
-*/
+ [
+ {
+ "timestamp": "2022-07-29T15:44:25.000Z",
+ "sampledValue": [
+ {
+ "unit": "Wh",
+ "value": "701439",
+ "format": "Raw",
+ "context": "Sample.Periodic",
+ "location": "Outlet",
+ "measurand": "Energy.Active.Import.Register"
+ },
+ {
+ "unit": "W",
+ "value": "0.0",
+ "format": "Raw",
+ "context": "Sample.Periodic",
+ "location": "Outlet",
+ "measurand": "Power.Active.Import"
+ },
+ {
+ "unit": "Percent",
+ "value": "60",
+ "format": "Raw",
+ "context": "Sample.Periodic",
+ "location": "Outlet",
+ "measurand": "SoC"
+ },
+ {
+ "unit": "V",
+ "value": "427",
+ "format": "Raw",
+ "context": "Sample.Periodic",
+ "location": "Outlet",
+ "measurand": "Voltage"
+ },
+ {
+ "unit": "A",
+ "value": "0",
+ "format": "Raw",
+ "context": "Sample.Periodic",
+ "location": "Outlet",
+ "measurand": "Current.Import"
+ }
+ ]
+ }
+ ]
+ */

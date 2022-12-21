@@ -224,8 +224,8 @@ struct NetworkManager {
     }
     
     
-    func startCharging( ocppCbid: String, connectorId: Int, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
-        router.request(.startCharging(ocppCbid: ocppCbid, connectorId: connectorId)) { data, response, error in
+    func startCharging( ocppCbid: String, sequenceNumber: Int, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
+        router.request(.startCharging(ocppCbid: ocppCbid, sequenceNumber: sequenceNumber)) { data, response, error in
 
             if error != nil {
                 completion(nil, error!.localizedDescription)
@@ -306,6 +306,36 @@ struct NetworkManager {
                     }
                 case .failure(let networkFailureError):
                     completion(false, nil, networkFailureError)
+                }
+            }
+        }
+    }
+    
+    
+    func updatePaymentWithTransaction(authId: String, sessionId: Int, completion: @escaping (_ response: UpdatePaymentResponse?, _ error: String?) -> ()){
+        router.request(.updatePaymentWithTransaction(authId: authId, sessionId: sessionId)) { data, response, error in
+            
+            if error != nil {
+                completion(nil, error!.localizedDescription)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(UpdatePaymentResponse.self, from: responseData)
+                        completion(apiResponse, nil)
+                    }catch {
+                        print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
                 }
             }
         }
