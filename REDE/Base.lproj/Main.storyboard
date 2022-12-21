@@ -1406,7 +1406,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battery-icon" translatesAutoresizingMaskIntoConstraints="NO" id="J8c-gY-wnx">
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="battery-icon" translatesAutoresizingMaskIntoConstraints="NO" id="J8c-gY-wnx">
                                                 <rect key="frame" x="146.5" y="5" width="35" height="11.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="9f1-YM-MrA"/>
@@ -1579,6 +1579,7 @@
                         <outlet property="lblSocStatus" destination="qvO-1F-iGe" id="wXZ-Nf-kq3"/>
                         <outlet property="navbar" destination="lUO-ge-kHo" id="D3x-u9-CaD"/>
                         <outlet property="viewSocStatus" destination="JW6-ua-5kW" id="kJi-Lx-lEi"/>
+                        <outlet property="viewSocStatusHeightConstarint" destination="6ZA-vZ-ADh" id="xWQ-ju-Lr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gce-n3-wMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

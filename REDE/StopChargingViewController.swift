@@ -17,6 +17,8 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var lblCurrent: UILabel!
     @IBOutlet weak var lblEnegry: UILabel!
     
+    @IBOutlet weak var viewSocStatusHeightConstarint: NSLayoutConstraint!
+    
     var updateTimer: Timer?
     
     var chargerStation:ChargerStation?
@@ -39,9 +41,11 @@ class StopChargingViewController: BaseViewController {
         //DC - Visible SOC
         if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
             self.viewSocStatus.isHidden = true
+            self.viewSocStatusHeightConstarint.constant = 0
         }
         else {
             self.viewSocStatus.isHidden = false
+            self.viewSocStatusHeightConstarint.constant = 48
         }
         
         
