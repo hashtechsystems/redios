@@ -1,6 +1,0 @@
-framework module AnimatedCardInput {
-  umbrella header "AnimatedCardInput-umbrella.h"
-
-  export *
-  module * { export * }
-}

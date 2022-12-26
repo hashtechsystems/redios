@@ -263,7 +263,6 @@
 				713438262866D038005D0EBD /* Sources */,
 				713438272866D038005D0EBD /* Frameworks */,
 				713438282866D038005D0EBD /* Resources */,
-				CC40415D2B40BFD87C77444F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,8 +302,8 @@
 			);
 			mainGroup = 713438212866D038005D0EBD;
 			packageReferences = (
-				713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox" */,
-				719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox.git" */,
+				719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage.git" */,
 			);
 			productRefGroup = 7134382B2866D038005D0EBD /* Products */;
 			projectDirPath = "";
@@ -330,23 +329,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CC40415D2B40BFD87C77444F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-REDE/Pods-REDE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-REDE/Pods-REDE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-REDE/Pods-REDE-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EA20541F7C4D0DDB631288D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,11 +534,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "RED E";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -571,7 +556,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -586,11 +571,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "RED E";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs acess device camera to scan qr";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show nearby services";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -605,7 +593,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.harish.rede;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -638,7 +626,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox" */ = {
+		713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BeauNouvelle/SimpleCheckbox.git";
 			requirement = {
@@ -646,7 +634,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+		719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
 			requirement = {
@@ -659,12 +647,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		713438452866E07E005D0EBD /* SimpleCheckbox */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox" */;
+			package = 713438442866E07E005D0EBD /* XCRemoteSwiftPackageReference "SimpleCheckbox.git" */;
 			productName = SimpleCheckbox;
 		};
 		719353412891160F00FF676E /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			package = 719353402891160F00FF676E /* XCRemoteSwiftPackageReference "AlamofireImage.git" */;
 			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
