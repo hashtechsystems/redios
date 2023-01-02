@@ -85,6 +85,8 @@ extension LoginViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
+                self.txtUsername.text = ""
+                self.txtPassword.text = ""
                 self.gotoDashboard()
             }
         }

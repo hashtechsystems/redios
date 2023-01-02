@@ -403,11 +403,11 @@ struct NetworkManager {
         }
     }
     
-    func deleteUser(completion: @escaping (_ success: Bool) -> ()) {
+    func deleteUser(completion: @escaping (_ success: Bool, _ message: String?) -> ()) {
         router.request(.deleteUser) { data, response, error in
 
             if error != nil {
-                completion(false)
+                completion(false, nil)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -415,18 +415,18 @@ struct NetworkManager {
                 switch result {
                 case .success:
                     guard let responseData = data else {
-                        completion(false)
+                        completion(false, nil)
                         return
                     }
                     do {
                         let apiResponse = try JSONDecoder().decode(ProfilePicUpdateResponse.self, from: responseData)
-                        completion(apiResponse.status)
+                        completion(apiResponse.status, apiResponse.data)
                     }catch {
                         print(error)
-                        completion(false)
+                        completion(false, nil)
                     }
                 case .failure:
-                    completion(false)
+                    completion(false, nil)
                 }
             }
         }

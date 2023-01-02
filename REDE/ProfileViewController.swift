@@ -186,11 +186,13 @@ extension ProfileViewController {
     
     func deleteUserProfile(){
         SVProgressHUD.show()
-        NetworkManager().deleteUser() { isSuccess  in
+        NetworkManager().deleteUser() { isSuccess, message  in
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 if isSuccess {
-                    self.logout()
+                    self.showAlert(title: "Success", message: message){
+                        self.logout()
+                    }
                 }
             }
         }
