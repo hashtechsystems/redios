@@ -874,8 +874,8 @@
                                     <action selector="onEditPicture:" destination="erZ-hS-59L" eventType="touchUpInside" id="SQO-38-CIY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b5-XU-W0F">
-                                <rect key="frame" x="82" y="439" width="250" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b5-XU-W0F">
+                                <rect key="frame" x="83" y="439" width="250" height="46"/>
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="LXN-Rs-V9g"/>
@@ -891,6 +891,22 @@
                                     <action selector="onEdit:" destination="erZ-hS-59L" eventType="touchUpInside" id="vBh-98-Ybg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-nH-R3R">
+                                <rect key="frame" x="30" y="737" width="354" height="46"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="WeE-Wq-V1i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="DELETE PROFILE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteProfile:" destination="erZ-hS-59L" eventType="touchUpInside" id="BNM-Ns-Dru"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HNa-eG-HKJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -901,12 +917,15 @@
                             <constraint firstItem="6b5-XU-W0F" firstAttribute="top" secondItem="QeC-IP-mRm" secondAttribute="bottom" constant="20" id="92i-kl-en4"/>
                             <constraint firstItem="QeC-IP-mRm" firstAttribute="leading" secondItem="HNa-eG-HKJ" secondAttribute="leading" constant="20" id="IwS-rX-8lx"/>
                             <constraint firstItem="jqV-YZ-o5d" firstAttribute="leading" secondItem="HNa-eG-HKJ" secondAttribute="leading" id="KVz-Ke-3IW"/>
+                            <constraint firstItem="HNa-eG-HKJ" firstAttribute="bottom" secondItem="2lK-nH-R3R" secondAttribute="bottom" constant="30" id="KYD-lw-j7l"/>
                             <constraint firstItem="jqV-YZ-o5d" firstAttribute="top" secondItem="m5M-Dh-ahG" secondAttribute="top" id="OSn-Ga-XWX"/>
                             <constraint firstItem="FCv-R3-bfG" firstAttribute="centerX" secondItem="G6a-YJ-3Rk" secondAttribute="centerX" id="R5G-LE-DLU"/>
                             <constraint firstItem="HNa-eG-HKJ" firstAttribute="trailing" secondItem="QeC-IP-mRm" secondAttribute="trailing" constant="20" id="WrQ-UX-QkZ"/>
+                            <constraint firstItem="HNa-eG-HKJ" firstAttribute="trailing" secondItem="2lK-nH-R3R" secondAttribute="trailing" constant="30" id="dSJ-ah-bic"/>
                             <constraint firstItem="FCv-R3-bfG" firstAttribute="width" secondItem="G6a-YJ-3Rk" secondAttribute="width" id="h23-w9-BAF"/>
                             <constraint firstItem="G6a-YJ-3Rk" firstAttribute="top" secondItem="jqV-YZ-o5d" secondAttribute="bottom" constant="30" id="jEP-Q6-g90"/>
                             <constraint firstItem="FCv-R3-bfG" firstAttribute="centerY" secondItem="G6a-YJ-3Rk" secondAttribute="centerY" id="jrI-rS-IK8"/>
+                            <constraint firstItem="2lK-nH-R3R" firstAttribute="leading" secondItem="HNa-eG-HKJ" secondAttribute="leading" constant="30" id="oix-jP-WTF"/>
                             <constraint firstItem="QeC-IP-mRm" firstAttribute="top" secondItem="G6a-YJ-3Rk" secondAttribute="bottom" constant="30" id="qzj-XP-S8w"/>
                             <constraint firstItem="6b5-XU-W0F" firstAttribute="centerX" secondItem="HNa-eG-HKJ" secondAttribute="centerX" id="tz3-70-CUZ"/>
                         </constraints>

@@ -403,7 +403,34 @@ struct NetworkManager {
         }
     }
     
-    
+    func deleteUser(completion: @escaping (_ success: Bool) -> ()) {
+        router.request(.deleteUser) { data, response, error in
+
+            if error != nil {
+                completion(false)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(false)
+                        return
+                    }
+                    do {
+                        let apiResponse = try JSONDecoder().decode(ProfilePicUpdateResponse.self, from: responseData)
+                        completion(apiResponse.status)
+                    }catch {
+                        print(error)
+                        completion(false)
+                    }
+                case .failure:
+                    completion(false)
+                }
+            }
+        }
+    }
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {

@@ -71,6 +71,19 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.imgvwProfile.af.setImage(withURL: url)
     }
     
+    
+    @IBAction func deleteProfile(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Delete Profile ?", message: "Deleting profile will permanently remove your profile data.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Delete Profile", style: .destructive, handler: { _ in
+            self.deleteUserProfile()
+        }))
+        
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onEditPicture(_ sender: UIButton) {
         if btnEdit.isSelected {
             
@@ -167,6 +180,18 @@ extension ProfileViewController {
                 SVProgressHUD.dismiss()
                 self.user = user
                 self.updateUI(user: self.user)
+            }
+        }
+    }
+    
+    func deleteUserProfile(){
+        SVProgressHUD.show()
+        NetworkManager().deleteUser() { isSuccess  in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                if isSuccess {
+                    self.logout()
+                }
             }
         }
     }
