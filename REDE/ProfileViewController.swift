@@ -67,7 +67,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
             return
         }
         
-        let url = URL(string: "\(user.imagePath)/\(user.profilePic)")!
+        let url = URL(string: "\(user.imagePath)/\(user.profilePic ?? "")")!
         self.imgvwProfile.af.setImage(withURL: url)
     }
     
