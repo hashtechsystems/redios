@@ -77,8 +77,13 @@ extension RegistrationViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                self.showAlert(title: "RED E", message: response)
-                self.navigationController?.popToRootViewController(animated: false)
+                self.showAlert(title: "RED E", message: response){
+                    self.txtUsername.text = ""
+                    self.txtPhoneNumber.text = ""
+                    self.txtEmail.text = ""
+                    self.txtPassword.text = ""
+                    self.navigationController?.popToRootViewController(animated: false)
+                }
             }
         }
     }

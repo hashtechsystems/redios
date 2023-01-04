@@ -22,7 +22,9 @@ struct LoginResponse: Codable {
 // MARK: - User
 public struct User: Codable {
     let id: Int
-    var name, email, phoneNumber, profilePic, address: String
+    var name, email, phoneNumber: String
+    let profilePic: String?
+    var address: String?
     var imagePath: String
 
     enum CodingKeys: String, CodingKey {
