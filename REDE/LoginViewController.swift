@@ -78,7 +78,7 @@ extension LoginViewController {
             guard let _ = user else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "RED E", message: error)
                 }
                 return
             }

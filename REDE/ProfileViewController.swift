@@ -61,7 +61,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.txtName.text = user?.name
         self.txtEmail.text = user?.email
         self.txtPhone.text = user?.phoneNumber
-        //self.txtAddress.text = user.
+        self.txtAddress.text = user?.address
         
         guard let user = user else {
             return
@@ -150,14 +150,14 @@ extension ProfileViewController {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.updateUI(user: self.user)
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "RED E", message: error)
                 }
                 return
             }
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                self.showAlert(title: "Success", message: response) {
+                self.showAlert(title: "RED E", message: response) {
                     self.getUserProfile()
                 }
             }
@@ -171,7 +171,7 @@ extension ProfileViewController {
             guard let _ = user else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "RED E", message: error)
                 }
                 return
             }
@@ -190,7 +190,7 @@ extension ProfileViewController {
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 if isSuccess {
-                    self.showAlert(title: "Success", message: message){
+                    self.showAlert(title: "RED E", message: message){
                         self.logout()
                     }
                 }

@@ -61,16 +61,18 @@ extension RegistrationViewController {
     
     @IBAction func onSubmit(){
         
-        guard let name = txtUsername.text, let password = txtPassword.text, let phoneNumber = txtPhoneNumber.text, let email = txtEmail.text else {
+        guard let name = txtUsername.text, let password = txtPassword.text, let phoneNumber = txtPhoneNumber.text else {
             return
         }
+        
+        let email = txtEmail.text ?? ""
         
         SVProgressHUD.show()
         NetworkManager().register(name: name, email: email, phone_number: phoneNumber, password: password) { response, error in
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "RED E", message: error)
                 }
                 return
             }

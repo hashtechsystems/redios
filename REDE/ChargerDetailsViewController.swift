@@ -53,7 +53,7 @@ extension ChargerDetailsViewController {
     @IBAction func onClickConfirm(){
         
         guard let index = selectedCellIndex, let _ = self.chargerStation?.connectors[index] else {
-            self.showAlert(title: "Error", message: "Please select connector")
+            self.showAlert(title: "RED E", message: "Please select connector")
             return
         }
         
@@ -99,7 +99,7 @@ extension ChargerDetailsViewController {
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: "Charger unavailable"){
+                    self.showAlert(title: "RED E", message: "Charger unavailable"){
                         self.gotoLastScreen()
                     }
                 }
@@ -220,7 +220,7 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                self.showAlert(title: "Error", message: output){
+                self.showAlert(title: "RED E", message: output){
                     self.onClickConfirm()
                 }
             }
@@ -282,7 +282,7 @@ extension ChargerDetailsViewController{
             else{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error){
+                    self.showAlert(title: "RED E", message: error){
                         self.onClickConfirm()
                     }
                 }
@@ -301,7 +301,7 @@ extension ChargerDetailsViewController{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
-                    self.showAlert(title: "Error", message: error){
+                    self.showAlert(title: "RED E", message: error){
                         self.onClickConfirm()
                     }
                 }
@@ -328,7 +328,7 @@ extension ChargerDetailsViewController{
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "Error", message: error)
+                    self.showAlert(title: "RED E", message: error)
                 }
                 return
             }
@@ -340,7 +340,7 @@ extension ChargerDetailsViewController{
                     self.gotoStopCharging()
                 }
                 else{
-                    self.showAlert(title: "Error", message: response.data)
+                    self.showAlert(title: "RED E", message: response.data)
                     self.gotoLastScreen()
                 }
             }

@@ -101,13 +101,13 @@ class AuthorizePaymentViewController: BaseViewController {
         let data = cardView.creditCardData
         
         if data.cardNumber.isEmpty {
-            self.showAlert(title: "Error", message: "Please enter your card number")
+            self.showAlert(title: "RED E", message: "Please enter your card number")
         }
         else if data.validityDate.isEmpty {
-            self.showAlert(title: "Error", message: "Please enter validty date")
+            self.showAlert(title: "RED E", message: "Please enter validty date")
         }
         else if data.CVVNumber.isEmpty {
-            self.showAlert(title: "Error", message: "Please enter CVV")
+            self.showAlert(title: "RED E", message: "Please enter CVV")
         }
         else{
             self.delegate?.creditCardData(data: data)

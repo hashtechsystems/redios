@@ -52,9 +52,9 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                                         <integer key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Username"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Username"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Phone Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Phone Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Phone Number"/>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage">
                                                                         <imageReference key="value" image="person" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                     </userDefinedRuntimeAttribute>
@@ -349,9 +349,9 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                                         <integer key="value" value="1"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Username"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Username"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Name"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Name"/>
                                                                     <userDefinedRuntimeAttribute type="image" keyPath="iconImage">
                                                                         <imageReference key="value" image="person" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                     </userDefinedRuntimeAttribute>
@@ -746,7 +746,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Avishek" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J04-Qk-f4o">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J04-Qk-f4o">
                                                         <rect key="frame" x="98" y="8" width="268" height="15.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="15"/>
@@ -776,7 +776,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="avishek@rede.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-fE-ww6">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7h-fE-ww6">
                                                         <rect key="frame" x="98" y="8" width="268" height="15.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="15"/>
@@ -806,7 +806,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9874837657" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-50-MPd">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pg-50-MPd">
                                                         <rect key="frame" x="98" y="8" width="268" height="15.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="15"/>
@@ -836,7 +836,7 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kolkata, India" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-gb-xtH">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-gb-xtH">
                                                         <rect key="frame" x="98" y="8" width="268" height="15.5"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="15"/>
@@ -2145,7 +2145,7 @@
     </scenes>
     <designables>
         <designable name="Ixd-67-fqy">
-            <size key="intrinsicContentSize" width="82" height="23"/>
+            <size key="intrinsicContentSize" width="47" height="23"/>
         </designable>
         <designable name="W81-51-5IC">
             <size key="intrinsicContentSize" width="119.5" height="23"/>
@@ -2160,7 +2160,7 @@
             <size key="intrinsicContentSize" width="76.5" height="22"/>
         </designable>
         <designable name="xaS-0L-k1C">
-            <size key="intrinsicContentSize" width="82" height="23"/>
+            <size key="intrinsicContentSize" width="119.5" height="23"/>
         </designable>
     </designables>
     <resources>
