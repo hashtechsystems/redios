@@ -42,7 +42,7 @@ class AcceptSDKTokenInterface: AcceptSDKBaseInterface {
             failureHandler(false)
         } else {
             //some thing is missing!
-            print("error handling missing!!!")
+            //print("error handling missing!!!")
         }
     }
 

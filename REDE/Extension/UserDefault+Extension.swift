@@ -37,7 +37,7 @@ extension UserDefaults{
         synchronize()
     }
     
-    func setUser(value: User) {
+    func setUser(value: User?) {
         let encoder = JSONEncoder()
         let data = try? encoder.encode(value)
         set(data, forKey: UserDefaultsKeys.user.rawValue)

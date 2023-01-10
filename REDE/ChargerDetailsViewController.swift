@@ -206,17 +206,17 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
 
         handler!.getTokenWithRequest(request, successHandler: { (inResponse:AcceptSDKTokenResponse) -> () in
             
-            print("Token--->%@", inResponse.getOpaqueData().getDataValue())
+            //print("Token--->%@", inResponse.getOpaqueData().getDataValue())
             
             var output = String(format: "Response: %@\nData Value: %@ \nDescription: %@", inResponse.getMessages().getResultCode(), inResponse.getOpaqueData().getDataValue(), inResponse.getOpaqueData().getDataDescriptor())
             output = output + String(format: "\nMessage Code: %@\nMessage Text: %@", inResponse.getMessages().getMessages()[0].getCode(), inResponse.getMessages().getMessages()[0].getText())
-            print(output)
+            //print(output)
             
             self.makePayment(cardNumber: cardNumber, expirationMonth: expirationMonth, expirationYear: expirationYear, token: inResponse.getOpaqueData().getDataValue())
             
         }) { (inError:AcceptSDKErrorResponse) -> () in
             let output = String(format: "Response:  %@\nError code: %@\nError text:   %@", inError.getMessages().getResultCode(), inError.getMessages().getMessages()[0].getCode(), inError.getMessages().getMessages()[0].getText())
-            print(output)
+            //print(output)
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
@@ -300,7 +300,7 @@ extension ChargerDetailsViewController{
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
+                    //print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
                     self.showAlert(title: "RED E", message: error){
                         self.onClickConfirm()
                     }
@@ -369,7 +369,7 @@ extension String {
 extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (@escaping (PKPaymentAuthorizationStatus) -> Void)) {
-        print("paymentAuthorizationViewController delegates called")
+        //print("paymentAuthorizationViewController delegates called")
 
         if payment.token.paymentData.count > 0 {
             let base64str = self.base64forData(payment.token.paymentData)
@@ -392,7 +392,7 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
     
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion: nil)
-        print("paymentAuthorizationViewControllerDidFinish called")
+        //print("paymentAuthorizationViewControllerDidFinish called")
     }
     
     @objc func base64forData(_ theData: Data) -> String {

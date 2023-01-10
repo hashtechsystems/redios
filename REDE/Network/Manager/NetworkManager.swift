@@ -44,13 +44,13 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(responseData)
+                        //print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
+                        //print(jsonData)
                         let apiResponse = try JSONDecoder().decode(RegistrationResponse.self, from: responseData)
                         completion(apiResponse.data,nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -67,6 +67,64 @@ struct NetworkManager {
                 completion(nil, error!.localizedDescription)
             }
             
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            do {
+                //print(responseData)
+                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                //print(jsonData)
+                let apiResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
+                
+                if apiResponse.success {
+                    UserDefaults.standard.setLoggedInToken(value: apiResponse.token)
+                    UserDefaults.standard.setUser(value: apiResponse.user)
+                    completion(apiResponse.user, nil)
+                }
+                else {
+                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+            
+            
+            /*if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    do {
+                        //print(responseData)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        //print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
+                        UserDefaults.standard.setLoggedInToken(value: apiResponse.token)
+                        UserDefaults.standard.setUser(value: apiResponse.user)
+                        completion(apiResponse.user,nil)
+                    }catch {
+                        //print(error)
+                        completion(nil, error.localizedDescription)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                }
+            }*/
+        }
+    }
+    
+    func updateProfile(id: Int, name: String, email: String, phone_number: String, address: String, completion: @escaping (_ response: String?,_ error: String?) -> ()) {
+        router.request(.updateProfile(id: id, name: name, email: email, phone_number: phone_number, address: address)) { data, response, error in
+
+            if error != nil {
+                completion(nil, error!.localizedDescription)
+            }
+            
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 switch result {
@@ -76,15 +134,13 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(responseData)
+                        //print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
-                        UserDefaults.standard.setLoggedInToken(value: apiResponse.token)
-                        UserDefaults.standard.setUser(value: apiResponse.user)
-                        completion(apiResponse.user,nil)
+                        //print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(ProfileUpdateResponse.self, from: responseData)
+                        completion(apiResponse.data,nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -93,6 +149,7 @@ struct NetworkManager {
             }
         }
     }
+    
     
     func sites(lat: Double, long: Double, completion: @escaping (_ response: [Site],_ error: String?) -> ()) {
         router.request(.sites(lat: lat, long: long)) { data, response, error in
@@ -110,13 +167,13 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(responseData)
+                        //print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
+                        //print(jsonData)
                         let apiResponse = try JSONDecoder().decode(SiteResponse.self, from: responseData)
                         completion(apiResponse.data,nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion([], error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -144,15 +201,15 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        print(responseData)
+                        //print(responseData)
                         let str = String(decoding: responseData, as: UTF8.self)
-                        print(str)
+                        //print(str)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(ProfilePicUpdateResponse.self, from: responseData)
+                        //print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(ProfileUpdateResponse.self, from: responseData)
                         completion(apiResponse.data, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -183,7 +240,7 @@ struct NetworkManager {
                         UserDefaults.standard.setUser(value: apiResponse.data)
                         completion(apiResponse.data, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -213,7 +270,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(ChargerStationDetailsResponse.self, from: responseData)
                         completion(apiResponse.data, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -243,7 +300,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
                         completion(apiResponse, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -272,7 +329,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
                         completion(apiResponse, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -301,7 +358,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(PaymentResponse.self, from: responseData)
                         completion(apiResponse.status, apiResponse.authId, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(false, nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -331,7 +388,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(UpdatePaymentResponse.self, from: responseData)
                         completion(apiResponse, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -361,7 +418,7 @@ struct NetworkManager {
                         let apiResponse = try JSONDecoder().decode(UpdatePaymentResponse.self, from: responseData)
                         completion(apiResponse, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -393,7 +450,7 @@ struct NetworkManager {
                         apiResponse.data.parseMeterValues()
                         completion(apiResponse.data, nil)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(nil, error.localizedDescription)
                     }
                 case .failure(let networkFailureError):
@@ -419,10 +476,10 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(ProfilePicUpdateResponse.self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode(ProfileUpdateResponse.self, from: responseData)
                         completion(apiResponse.status, apiResponse.data)
                     }catch {
-                        print(error)
+                        //print(error)
                         completion(false, nil)
                     }
                 case .failure:

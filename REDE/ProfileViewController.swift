@@ -27,6 +27,11 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.txtName.delegate = self
+        self.txtEmail.delegate = self
+        self.txtPhone.delegate = self
+        self.txtAddress.delegate = self
+        
         self.enableEdit(enable: false)
         
         self.navbar.isLeftButtonHidden = true
@@ -37,9 +42,11 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     @IBAction func onEdit(_ sender: UIButton) {
         if sender.isSelected {
+            self.view.endEditing(true)
             sender.isSelected = false
             sender.setTitle("Edit", for: .normal)
             sender.setTitle("Edit", for: .selected)
+            self.updateProfile()
         }
         else{
             sender.isSelected = true
@@ -47,7 +54,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
             sender.setTitle("Done", for: .selected)
         }
         self.enableEdit(enable: sender.isSelected)
-        self.view.endEditing(true)
     }
     
     func enableEdit(enable: Bool) {
@@ -55,6 +61,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.txtEmail.isUserInteractionEnabled = enable
         self.txtPhone.isUserInteractionEnabled = enable
         self.txtAddress.isUserInteractionEnabled = enable
+        
+        if enable {
+            self.txtName.becomeFirstResponder()
+        }
     }
     
     func updateUI(user: User?){
@@ -136,11 +146,59 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        print("imagePickerController cancel")
+        //print("imagePickerController cancel")
     }
 }
 
+extension ProfileViewController: UITextFieldDelegate{
+    
+    //UITextField delegate method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == txtName {
+            txtName.resignFirstResponder()
+            txtEmail.becomeFirstResponder()
+        } else if textField == txtEmail {
+            txtEmail.resignFirstResponder()
+            txtPhone.becomeFirstResponder()
+        } else if textField == txtPhone {
+            txtPhone.resignFirstResponder()
+            txtAddress.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
+
+
 extension ProfileViewController {
+    
+    func updateProfile(){
+        
+        guard let id = user?.id, let name = txtName.text, let email = txtEmail.text, let phoneNumber = txtPhone.text, let address = txtAddress.text else {
+            return
+        }
+        
+        SVProgressHUD.show()
+        NetworkManager().updateProfile(id: id, name: name, email: email, phone_number: phoneNumber, address: address) { response, error in
+            guard let response = response else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.updateUI(user: self.user)
+                    self.showAlert(title: "RED E", message: error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.showAlert(title: "RED E", message: response) {
+                    self.getUserProfile()
+                }
+            }
+        }
+    }
     
     func uploadProfilePic(image: UIImage){
         

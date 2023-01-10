@@ -15,8 +15,9 @@ struct RegistrationResponse: Codable {
 
 struct LoginResponse: Codable {
     let success: Bool
-    let token: String
-    let user: User
+    let message: String?
+    let token: String?
+    let user: User?
 }
 
 // MARK: - User
@@ -36,7 +37,7 @@ public struct User: Codable {
 }
 
 
-struct ProfilePicUpdateResponse: Codable {
+struct ProfileUpdateResponse: Codable {
     let status: Bool
     let data: String
 }

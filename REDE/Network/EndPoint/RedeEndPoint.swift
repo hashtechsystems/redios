@@ -10,6 +10,7 @@ import UIKit
 
 public enum REDEApi {
     case register(name:String, email:String, phone_number:String, password:String)
+    case updateProfile(id: Int, name:String, email:String, phone_number:String, address: String)
     case uploadProfilePic(image: UIImage, key: String)
     case login(phone_number:String, password:String)
     case sites(lat:Double, long:Double)
@@ -40,6 +41,8 @@ extension REDEApi: EndPointType {
             return url.appendingPathComponent("login")
         case .sites:
             return url.appendingPathComponent("search-site")
+        case .updateProfile:
+            return url.appendingPathComponent("update-profile")
         case .uploadProfilePic:
             return url.appendingPathComponent("change-profile-pic")
         case .fetchProfile:
@@ -69,6 +72,8 @@ extension REDEApi: EndPointType {
         case .register(let name, let email, let phone_number, let password):
             return ["phone_number": phone_number, "email": email, "name": name,
                     "password": password]
+        case .updateProfile(let id, let name, let email, let phone_number, let address):
+            return ["id": id, "phone_number": phone_number, "email": email, "name": name, "address" : address]
         case .login(let phone_number, let password):
             return ["phone_number": phone_number,
                     "password": password]
@@ -98,14 +103,14 @@ extension REDEApi: EndPointType {
         switch self {
         case .login, .register:
             return nil
-        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser:
+        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
         }
     }
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -114,7 +119,7 @@ extension REDEApi: EndPointType {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser:
+        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
             return .post
         case .fetchProfile, .getTransactionDetails:
             return .get

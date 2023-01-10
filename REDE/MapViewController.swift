@@ -26,10 +26,14 @@ class MapViewController: BaseViewController {
         }
         
         mapview.delegate = self
+        mapview.mapType = .standard
         mapview.userTrackingMode = .follow
+        mapview.isZoomEnabled = true
+        mapview.isScrollEnabled = true
+        mapview.showsUserLocation = true
         
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.requestWhenInUseAuthorization()
         
         // Start updating location
@@ -66,7 +70,7 @@ extension MapViewController{
 extension MapViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error:: \(error.localizedDescription)")
+        //print("error:: \(error.localizedDescription)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -84,9 +88,13 @@ extension MapViewController : CLLocationManagerDelegate {
     }
     
     func setMapFocus(location: CLLocationCoordinate2D, radiusInKm radius: CLLocationDistance) {
-        let diameter = radius * 2
-        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, latitudinalMeters: diameter, longitudinalMeters: diameter)
-        self.mapview.region = region
+//        let diameter = radius * 2
+//        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, latitudinalMeters: diameter, longitudinalMeters: diameter)
+//        self.mapview.region = region
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapview.setRegion(region, animated: true)
+        
     }
 }
 
