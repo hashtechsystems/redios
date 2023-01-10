@@ -17,6 +17,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var imgvwProfile: UIImageView!
+    @IBOutlet weak var imgvwEditIcon: UIImageView!
     
     lazy var user: User? = {
         return UserDefaults.standard.getUser()
@@ -61,6 +62,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.txtEmail.isUserInteractionEnabled = enable
         self.txtPhone.isUserInteractionEnabled = enable
         self.txtAddress.isUserInteractionEnabled = enable
+        self.imgvwEditIcon.isHidden = !enable
         
         if enable {
             self.txtName.becomeFirstResponder()
@@ -68,6 +70,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     func updateUI(user: User?){
+        
+        let image = UIImage(systemName: "person.circle.fill")
+        self.imgvwProfile.image = image
+        
         self.txtName.text = user?.name
         self.txtEmail.text = user?.email
         self.txtPhone.text = user?.phoneNumber

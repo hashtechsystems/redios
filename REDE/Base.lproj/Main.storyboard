@@ -728,6 +728,13 @@
                                     <constraint firstAttribute="height" constant="100" id="ru9-0O-vSz"/>
                                 </constraints>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-lQ-laW">
+                                <rect key="frame" x="197" y="209.5" width="20" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="MPj-O3-KFk"/>
+                                    <constraint firstAttribute="width" constant="20" id="vgu-bP-9aO"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeC-IP-mRm">
                                 <rect key="frame" x="20" y="269" width="374" height="150"/>
                                 <subviews>
@@ -920,6 +927,7 @@
                             <constraint firstItem="QeC-IP-mRm" firstAttribute="leading" secondItem="HNa-eG-HKJ" secondAttribute="leading" constant="20" id="IwS-rX-8lx"/>
                             <constraint firstItem="jqV-YZ-o5d" firstAttribute="leading" secondItem="HNa-eG-HKJ" secondAttribute="leading" id="KVz-Ke-3IW"/>
                             <constraint firstItem="HNa-eG-HKJ" firstAttribute="bottom" secondItem="2lK-nH-R3R" secondAttribute="bottom" constant="30" id="KYD-lw-j7l"/>
+                            <constraint firstItem="Yui-lQ-laW" firstAttribute="bottom" secondItem="G6a-YJ-3Rk" secondAttribute="bottom" constant="-10" id="N5t-23-rsL"/>
                             <constraint firstItem="jqV-YZ-o5d" firstAttribute="top" secondItem="m5M-Dh-ahG" secondAttribute="top" id="OSn-Ga-XWX"/>
                             <constraint firstItem="FCv-R3-bfG" firstAttribute="centerX" secondItem="G6a-YJ-3Rk" secondAttribute="centerX" id="R5G-LE-DLU"/>
                             <constraint firstItem="HNa-eG-HKJ" firstAttribute="trailing" secondItem="QeC-IP-mRm" secondAttribute="trailing" constant="20" id="WrQ-UX-QkZ"/>
@@ -928,11 +936,13 @@
                             <constraint firstItem="FCv-R3-bfG" firstAttribute="centerY" secondItem="G6a-YJ-3Rk" secondAttribute="centerY" id="jrI-rS-IK8"/>
                             <constraint firstItem="QeC-IP-mRm" firstAttribute="top" secondItem="G6a-YJ-3Rk" secondAttribute="bottom" constant="30" id="qzj-XP-S8w"/>
                             <constraint firstItem="6b5-XU-W0F" firstAttribute="centerX" secondItem="HNa-eG-HKJ" secondAttribute="centerX" id="tz3-70-CUZ"/>
+                            <constraint firstItem="Yui-lQ-laW" firstAttribute="centerX" secondItem="G6a-YJ-3Rk" secondAttribute="centerX" id="uHg-5P-Blc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="t4y-TO-kXw"/>
                     <connections>
                         <outlet property="btnEdit" destination="6b5-XU-W0F" id="PrD-S1-eq3"/>
+                        <outlet property="imgvwEditIcon" destination="Yui-lQ-laW" id="ake-qj-ORy"/>
                         <outlet property="imgvwProfile" destination="G6a-YJ-3Rk" id="dcq-GQ-u4m"/>
                         <outlet property="navbar" destination="jqV-YZ-o5d" id="blL-gd-Xj1"/>
                         <outlet property="txtAddress" destination="Eax-gb-xtH" id="5wN-ha-DDM"/>
@@ -2175,6 +2185,7 @@
         <image name="lock" catalog="system" width="125" height="128"/>
         <image name="logout" width="512" height="512"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="phone" catalog="system" width="128" height="115"/>
