@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?,_ error: Error?)->()
+public typealias NetworkRouterCompletion = (_ data: Data?,_ response: URLResponse?, _ error: Error?)->()
 
 protocol NetworkRouter{
     associatedtype EndPoint: EndPointType

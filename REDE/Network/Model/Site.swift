@@ -9,7 +9,8 @@ import Foundation
 
 struct SiteResponse: Codable {
     let status: Bool
-    let data: [Site]
+    let data: [Site]?
+    let message: String?
 }
 
 // MARK: - Datum
@@ -38,7 +39,8 @@ struct Site: Codable {
 
 struct ChargerStationDetailsResponse: Codable {
     let status: Bool
-    let data: ChargerStation
+    let data: ChargerStation?
+    let message: String?
 }
 
 // MARK: - ChargerStation
@@ -90,28 +92,23 @@ struct PaymentResponse: Codable {
     let ocppCbid: String?
     let authId: String?
     let transactionId: String?
-
-    enum CodingKeys: String, CodingKey {
-        case status, data, ocppCbid
-        case authId, transactionId
-    }
+    let message: String?
 }
 
 // MARK: - UpdatePaymentResponse
 struct UpdatePaymentResponse: Codable {
     let status: Bool
     let data: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case status, data
-    }
+    let message: String?
 }
 
 
 // MARK: - Welcome
 struct TransactionDetailsResponse: Codable {
     let status: Bool
-    var data: TransactionDetails
+    var data: TransactionDetails?
+    let message: String?
+    
 }
 
 // MARK: - DataClass

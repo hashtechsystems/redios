@@ -10,7 +10,8 @@ import Foundation
 
 struct RegistrationResponse: Codable {
     let status: Bool
-    let data: String
+    let data: String?
+    let message: String?
 }
 
 struct LoginResponse: Codable {
@@ -39,11 +40,13 @@ public struct User: Codable {
 
 struct ProfileUpdateResponse: Codable {
     let status: Bool
-    let data: String
+    let data: String?
+    let message: String?
 }
 
 
 struct FetchProfileResponse: Codable {
     let status: Bool
-    let data: User
+    let data: User?
+    let message: String?
 }
