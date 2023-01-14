@@ -37,6 +37,9 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         
         self.navbar.isLeftButtonHidden = true
         
+        let image = UIImage(systemName: "person.circle.fill")
+        self.imgvwProfile.image = image
+        
         updateUI(user: self.user)
     }
     
@@ -70,20 +73,16 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     func updateUI(user: User?){
-        
-        let image = UIImage(systemName: "person.circle.fill")
-        self.imgvwProfile.image = image
-        
         self.txtName.text = user?.name
         self.txtEmail.text = user?.email
         self.txtPhone.text = user?.phoneNumber
         self.txtAddress.text = user?.address
         
-        guard let user = user else {
+        guard let _imagePath = user?.imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+        let _fileName = user?.profilePic?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+        let url = URL(string: "\(_imagePath)/\(_fileName)") else {
             return
         }
-        
-        let url = URL(string: "\(user.imagePath)/\(user.profilePic ?? "")")!
         self.imgvwProfile.af.setImage(withURL: url)
     }
     
@@ -152,7 +151,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        //print("imagePickerController cancel")
+        dismiss(animated: true, completion: nil)
     }
 }
 
