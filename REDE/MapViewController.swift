@@ -34,6 +34,8 @@ class MapViewController: BaseViewController {
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.distanceFilter = 50
+        locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestWhenInUseAuthorization()
         
         // Start updating location
@@ -43,7 +45,7 @@ class MapViewController: BaseViewController {
 
 extension MapViewController{
     func fetchSites(lat: Double, long: Double){
-        NetworkManager().sites(lat: lat, long: long) { sites, error in
+        NetworkManager().sites(lat: 42.36283, long: -83.09442) { sites, error in
             
             let annotations = sites.map { site -> SiteAnnotation in
                 let pin = SiteAnnotation()
@@ -117,7 +119,7 @@ extension MapViewController : MKMapViewDelegate{
             annotationView?.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "flag")
+        let pinImage = UIImage(named: "flag_red")
         annotationView?.image = pinImage
         
         let rightButton = UIButton(type: .detailDisclosure)
