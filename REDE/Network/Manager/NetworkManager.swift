@@ -153,7 +153,7 @@ struct NetworkManager {
                 }
                 
             }catch {
-                //print(error)
+                print(error)
                 completion([], error.localizedDescription)
             }
         }

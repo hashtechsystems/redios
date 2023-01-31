@@ -17,7 +17,7 @@ struct SiteResponse: Codable {
 struct Site: Codable {
     let id: Int
     let name, address, city, state: String
-    let postalCode: String
+    let postalCode: String?
     let status: Int
     let chargerStations: [ChargerStation]?
     let latitude, longitude: String
