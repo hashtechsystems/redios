@@ -58,15 +58,19 @@ extension ChargerDetailsViewController {
         }
         
         if self.chargerStation?.site?.pricePlanId != nil {
-            guard let controller = UIViewController.instantiateVC(viewController: AuthorizePaymentViewController.self) else { return }
-            controller.delegate = self
-            controller.modalPresentationStyle = .fullScreen
-            self.present(controller, animated: true)
+            self.openCardPayment()
         }
         else{
             self.startCharging()
         }
         
+    }
+    
+    private func openCardPayment(){
+        guard let controller = UIViewController.instantiateVC(viewController: AuthorizePaymentViewController.self) else { return }
+        controller.delegate = self
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
     }
     
     func gotoStopCharging(){
@@ -221,7 +225,9 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.showAlert(title: "RED E", message: output){
-                    self.onClickConfirm()
+                    if self.chargerStation?.site?.pricePlanId != nil {
+                        self.openCardPayment()
+                    }
                 }
             }
         }
@@ -283,7 +289,9 @@ extension ChargerDetailsViewController{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.showAlert(title: "RED E", message: error){
-                        self.onClickConfirm()
+                        if self.chargerStation?.site?.pricePlanId != nil {
+                            self.openCardPayment()
+                        }
                     }
                 }
             }
@@ -301,8 +309,10 @@ extension ChargerDetailsViewController{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     //print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
-                    self.showAlert(title: "RED E", message: error){
-                        self.onClickConfirm()
+                    self.showAlert(title: "RED E", message: transaction?.message){
+                        if self.chargerStation?.site?.pricePlanId != nil {
+                            self.openCardPayment()
+                        }
                     }
                 }
                 return
@@ -311,7 +321,12 @@ extension ChargerDetailsViewController{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.transaction = transaction
-                self.updatePayment()
+                
+                if self.chargerStation?.site?.pricePlanId != nil {
+                    self.updatePayment()
+                } else {
+                    self.gotoStopCharging()
+                }
             }
         }
     }

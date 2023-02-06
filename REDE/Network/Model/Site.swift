@@ -32,7 +32,7 @@ struct Site: Codable {
     }
     
     func getFullAdress() -> String {
-        return "\(address), \(city), \(state) : \(postalCode)"
+        return "\(address), \(city), \(state) : \(postalCode ?? "")"
     }
 }
 
@@ -78,11 +78,9 @@ struct Connector: Codable {
 
 // MARK: - Transaction
 struct Transaction: Codable {
+    let status: Bool?
+    let message: String?
     let transactionId: Int
-
-    enum CodingKeys: String, CodingKey {
-        case transactionId
-    }
 }
 
 // MARK: - PaymentResponse

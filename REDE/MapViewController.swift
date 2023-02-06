@@ -60,9 +60,14 @@ extension MapViewController{
             }
             
             DispatchQueue.main.async {
-                let annotationsOld = self.mapview.annotations.filter({ !($0 is MKUserLocation) })
-                self.mapview.removeAnnotations(annotationsOld)
-                self.mapview.addAnnotations(annotations)
+                if (error?.elementsEqual("Your session has been expired.") ?? false){
+                    self.logout()
+                }
+                else{
+                    let annotationsOld = self.mapview.annotations.filter({ !($0 is MKUserLocation) })
+                    self.mapview.removeAnnotations(annotationsOld)
+                    self.mapview.addAnnotations(annotations)
+                }
             }
         }
     }
@@ -146,8 +151,6 @@ extension MapViewController: ScannerDelegate{
     
     func onQRDetection(code: String) {
         guard let url = URL.init(string: code) else { return }
-        //guard let components = URLComponents(string: url.absoluteString) else { return }
-        //let path = components.path.components(separatedBy: "=").last
         guard let controller = UIViewController.instantiateVC(viewController: ChargerDetailsViewController.self) else { return }
         controller.qrCode = url.lastPathComponent
         self.navigationController?.pushViewController(controller, animated: true)

@@ -119,7 +119,7 @@ extension StopChargingViewController {
             guard let transaction = data, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: error)
+                    self.showAlert(title: "RED E", message: data?.message)
                 }
                 return
             }
