@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TransactionHistoryViewController: BaseViewController {
     
@@ -69,6 +70,8 @@ extension TransactionHistoryViewController {
             return
         }
         
+        SVProgressHUD.show()
+        
         NetworkManager().getTransactionDetails(transactionId: transactionId) { transaction, error in
             
             guard var transaction = transaction else {
@@ -76,7 +79,15 @@ extension TransactionHistoryViewController {
             }
             
             DispatchQueue.main.async {
-                self.updateUI(details: &transaction)
+                
+                SVProgressHUD.dismiss()
+                
+                if (error?.elementsEqual("Your session has been expired.") ?? false){
+                    self.logout()
+                }
+                else{
+                    self.updateUI(details: &transaction)
+                }
             }
         }
     }

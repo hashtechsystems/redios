@@ -103,8 +103,14 @@ extension ChargerDetailsViewController {
             guard let _ = charger else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: "Charger unavailable"){
-                        self.gotoLastScreen()
+                    
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error){
+                            self.gotoLastScreen()
+                        }
                     }
                 }
                 return
@@ -288,9 +294,15 @@ extension ChargerDetailsViewController{
             else{
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: error){
-                        if self.chargerStation?.site?.pricePlanId != nil {
-                            self.openCardPayment()
+                    
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error){
+                            if self.chargerStation?.site?.pricePlanId != nil {
+                                self.openCardPayment()
+                            }
                         }
                     }
                 }
@@ -308,10 +320,14 @@ extension ChargerDetailsViewController{
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    //print("transaction.transactionId = \(transaction?.transactionId ?? -1)")
-                    self.showAlert(title: "RED E", message: transaction?.message){
-                        if self.chargerStation?.site?.pricePlanId != nil {
-                            self.openCardPayment()
+                    if (transaction?.message?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: transaction?.message){
+                            if self.chargerStation?.site?.pricePlanId != nil {
+                                self.openCardPayment()
+                            }
                         }
                     }
                 }
@@ -343,7 +359,12 @@ extension ChargerDetailsViewController{
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: error)
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error)
+                    }
                 }
                 return
             }

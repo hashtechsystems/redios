@@ -119,7 +119,12 @@ extension StopChargingViewController {
             guard let transaction = data, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: data?.message)
+                    if (data?.message?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: data?.message)
+                    }
                 }
                 return
             }
@@ -150,27 +155,34 @@ extension StopChargingViewController {
             }
             
             DispatchQueue.main.async {
-                self.updateUI(details: &transaction)
                 
-                if (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false) ||
-                    (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false) {
-                    if self.chargerStation?.site?.pricePlanId != nil{
-                        self.updatePayment()
+                if (error?.elementsEqual("Your session has been expired.") ?? false){
+                    self.logout()
+                }
+                else{
+                    
+                    self.updateUI(details: &transaction)
+                    
+                    if (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false) ||
+                        (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false) {
+                        if self.chargerStation?.site?.pricePlanId != nil{
+                            self.updatePayment()
+                        }
+                        else{
+                            self.gotoDashboard()
+                        }
                     }
-                    else{
+                    /*else if transaction.status?.lowercased().elementsEqual("active") ?? false{
+                     self.updateUI(details: &transaction)
+                     }*/
+                    else if transaction.status?.lowercased().elementsEqual("finished") ?? false {
+                        self.updateTimer?.invalidate()
+                        self.gotoTransactionHistory()
+                    }
+                    else if transaction.status?.lowercased().elementsEqual("failed") ?? false {
+                        self.updateTimer?.invalidate()
                         self.gotoDashboard()
                     }
-                }
-                /*else if transaction.status?.lowercased().elementsEqual("active") ?? false{
-                 self.updateUI(details: &transaction)
-                 }*/
-                else if transaction.status?.lowercased().elementsEqual("finished") ?? false {
-                    self.updateTimer?.invalidate()
-                    self.gotoTransactionHistory()
-                }
-                else if transaction.status?.lowercased().elementsEqual("failed") ?? false {
-                    self.updateTimer?.invalidate()
-                    self.gotoDashboard()
                 }
             }
         }
@@ -190,7 +202,12 @@ extension StopChargingViewController {
             guard let response = response else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: error)
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error)
+                    }
                 }
                 return
             }

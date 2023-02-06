@@ -220,8 +220,13 @@ extension ProfileViewController {
             
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                self.showAlert(title: "RED E", message: response) {
-                    self.getUserProfile()
+                if (error?.elementsEqual("Your session has been expired.") ?? false){
+                    self.logout()
+                }
+                else{
+                    self.showAlert(title: "RED E", message: response) {
+                        self.getUserProfile()
+                    }
                 }
             }
         }
@@ -234,7 +239,12 @@ extension ProfileViewController {
             guard let _ = user else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    self.showAlert(title: "RED E", message: error)
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error)
+                    }
                 }
                 return
             }
@@ -252,9 +262,14 @@ extension ProfileViewController {
         NetworkManager().deleteUser() { isSuccess, message  in
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
-                if isSuccess {
-                    self.showAlert(title: "RED E", message: message){
-                        self.logout()
+                if (message?.elementsEqual("Your session has been expired.") ?? false){
+                    self.logout()
+                }
+                else{
+                    if isSuccess {
+                        self.showAlert(title: "RED E", message: message){
+                            self.logout()
+                        }
                     }
                 }
             }

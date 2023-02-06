@@ -250,7 +250,7 @@ struct NetworkManager {
                     completion(apiResponse.data, nil)
                 }
                 else {
-                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+                    completion(nil, apiResponse.message ?? "Charger unavailable.")
                 }
             }catch {
                 //print(error)
