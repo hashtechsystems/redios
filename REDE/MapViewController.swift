@@ -61,6 +61,7 @@ extension MapViewController{
             
             DispatchQueue.main.async {
                 if (error?.elementsEqual("Your session has been expired.") ?? false){
+                    self.locationManager.stopUpdatingLocation()
                     self.logout()
                 }
                 else{

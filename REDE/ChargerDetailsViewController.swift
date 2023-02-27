@@ -138,8 +138,9 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         
         if connector?.type.elementsEqual("CHADEMO") ?? false {
             cell?.imgView.image = UIImage.init(named: "chdemo")
-        }
-        else{
+        } else if connector?.type.elementsEqual("J1772") ?? false {
+            cell?.imgView.image = UIImage.init(named: "j1772")
+        }else{
             cell?.imgView.image = UIImage.init(named: "ccs")
         }
         
@@ -320,7 +321,14 @@ extension ChargerDetailsViewController{
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    if (transaction?.message?.elementsEqual("Your session has been expired.") ?? false){
+                    
+                    self.showAlert(title: "RED E", message: error){
+                        if self.chargerStation?.site?.pricePlanId != nil {
+                            self.openCardPayment()
+                        }
+                    }
+                    
+                    /*if (transaction?.message?.elementsEqual("Your session has been expired.") ?? false){
                         self.logout()
                     }
                     else{
@@ -329,7 +337,7 @@ extension ChargerDetailsViewController{
                                 self.openCardPayment()
                             }
                         }
-                    }
+                    }*/
                 }
                 return
             }

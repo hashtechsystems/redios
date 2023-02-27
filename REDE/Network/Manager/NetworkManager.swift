@@ -275,7 +275,14 @@ struct NetworkManager {
             
             do {
                 let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
-                completion(apiResponse, nil)
+                
+                guard let message = apiResponse.result else {
+                    completion(apiResponse, nil)
+                    return
+                }
+                
+                completion(nil, message)
+                
             }catch {
                 //print(error)
                 completion(nil, error.localizedDescription)
@@ -298,7 +305,13 @@ struct NetworkManager {
             
             do {
                 let apiResponse = try JSONDecoder().decode(Transaction.self, from: responseData)
-                completion(apiResponse, nil)
+                
+                guard let message = apiResponse.result else {
+                    completion(apiResponse, nil)
+                    return
+                }
+                
+                completion(nil, message)
             }catch {
                 //print(error)
                 completion(nil, error.localizedDescription)

@@ -80,6 +80,7 @@ struct Connector: Codable {
 struct Transaction: Codable {
     let status: Bool?
     let message: String?
+    let result: String?
     let transactionId: Int
 }
 

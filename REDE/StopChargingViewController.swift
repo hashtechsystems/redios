@@ -119,12 +119,15 @@ extension StopChargingViewController {
             guard let transaction = data, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    if (data?.message?.elementsEqual("Your session has been expired.") ?? false){
+                    
+                    self.showAlert(title: "RED E", message: error)
+                    
+                    /*if (data?.message?.elementsEqual("Your session has been expired.") ?? false){
                         self.logout()
                     }
                     else{
                         self.showAlert(title: "RED E", message: data?.message)
-                    }
+                    }*/
                 }
                 return
             }
