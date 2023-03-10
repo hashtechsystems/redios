@@ -78,12 +78,12 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.txtPhone.text = user?.phoneNumber
         self.txtAddress.text = user?.address
         
-        guard let _imagePath = user?.imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-        let _fileName = user?.profilePic?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-        let url = URL(string: "\(_imagePath)/\(_fileName)") else {
-            return
-        }
-        self.imgvwProfile.af.setImage(withURL: url)
+//        guard let _imagePath = user?.imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+//        let _fileName = user?.profilePic?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+//        let url = URL(string: "\(_imagePath)/\(_fileName)") else {
+//            return
+//        }
+//        self.imgvwProfile.af.setImage(withURL: url)
     }
     
     
@@ -100,7 +100,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func onEditPicture(_ sender: UIButton) {
-        if btnEdit.isSelected {
+        /*if btnEdit.isSelected {
             
             let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
             
@@ -122,7 +122,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
             alert.addAction(gallaryAction)
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
-        }
+        }*/
     }
     
     func openCamera(_ sourceType: UIImagePickerController.SourceType) {

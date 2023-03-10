@@ -15,10 +15,14 @@ class ConnectorCell: UICollectionViewCell {
     
 
     public func showCheck(){
-        self.checkImageView.isHidden = false
+        //self.checkImageView.isHidden = false
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.red.cgColor
     }
     
     public func hideCheck(){
         self.checkImageView.isHidden = true
+        self.layer.borderWidth = 0.0
+        self.layer.borderColor = UIColor.clear.cgColor
     }
 }
