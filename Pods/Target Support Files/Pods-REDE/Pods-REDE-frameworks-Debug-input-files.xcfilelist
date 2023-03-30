@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-REDE/Pods-REDE-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AnimatedCardInput/AnimatedCardInput.framework
 ${BUILT_PRODUCTS_DIR}/AuthorizeNetAccept/AuthorizeNetAccept.framework
+${BUILT_PRODUCTS_DIR}/OTPFieldView/OTPFieldView.framework
 ${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework

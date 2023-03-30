@@ -1,12 +1,14 @@
 PODS:
   - AnimatedCardInput (0.3.0)
   - AuthorizeNetAccept (0.5.0)
+  - OTPFieldView (1.0.1)
   - SkyFloatingLabelTextField (3.8.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - AnimatedCardInput
   - AuthorizeNetAccept
+  - OTPFieldView
   - SkyFloatingLabelTextField (~> 3.0)
   - SVProgressHUD
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   trunk:
     - AnimatedCardInput
     - AuthorizeNetAccept
+    - OTPFieldView
     - SkyFloatingLabelTextField
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   AnimatedCardInput: c4753212807397578085c6812b4ed6ddca7ebf0a
   AuthorizeNetAccept: 410bbacc7ffb37a3e17d5d4e7e65251b318f426d
+  OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8425b8832d64f8ebe1f2d903e38124da7962dc0c
+PODFILE CHECKSUM: c8fb6fc75aa4da4bb831f2cab0f540f0b39f10dd
 
 COCOAPODS: 1.11.3

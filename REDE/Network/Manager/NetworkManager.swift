@@ -27,7 +27,77 @@ enum Result<String>{
 struct NetworkManager {
 
     let router = Router<REDEApi>()
+    
+    func generateOtp(phone_number: String) async -> (Bool, String?){
+        await withCheckedContinuation({ continuation in
+            router.request(.otp(phone_number: phone_number)) { data, response, error in
+                if let error = error {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                    return
+                }
+                
+                guard let responseData = data else {
+                    continuation.resume(returning: (false, NetworkResponse.noData.rawValue))
+                    return
+                }
+                
+                do {
+                    let apiResponse = try JSONDecoder().decode(ForgetPasswordResponse.self, from: responseData)
+                    continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                }catch {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                }
+            }
+        })
+    }
+    
+    func verifyOtp(phone_number: String, otp: String) async -> (Bool, String?){
+        await withCheckedContinuation({ continuation in
+            router.request(.verifyOtp(phone_number: phone_number, otp: otp)) { data, response, error in
+                if let error = error {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                    return
+                }
+                
+                guard let responseData = data else {
+                    continuation.resume(returning: (false, NetworkResponse.noData.rawValue))
+                    return
+                }
+                
+                do {
+                    let apiResponse = try JSONDecoder().decode(ForgetPasswordResponse.self, from: responseData)
+                    continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                }catch {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                }
+            }
+        })
+    }
+    
+    func resetPassword(phone_number: String, password: String, confirmPassword: String) async -> (Bool, String?){
+        await withCheckedContinuation({ continuation in
+            router.request(.resetPassword(phone_number: phone_number, password: password, password_confirmation: confirmPassword)) { data, response, error in
+                if let error = error {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                    return
+                }
+                
+                guard let responseData = data else {
+                    continuation.resume(returning: (false, NetworkResponse.noData.rawValue))
+                    return
+                }
+                
+                do {
+                    let apiResponse = try JSONDecoder().decode(ForgetPasswordResponse.self, from: responseData)
+                    continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                }catch {
+                    continuation.resume(returning: (false, error.localizedDescription))
+                }
+            }
+        })
+    }
 
+    
     func register(name: String, email: String, phone_number: String, password: String, completion: @escaping (_ response: String?,_ error: String?) -> ()) {
         router.request(.register(name: name, email: email, phone_number: phone_number, password: password)) { data, response, error in
             

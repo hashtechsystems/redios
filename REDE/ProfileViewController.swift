@@ -46,7 +46,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     
     @IBAction func onEdit(_ sender: UIButton) {
         if sender.isSelected {
-            self.view.endEditing(true)
+            self.dismissKeyboard()
             sender.isSelected = false
             sender.setTitle("Edit", for: .normal)
             sender.setTitle("Edit", for: .selected)

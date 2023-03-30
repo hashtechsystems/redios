@@ -8,6 +8,11 @@
 import Foundation
 
 
+struct ForgetPasswordResponse: Codable {
+    let status: Bool
+    let message: String?
+}
+
 struct RegistrationResponse: Codable {
     let status: Bool
     let data: String?

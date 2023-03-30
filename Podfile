@@ -11,5 +11,6 @@ target 'REDE' do
   pod 'SVProgressHUD'
   pod 'AuthorizeNetAccept'
   pod 'AnimatedCardInput'
+  pod 'OTPFieldView'
   
 end

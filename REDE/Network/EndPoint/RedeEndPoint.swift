@@ -23,6 +23,9 @@ public enum REDEApi {
     case updatePayment(authId: String, sessionId: Int)
     case getTransactionDetails(transactionId: Int)
     case deleteUser
+    case otp(phone_number: String)
+    case verifyOtp(phone_number: String, otp: String)
+    case resetPassword(phone_number: String, password: String, password_confirmation: String)
 }
 
 extension REDEApi: EndPointType {
@@ -63,6 +66,12 @@ extension REDEApi: EndPointType {
             return url.appendingPathComponent("get-transaction-detail-by-id/\(transactionId)")
         case .deleteUser:
             return url.appendingPathComponent("delete-user")
+        case .otp:
+            return url.appendingPathComponent("send-otp")
+        case .verifyOtp:
+            return url.appendingPathComponent("verify-otp")
+        case .resetPassword:
+            return url.appendingPathComponent("reset-password")
         }
     }
     
@@ -96,21 +105,27 @@ extension REDEApi: EndPointType {
             return ["auth_id": authId, "session_id": sessionId]
         case .updatePaymentWithTransaction(let authId, let sessionId):
             return ["auth_id": authId, "session_id": sessionId]
+        case .otp(let phone_number):
+            return ["phone_number": phone_number]
+        case .verifyOtp(let phone_number, let otp):
+            return ["phone_number": phone_number, "otp": otp]
+        case .resetPassword(let phone_number, let password, let password_confirmation):
+            return ["phone_number": phone_number, "password": password, "password_confirmation": password_confirmation]
         }
     }
 
     var httpHeaders: HTTPHeaders? {
         switch self {
-        case .login, .register:
+        case .login, .register, .otp, .verifyOtp:
             return nil
-        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
+        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .resetPassword:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
         }
     }
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -119,7 +134,7 @@ extension REDEApi: EndPointType {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser, .updateProfile:
+        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword:
             return .post
         case .fetchProfile, .getTransactionDetails:
             return .get

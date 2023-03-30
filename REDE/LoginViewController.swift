@@ -29,6 +29,9 @@ class LoginViewController: UIViewController {
 //        self.txtUsername.text = "+17142024601"
 //        self.txtPassword.text = "harish123"
         
+        self.txtUsername.text = "+919874837657"
+        self.txtPassword.text = "123456"
+        
         self.checkbox.borderStyle = .square
         self.checkbox.checkmarkStyle = .tick
         self.checkbox.checkmarkColor = .blue
@@ -72,7 +75,7 @@ extension LoginViewController {
     
     @IBAction func onClickLogin(){
         
-        guard let phoneNumber = txtUsername.text, let password = txtPassword.text else {
+        guard let phoneNumber = txtUsername.text, let password = txtPassword.text, phoneNumber.count > 0, password.count > 0 else {
             return
         }
         
@@ -101,7 +104,7 @@ extension LoginViewController {
     }
     
     @IBAction func onDismiss(_ sender: Any) {
-        self.view.endEditing(true)
+        self.dismissKeyboard()
     }
     
     @IBAction func showRegistration(_ sender: Any) {
@@ -110,6 +113,8 @@ extension LoginViewController {
     }
     
     @IBAction func onForgetPassword(){
+        guard let controller = UIViewController.instantiateVC(viewController: ForgetPasswordViewController.self) else { return }
+        self.navigationController?.pushViewController(controller, animated: false)
     }
 }
 

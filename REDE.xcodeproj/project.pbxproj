@@ -45,6 +45,9 @@
 		71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71CF94D8289CCF06002186EA /* Aldrich-Regular.ttf */; };
 		71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */; };
 		71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */; };
+		A9E2ADDB29C19A9A002738C0 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDA29C19A9A002738C0 /* ForgetPasswordViewController.swift */; };
+		A9E2ADDD29C1A940002738C0 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDC29C1A940002738C0 /* VerifyOTPViewController.swift */; };
+		A9E2ADDF29C1D5CE002738C0 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizePaymentViewController.swift; sourceTree = "<group>"; };
 		A91AAF31293E5CC400E206D4 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		A9E2ADDA29C19A9A002738C0 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		A9E2ADDC29C1A940002738C0 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,9 @@
 				7134382F2866D038005D0EBD /* SceneDelegate.swift */,
 				713438312866D038005D0EBD /* LoginViewController.swift */,
 				71EDDD13289CBF5200B9DA84 /* RegistrationViewController.swift */,
+				A9E2ADDA29C19A9A002738C0 /* ForgetPasswordViewController.swift */,
+				A9E2ADDC29C1A940002738C0 /* VerifyOTPViewController.swift */,
+				A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */,
 				7134384B28676902005D0EBD /* DashboardViewController.swift */,
 				71343849286768DB005D0EBD /* ProfileViewController.swift */,
 				713438472866E5C6005D0EBD /* MapViewController.swift */,
@@ -381,6 +390,7 @@
 				713C9E8B2891046200F8F3AE /* RedeEndPoint.swift in Sources */,
 				713C9E942891046200F8F3AE /* HTTPMethod.swift in Sources */,
 				714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */,
+				A9E2ADDF29C1D5CE002738C0 /* PasswordViewController.swift in Sources */,
 				717A996E289FF41D00AD6646 /* ConnectorCell.swift in Sources */,
 				71C2B3A928C653C6002E7724 /* TransactionHistoryViewController.swift in Sources */,
 				713438432866D46B005D0EBD /* UIViewController+Extension.swift in Sources */,
@@ -390,6 +400,7 @@
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
+				A9E2ADDB29C19A9A002738C0 /* ForgetPasswordViewController.swift in Sources */,
 				71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */,
 				71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
@@ -407,6 +418,7 @@
 				714CEF752899551A00528ACF /* Url+Extension.swift in Sources */,
 				711EAF7D2897F2550092B29C /* ScannerViewController.swift in Sources */,
 				713438302866D038005D0EBD /* SceneDelegate.swift in Sources */,
+				A9E2ADDD29C1A940002738C0 /* VerifyOTPViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -610,7 +622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
