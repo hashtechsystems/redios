@@ -330,8 +330,8 @@ struct NetworkManager {
     }
     
     
-    func startCharging( ocppCbid: String, sequenceNumber: Int, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
-        router.request(.startCharging(ocppCbid: ocppCbid, sequenceNumber: sequenceNumber)) { data, response, error in
+    func startCharging( ocppCbid: String, sequenceNumber: Int, authId: String, completion: @escaping (_ transaction: Transaction?, _ error: String?) -> ()) {
+        router.request(.startCharging(ocppCbid: ocppCbid, sequenceNumber: sequenceNumber, authId: authId)) { data, response, error in
 
             if let error = error {
                 completion(nil, error.localizedDescription)
@@ -390,8 +390,8 @@ struct NetworkManager {
         }
     }
 
-    func makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
-        router.request(.makePayment(qrCode: qrCode, /*cardDate: cardDate, cardNumber: cardNumber,*/ cryptogram: cryptogram)) { data, response, error in
+    func makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String, connectorId: Int, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
+        router.request(.makePayment(qrCode: qrCode, /*cardDate: cardDate, cardNumber: cardNumber,*/ cryptogram: cryptogram, connector_id: connectorId)) { data, response, error in
             
             if let error = error {
                 completion(false, nil, error.localizedDescription)

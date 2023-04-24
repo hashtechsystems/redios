@@ -196,11 +196,15 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
         guard arr.count == 2, let month = arr.first, let year = arr.last else{
             return
         }
+        
+        guard let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
+            return
+        }
        
-        self.getToken(cardNumber: card.cardNumber, expirationMonth: month, expirationYear: year, cardCode: card.CVVNumber)
+        self.getToken(cardNumber: card.cardNumber, expirationMonth: month, expirationYear: year, cardCode: card.CVVNumber, connectorId: connector.id)
     }
     
-    func getToken(cardNumber: String, expirationMonth: String, expirationYear: String, cardCode: String) {
+    func getToken(cardNumber: String, expirationMonth: String, expirationYear: String, cardCode: String, connectorId: Int) {
         
         let handler = AcceptSDKHandler(environment: AcceptSDKEnvironment.ENV_LIVE)
         
@@ -223,7 +227,7 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             output = output + String(format: "\nMessage Code: %@\nMessage Text: %@", inResponse.getMessages().getMessages()[0].getCode(), inResponse.getMessages().getMessages()[0].getText())
             //print(output)
             
-            self.makePayment(cardNumber: cardNumber, expirationMonth: expirationMonth, expirationYear: expirationYear, token: inResponse.getOpaqueData().getDataValue())
+            self.makePayment(cardNumber: cardNumber, expirationMonth: expirationMonth, expirationYear: expirationYear, token: inResponse.getOpaqueData().getDataValue(), connectorId: connectorId)
             
         }) { (inError:AcceptSDKErrorResponse) -> () in
             let output = String(format: "Response:  %@\nError code: %@\nError text:   %@", inError.getMessages().getResultCode(), inError.getMessages().getMessages()[0].getCode(), inError.getMessages().getMessages()[0].getText())
@@ -274,7 +278,7 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
 
 extension ChargerDetailsViewController{
     
-    func makePayment(cardNumber: String, expirationMonth: String, expirationYear: String, token: String){
+    func makePayment(cardNumber: String, expirationMonth: String, expirationYear: String, token: String, connectorId: Int){
         
         guard let qrCode = self.qrCode else{
             DispatchQueue.main.async {
@@ -283,7 +287,7 @@ extension ChargerDetailsViewController{
             return
         }
         
-        NetworkManager().makePayment(qrCode: qrCode, /*cardDate: "\(expirationYear)-\(expirationMonth)", cardNumber: cardNumber,*/ cryptogram: token) { success, authId, error in
+        NetworkManager().makePayment(qrCode: qrCode, /*cardDate: "\(expirationYear)-\(expirationMonth)", cardNumber: cardNumber,*/ cryptogram: token, connectorId: connectorId) { success, authId, error in
 
             if let authId = authId, success {
                 self.authId = authId
@@ -312,12 +316,12 @@ extension ChargerDetailsViewController{
     }
     
     func startCharging(){
-        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
+        guard let authId = self.authId, let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
             return
         }
 
         SVProgressHUD.show()
-        NetworkManager().startCharging(ocppCbid: ocppCbid, sequenceNumber: connector.sequence_number) { transaction, error in
+        NetworkManager().startCharging(ocppCbid: ocppCbid, sequenceNumber: connector.sequence_number, authId: authId) { transaction, error in
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()

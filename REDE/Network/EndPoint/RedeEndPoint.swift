@@ -16,8 +16,8 @@ public enum REDEApi {
     case sites(lat:Double, long:Double)
     case fetchProfile
     case chargerDetails(qrCode: String)
-    case makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String)
-    case startCharging(ocppCbid: String, sequenceNumber: Int)
+    case makePayment(qrCode: String, /*cardDate: String, cardNumber: String,*/ cryptogram: String, connector_id: Int)
+    case startCharging(ocppCbid: String, sequenceNumber: Int, authId: String)
     case stopCharging(ocppCbid: String, transactionId: Int)
     case updatePaymentWithTransaction(authId: String, sessionId: Int)
     case updatePayment(authId: String, sessionId: Int)
@@ -36,6 +36,8 @@ extension REDEApi: EndPointType {
         //guard let url = URL(string: "http://13.59.84.54/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
         
         guard let url = URL(string: "https://pay.rede.network/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
+        
+//        guard let url = URL(string: "http://paydev.rede.network/laravel/index.php/api/") else { fatalError("baseURL could not be configured.")}
         
         switch self {
         case .register:
@@ -95,12 +97,12 @@ extension REDEApi: EndPointType {
             return nil
         case .chargerDetails(let qrCode):
             return ["qr_code": qrCode]
-        case .startCharging(let ocppCbid, let sequenceNumber):
-            return ["ocpp_cbid": ocppCbid, "connector_id": sequenceNumber]
+        case .startCharging(let ocppCbid, let sequenceNumber, let authId):
+            return ["ocpp_cbid": ocppCbid, "connector_id": sequenceNumber, "auth_id": authId]
         case .stopCharging(let ocppCbid, let transactionId):
             return ["ocpp_cbid": ocppCbid, "transactionId": transactionId]
-        case .makePayment(let qrCode, /*let cardDate, let cardNumber,*/ let cryptogram):
-            return ["qr_code": qrCode, /*"card_date": cardDate, "card_number": cardNumber,*/ "cryptogram": cryptogram]
+        case .makePayment(let qrCode, /*let cardDate, let cardNumber,*/ let cryptogram, let connector_id):
+            return ["qr_code": qrCode, /*"card_date": cardDate, "card_number": cardNumber,*/ "cryptogram": cryptogram, "connector_id" : connector_id]
         case .updatePayment(let authId, let sessionId):
             return ["auth_id": authId, "session_id": sessionId]
         case .updatePaymentWithTransaction(let authId, let sessionId):

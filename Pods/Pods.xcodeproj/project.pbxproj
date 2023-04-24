@@ -165,7 +165,7 @@
 		5B63A4D72E306BFCAA06A8831EB32BD2 /* Pods-REDE-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-REDE-acknowledgements.plist"; sourceTree = "<group>"; };
 		5E11E9B741123DBA321E926D1B397337 /* AuthorizeNetAccept.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthorizeNetAccept.release.xcconfig; sourceTree = "<group>"; };
 		61E8A2655BC9A29406068E555A853A69 /* AnimatedCardInput-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AnimatedCardInput-prefix.pch"; sourceTree = "<group>"; };
-		65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AuthorizeNetAccept; path = AuthorizeNetAccept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthorizeNetAccept.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0D56A3CAA2B72A976139B889CB6137 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
 		6C450D78F423334301329430F17BFD3B /* OTPFieldView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTPFieldView.h; path = OTPFieldView/OTPFieldView.h; sourceTree = "<group>"; };
 		6DA8DB0783A082B1079520D49D5F7C3C /* AnimatedCardInput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AnimatedCardInput.debug.xcconfig; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		776AD706AA744FDD021106F1E47A9F94 /* CreditCardData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardData.swift; path = AnimatedCardInput/Classes/Models/CreditCardData.swift; sourceTree = "<group>"; };
 		78F5CCBF8215415C0D0237062BDAD17B /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKErrorResponse.swift; path = AcceptSDK/Response/AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
 		800C860042B6E45F2BBCE6C8E3C3FFE7 /* AcceptSDKStringValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKStringValidator.swift; path = AcceptSDK/Validators/AcceptSDKStringValidator.swift; sourceTree = "<group>"; };
-		83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AnimatedCardInput; path = AnimatedCardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimatedCardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FC1ADD61C2D2E7EBFAABD05E903709 /* CustomInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInputField.swift; path = "AnimatedCardInput/Classes/Card View/CustomInputField.swift"; sourceTree = "<group>"; };
 		8A3D44B8484E09F8CCEDD84C6DE67159 /* CardInputsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardInputsView.swift; path = "AnimatedCardInput/Classes/Card Inputs/CardInputsView.swift"; sourceTree = "<group>"; };
 		8C0B4015FB5B65334E8B9A063F9F24B0 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		C9A3AE5BE9BD15AAF2A0AA6479FA7469 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
 		D18B64B0F19847CDC5127AECB0050F88 /* CardFrontSideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardFrontSideView.swift; path = "AnimatedCardInput/Classes/Card View/CardFrontSideView.swift"; sourceTree = "<group>"; };
 		D2ABB4E1E9E9CE17D5E7012C04F13AD3 /* AuthorizeNetAccept-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthorizeNetAccept-umbrella.h"; sourceTree = "<group>"; };
-		D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7C3BA2E245B657B8CABBF2D4E03C40 /* Pods-REDE-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-REDE-Info.plist"; sourceTree = "<group>"; };
 		DD2B129FC486447C657A4D0BE3730505 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		DF0A5200855A87BDA28BEFD32998E55E /* CreditCardDataDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardDataDelegate.swift; path = AnimatedCardInput/Classes/Protocols/CreditCardDataDelegate.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 		F3D0901199CE1905BE61370501E097B5 /* AcceptSDKTokenInterfaceBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKTokenInterfaceBuilder.swift; path = AcceptSDK/AcceptBuilder/AcceptSDKTokenInterfaceBuilder.swift; sourceTree = "<group>"; };
 		FA923806760642F2D0E79648344F440A /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		FC7D7D9168E852DEC0CC4571D89EAF97 /* Pods-REDE.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-REDE.modulemap"; sourceTree = "<group>"; };
-		FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OTPFieldView; path = OTPFieldView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OTPFieldView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEA61556F6E10C48F21C7A8028F54D90 /* visa.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = visa.png; path = AnimatedCardInput/Assets/visa.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -464,12 +464,12 @@
 		668C0F356132E57CBA5E8A57A50C50C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */,
+				83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */,
 				2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput.bundle */,
-				65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */,
-				FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView */,
+				65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept.framework */,
+				FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView.framework */,
 				ABAD9B1FE8475D5B156B6A68418396E6 /* Pods-REDE */,
-				D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */,
+				D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField.framework */,
 				E97D43C46A45EE515A4DA3AF94398441 /* SVProgressHUD.framework */,
 			);
 			name = Products;
@@ -653,7 +653,7 @@
 			);
 			name = AuthorizeNetAccept;
 			productName = AuthorizeNetAccept;
-			productReference = 65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept */;
+			productReference = 65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		156A077F7C30B86E57114F572DD8BA38 /* AnimatedCardInput */ = {
@@ -672,7 +672,7 @@
 			);
 			name = AnimatedCardInput;
 			productName = AnimatedCardInput;
-			productReference = 83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */;
+			productReference = 83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1C8D67D8B72D6BA42CCEDB648537A340 /* SVProgressHUD */ = {
@@ -708,7 +708,7 @@
 			);
 			name = OTPFieldView;
 			productName = OTPFieldView;
-			productReference = FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView */;
+			productReference = FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CB0373C81B4E1300B589C300CB5F3574 /* Pods-REDE */ = {
@@ -749,7 +749,7 @@
 			);
 			name = SkyFloatingLabelTextField;
 			productName = SkyFloatingLabelTextField;
-			productReference = D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField */;
+			productReference = D392C11EB32EACD5EC9C8D37B51482B6 /* SkyFloatingLabelTextField.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1066,7 +1066,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1180,7 +1180,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1253,7 +1253,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1288,7 +1288,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1322,7 +1322,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1357,7 +1357,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OTPFieldView/OTPFieldView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OTPFieldView/OTPFieldView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1392,7 +1392,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OTPFieldView/OTPFieldView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OTPFieldView/OTPFieldView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1481,7 +1481,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1516,7 +1516,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1552,7 +1552,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
