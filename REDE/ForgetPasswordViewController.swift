@@ -19,7 +19,7 @@ class ForgetPasswordViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         self.hideKeyboardWhenTappedAround()
-        self.txtPhoneNumber.keyboardType = .numberPad
+        self.txtPhoneNumber.keyboardType = .default
         self.txtPhoneNumber.addDoneCancelToolbar(onDone: (target: self, action: #selector(self.onSubmitClick(_:))), onCancel: (target: self, action: #selector(self.dismissKeyboard)))
 
     }

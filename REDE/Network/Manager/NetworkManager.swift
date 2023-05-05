@@ -143,8 +143,8 @@ struct NetworkManager {
             
             do {
                 //print(responseData)
-                //let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                //print(jsonData)
+//                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+//                print(jsonData)
                 let apiResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
                 
                 if apiResponse.success {
@@ -211,8 +211,9 @@ struct NetworkManager {
             
             do {
                 //print(responseData)
-                //let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                //print(jsonData)
+                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                print(jsonData)
+                
                 let apiResponse = try JSONDecoder().decode(SiteResponse.self, from: responseData)
                 
                 if apiResponse.status {
@@ -245,11 +246,11 @@ struct NetworkManager {
             }
             
             do {
-                //print(responseData)
-                //let str = String(decoding: responseData, as: UTF8.self)
-                //print(str)
-                //let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
-                //print(jsonData)
+//                print(responseData)
+//                let str = String(decoding: responseData, as: UTF8.self)
+//                print(str)
+//                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
+//                print(jsonData)
                 let apiResponse = try JSONDecoder().decode(ProfileUpdateResponse.self, from: responseData)
                 
                 if apiResponse.status {
@@ -314,6 +315,9 @@ struct NetworkManager {
             }
             
             do {
+                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                print(jsonData)
+                
                 let apiResponse = try JSONDecoder().decode(ChargerStationDetailsResponse.self, from: responseData)
                 
                 if apiResponse.status {
@@ -404,6 +408,9 @@ struct NetworkManager {
             }
             
             do {
+                let str = String(decoding: responseData, as: UTF8.self)                
+                print(str)
+                
                 let apiResponse = try JSONDecoder().decode(PaymentResponse.self, from: responseData)
                 
                 if apiResponse.status {

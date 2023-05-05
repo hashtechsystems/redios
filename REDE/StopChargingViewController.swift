@@ -60,7 +60,7 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
             if let value = item.value, let kwh = Float(value){
-                self.lblEnegry.text = String(format:"%.4f kW h", kwh/1000)
+                self.lblEnegry.text = String(format:"%.2f kW h", kwh/1000)
             }
             else{
                 self.lblEnegry.text = ""

@@ -316,7 +316,7 @@ extension ChargerDetailsViewController{
     }
     
     func startCharging(){
-        guard let authId = self.authId, let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
+        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index], let authId = self.authId else {
             return
         }
 
