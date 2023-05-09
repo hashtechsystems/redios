@@ -18,19 +18,25 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var lblEnegry: UILabel!
     
     @IBOutlet weak var viewSocStatusHeightConstarint: NSLayoutConstraint!
+    @IBOutlet weak var viewPlugIn: UIView!
+
     
     var updateTimer: Timer?
+    var pluginTimer: Timer?
     
     var chargerStation:ChargerStation?
     var transaction: Transaction?
     var authId: String?
+    var isCarPlugedIn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isLeftButtonHidden = true
         self.navbar.isRightButtonHidden = true
+        self.viewPlugIn.isHidden = false
         getChargingProgressDetails()
         updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(getChargingProgressDetails), userInfo: nil, repeats: true)
+        pluginTimer = Timer.scheduledTimer(timeInterval: 90, target: self, selector: #selector(onCarPluginTimeout), userInfo: nil, repeats: false)
     }
     
     func updateUI(details: inout TransactionDetails){
@@ -56,11 +62,12 @@ class StopChargingViewController: BaseViewController {
             return dateFormatter.date(from: lhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0 < dateFormatter.date(from: rhs.timestamp ?? "")?.timeIntervalSince1970 ?? 0
         }
         
+        let meterStart = Float(details.meterStart ?? 0)
         let data = details.meterData?.last
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
             if let value = item.value, let kwh = Float(value){
-                self.lblEnegry.text = String(format:"%.2f kW h", kwh/1000)
+                self.lblEnegry.text = String(format:"%.2f kW h", (kwh - meterStart)/1000)
             }
             else{
                 self.lblEnegry.text = ""
@@ -77,11 +84,16 @@ class StopChargingViewController: BaseViewController {
             self.lblSocStatus.text = ""
         }
         
-        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Current.Import") ?? false}).first{
-            self.lblCurrent.text = "\(item.value ?? "0") %"
+        if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Power.Active.Import") ?? false}).first{
+            guard let value = item.value, let current = Float(value) else {
+                self.lblCurrent.text = ""
+                return
+            }
+            
+            self.lblCurrent.text = "\(current/1000) amp"
         }
         else{
-            self.lblCurrent.text = ""
+            self.lblCurrent.text = "0 amp"
         }
     }
 }
@@ -91,6 +103,7 @@ extension StopChargingViewController {
     @IBAction func onClickStopCharging(){
         self.stopCharging()
         self.updateTimer?.invalidate()
+        self.pluginTimer?.invalidate()
     }
     
     func gotoDashboard(){
@@ -102,10 +115,18 @@ extension StopChargingViewController {
         controller.transaction = self.transaction
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    @objc func onCarPluginTimeout(){
+        self.updateTimer?.invalidate()
+        self.pluginTimer?.invalidate()
+        self.showAlert(title: "RED E", message: "Plugin session timeout.") {
+            self.gotoDashboard()
+        }
+    }
 }
 
 extension StopChargingViewController {
-    
+
     func stopCharging(){
         
         guard let ocppCbid = self.chargerStation?.ocppCbid, let transactionId = transaction?.transactionId else {
@@ -151,7 +172,7 @@ extension StopChargingViewController {
             return
         }
         
-        NetworkManager().getTransactionDetails(transactionId: transactionId) { transaction, error in
+        NetworkManager().getTransactionDetails(transactionId: transactionId) { [unowned self] transaction, error in
             
             guard var transaction = transaction else {
                 return
@@ -166,9 +187,15 @@ extension StopChargingViewController {
                     
                     self.updateUI(details: &transaction)
                     
-                    if (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false) ||
-                        (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false) {
-                        if self.chargerStation?.site?.pricePlanId != nil{
+                    if (transaction.connectorStatus?.uppercased().elementsEqual("CHARGING") ?? false){
+                        self.isCarPlugedIn = true
+                        self.viewPlugIn.isHidden = true
+                        self.pluginTimer?.invalidate()
+                    }else if (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false)
+                                || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false)
+                                || (transaction.connectorStatus?.uppercased().elementsEqual("UNAVAILABLE") ?? false)
+                                || (transaction.connectorStatus?.uppercased().elementsEqual("FAULTED") ?? false) {
+                        if self.chargerStation?.site?.pricePlanId != nil && self.isCarPlugedIn {
                             self.updatePayment()
                         }
                         else{
