@@ -45,8 +45,16 @@ class TransactionHistoryViewController: BaseViewController {
         let allSampledValues = details.meterData?.compactMap{ $0.sampledValue }.reduce([], +)
         let energyValues = allSampledValues?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false })
 
-        if let meterDataStart = energyValues?.first?.value, let meterDataEnd = energyValues?.last?.value, let kwhStart = Float(meterDataStart), let kwhEnd = Float(meterDataEnd) {
-            self.lblEnergy.text = String(format:"%.4f kW h", (kwhEnd - kwhStart)/1000)
+//        if let meterDataStart = energyValues?.first?.value, let meterDataEnd = energyValues?.last?.value, let kwhStart = Float(meterDataStart), let kwhEnd = Float(meterDataEnd) {
+//            self.lblEnergy.text = String(format:"%.4f kW h", (kwhEnd - kwhStart)/1000)
+//        }
+//        else{
+//            self.lblEnergy.text = ""
+//        }
+        
+        let kwhStart = Float(details.meterStart ?? 0)
+        if let meterDataEnd = energyValues?.last?.value, let kwhEnd = Float(meterDataEnd) {
+            self.lblEnergy.text = String(format:"%.2f kW h", (kwhEnd - kwhStart)/1000)
         }
         else{
             self.lblEnergy.text = ""
