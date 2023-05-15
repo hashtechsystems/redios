@@ -114,7 +114,7 @@ struct TransactionDetailsResponse: Codable {
 struct TransactionDetails: Codable {
     let id, connectorID: Int?
     let averageVoltage: Double?
-    let meterStart, meterEnd: Int?
+    let meterStart, meterEnd: Double?
     let status: String?
     let sequenceNumber: Int?
     let chargingStationName, siteName: String?
@@ -122,7 +122,7 @@ struct TransactionDetails: Codable {
     let ocppCbid: String?
     let finalAmount: Double?
     let createdAt, sessionStart, sessionEnd: String?
-    let meterDiff: Int?
+    let meterDiff: Double?
     var meterValue: String?
     var meterData: [MeterData]?
     let chargerType: String?
