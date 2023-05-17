@@ -10,7 +10,7 @@ import UIKit
 class ConnectorCell: UICollectionViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
-    
+    @IBOutlet weak var lblOutputPower: UILabel!
     @IBOutlet weak var checkImageView: UIImageView!
     
 

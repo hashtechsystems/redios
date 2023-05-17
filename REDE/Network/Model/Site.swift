@@ -64,7 +64,7 @@ struct ChargerStation: Codable {
 
 // MARK: - Connector
 struct Connector: Codable {
-    let id, chargingStationID, voltage, sequence_number: Int
+    let id, chargingStationID, voltage, sequence_number, connector_output: Int
     let type: String
 
     enum CodingKeys: String, CodingKey {
@@ -72,7 +72,7 @@ struct Connector: Codable {
         case chargingStationID = "charging_station_id"
         case voltage
         case type
-        case sequence_number
+        case sequence_number, connector_output
     }
 }
 

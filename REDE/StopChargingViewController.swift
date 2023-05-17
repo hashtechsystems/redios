@@ -86,7 +86,7 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Power.Active.Import") ?? false}).first{
             guard let value = item.value, let current = Float(value) else {
-                self.lblCurrent.text = ""
+                self.lblCurrent.text = "0 amp"
                 return
             }
             

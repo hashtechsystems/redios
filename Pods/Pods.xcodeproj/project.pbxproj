@@ -1152,7 +1152,7 @@
 			baseConfigurationReference = B48E18D3DB697DA6EC69B3C902C5C100 /* AnimatedCardInput.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
-				DEVELOPMENT_TEAM = ZBA7H6M94F;
+				DEVELOPMENT_TEAM = KG73CT3GYP;
 				IBSC_MODULE = AnimatedCardInput;
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1169,11 +1169,9 @@
 			baseConfigurationReference = 70B7DD47EA6BCB958E0B9E3D083E93D8 /* SVProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				DEVELOPMENT_TEAM = KG73CT3GYP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1454,7 +1452,7 @@
 			baseConfigurationReference = 6DA8DB0783A082B1079520D49D5F7C3C /* AnimatedCardInput.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
-				DEVELOPMENT_TEAM = ZBA7H6M94F;
+				DEVELOPMENT_TEAM = KG73CT3GYP;
 				IBSC_MODULE = AnimatedCardInput;
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1541,11 +1539,9 @@
 			baseConfigurationReference = AE76AE4A7DD6FF1D1956A93EAA819C68 /* SVProgressHUD.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = "";
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				DEVELOPMENT_TEAM = KG73CT3GYP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

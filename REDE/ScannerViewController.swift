@@ -77,7 +77,9 @@ class ScannerViewController: BaseViewController, AVCaptureMetadataOutputObjectsD
         super.viewWillAppear(animated)
 
         if (captureSession?.isRunning == false) {
-            captureSession.startRunning()
+            DispatchQueue.global().async { [weak self] in
+                self?.captureSession.startRunning()
+            }
         }
     }
 

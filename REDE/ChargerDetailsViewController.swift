@@ -130,6 +130,8 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         
         let connector = self.chargerStation?.connectors[indexPath.row]
         
+        cell?.lblOutputPower.text = "\(connector?.connector_output ?? 0) KW"
+        
         if connector?.type.elementsEqual("CHADEMO") ?? false {
             cell?.imgView.image = UIImage.init(named: "chdemo")
         } else if connector?.type.elementsEqual("J1772") ?? false {
