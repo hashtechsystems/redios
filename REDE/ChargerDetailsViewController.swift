@@ -136,6 +136,10 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
             cell?.imgView.image = UIImage.init(named: "chdemo")
         } else if connector?.type.elementsEqual("J1772") ?? false {
             cell?.imgView.image = UIImage.init(named: "j1772")
+        }else if connector?.type.elementsEqual("CCS A") ?? false {
+            cell?.imgView.image = UIImage.init(named: "ccs_a")
+        }else if connector?.type.elementsEqual("CCS B") ?? false {
+            cell?.imgView.image = UIImage.init(named: "ccs_b")
         }else{
             cell?.imgView.image = UIImage.init(named: "ccs")
         }

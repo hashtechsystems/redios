@@ -67,7 +67,7 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
             if let value = item.value, let kwh = Float(value){
-                self.lblEnegry.text = String(format:"%.2f kW h", (kwh - meterStart)/1000)
+                self.lblEnegry.text = String(format:"%.2f kW", (kwh - meterStart)/1000)
             }
             else{
                 self.lblEnegry.text = ""
@@ -86,14 +86,14 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Power.Active.Import") ?? false}).first{
             guard let value = item.value, let current = Float(value) else {
-                self.lblCurrent.text = "0 amp"
+                self.lblCurrent.text = ""
                 return
             }
             
-            self.lblCurrent.text = "\(current/1000) amp"
+            self.lblCurrent.text = "\(current/1000) AMP"
         }
         else{
-            self.lblCurrent.text = "0 amp"
+            self.lblCurrent.text = ""
         }
     }
 }
@@ -153,7 +153,7 @@ extension StopChargingViewController {
                 return
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 SVProgressHUD.dismiss()
                 
                 if self.chargerStation?.site?.pricePlanId != nil {
