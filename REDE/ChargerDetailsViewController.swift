@@ -133,7 +133,7 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         cell?.lblOutputPower.text = "\(connector?.connector_output ?? 0) KW"
         
         if connector?.type.elementsEqual("CHADEMO") ?? false {
-            cell?.imgView.image = UIImage.init(named: "chdemo")
+            cell?.imgView.image = UIImage.init(named: "chademo1")
         } else if connector?.type.elementsEqual("J1772") ?? false {
             cell?.imgView.image = UIImage.init(named: "j1772")
         }else if connector?.type.elementsEqual("CCS A") ?? false {
@@ -316,9 +316,11 @@ extension ChargerDetailsViewController{
     }
     
     func startCharging(){
-        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index], let authId = self.authId else {
+        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
             return
         }
+        
+        let authId = self.authId ?? ""
         
         SVProgressHUD.show()
         NetworkManager().startCharging(ocppCbid: ocppCbid, sequenceNumber: connector.sequence_number, authId: authId) { transaction, error in

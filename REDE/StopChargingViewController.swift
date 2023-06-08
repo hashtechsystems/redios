@@ -89,8 +89,14 @@ class StopChargingViewController: BaseViewController {
                 self.lblCurrent.text = ""
                 return
             }
+            let amphere = current/1000
             
-            self.lblCurrent.text = "\(current/1000) AMP"
+            if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
+                self.lblCurrent.text = "\(amphere * 0.280) kW"
+            }
+            else {
+                self.lblCurrent.text = "\(amphere * 0.480) kW"
+            }
         }
         else{
             self.lblCurrent.text = ""
