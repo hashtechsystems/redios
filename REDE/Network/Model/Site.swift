@@ -21,14 +21,16 @@ struct Site: Codable {
     let status: Int
     let chargerStations: [ChargerStation]?
     let latitude, longitude: String
-    let pricePlanId: Int?
-
+    let pricePlanIdDC: Int?
+    let pricePlanIdAC: Int?
+    
     enum CodingKeys: String, CodingKey {
         case id, name, address, city, state, latitude, longitude
         case postalCode = "postal_code"
         case status
         case chargerStations = "charger_stations"
-        case pricePlanId = "price_plan_id"
+        case pricePlanIdDC = "price_plan_id"
+        case pricePlanIdAC = "ac_price_plan_id"
     }
     
     func getFullAdress() -> String {
@@ -51,14 +53,25 @@ struct ChargerStation: Codable {
     let qrCode: String?
     let manufacturer_id: Int?
     let site: Site?
+    let chargerType: String?
     var connectors: [Connector]
-
+    
     enum CodingKeys: String, CodingKey {
         case id, manufacturer_id
         case siteID = "site_id"
         case ocppCbid = "ocpp_cbid"
         case qrCode = "qr_code"
         case name, connectors, site
+        case chargerType = "charger_type"
+    }
+    
+    var pricePlanId: Int? {
+        if chargerType?.uppercased().elementsEqual("AC") ?? false {
+            return site?.pricePlanIdAC
+        } else if chargerType?.uppercased().elementsEqual("DC") ?? false {
+            return site?.pricePlanIdDC
+        }
+        return nil
     }
 }
 
@@ -66,7 +79,7 @@ struct ChargerStation: Codable {
 struct Connector: Codable {
     let id, chargingStationID, voltage, sequence_number, connector_output: Int
     let type: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case chargingStationID = "charging_station_id"
@@ -127,7 +140,7 @@ struct TransactionDetails: Codable {
     var meterData: [MeterData]?
     let chargerType: String?
     let connectorStatus: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case connectorID = "connector_id"

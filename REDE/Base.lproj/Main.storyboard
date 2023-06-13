@@ -2734,31 +2734,31 @@
     </scenes>
     <designables>
         <designable name="Ajo-vX-jxz">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="Ixd-67-fqy">
-            <size key="intrinsicContentSize" width="47" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="UCY-OL-7s5">
-            <size key="intrinsicContentSize" width="144.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="W81-51-5IC">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="iJm-jT-Llb">
-            <size key="intrinsicContentSize" width="42.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="kL8-GG-mcU">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="rSx-OL-jDz">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="xaS-0L-k1C">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="zkZ-xH-rQC">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
     </designables>
     <resources>
@@ -2774,7 +2774,7 @@
         <image name="logout" width="512" height="512"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="32" height="32"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="plugcar-icon" width="746" height="319"/>

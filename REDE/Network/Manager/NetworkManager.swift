@@ -210,9 +210,9 @@ struct NetworkManager {
             }
             
             do {
-                //print(responseData)
-                let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                print(jsonData)
+                print(String.init(data: responseData, encoding: .utf8))
+                //let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                //print(jsonData)
                 
                 let apiResponse = try JSONDecoder().decode(SiteResponse.self, from: responseData)
                 

@@ -92,10 +92,10 @@ class StopChargingViewController: BaseViewController {
             let amphere = current/1000
             
             if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
-                self.lblCurrent.text = "\(amphere * 0.280) kW"
+                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.280))
             }
             else {
-                self.lblCurrent.text = "\(amphere * 0.480) kW"
+                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.480))
             }
         }
         else{
@@ -162,7 +162,7 @@ extension StopChargingViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 SVProgressHUD.dismiss()
                 
-                if self.chargerStation?.site?.pricePlanId != nil {
+                if self.chargerStation?.pricePlanId != nil {
                     self.gotoTransactionHistory()
                 }
                 else{
@@ -201,7 +201,7 @@ extension StopChargingViewController {
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false)
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("UNAVAILABLE") ?? false)
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("FAULTED") ?? false) {
-                        if self.chargerStation?.site?.pricePlanId != nil && self.isCarPlugedIn {
+                        if self.chargerStation?.pricePlanId != nil && self.isCarPlugedIn {
                             self.updatePayment()
                         }
                         else{

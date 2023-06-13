@@ -56,7 +56,7 @@ extension ChargerDetailsViewController {
             return
         }
         
-        if self.chargerStation?.site?.pricePlanId != nil {
+        if self.chargerStation?.pricePlanId != nil {
             self.openCardPayment()
         }
         else{
@@ -133,7 +133,7 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         cell?.lblOutputPower.text = "\(connector?.connector_output ?? 0) KW"
         
         if connector?.type.elementsEqual("CHADEMO") ?? false {
-            cell?.imgView.image = UIImage.init(named: "chademo1")
+            cell?.imgView.image = UIImage.init(named: "chademo_1")
         } else if connector?.type.elementsEqual("J1772") ?? false {
             cell?.imgView.image = UIImage.init(named: "j1772")
         }else if connector?.type.elementsEqual("CCS A") ?? false {
@@ -236,7 +236,7 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.showAlert(title: "RED E", message: output){
-                    if self.chargerStation?.site?.pricePlanId != nil {
+                    if self.chargerStation?.pricePlanId != nil {
                         self.openCardPayment()
                     }
                 }
@@ -305,7 +305,7 @@ extension ChargerDetailsViewController{
                     }
                     else{
                         self.showAlert(title: "RED E", message: error){
-                            if self.chargerStation?.site?.pricePlanId != nil {
+                            if self.chargerStation?.pricePlanId != nil {
                                 self.openCardPayment()
                             }
                         }
@@ -353,7 +353,7 @@ extension ChargerDetailsViewController{
                 SVProgressHUD.dismiss()
                 self.transaction = transaction
                 
-                if self.chargerStation?.site?.pricePlanId != nil {
+                if self.chargerStation?.pricePlanId != nil {
                     self.updatePayment()
                 } else {
                     self.gotoStopCharging()
