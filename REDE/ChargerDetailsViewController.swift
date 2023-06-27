@@ -33,17 +33,33 @@ class ChargerDetailsViewController: BaseViewController {
     fileprivate var authId: String?
     
     private var selectedCellIndex: Int?
+    private let margin: CGFloat = 10
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
         self.fetchChargerDetails()
+        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        let width = UIScreen.main.bounds.width
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+//        layout.itemSize = CGSize(width: 128, height: 142)
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        collectionConnectors.collectionViewLayout = layout
+        
+        guard let flowLayout = collectionConnectors.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.minimumInteritemSpacing = margin
+        flowLayout.minimumLineSpacing = margin
+        flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
     
     func updateUI(){
         lblLocation.text = chargerStation?.site?.getFullAdress()
         lblId.text = chargerStation?.name
         collectionConnectors.reloadData()
+        collectionConnectors.allowsSelection = true
     }
 }
 
@@ -121,6 +137,10 @@ extension ChargerDetailsViewController {
 
 extension ChargerDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.chargerStation?.connectors.count ?? 0
     }
@@ -168,20 +188,14 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
 extension ChargerDetailsViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width
-        let numberOfItemsPerRow: CGFloat = 3
-        let spacing: CGFloat = 10
-        let availableWidth = width - spacing * (numberOfItemsPerRow + 1)
-        let itemDimension = floor(availableWidth / numberOfItemsPerRow)
-        return CGSize(width: itemDimension, height: itemDimension)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        let noOfCellsInRow = 3   //number of column you want
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+        + flowLayout.sectionInset.right
+        + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+        
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+        return CGSize(width: size, height: size)
     }
 }
 

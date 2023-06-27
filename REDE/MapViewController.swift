@@ -34,7 +34,7 @@ class MapViewController: BaseViewController {
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.distanceFilter = 50
+        locationManager.distanceFilter = 100
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestWhenInUseAuthorization()
         

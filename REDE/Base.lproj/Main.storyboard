@@ -1573,16 +1573,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ConnectorCell" id="xxq-14-I4d" customClass="ConnectorCell" customModule="REDE" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="126"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="142"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yIJ-zB-wJD">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="126"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e45-sv-0Du">
-                                                    <rect key="frame" x="8" y="8" width="112" height="112"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="121"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="e45-sv-0Du" secondAttribute="height" multiplier="1:1" id="Lgg-C2-BsD"/>
+                                                        <constraint firstAttribute="width" secondItem="e45-sv-0Du" secondAttribute="height" multiplier="128:121" id="ncd-5H-gs6"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tI3-hJ-BdJ">
@@ -1593,23 +1593,23 @@
                                                         <constraint firstAttribute="height" constant="30" id="Naz-0g-1oo"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuT-d6-58H">
-                                                    <rect key="frame" x="64" y="125" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuT-d6-58H">
+                                                    <rect key="frame" x="61.5" y="126" width="5" height="15"/>
                                                     <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="16"/>
                                                     <color key="textColor" red="0.74117647060000003" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="BuT-d6-58H" firstAttribute="top" secondItem="e45-sv-0Du" secondAttribute="bottom" constant="5" id="57A-xh-Q5Y"/>
-                                                <constraint firstItem="e45-sv-0Du" firstAttribute="top" secondItem="yIJ-zB-wJD" secondAttribute="top" constant="8" id="AWN-Hg-c1d"/>
-                                                <constraint firstItem="e45-sv-0Du" firstAttribute="leading" secondItem="yIJ-zB-wJD" secondAttribute="leading" constant="8" id="Rf0-gH-2c3"/>
+                                                <constraint firstItem="e45-sv-0Du" firstAttribute="top" secondItem="yIJ-zB-wJD" secondAttribute="top" id="AWN-Hg-c1d"/>
+                                                <constraint firstItem="e45-sv-0Du" firstAttribute="leading" secondItem="yIJ-zB-wJD" secondAttribute="leading" id="Rf0-gH-2c3"/>
                                                 <constraint firstItem="BuT-d6-58H" firstAttribute="centerX" secondItem="yIJ-zB-wJD" secondAttribute="centerX" id="bvf-n9-x6M"/>
                                                 <constraint firstAttribute="trailing" secondItem="tI3-hJ-BdJ" secondAttribute="trailing" constant="8" id="mVY-bq-wCc"/>
                                                 <constraint firstItem="tI3-hJ-BdJ" firstAttribute="top" secondItem="yIJ-zB-wJD" secondAttribute="top" constant="8" id="mgq-8A-csf"/>
                                                 <constraint firstAttribute="bottom" secondItem="BuT-d6-58H" secondAttribute="bottom" constant="1" id="qXf-tS-Pi9"/>
-                                                <constraint firstAttribute="trailing" secondItem="e45-sv-0Du" secondAttribute="trailing" constant="8" id="spW-qi-od6"/>
+                                                <constraint firstAttribute="trailing" secondItem="e45-sv-0Du" secondAttribute="trailing" id="spW-qi-od6"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1682,16 +1682,16 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plugcar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-mZ-YPp">
-                            <rect key="frame" x="20" y="136.5" width="374" height="319"/>
+                            <rect key="frame" x="20" y="132" width="374" height="319"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plug in your car" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gle-hn-Hlq">
-                            <rect key="frame" x="20" y="80" width="374" height="23.5"/>
+                            <rect key="frame" x="20" y="80" width="374" height="19"/>
                             <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="20"/>
                             <color key="textColor" red="0.74117647060000003" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="yqg-91-L10">
-                            <rect key="frame" x="0.0" y="113.5" width="414" height="15"/>
+                            <rect key="frame" x="0.0" y="109" width="414" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="y5K-1z-hJA"/>
                             </constraints>
@@ -1811,7 +1811,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CIp-VH-8rq">
                                 <rect key="frame" x="20" y="371.5" width="374" height="49.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site/CID :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4C-iF-yhV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4C-iF-yhV">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="22.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="15"/>
@@ -2734,31 +2734,31 @@
     </scenes>
     <designables>
         <designable name="Ajo-vX-jxz">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="119.5" height="23"/>
         </designable>
         <designable name="Ixd-67-fqy">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="47" height="23"/>
         </designable>
         <designable name="UCY-OL-7s5">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="144.5" height="22"/>
         </designable>
         <designable name="W81-51-5IC">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="119.5" height="23"/>
         </designable>
         <designable name="iJm-jT-Llb">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="42.5" height="23"/>
         </designable>
         <designable name="kL8-GG-mcU">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="76.5" height="22"/>
         </designable>
         <designable name="rSx-OL-jDz">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="76.5" height="22"/>
         </designable>
         <designable name="xaS-0L-k1C">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="119.5" height="23"/>
         </designable>
         <designable name="zkZ-xH-rQC">
-            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="76.5" height="22"/>
         </designable>
     </designables>
     <resources>

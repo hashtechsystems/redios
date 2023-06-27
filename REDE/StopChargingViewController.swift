@@ -67,7 +67,7 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
             if let value = item.value, let kwh = Float(value){
-                self.lblEnegry.text = String(format:"%.2f kW", (kwh - meterStart)/1000)
+                self.lblEnegry.text = String(format:"%.2f kWh", (kwh - meterStart)/1000)
             }
             else{
                 self.lblEnegry.text = ""
@@ -92,10 +92,10 @@ class StopChargingViewController: BaseViewController {
             let amphere = current/1000
             
             if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
-                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.280))
+                self.lblCurrent.text = String(format:"%.2f kWh", (amphere * 0.280))
             }
             else {
-                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.480))
+                self.lblCurrent.text = String(format:"%.2f kWh", (amphere * 0.480))
             }
         }
         else{
