@@ -34,8 +34,8 @@ class MapViewController: BaseViewController {
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.distanceFilter = 100
-        locationManager.pausesLocationUpdatesAutomatically = false
+        //locationManager.distanceFilter = 100
+        //locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestWhenInUseAuthorization()
         
         // Start updating location
@@ -89,6 +89,7 @@ extension MapViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            self.locationManager.stopUpdatingLocation()
             self.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             self.fetchSites(lat: location.coordinate.latitude, long: location.coordinate.longitude)
             self.setMapFocus(location: self.center!, radiusInKm: 5000)
