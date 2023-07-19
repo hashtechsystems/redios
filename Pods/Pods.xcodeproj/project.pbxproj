@@ -69,7 +69,7 @@
 		E237E90EF20E2675190F9F4BB48594D1 /* AuthorizeNetAccept-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2ABB4E1E9E9CE17D5E7012C04F13AD3 /* AuthorizeNetAccept-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2ABE924B2D77383C50E0BAD47F1A2CE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA923806760642F2D0E79648344F440A /* UITextField+fixCaretPosition.swift */; };
 		E70EBA16751054574A227A6432CCE4B0 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A69A1A6CEE56D9D19FD0F1236AB798D2 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput.bundle */; };
+		E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput-AnimatedCardInput in Resources */ = {isa = PBXBuildFile; fileRef = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */; };
 		EC5246CB6C26D6680D741F077F20F0DE /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD6F4496CC501668C77FD571B7620B8 /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED5C12CCBEB43AA9B4F26E659806AEF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
 		EDC2F4B02F5F41D246F5B13603FDCDED /* CardInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B425C247BFAD59FBAE1FD971A96336 /* CardInputField.swift */; };
@@ -145,7 +145,7 @@
 		1E0901D834CAD862CEAD71B951CCD419 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		222CC8612F299D2D9B6372ACF5EBFCE5 /* AccepSDKtHttp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccepSDKtHttp.swift; path = AcceptSDK/Network/AccepSDKtHttp.swift; sourceTree = "<group>"; };
 		28669DC4B711EA28C45565F444AE29A7 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
-		2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedCardInput.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AnimatedCardInput-AnimatedCardInput"; path = AnimatedCardInput.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		308923BDA1ABA17E191892B49BCB7987 /* CardProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardProvider.swift; path = AnimatedCardInput/Classes/Models/CardProvider.swift; sourceTree = "<group>"; };
 		31003EE09EF3FC57E4BA007DE4BCD5F5 /* OTPFieldView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OTPFieldView.modulemap; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		776AD706AA744FDD021106F1E47A9F94 /* CreditCardData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardData.swift; path = AnimatedCardInput/Classes/Models/CreditCardData.swift; sourceTree = "<group>"; };
 		78F5CCBF8215415C0D0237062BDAD17B /* AcceptSDKErrorResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKErrorResponse.swift; path = AcceptSDK/Response/AcceptSDKErrorResponse.swift; sourceTree = "<group>"; };
 		800C860042B6E45F2BBCE6C8E3C3FFE7 /* AcceptSDKStringValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AcceptSDKStringValidator.swift; path = AcceptSDK/Validators/AcceptSDKStringValidator.swift; sourceTree = "<group>"; };
-		83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnimatedCardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AnimatedCardInput; path = AnimatedCardInput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FC1ADD61C2D2E7EBFAABD05E903709 /* CustomInputField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInputField.swift; path = "AnimatedCardInput/Classes/Card View/CustomInputField.swift"; sourceTree = "<group>"; };
 		8A3D44B8484E09F8CCEDD84C6DE67159 /* CardInputsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CardInputsView.swift; path = "AnimatedCardInput/Classes/Card Inputs/CardInputsView.swift"; sourceTree = "<group>"; };
 		8C0B4015FB5B65334E8B9A063F9F24B0 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVRadialGradientLayer.m; path = SVProgressHUD/SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -464,8 +464,8 @@
 		668C0F356132E57CBA5E8A57A50C50C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */,
-				2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput.bundle */,
+				83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */,
+				2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */,
 				65EDD1CF9A87C74D779B9C595C414401 /* AuthorizeNetAccept.framework */,
 				FD1309C85A2B4DD96C17CEE227B41C92 /* OTPFieldView.framework */,
 				ABAD9B1FE8475D5B156B6A68418396E6 /* Pods-REDE */,
@@ -635,7 +635,7 @@
 			);
 			name = "AnimatedCardInput-AnimatedCardInput";
 			productName = AnimatedCardInput;
-			productReference = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput.bundle */;
+			productReference = 2C09C56BD0600A719DE27AFEDEB05EE9 /* AnimatedCardInput-AnimatedCardInput */;
 			productType = "com.apple.product-type.bundle";
 		};
 		131425EFF4891A8D073DD17E4FDB0EDC /* AuthorizeNetAccept */ = {
@@ -672,7 +672,7 @@
 			);
 			name = AnimatedCardInput;
 			productName = AnimatedCardInput;
-			productReference = 83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput.framework */;
+			productReference = 83DD25EFC5A2F81303D3A2C81ABC8B03 /* AnimatedCardInput */;
 			productType = "com.apple.product-type.framework";
 		};
 		1C8D67D8B72D6BA42CCEDB648537A340 /* SVProgressHUD */ = {
@@ -758,8 +758,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -790,7 +790,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput.bundle in Resources */,
+				E969FE6EF54844F6B0763AA4DE7D9D33 /* AnimatedCardInput-AnimatedCardInput in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,7 +1066,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1147,38 +1147,22 @@
 			};
 			name = Release;
 		};
-		311A71F5E54F53B9A2B91957540DE30B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B48E18D3DB697DA6EC69B3C902C5C100 /* AnimatedCardInput.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
-				DEVELOPMENT_TEAM = KG73CT3GYP;
-				IBSC_MODULE = AnimatedCardInput;
-				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = AnimatedCardInput;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		3A9EA29ED6921878E3F25F2AEACA9FB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 70B7DD47EA6BCB958E0B9E3D083E93D8 /* SVProgressHUD.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KG73CT3GYP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1235,6 +1219,23 @@
 			};
 			name = Release;
 		};
+		507098D1E40F4286F31E8931154BF4AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B48E18D3DB697DA6EC69B3C902C5C100 /* AnimatedCardInput.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
+				IBSC_MODULE = AnimatedCardInput;
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = AnimatedCardInput;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		8E5897011B7AD5F0551D462E4FAABD0D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B48E18D3DB697DA6EC69B3C902C5C100 /* AnimatedCardInput.release.xcconfig */;
@@ -1251,7 +1252,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AnimatedCardInput/AnimatedCardInput-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/AnimatedCardInput-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1286,7 +1287,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1320,7 +1321,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1355,7 +1356,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OTPFieldView/OTPFieldView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OTPFieldView/OTPFieldView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1390,7 +1391,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OTPFieldView/OTPFieldView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OTPFieldView/OTPFieldView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1447,23 +1448,6 @@
 			};
 			name = Debug;
 		};
-		B27FDD91939C15F05B4506CD23E2A214 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DA8DB0783A082B1079520D49D5F7C3C /* AnimatedCardInput.debug.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
-				DEVELOPMENT_TEAM = KG73CT3GYP;
-				IBSC_MODULE = AnimatedCardInput;
-				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = AnimatedCardInput;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		BF796F968EEF42E7D589E8824146D0B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E11E9B741123DBA321E926D1B397337 /* AuthorizeNetAccept.release.xcconfig */;
@@ -1479,7 +1463,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AuthorizeNetAccept/AuthorizeNetAccept-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1514,7 +1498,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1538,17 +1522,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE76AE4A7DD6FF1D1956A93EAA819C68 /* SVProgressHUD.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KG73CT3GYP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVProgressHUD/SVProgressHUD-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1567,6 +1552,23 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		EA1F02F73ADBF63A6291E81356E2C8B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DA8DB0783A082B1079520D49D5F7C3C /* AnimatedCardInput.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AnimatedCardInput";
+				IBSC_MODULE = AnimatedCardInput;
+				INFOPLIST_FILE = "Target Support Files/AnimatedCardInput/ResourceBundle-AnimatedCardInput-AnimatedCardInput-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = AnimatedCardInput;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1619,8 +1621,8 @@
 		914B999BD9A96E7A23A3D073C8AE56DA /* Build configuration list for PBXNativeTarget "AnimatedCardInput-AnimatedCardInput" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B27FDD91939C15F05B4506CD23E2A214 /* Debug */,
-				311A71F5E54F53B9A2B91957540DE30B /* Release */,
+				EA1F02F73ADBF63A6291E81356E2C8B1 /* Debug */,
+				507098D1E40F4286F31E8931154BF4AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
