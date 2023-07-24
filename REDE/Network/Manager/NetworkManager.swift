@@ -490,7 +490,7 @@ struct NetworkManager {
     }
     
     
-    func getTransactionDetails(transactionId: Int, completion: @escaping (_ response: TransactionDetails?, _ error: String?) -> ()) {
+    func getTransactionDetails(transactionId: Int, completion: @escaping (_ response: (data: TransactionDetails?, amount: Double?)?, _ error: String?) -> ()) {
        
         router.request(.getTransactionDetails(transactionId: transactionId)) { data, response, error in
             
@@ -509,7 +509,7 @@ struct NetworkManager {
                 
                 if apiResponse.status {
                     apiResponse.data?.parseMeterValues()
-                    completion(apiResponse.data, nil)
+                    completion((apiResponse.data, apiResponse.amount), nil)
                 }
                 else {
                     completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")

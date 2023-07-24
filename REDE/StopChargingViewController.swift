@@ -39,7 +39,7 @@ class StopChargingViewController: BaseViewController {
         pluginTimer = Timer.scheduledTimer(timeInterval: 90, target: self, selector: #selector(onCarPluginTimeout), userInfo: nil, repeats: false)
     }
     
-    func updateUI(details: inout TransactionDetails){
+    func updateUI(details: inout TransactionDetails, amount: Double?){
         self.lblSiteId.text = details.siteName ?? ""
         self.lblChargerStation.text = details.chargingStationName ?? ""
         
@@ -67,7 +67,7 @@ class StopChargingViewController: BaseViewController {
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false}).first{
             if let value = item.value, let kwh = Float(value){
-                self.lblEnegry.text = String(format:"%.2f kWh", (kwh - meterStart)/1000)
+                self.lblEnegry.text = String(format:"%.2f kW", (kwh - meterStart)/1000)
             }
             else{
                 self.lblEnegry.text = ""
@@ -92,10 +92,10 @@ class StopChargingViewController: BaseViewController {
             let amphere = current/1000
             
             if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
-                self.lblCurrent.text = String(format:"%.2f kWh", (amphere * 0.280))
+                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.280))
             }
             else {
-                self.lblCurrent.text = String(format:"%.2f kWh", (amphere * 0.480))
+                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.480))
             }
         }
         else{
@@ -118,6 +118,7 @@ extension StopChargingViewController {
     
     func gotoTransactionHistory(){
         guard let controller = UIViewController.instantiateVC(viewController: TransactionHistoryViewController.self) else { return }
+        controller.chargerStation = self.chargerStation
         controller.transaction = self.transaction
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -159,7 +160,7 @@ extension StopChargingViewController {
                 return
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 SVProgressHUD.dismiss()
                 
                 if self.chargerStation?.pricePlanId != nil {
@@ -178,9 +179,9 @@ extension StopChargingViewController {
             return
         }
         
-        NetworkManager().getTransactionDetails(transactionId: transactionId) { [unowned self] transaction, error in
+        NetworkManager().getTransactionDetails(transactionId: transactionId) { [unowned self] data, error in
             
-            guard var transaction = transaction else {
+            guard var transaction = data?.data else {
                 return
             }
             
@@ -191,7 +192,7 @@ extension StopChargingViewController {
                 }
                 else{
                     
-                    self.updateUI(details: &transaction)
+                    self.updateUI(details: &transaction, amount: data?.amount)
                     
                     if (transaction.connectorStatus?.uppercased().elementsEqual("CHARGING") ?? false){
                         self.isCarPlugedIn = true

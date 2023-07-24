@@ -17,6 +17,7 @@ class TransactionHistoryViewController: BaseViewController {
     @IBOutlet weak var lblStatus: UILabel!
     
     var transaction: Transaction?
+    var chargerStation:ChargerStation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,9 @@ class TransactionHistoryViewController: BaseViewController {
         self.getChargingProgressDetails()
     }
     
-    func updateUI(details: inout TransactionDetails){
+    func updateUI(details: inout TransactionDetails, amount: Double?){
         
         self.lblChargerStation.text = details.chargingStationName ?? ""
-        
-        self.lblCost.text = "$ \(details.finalAmount ?? 0)"
         
         self.lblStatus.text = details.status
         
@@ -54,10 +53,22 @@ class TransactionHistoryViewController: BaseViewController {
         
         let kwhStart = Float(details.meterStart ?? 0)
         if let meterDataEnd = energyValues?.last?.value, let kwhEnd = Float(meterDataEnd) {
-            self.lblEnergy.text = String(format:"%.2f kWh", (kwhEnd - kwhStart)/1000)
+            let value = (kwhEnd - kwhStart)/1000
+            self.lblEnergy.text = String(format:"%.2f kW", value)
+            if self.chargerStation?.pricePlanId != nil{
+                if (value < 0.01){
+                    self.lblCost.text = "Free"
+                }else{
+                    self.lblCost.text = "$ \(amount ?? 0)"
+                }
+            }
+            else{
+                self.lblCost.text = "Free"
+            }
         }
         else{
             self.lblEnergy.text = ""
+            self.lblCost.text = ""
         }
     }
 }
@@ -80,9 +91,9 @@ extension TransactionHistoryViewController {
         
         SVProgressHUD.show()
         
-        NetworkManager().getTransactionDetails(transactionId: transactionId) { transaction, error in
+        NetworkManager().getTransactionDetails(transactionId: transactionId) { [weak self] data, error in
             
-            guard var transaction = transaction else {
+            guard var transaction = data?.data else {
                 return
             }
             
@@ -91,10 +102,10 @@ extension TransactionHistoryViewController {
                 SVProgressHUD.dismiss()
                 
                 if (error?.elementsEqual("Your session has been expired.") ?? false){
-                    self.logout()
+                    self?.logout()
                 }
                 else{
-                    self.updateUI(details: &transaction)
+                    self?.updateUI(details: &transaction, amount: data?.amount)
                 }
             }
         }

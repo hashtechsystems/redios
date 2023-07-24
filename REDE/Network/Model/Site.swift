@@ -120,7 +120,7 @@ struct TransactionDetailsResponse: Codable {
     let status: Bool
     var data: TransactionDetails?
     let message: String?
-    
+    let amount: Double?
 }
 
 // MARK: - DataClass
