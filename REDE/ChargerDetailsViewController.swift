@@ -68,7 +68,7 @@ extension ChargerDetailsViewController {
     @IBAction func onClickConfirm(){
         
         guard let index = selectedCellIndex, let _ = self.chargerStation?.connectors[index] else {
-            self.showAlert(title: "RED E", message: "Please select connector")
+            self.showAlert(title: "RED E", message: "Select a connector")
             return
         }
         

@@ -16,13 +16,15 @@ class ConnectorCell: UICollectionViewCell {
 
     public func showCheck(){
         //self.checkImageView.isHidden = false
+        self.checkImageView.image = UIImage(systemName: "checkmark.circle.fill")
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.red.cgColor
     }
     
     public func hideCheck(){
-        self.checkImageView.isHidden = true
-        self.layer.borderWidth = 0.0
-        self.layer.borderColor = UIColor.clear.cgColor
+        //self.checkImageView.isHidden = true
+        self.checkImageView.image = UIImage(systemName: "circle")
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.red.cgColor
     }
 }
