@@ -1333,7 +1333,9 @@
                             <constraint firstItem="Yui-lQ-laW" firstAttribute="centerX" secondItem="G6a-YJ-3Rk" secondAttribute="centerX" id="uHg-5P-Blc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="t4y-TO-kXw"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="t4y-TO-kXw">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="btnEdit" destination="6b5-XU-W0F" id="PrD-S1-eq3"/>
                         <outlet property="imgvwEditIcon" destination="Yui-lQ-laW" id="ake-qj-ORy"/>
@@ -1422,7 +1424,9 @@
                             <constraint firstItem="c3D-Jt-Wze" firstAttribute="bottom" secondItem="tmA-io-5yr" secondAttribute="bottom" id="oxU-aO-EfD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="4Di-8P-3KP"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="4Di-8P-3KP">
+                        <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapview" destination="c3D-Jt-Wze" id="dal-Oy-8ey"/>
                         <outlet property="navbar" destination="ZfF-fI-Z8K" id="Cec-jt-Cjk"/>
@@ -1439,7 +1443,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QEO-IA-nnx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="barTintColor" systemColor="systemRedColor"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="5N9-jx-aY4" kind="relationship" relationship="viewControllers" id="ce0-sF-IDZ"/>
