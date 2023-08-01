@@ -175,7 +175,7 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _ = selectedCellIndex {
+        if indexPath.item == selectedCellIndex {
             selectedCellIndex = nil
         }
         else{
