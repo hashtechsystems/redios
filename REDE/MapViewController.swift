@@ -12,9 +12,10 @@ import CoreLocation
 class MapViewController: BaseViewController {
     
     @IBOutlet weak var mapview: MKMapView!
+    @IBOutlet weak var btn_recenter: UIButton!
     
     let locationManager = CLLocationManager()
-    var center: CLLocationCoordinate2D?
+    var center: CLLocationCoordinate2D? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,12 @@ class MapViewController: BaseViewController {
         
         // Start updating location
         locationManager.startUpdatingLocation()
+    }
+    
+    @IBAction func onClickReCenter(){
+        if let center = self.center {
+            self.setMapFocus(location: center, radiusInKm: 5000)
+        }
     }
 }
 
@@ -89,10 +96,13 @@ extension MapViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            self.locationManager.stopUpdatingLocation()
-            self.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            self.fetchSites(lat: location.coordinate.latitude, long: location.coordinate.longitude)
-            self.setMapFocus(location: self.center!, radiusInKm: 5000)
+           // self.locationManager.stopUpdatingLocation()
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            if self.center == nil {
+                self.fetchSites(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+                self.setMapFocus(location: center, radiusInKm: 5000)
+            }
+            self.center = center
         }
     }
     

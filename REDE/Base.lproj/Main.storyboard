@@ -1411,6 +1411,18 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c3D-Jt-Wze">
                                 <rect key="frame" x="0.0" y="109" width="414" height="704"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqI-WZ-2dC">
+                                <rect key="frame" x="4" y="760" width="158" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="qJq-Bd-9pu"/>
+                                    <constraint firstAttribute="width" constant="158" id="tau-9Q-dMX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="recenter"/>
+                                <connections>
+                                    <action selector="onClickReCenter" destination="5N9-jx-aY4" eventType="touchUpInside" id="Vb5-Wb-a5C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tmA-io-5yr"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1422,12 +1434,15 @@
                             <constraint firstItem="c3D-Jt-Wze" firstAttribute="top" secondItem="ZfF-fI-Z8K" secondAttribute="bottom" id="i7z-pO-dcL"/>
                             <constraint firstItem="ZfF-fI-Z8K" firstAttribute="top" secondItem="WLQ-4S-s0l" secondAttribute="top" id="jmy-ed-k45"/>
                             <constraint firstItem="c3D-Jt-Wze" firstAttribute="bottom" secondItem="tmA-io-5yr" secondAttribute="bottom" id="oxU-aO-EfD"/>
+                            <constraint firstItem="pqI-WZ-2dC" firstAttribute="leading" secondItem="tmA-io-5yr" secondAttribute="leading" constant="4" id="qOl-pN-TnG"/>
+                            <constraint firstItem="pqI-WZ-2dC" firstAttribute="top" secondItem="c3D-Jt-Wze" secondAttribute="bottom" constant="-53" id="sMA-UT-iw3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="4Di-8P-3KP">
                         <imageReference key="image" image="map" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="btn_recenter" destination="pqI-WZ-2dC" id="SFO-aA-k1G"/>
                         <outlet property="mapview" destination="c3D-Jt-Wze" id="dal-Oy-8ey"/>
                         <outlet property="navbar" destination="ZfF-fI-Z8K" id="Cec-jt-Cjk"/>
                     </connections>
@@ -2785,6 +2800,7 @@
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="plugcar-icon" width="746" height="319"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="recenter" width="134" height="32"/>
         <image name="redelogo00" width="300" height="326"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
