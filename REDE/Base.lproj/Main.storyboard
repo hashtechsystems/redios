@@ -1720,16 +1720,16 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plugcar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Y5c-mZ-YPp">
-                            <rect key="frame" x="20" y="132" width="374" height="319"/>
+                            <rect key="frame" x="20" y="136.5" width="374" height="319"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plug in your car" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gle-hn-Hlq">
-                            <rect key="frame" x="20" y="80" width="374" height="19"/>
+                            <rect key="frame" x="20" y="80" width="374" height="23.5"/>
                             <fontDescription key="fontDescription" name="Aldrich-Regular" family="Aldrich" pointSize="20"/>
                             <color key="textColor" red="0.74117647060000003" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="yqg-91-L10">
-                            <rect key="frame" x="0.0" y="109" width="414" height="15"/>
+                            <rect key="frame" x="0.0" y="113.5" width="414" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="y5K-1z-hJA"/>
                             </constraints>
@@ -2772,31 +2772,31 @@
     </scenes>
     <designables>
         <designable name="Ajo-vX-jxz">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="Ixd-67-fqy">
-            <size key="intrinsicContentSize" width="47" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="UCY-OL-7s5">
-            <size key="intrinsicContentSize" width="144.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="W81-51-5IC">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="iJm-jT-Llb">
-            <size key="intrinsicContentSize" width="42.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="kL8-GG-mcU">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="rSx-OL-jDz">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="xaS-0L-k1C">
-            <size key="intrinsicContentSize" width="119.5" height="23"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
         <designable name="zkZ-xH-rQC">
-            <size key="intrinsicContentSize" width="76.5" height="22"/>
+            <size key="intrinsicContentSize" width="290" height="43.994140625"/>
         </designable>
     </designables>
     <resources>
