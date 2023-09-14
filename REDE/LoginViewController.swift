@@ -23,17 +23,8 @@ class LoginViewController: UIViewController {
         self.txtUsername.delegate = self
         self.txtPassword.delegate = self
         
-        self.txtUsername.text = "7980913237"
-        self.txtPassword.text = "123456"
-        
-//        self.txtUsername.text = "+17142024601"
-//        self.txtPassword.text = "harish123"
-        
-//        self.txtUsername.text = "+919874837657"
-//        self.txtPassword.text = "123456"
-        
-//        self.txtUsername.text = "7743824682"
-//        self.txtPassword.text = "password"
+        //self.txtUsername.text = "7980913237"
+        //self.txtPassword.text = "123456"
         
         self.checkbox.borderStyle = .square
         self.checkbox.checkmarkStyle = .tick
