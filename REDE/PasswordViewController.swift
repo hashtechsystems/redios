@@ -69,11 +69,14 @@ extension PasswordViewController: UITextFieldDelegate{
             SVProgressHUD.show()
             let response = await NetworkManager().resetPassword(phone_number: phoneNumber, password: password, confirmPassword: confirmPassword)
             await SVProgressHUD.dismiss()
-            self.showAlert(title: "RED E", message: response.1){
-                if response.0 {
+            if response.0 {
+                self.showAlert(title: "RED E", message: response.1){
                     self.navigationController?.popToRootViewController(animated: false)
                 }
+            }else{
+                self.showAlert(title: "RED E", message: response.1)
             }
+            
         }
         
     }

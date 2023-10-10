@@ -38,12 +38,13 @@ class ForgetPasswordViewController: UIViewController {
                 SVProgressHUD.show()
                 let response = await NetworkManager().generateOtp(phone_number: phoneNumber)
                 await SVProgressHUD.dismiss()
-                self.showAlert(title: "RED E", message: response.1){
-                    if response.0 {
-                        guard let controller = UIViewController.instantiateVC(viewController: VerifyOTPViewController.self) else { return }
-                        controller.phoneNumber = phoneNumber
-                        self.navigationController?.pushViewController(controller, animated: false)
-                    }
+                if response.0{
+                    guard let controller = UIViewController.instantiateVC(viewController: VerifyOTPViewController.self) else { return }
+                    controller.dataOTP = response.1 ?? ""
+                    controller.phoneNumber = phoneNumber
+                    self.navigationController?.pushViewController(controller, animated: false)
+                }else{
+                    self.showAlert(title: "RED E", message: response.1)
                 }
             }
         }

@@ -43,7 +43,11 @@ struct NetworkManager {
                 
                 do {
                     let apiResponse = try JSONDecoder().decode(ForgetPasswordResponse.self, from: responseData)
-                    continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                    if apiResponse.status {
+                        continuation.resume(returning: (apiResponse.status, apiResponse.data ?? ""))
+                    }else{
+                        continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                    }
                 }catch {
                     continuation.resume(returning: (false, error.localizedDescription))
                 }
@@ -89,7 +93,11 @@ struct NetworkManager {
                 
                 do {
                     let apiResponse = try JSONDecoder().decode(ForgetPasswordResponse.self, from: responseData)
-                    continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                    if apiResponse.status {
+                        continuation.resume(returning: (apiResponse.status, apiResponse.data ?? ""))
+                    }else{
+                        continuation.resume(returning: (apiResponse.status, apiResponse.message ?? "Unkown error."))
+                    }
                 }catch {
                     continuation.resume(returning: (false, error.localizedDescription))
                 }

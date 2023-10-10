@@ -14,14 +14,15 @@ class VerifyOTPViewController: UIViewController {
     @IBOutlet var otpTextFieldView: OTPFieldView!
     var phoneNumber: String = ""
     var otp: String = ""
-
+    var dataOTP : String?
+    var otpAttampt = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupOtpView()
     }
 
     func setupOtpView(){
-        self.otpTextFieldView.fieldsCount = 5
+        self.otpTextFieldView.fieldsCount = 4
         self.otpTextFieldView.fieldBorderWidth = 2
         self.otpTextFieldView.defaultBorderColor = UIColor.darkGray
         self.otpTextFieldView.filledBorderColor = UIColor.systemRed
@@ -61,8 +62,22 @@ extension VerifyOTPViewController {
             self.showAlert(title: "RED E", message: "OTP not found!!")
             return
         }
-        
-        Task {
+        otpAttampt += 1
+        if otp != dataOTP{            
+            self.showAlert(title: "RED E", message: "Invalid OTP") {
+                if self.otpAttampt > 2{
+                    self.navigationController?.popViewController(animated: true)
+                }else{
+                    self.otpTextFieldView.initializeUI()
+                }
+            }
+        }else{
+            guard let controller = UIViewController.instantiateVC(viewController: PasswordViewController.self) else { return }
+            controller.phoneNumber = self.phoneNumber
+            self.navigationController?.pushViewController(controller, animated: false)
+        }
+        //Verification is done inside this code locally so no need to check this api now.
+        /*Task {
             SVProgressHUD.show()
             let response = await NetworkManager().verifyOtp(phone_number: phoneNumber, otp: otp)
             await SVProgressHUD.dismiss()
@@ -73,7 +88,7 @@ extension VerifyOTPViewController {
                     self.navigationController?.pushViewController(controller, animated: false)
                 }
             }
-        }
+        }*/
     }
     
     @IBAction func onLoginClick(){

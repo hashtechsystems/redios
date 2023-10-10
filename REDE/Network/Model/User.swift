@@ -11,6 +11,7 @@ import Foundation
 struct ForgetPasswordResponse: Codable {
     let status: Bool
     let message: String?
+    let data: String?
 }
 
 struct RegistrationResponse: Codable {
