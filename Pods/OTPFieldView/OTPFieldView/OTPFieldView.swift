@@ -103,6 +103,7 @@ import UIKit
             oldOtpField?.removeFromSuperview()
             
             let otpField = getOTPField(forIndex: index)
+            otpField.textColor = .black
             addSubview(otpField)
             
             secureEntryData.append("")

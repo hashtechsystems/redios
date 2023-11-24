@@ -560,6 +560,39 @@ struct NetworkManager {
         }
     }
     
+    func mobilePaymentSettlementAPI(authId: String, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
+        
+        router.request(.mobilepaymentsettlement(authId: authId)) { data, response, error in
+            
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+                var apiResponse = try JSONDecoder().decode(String.self, from: responseData)
+                
+//                if apiResponse.status {
+//                    apiResponse.data?.parseMeterValues()
+//                    completion(apiResponse,nil)
+//                }
+//                else {
+//                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+//                }
+                completion(apiResponse,nil)
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+        }
+    }
+    
+    
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
         case 200...299: return .success

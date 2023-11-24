@@ -73,10 +73,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     }
     
     func updateUI(user: User?){
-        self.txtName.text = user?.name
-        self.txtEmail.text = user?.email
-        self.txtPhone.text = user?.phoneNumber
-        self.txtAddress.text = user?.address
+        self.txtName.text = user?.name ?? ""
+        self.txtEmail.text = user?.email ?? ""
+        self.txtPhone.text = user?.phoneNumber ?? ""
+        self.txtAddress.text = user?.address ?? ""
         
 //        guard let _imagePath = user?.imagePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
 //        let _fileName = user?.profilePic?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),

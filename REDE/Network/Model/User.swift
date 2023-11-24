@@ -30,10 +30,10 @@ struct LoginResponse: Codable {
 // MARK: - User
 public struct User: Codable {
     let id: Int
-    var name, email, phoneNumber: String
+    var name, email, phoneNumber: String?
     let profilePic: String?
     var address: String?
-    var imagePath: String
+    var imagePath: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, email, address

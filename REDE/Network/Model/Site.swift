@@ -23,6 +23,8 @@ struct Site: Codable {
     let latitude, longitude: String
     let pricePlanIdDC: Int?
     let pricePlanIdAC: Int?
+    let price_plan : Price_plan?
+    let ac_price_plan : Price_plan?
     
     enum CodingKeys: String, CodingKey {
         case id, name, address, city, state, latitude, longitude
@@ -31,13 +33,74 @@ struct Site: Codable {
         case chargerStations = "charger_stations"
         case pricePlanIdDC = "price_plan_id"
         case pricePlanIdAC = "ac_price_plan_id"
+        case price_plan = "price_plan"
+        case ac_price_plan = "ac_price_plan"
+
     }
+    
     
     func getFullAdress() -> String {
         return "\(address), \(city), \(state) : \(postalCode ?? "")"
     }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)!
+        name = try values.decodeIfPresent(String.self, forKey: .name)!
+        address = try values.decodeIfPresent(String.self, forKey: .address)!
+        city = try values.decodeIfPresent(String.self, forKey: .city)!
+        state = try values.decodeIfPresent(String.self, forKey: .state)!
+        postalCode = try values.decodeIfPresent(String.self, forKey: .postalCode)
+        status = try values.decodeIfPresent(Int.self, forKey: .status)!
+        latitude = try values.decodeIfPresent(String.self, forKey: .latitude)!
+        longitude = try values.decodeIfPresent(String.self, forKey: .longitude)!
+        pricePlanIdDC = try values.decodeIfPresent(Int.self, forKey: .pricePlanIdDC)
+        pricePlanIdAC = try values.decodeIfPresent(Int.self, forKey: .pricePlanIdAC)
+        chargerStations = try values.decodeIfPresent([ChargerStation].self, forKey: .chargerStations)
+        price_plan = try values.decodeIfPresent(Price_plan.self, forKey: .price_plan)
+        ac_price_plan = try values.decodeIfPresent(Price_plan.self, forKey: .ac_price_plan)
+    }
 }
 
+struct Price_plan : Codable {
+    let id : Int?
+    let name : String?
+    let fixed_fee : Double?
+    let variable_fee : Double?
+    let auth_amount : Int?
+    let fee_type : String?
+    let parking_fee : Double?
+    let parking_fee_unit : String?
+    let buffer_time : Int?
+
+    enum CodingKeys: String, CodingKey {
+
+        case id = "id"
+        case name = "name"
+        case fixed_fee = "fixed_fee"
+        case variable_fee = "variable_fee"
+        case auth_amount = "auth_amount"
+        case fee_type = "fee_type"
+        case parking_fee = "parking_fee"
+        case parking_fee_unit = "parking_fee_unit"
+        case buffer_time = "buffer_time"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        print(try values.decodeIfPresent(Int.self, forKey: .id))
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        fixed_fee = try values.decodeIfPresent(Double.self, forKey: .fixed_fee)
+        variable_fee = try values.decodeIfPresent(Double.self, forKey: .variable_fee)
+        auth_amount = try values.decodeIfPresent(Int.self, forKey: .auth_amount)
+        fee_type = try values.decodeIfPresent(String.self, forKey: .fee_type)
+        parking_fee = try values.decodeIfPresent(Double.self, forKey: .parking_fee)
+        parking_fee_unit = try values.decodeIfPresent(String.self, forKey: .parking_fee_unit)
+        buffer_time = try values.decodeIfPresent(Int.self, forKey: .buffer_time)
+    }
+
+}
 
 struct ChargerStationDetailsResponse: Codable {
     let status: Bool
@@ -140,6 +203,7 @@ struct TransactionDetails: Codable {
     var meterData: [MeterData]?
     let chargerType: String?
     let connectorStatus: String?
+    let duration: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -161,6 +225,7 @@ struct TransactionDetails: Codable {
         case meterDiff = "meter_diff"
         case chargerType = "charger_type"
         case connectorStatus = "connector_status"
+        case duration = "on_going_duration"
     }
     
     mutating func parseMeterValues(){

@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController {
         self.txtPhoneNumber.delegate = self
         self.txtEmail.delegate = self
         self.txtPassword.delegate = self
-        
+        self.txtPhoneNumber.text = "+1"
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -37,7 +37,27 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: UITextFieldDelegate{
     
-    //UITextField delegate method
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == txtPhoneNumber{
+            if textField.text?.isEmpty == true {
+                textField.text = "+1"
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtPhoneNumber{
+            if textField.text?.isEmpty == true && string.isEmpty {
+                textField.text = "+1"
+                return false
+            } else if textField.text == "+1" {
+                textField.text = "+1" + string
+                return false
+            }
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtUsername {
             textField.resignFirstResponder()

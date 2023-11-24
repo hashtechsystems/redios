@@ -55,7 +55,7 @@ extension PasswordViewController: UITextFieldDelegate{
     
     @IBAction func onConfirmClick(){
         
-        guard let password = txtPassword.text, let confirmPassword = txtPassword.text, password.isValidPassword else {
+        guard let password = txtPassword.text, let confirmPassword = txtConfirmPassword.text, password.isValidPassword else {
             self.showAlert(title: "RED E", message: "Password should be of at least 5 characters long.")
             return
         }

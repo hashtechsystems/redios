@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         self.txtUsername.delegate = self
         self.txtPassword.delegate = self
         
-        //self.txtUsername.text = "7980913237"
+        self.txtUsername.text = "+1"
         //self.txtPassword.text = "123456"
         
         self.checkbox.borderStyle = .square
@@ -38,6 +38,7 @@ class LoginViewController: UIViewController {
         if UserDefaults.standard.getActiveVisit(){
             self.gotoDashboard()
         }
+        self.txtUsername.isSelected = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +61,27 @@ extension LoginViewController: UITextFieldDelegate{
             txtPassword.becomeFirstResponder()
         } else if textField == txtPassword {
             textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == txtUsername{
+            if textField.text?.isEmpty == true {
+                textField.text = "+1"
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtUsername{            
+            if textField.text?.isEmpty == true && string.isEmpty {
+                textField.text = "+1"
+                return false
+            } else if textField.text == "+1" {
+                textField.text = "+1" + string
+                return false
+            }
         }
         return true
     }

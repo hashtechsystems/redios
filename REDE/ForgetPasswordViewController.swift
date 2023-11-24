@@ -21,7 +21,9 @@ class ForgetPasswordViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.txtPhoneNumber.keyboardType = .default
         self.txtPhoneNumber.addDoneCancelToolbar(onDone: (target: self, action: #selector(self.onSubmitClick(_:))), onCancel: (target: self, action: #selector(self.dismissKeyboard)))
-
+        self.txtPhoneNumber.text = "+1"
+        self.txtPhoneNumber.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +59,29 @@ class ForgetPasswordViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: false)
     }
 }
-
+extension ForgetPasswordViewController: UITextFieldDelegate{
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == txtPhoneNumber{
+            if textField.text?.isEmpty == true {
+                textField.text = "+1"
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtPhoneNumber{
+            if textField.text?.isEmpty == true && string.isEmpty {
+                textField.text = "+1"
+                return false
+            } else if textField.text == "+1" {
+                textField.text = "+1" + string
+                return false
+            }
+        }
+        return true
+    }
+}
 extension UITextField {
     func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
         let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))

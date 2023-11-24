@@ -16,7 +16,9 @@ class StopChargingViewController: BaseViewController {
     @IBOutlet weak var viewSocStatus: UIView!
     @IBOutlet weak var lblCurrent: UILabel!
     @IBOutlet weak var lblEnegry: UILabel!
-    
+    @IBOutlet weak var lblAmount: UILabel!
+    @IBOutlet weak var lblDuration: UILabel!
+
     @IBOutlet weak var viewSocStatusHeightConstarint: NSLayoutConstraint!
     @IBOutlet weak var viewPlugIn: UIView!
 
@@ -40,6 +42,8 @@ class StopChargingViewController: BaseViewController {
     }
     
     func updateUI(details: inout TransactionDetails, amount: Double?){
+        self.lblAmount.text = "$\(amount ?? 0.0)"
+        self.lblDuration.text = details.duration ?? ""
         self.lblSiteId.text = details.siteName ?? ""
         self.lblChargerStation.text = details.chargingStationName ?? ""
         
@@ -162,13 +166,13 @@ extension StopChargingViewController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 SVProgressHUD.dismiss()
-                
-                if self.chargerStation?.pricePlanId != nil {
-                    self.gotoTransactionHistory()
-                }
-                else{
-                    self.gotoDashboard()
-                }
+                self.gotoTransactionHistory()
+//                if self.chargerStation?.pricePlanId != nil {
+//                    self.gotoTransactionHistory()
+//                }
+//                else{
+//                    self.gotoDashboard()
+//                }
             }
         }
     }
@@ -218,7 +222,9 @@ extension StopChargingViewController {
                     }
                     else if transaction.status?.lowercased().elementsEqual("failed") ?? false {
                         self.updateTimer?.invalidate()
-                        self.gotoDashboard()
+                        self.showAlert(title: "Session timeout", message: "Click ok to redirect to home.") {
+                            self.gotoDashboard()
+                        }
                     }
                 }
             }

@@ -41,10 +41,11 @@ class MapViewController: BaseViewController {
         
         // Start updating location
         locationManager.startUpdatingLocation()
+        //self.onQRDetection(code: "https://pay.rede.network/main/07f428d8158e8aa0954ff53bca799155")
     }
     
     @IBAction func onClickReCenter(){
-        if let center = self.center {
+        if let center = self.center {       
             self.setMapFocus(location: center, radiusInKm: 5000)
         }
     }
@@ -60,8 +61,8 @@ extension MapViewController{
                 pin.subtitle = site.address
                 pin.site = site
                 pin.coordinate = CLLocationCoordinate2D(
-                    latitude: Double(site.latitude) ?? 0.0,
-                    longitude: Double(site.longitude) ?? 0.0
+                    latitude: Double(site.latitude ?? "0.0") ?? 0.0,
+                    longitude: Double(site.longitude ?? "0.0") ?? 0.0
                 )
                 return pin
             }
