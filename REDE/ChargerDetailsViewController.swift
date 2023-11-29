@@ -22,7 +22,7 @@ class ChargerDetailsViewController: BaseViewController {
     
     let kClientKey  = "5nKXgA5vg93r5A95drWZy246Ja32rS85nQv2N8HahH2Dum94B63HR3M8wsA5eBs2"
     let kClientName = "8eeT945T5"
-    let kClientTransationKey  = "56M78KUBvnm984ee"
+    let kClientTransationKey  = "7aBFH3a37p49nc92"
     let ApplePayMerchantID = "merchant.redecharge.com"
     let kAuthorisedAPI =  "https://api.authorize.net/" //"https://apitest.authorize.net/"
     var aryCreatePayProf = [String:Any]()
@@ -620,17 +620,17 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
     
     func CallCreateCustApplePayProfile(payment: PKPayment){
 //        let tempDict = cartDetailsFetch?.value(forKey: "data") as! Dictionary <String, Any>
-        let addressData = UserDefaults.standard.value(forKey: "CheckOutAddress") as? Dictionary <String,Any>
-        let firstName = addressData!["first_name"] ?? ""
-        let lastName = addressData!["last_name"] ?? ""
-        let address1: String = addressData!["addres1"] as! String
-        let address2: String = addressData!["addres2"] as! String
-        let addressString = NSString(format: "%@,%@", address1,address2)
-        let city = addressData!["city_name"] ?? ""
-        let state = addressData!["state"] ?? ""
-        let zip = addressData!["pincode"] ?? ""
-        let country = ""
-        _ = addressData!["mobile"] ?? ""
+//        let addressData = UserDefaults.standard.value(forKey: "CheckOutAddress") as? Dictionary <String,Any>
+//        let firstName = addressData!["first_name"] ?? ""
+//        let lastName = addressData!["last_name"] ?? ""
+//        let address1: String = addressData!["addres1"] as! String
+//        let address2: String = addressData!["addres2"] as! String
+//        let addressString = NSString(format: "%@,%@", address1,address2)
+//        let city = addressData!["city_name"] ?? ""
+//        let state = addressData!["state"] ?? ""
+//        let zip = addressData!["pincode"] ?? ""
+//        let country = ""
+//        _ = addressData!["mobile"] ?? ""
         let base64str = payment.token.paymentData.base64EncodedString()
         
         print("Data value: \(base64str)")
@@ -659,6 +659,7 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
                 print(httpResponse ?? "")
                 self.aryCreatePayProf = try! JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary as! [String : Any]
                 print("payment details from apple pay from error block :== \(self.aryCreatePayProf)")
+                self.showAlert(title: "RED E Error", message: "payment details from apple pay from error block :== \(self.aryCreatePayProf)")
                 //_ = "\(Constants.APP_URL+URLs.placeOrder.rawValue)"
             } else {
                 let httpResponse = response as? HTTPURLResponse
@@ -674,8 +675,10 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
                     guard let index = self.selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
                         return
                     }
-                    
-                    self.makePayment(cardNumber: "", expirationMonth: "", expirationYear: "", token: base64str, connectorId: connector.id)
+                    self.showAlert(title: "RED E", message: "\(message["text"]!)") {
+                        self.makePayment(cardNumber: "", expirationMonth: "", expirationYear: "", token: base64str, connectorId: connector.id)
+                    }
+                   
 
                     //call your server api here for submit data to your server
                 }
@@ -716,11 +719,10 @@ extension ChargerDetailsViewController {
         request.supportedNetworks = SupportedPaymentNetworks
         // DO NOT INCLUDE PKMerchantCapability.capabilityEMV
       request.merchantCapabilities = PKMerchantCapability.capability3DS
-//      request.merchantCapabilities = PKMerchantCapabilityEMV | PKMerchantCapability3DS;
 
         //MARK: pass total value and currency code to apple payment request
         request.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "Total", amount: 3.00)
+            PKPaymentSummaryItem(label: "Total", amount: 10.00)
         ]
         
         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
