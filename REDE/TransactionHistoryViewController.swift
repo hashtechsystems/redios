@@ -15,6 +15,7 @@ class TransactionHistoryViewController: BaseViewController {
     @IBOutlet weak var lblCost: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var lblDuration: UILabel!
     
     var transaction: Transaction?
     var chargerStation:ChargerStation?
@@ -30,11 +31,22 @@ class TransactionHistoryViewController: BaseViewController {
         
         self.lblChargerStation.text = details.chargingStationName ?? ""
         
-        self.lblStatus.text = details.status
+        self.lblStatus.text = "Successful"
         
-        self.lblDate.text = details.sessionEnd
+        self.lblDate.text = details.sessionEnd ?? ""
+        self.lblDuration.text = "\(details.duration ?? 0)"
+        if details.price_plan_details != nil{
+            if ((details.amount ?? 0.0) < 0.0){
+                self.lblCost.text = "Free"
+            }else{
+                self.lblCost.text = "$ \(details.amount ?? 0.0)"
+            }
+        }
+        else{
+            self.lblCost.text = "Free"
+        }
         
-        let dateFormatter = DateFormatter()
+        /*let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sZ"
         
         details.meterData?.sort { (lhs: MeterData, rhs: MeterData) -> Bool in
@@ -43,13 +55,6 @@ class TransactionHistoryViewController: BaseViewController {
         
         let allSampledValues = details.meterData?.compactMap{ $0.sampledValue }.reduce([], +)
         let energyValues = allSampledValues?.filter({ $0.measurand?.elementsEqual("Energy.Active.Import.Register") ?? false })
-
-//        if let meterDataStart = energyValues?.first?.value, let meterDataEnd = energyValues?.last?.value, let kwhStart = Float(meterDataStart), let kwhEnd = Float(meterDataEnd) {
-//            self.lblEnergy.text = String(format:"%.4f kW h", (kwhEnd - kwhStart)/1000)
-//        }
-//        else{
-//            self.lblEnergy.text = ""
-//        }
         
         let kwhStart = Float(details.meterStart ?? 0)
         if let meterDataEnd = energyValues?.last?.value, let kwhEnd = Float(meterDataEnd) {
@@ -69,7 +74,7 @@ class TransactionHistoryViewController: BaseViewController {
         else{
             self.lblEnergy.text = ""
             self.lblCost.text = ""
-        }
+        }*/
     }
 }
 

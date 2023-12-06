@@ -36,6 +36,7 @@ class ChargerDetailsViewController: BaseViewController {
     @IBOutlet weak var lblNoInfoFound: UILabel!
     @IBOutlet weak var vwPriceInfo: UIView!
     @IBOutlet weak var collectionConnectors: UICollectionView!
+    @IBOutlet weak var heightofImage: NSLayoutConstraint!
     
     var qrCode: String?
     fileprivate var chargerStation:ChargerStation?
@@ -68,7 +69,12 @@ class ChargerDetailsViewController: BaseViewController {
         for imgview in imgDotLine{
             imgview.image = image
         }
-
+        if screenHeight < 700 {
+            heightofImage.constant = 30
+        }else{
+            heightofImage.constant = 80
+        }
+        
     }
     
     func updateUI(){
@@ -79,7 +85,7 @@ class ChargerDetailsViewController: BaseViewController {
         if chargerStation?.chargerType == "DC"{
             if let plan = chargerStation?.site?.price_plan{
                 lblSessionfee.text = "$\(plan.fixed_fee ?? 0)"
-                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "$\(plan.variable_fee ?? 0) / KWH AC unit" : "NONE"
+                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "$\(plan.variable_fee ?? 0) / KWH DC unit" : "NONE"
                 lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "$\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
                 lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "$\(plan.buffer_time ?? 0)" : "NONE"
                 self.vwPriceInfo.isHidden = false
@@ -440,18 +446,11 @@ extension ChargerDetailsViewController{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.transaction = transaction
-                self.gotoStopCharging()
-                /*
-                 Call get-transaction-detail-by-id/{id} and check connector_status
-                 If connector_status is CHARGING or SUSPENDEDEV or SUSPENDEDEVSE then redirect to the charging detail screen and on this screen call get-transaction-detail-by-id/{id} after some time interval
-                 If the status is FAILED then redirect to Home
-                 */
-                
-//                if self.chargerStation?.pricePlanId != nil {
-//                    self.updatePayment()
-//                } else {
-//                    self.gotoStopCharging()
-//                }
+                if self.chargerStation?.pricePlanId != nil {
+                    self.updatePayment()
+                }else{
+                    self.gotoStopCharging()
+                }
             }
         }
     }

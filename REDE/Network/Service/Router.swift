@@ -26,6 +26,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             let request = try self.buildRequest(from: route)
             NetworkLogger.log(request: request)
             task = session.dataTask(with: request, completionHandler: { data, response, error in
+                NetworkLogger.log(response: response!, data: data!)
                 completion(data, response, error)
             })
         }catch {

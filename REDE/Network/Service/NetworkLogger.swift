@@ -37,5 +37,12 @@ class NetworkLogger {
         print(logOutput)
     }
     
-    static func log(response: URLResponse) {}
+    static func log(response: URLResponse,data : Data) {
+        if let httpResponse = response as? HTTPURLResponse {
+                   print("HTTP Status Code: \(httpResponse.statusCode)")
+               }
+               if let responseString = String(data: data, encoding: .utf8) {
+                   print("Response: \(responseString)")
+               }
+    }
 }

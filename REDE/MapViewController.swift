@@ -41,7 +41,7 @@ class MapViewController: BaseViewController {
         
         // Start updating location
         locationManager.startUpdatingLocation()
-        //self.onQRDetection(code: "https://pay.rede.network/main/07f428d8158e8aa0954ff53bca799155")
+        self.onQRDetection(code: "https://pay.rede.network/main/4bcbf9e6dc76bf0cf466e0b3cb760d38")
     }
     
     @IBAction func onClickReCenter(){
