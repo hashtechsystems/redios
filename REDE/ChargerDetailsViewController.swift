@@ -451,6 +451,7 @@ extension ChargerDetailsViewController{
                 }else{
                     self.gotoStopCharging()
                 }
+                
             }
         }
     }

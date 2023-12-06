@@ -36,6 +36,7 @@ class ForgetPasswordViewController: UIViewController {
         if let phoneNumber = txtPhoneNumber.text, phoneNumber.isValidPhoneNumber {
             self.dismissKeyboard()
             
+            
             Task {
                 SVProgressHUD.show()
                 let response = await NetworkManager().generateOtp(phone_number: phoneNumber)
