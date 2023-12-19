@@ -118,7 +118,7 @@ struct ChargerStation: Codable {
     let site: Site?
     let chargerType: String?
     var connectors: [Connector]
-    
+    var charger_output : String?
     enum CodingKeys: String, CodingKey {
         case id, manufacturer_id
         case siteID = "site_id"
@@ -126,6 +126,7 @@ struct ChargerStation: Codable {
         case qrCode = "qr_code"
         case name, connectors, site
         case chargerType = "charger_type"
+        case charger_output = "charger_output"
     }
     
     var pricePlanId: Int? {
@@ -203,9 +204,9 @@ struct TransactionDetails: Codable {
     var meterData: [MeterData]?
     let chargerType: String?
     let connectorStatus: String?
-    let duration: Int?
+    let duration: String?
     let price_plan_details : String?
-    let on_going_duration : Int?
+    let on_going_duration : String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -240,6 +241,8 @@ struct TransactionDetails: Codable {
         }
         self.meterData = try? JSONDecoder().decode([MeterData].self, from: data)
     }
+    
+    
 }
 
 struct MeterData: Codable {

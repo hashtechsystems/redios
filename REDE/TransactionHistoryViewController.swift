@@ -33,10 +33,14 @@ class TransactionHistoryViewController: BaseViewController {
         
         self.lblStatus.text = "Successful"
         
-        self.lblDate.text = details.sessionEnd ?? ""
-        self.lblDuration.text = "\(details.duration ?? 0)"
+        self.lblDate.text = details.createdAt ?? ""
+        
+        self.lblDuration.text = "\(details.duration ?? "")"
+        
+        self.lblEnergy.text = "\((details.meterDiff ?? 0.0) / 1000.00)"
+        
         if details.price_plan_details != nil{
-            if ((details.amount ?? 0.0) < 0.0){
+            if ((details.amount ?? 0.0) == 0.0){
                 self.lblCost.text = "Free"
             }else{
                 self.lblCost.text = "$ \(details.amount ?? 0.0)"

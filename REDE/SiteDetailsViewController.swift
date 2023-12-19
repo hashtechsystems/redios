@@ -35,11 +35,20 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let chargerStation = self.site?.chargerStations?[indexPath.row]
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "siteCell") as! siteCell
         cell.backgroundColor = .white
-        cell.textLabel?.font = UIFont.init(name: "Aldrich-Regular", size: 18)
-        cell.textLabel?.textColor = UIColor.init(red: 189.0/255.0, green: 35.0/255.0, blue: 35.0/255.0, alpha: 1.0)
-        cell.textLabel?.text = chargerStation?.name
+        
+        
+        cell.lblName.font = UIFont.init(name: "Aldrich-Regular", size: 18)
+        cell.lblName.textColor = UIColor.init(red: 189.0/255.0, green: 35.0/255.0, blue: 35.0/255.0, alpha: 1.0)
+        cell.lbloutput.font = UIFont.init(name: "Aldrich-Regular", size: 14)
+        cell.lbloutput.textColor = UIColor.black
+
+        cell.lbloutput.text = chargerStation?.charger_output ?? ""
+        cell.lblName.text = chargerStation?.name
+
+
+        //charger_output
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
         return cell
@@ -54,4 +63,9 @@ extension SiteDetailsViewController: UITableViewDelegate, UITableViewDataSource{
         controller.qrCode = chargerStation.qrCode
         self.navigationController?.pushViewController(controller, animated: true)
     }
+}
+
+class siteCell : UITableViewCell {
+    @IBOutlet weak var lblName : UILabel!
+    @IBOutlet weak var lbloutput : UILabel!
 }
