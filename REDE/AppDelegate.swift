@@ -8,6 +8,7 @@
 import UIKit
 
 var screenHeight = UIScreen.main.bounds.size.height
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
