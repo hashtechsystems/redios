@@ -120,8 +120,8 @@ extension ChargerDetailsViewController {
         }
         
         if self.chargerStation?.pricePlanId != nil {
-//            self.openCardPayment()
-            self.openActionSheet()
+            self.openCardPayment()
+//            self.openActionSheet()
         }
         else{
             self.startCharging()
@@ -562,28 +562,16 @@ extension String {
 
 
 extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
+        
+    
+    
+    func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController) {
+        print("paymentAuthorizationViewControllerDidFinish called")
+    }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (@escaping (PKPaymentAuthorizationStatus) -> Void)) {
         print("paymentAuthorizationViewController delegates called")
         // completion(PKPaymentAuthorizationStatus.success)
-        print("Payment method data : \(payment.token.paymentMethod.description)")
-        print("Payment method data : \(payment.token.paymentData.description)")
-//        let pkPaymentToken = payment.token
-//        //pkPaymentToken.paymentData //base64 encoded, applepay.data
-//
-//        let json = try? JSONSerialization.jsonObject(with: pkPaymentToken.paymentData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String:AnyObject]
-//
-//        let version = json!["version"] as! String
-//        let data = json!["data"] as! String
-//        let signature = json!["signature"] as! String
-//        let ephemeralPublicKey = (json!["header"] as! [String: String])["ephemeralPublicKey"]! as String
-//        var applicationData: String = ""
-//        if let appData = (json!["header"] as! [String: String])["applicationData"] {
-//            applicationData = appData
-//        }
-//        let publicKeyHash = (json!["header"] as! [String: String])["publicKeyHash"]! as String
-//        let transactionId = (json!["header"] as! [String: String])["transactionId"]! as String
-//
         if payment.token.paymentData.count > 0 {
             let base64str = self.base64forData(payment.token.paymentData)
             let message = String(format: "Data Value: %@", base64str)
@@ -635,11 +623,12 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
         
         print("Data value: \(base64str)")
         
-        let totalPay = "10.00" //tempDict["total"] as? String ?? "0.0"
-        
-        //MARK: Send basic details to authorize.net api
+        let totalPay = "1.00" //tempDict["total"] as? String ?? "0.0"
+        let savecardJson = "{\r\n \"createTransactionRequest\": {\r\n \"merchantAuthentication\": {\r\n \"name\": \"\("Constants.kClientName")\",\r\n \"transactionKey\": \"\(kClientTransationKey)\" },\r\n \"transactionRequest\": {\r\n \"transactionType\": \"authCaptureTransaction\",\r\n \"amount\": \"\(1.00)\",\r\n \"payment\": {\r\n \"opaqueData\":{\r\n \"dataDescriptor\": \"COMMON.APPLE.INAPP.PAYMENT\",\r\n \"dataValue\": \"\(base64str)\" } }, \r\n \"order\" : {\r\n \"invoiceNumber\" : \"\(1001)\", \r\n \"description\" : \"OrderFromiOS\"}, \r\n \"billTo\": {\r\n \"firstName\": \"\("Riddhi")\",\r\n \"lastName\": \"\("M")\",\r\n \"company\": \"\("company")\",\r\n \"address\": \"\("Adani Pratham")\",\r\n \"city\": \"\("Ahmedabad")\",\r\n \"state\": \"\("Gujarat")\",\r\n \"zip\": \"\("382481")\",\r\n \"country\": \"\("IN")\"},\r\n \"shipTo\": {\r\n \"firstName\": \"\("Riddhi")\",\r\n \"lastName\": \"\("M")\",\r\n \"company\": \"\("company")\",\r\n \"address\": \"\("Adani Pratham")\",\r\n \"city\": \"\("Ahmedabad")\",\r\n \"state\": \"\("Gujarat")\",\r\n \"zip\": \"\("382481")\",\r\n \"country\": \"\("IN")\"},\r\n \"customerIP\": \"\("")\"}} }"
+/*
+        // Send basic details to authorize.net api
         let savecardJson = "{\r\n \"createTransactionRequest\": {\r\n \"merchantAuthentication\": {\r\n \"name\": \"\("Riddhi")\",\r\n \"transactionKey\": \"\(kClientTransationKey)\" },\r\n \"transactionRequest\": {\r\n \"transactionType\": \"authCaptureTransaction\",\r\n \"amount\": \"\(totalPay)\",\r\n \"payment\": {\r\n \"opaqueData\":{\r\n \"dataDescriptor\": \"COMMON.APPLE.INAPP.PAYMENT\",\r\n \"dataValue\": \"\(base64str)\" } }, \r\n \"order\" : {\r\n \"invoiceNumber\" : \"\(1)\", \r\n \"description\" : \"OrderFromiOS\"}}} }"
-        
+       */
         print("CallCreateCustApplePayProfile payment data : \(savecardJson)")
         
         let jsonData = Data(savecardJson.utf8)
@@ -697,6 +686,30 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
 
 
 extension ChargerDetailsViewController {
+    
+    func shippingMethodCalculator() -> [PKShippingMethod] {
+        // Calculate the pickup date.
+        
+        let today = Date()
+        let calendar = Calendar.current
+        
+        let shippingStart = calendar.date(byAdding: .day, value: 3, to: today)!
+        let shippingEnd = calendar.date(byAdding: .day, value: 5, to: today)!
+        
+        let startComponents = calendar.dateComponents([.calendar, .year, .month, .day], from: shippingStart)
+        let endComponents = calendar.dateComponents([.calendar, .year, .month, .day], from: shippingEnd)
+         
+        let shippingDelivery = PKShippingMethod(label: "Delivery", amount: NSDecimalNumber(string: "0.00"))
+        shippingDelivery.dateComponentsRange = PKDateComponentsRange(start: startComponents, end: endComponents)
+        shippingDelivery.detail = "Ticket sent to you address"
+        shippingDelivery.identifier = "DELIVERY"
+        
+        let shippingCollection = PKShippingMethod(label: "Collection", amount: NSDecimalNumber(string: "0.00"))
+        shippingCollection.detail = "Collect ticket at festival"
+        shippingCollection.identifier = "COLLECTION"
+        
+        return [shippingDelivery, shippingCollection]
+    }
   func btnApplePayTapped() {
         if PKPaymentAuthorizationViewController.canMakePayments() == false {
             let alert = UIAlertController(title: "Apple Pay is not available", message: nil, preferredStyle: .alert)
@@ -704,7 +717,7 @@ extension ChargerDetailsViewController {
             return self.present(alert, animated: true, completion: nil)
         }
         
-        //MARK: checks apple pay is available then opens wallet app
+        //checks apple pay is available then opens wallet app
         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: SupportedPaymentNetworks) == false {
             openWalletApp()
         }
@@ -719,11 +732,17 @@ extension ChargerDetailsViewController {
         request.supportedNetworks = SupportedPaymentNetworks
         // DO NOT INCLUDE PKMerchantCapability.capabilityEMV
       request.merchantCapabilities = PKMerchantCapability.capability3DS
-
-        //MARK: pass total value and currency code to apple payment request
-        request.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "Total", amount: 10.00)
-        ]
+      request.shippingType = .delivery
+      request.shippingMethods = shippingMethodCalculator()
+      request.requiredShippingContactFields = [.name, .postalAddress]
+        //pass total value and currency code to apple payment request
+      let ticket = PKPaymentSummaryItem(label: "Festival Entry", amount: NSDecimalNumber(string: "1.00"), type: .final)
+      let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: "1.00"), type: .final)
+      let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: "1.99"), type: .final)
+      request.paymentSummaryItems = [ticket,tax,total]
+//        request.paymentSummaryItems = [
+//            PKPaymentSummaryItem(label: "Total", amount: 1.00)
+//        ]
         
         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
         applePayController?.delegate = self
@@ -733,7 +752,7 @@ extension ChargerDetailsViewController {
     
     
     
-    //MARK: opens wallet app
+    //opens wallet app
     func openWalletApp() {
         let library = PKPassLibrary()
         library.openPaymentSetup()

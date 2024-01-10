@@ -592,6 +592,36 @@ struct NetworkManager {
         }
     }
     
+    func getTransactionHistory( completion: @escaping (_ response: ([History]?), _ error: String?) -> ()) {
+       
+        router.request(.transactionHistory) { data, response, error in
+            
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+                let apiResponse = try JSONDecoder().decode(HistoryResponse.self, from: responseData)
+                
+                if apiResponse.status ?? false {
+                    completion((apiResponse.data), nil)
+                }
+                else {
+                    completion(nil, "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+        }
+    }
+    
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {

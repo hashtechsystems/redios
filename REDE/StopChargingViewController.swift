@@ -82,7 +82,9 @@ class StopChargingViewController: BaseViewController {
         }
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("SoC") ?? false}).first{
-            self.lblSocStatus.text = "\(item.value ?? "0") %"
+            let valueDouble = Double(item.value ?? "0") ?? 0.0
+            let valuestring = String(format: "%.2f", valueDouble)
+            self.lblSocStatus.text = "\(valuestring) %"
         }
         else{
             self.lblSocStatus.text = ""

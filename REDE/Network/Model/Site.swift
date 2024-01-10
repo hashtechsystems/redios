@@ -142,7 +142,7 @@ struct ChargerStation: Codable {
 // MARK: - Connector
 struct Connector: Codable {
     let id, chargingStationID, voltage, sequence_number, connector_output: Int
-    let type: String
+    let type,status: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -150,6 +150,7 @@ struct Connector: Codable {
         case voltage
         case type
         case sequence_number, connector_output
+        case status
     }
 }
 
@@ -200,7 +201,7 @@ struct TransactionDetails: Codable {
     let finalAmount: Double?
     let createdAt, sessionStart, sessionEnd: String?
     let meterDiff: Double?
-    var meterValue: String?
+    var meterValue,zone: String?
     var meterData: [MeterData]?
     let chargerType: String?
     let connectorStatus: String?
@@ -231,6 +232,7 @@ struct TransactionDetails: Codable {
         case duration = "duration"
         case on_going_duration = "on_going_duration"
         case price_plan_details = "price_plan_details"
+        case zone = "zone"
 
     }
     

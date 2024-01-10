@@ -48,6 +48,13 @@
 		A9E2ADDB29C19A9A002738C0 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDA29C19A9A002738C0 /* ForgetPasswordViewController.swift */; };
 		A9E2ADDD29C1A940002738C0 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDC29C1A940002738C0 /* VerifyOTPViewController.swift */; };
 		A9E2ADDF29C1D5CE002738C0 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */; };
+		B087D0C12B453771000054CC /* SiteDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */; };
+		B087D0C22B453771000054CC /* SiteDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */; };
+		B0DC33CB2B317F1D00A333C0 /* TransactionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */; };
+		B0DC33CC2B317F1D00A333C0 /* TransactionHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */; };
+		B0DC33CE2B32E40900A333C0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33CD2B32E40900A333C0 /* HistoryViewController.swift */; };
+		B0DC33D02B32EABE00A333C0 /* Histroy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33CF2B32EABE00A333C0 /* Histroy.swift */; };
+		B0DC33D22B3AD97100A333C0 /* Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33D12B3AD97100A333C0 /* Stations.swift */; };
 		B9DF35B97F8D05607085425A /* Pods_REDE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A599344D37568E44066C63C /* Pods_REDE.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +104,13 @@
 		A9E2ADDA29C19A9A002738C0 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		A9E2ADDC29C1A940002738C0 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiteDetailTableViewCell.xib; sourceTree = "<group>"; };
+		B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryCell.swift; sourceTree = "<group>"; };
+		B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryCell.xib; sourceTree = "<group>"; };
+		B0DC33CD2B32E40900A333C0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		B0DC33CF2B32EABE00A333C0 /* Histroy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histroy.swift; sourceTree = "<group>"; };
+		B0DC33D12B3AD97100A333C0 /* Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stations.swift; sourceTree = "<group>"; };
 		B0F314CD2AF66712009BEA2E /* REDE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = REDE.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +171,7 @@
 				711EAF7C2897F2550092B29C /* ScannerViewController.swift */,
 				71F5D91B28B3D8E100B66482 /* AuthorizePaymentViewController.swift */,
 				71C2B3A828C653C6002E7724 /* TransactionHistoryViewController.swift */,
+				B0DC33CD2B32E40900A333C0 /* HistoryViewController.swift */,
 				713438332866D038005D0EBD /* Main.storyboard */,
 				713438362866D03F005D0EBD /* Assets.xcassets */,
 				713438382866D03F005D0EBD /* LaunchScreen.storyboard */,
@@ -182,6 +197,10 @@
 			children = (
 				7134384D28676D6F005D0EBD /* NavigationBar.swift */,
 				717A996D289FF41D00AD6646 /* ConnectorCell.swift */,
+				B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */,
+				B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */,
+				B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */,
+				B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +237,8 @@
 			children = (
 				713C9E9828910A4600F8F3AE /* User.swift */,
 				719746A52892792B001490C0 /* Site.swift */,
+				B0DC33CF2B32EABE00A333C0 /* Histroy.swift */,
+				B0DC33D12B3AD97100A333C0 /* Stations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,9 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7134383A2866D03F005D0EBD /* LaunchScreen.storyboard in Resources */,
+				B087D0C22B453771000054CC /* SiteDetailTableViewCell.xib in Resources */,
 				71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */,
 				713438372866D03F005D0EBD /* Assets.xcassets in Resources */,
 				713438352866D038005D0EBD /* Main.storyboard in Resources */,
+				B0DC33CC2B317F1D00A333C0 /* TransactionHistoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,16 +414,20 @@
 				7134384C28676902005D0EBD /* DashboardViewController.swift in Sources */,
 				713C9E8B2891046200F8F3AE /* RedeEndPoint.swift in Sources */,
 				713C9E942891046200F8F3AE /* HTTPMethod.swift in Sources */,
+				B0DC33D22B3AD97100A333C0 /* Stations.swift in Sources */,
 				714581572889207000634022 /* ChargerDetailsViewController.swift in Sources */,
 				A9E2ADDF29C1D5CE002738C0 /* PasswordViewController.swift in Sources */,
 				717A996E289FF41D00AD6646 /* ConnectorCell.swift in Sources */,
 				71C2B3A928C653C6002E7724 /* TransactionHistoryViewController.swift in Sources */,
+				B0DC33CB2B317F1D00A333C0 /* TransactionHistoryCell.swift in Sources */,
 				713438432866D46B005D0EBD /* UIViewController+Extension.swift in Sources */,
 				716362412897E174003ADFF6 /* SiteDetailsViewController.swift in Sources */,
 				713C9E952891046200F8F3AE /* Router.swift in Sources */,
+				B0DC33D02B32EABE00A333C0 /* Histroy.swift in Sources */,
 				713C9E932891046200F8F3AE /* NetworkHeaders.swift in Sources */,
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
+				B0DC33CE2B32E40900A333C0 /* HistoryViewController.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
 				A9E2ADDB29C19A9A002738C0 /* ForgetPasswordViewController.swift in Sources */,
 				71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */,
@@ -408,6 +435,7 @@
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
 				713438322866D038005D0EBD /* LoginViewController.swift in Sources */,
 				716E7468289BF4F400F02342 /* NetworkParameters.swift in Sources */,
+				B087D0C12B453771000054CC /* SiteDetailTableViewCell.swift in Sources */,
 				713C9E872891046200F8F3AE /* ParameterEncoding.swift in Sources */,
 				711C8E4D28A159A700F50ABC /* UINavigationController+Extension.swift in Sources */,
 				713C9E972891046200F8F3AE /* EndPointType.swift in Sources */,
@@ -568,9 +596,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = REDE/REDE.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
-				DEVELOPMENT_TEAM = ZBA7H6M94F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.9;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "RED E";
@@ -582,8 +612,9 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,6 +623,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = REDE_Prod;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,9 +641,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = REDE/REDE.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.5;
-				DEVELOPMENT_TEAM = ZBA7H6M94F;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.9;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = REDE/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "RED E";
@@ -620,8 +657,9 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,6 +668,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = REDE_Prod;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
