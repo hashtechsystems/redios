@@ -622,7 +622,130 @@ struct NetworkManager {
         }
     }
     
+    func getSavedCardList( completion: @escaping (_ response: ([CreditCard]?), _ error: String?) -> ()) {
+       
+        router.request(.getCardList) { data, response, error in
+            
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+                let apiResponse = try JSONDecoder().decode(CreditCardResponse.self, from: responseData)
+                
+                if apiResponse.status ?? false {
+                    completion((apiResponse.data), nil)
+                }
+                else {
+                    completion((apiResponse.data), nil)
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+        }
+    }
     
+    func SaveCardDetails(cardNumber: String, year: String, month: String, completion: @escaping (_ response: String?, _ error: String?) -> ()) {
+        router.request(.saveCardInfo(cardnumber: cardNumber, year: year, month: month)) { data, response, error in
+
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+
+                let apiResponse = try JSONDecoder().decode(SaveCardResponse.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse.customer_profile_id, nil)
+                }
+                else {
+                    completion(nil, "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func ChargeCustomerWithSavedCard(id: Int, qrcode: String, completion: @escaping (_ response: CardChargedResponse?, _ error: String?) -> ()) {
+        
+        router.request(.chargeCustomer(id: id, qrcode: qrcode)) { data, response, error in
+
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+
+                let apiResponse = try JSONDecoder().decode(CardChargedResponse.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse, nil)
+                }
+                else {
+                    completion(nil, "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func makeApplePayment(qrCode: String,  cryptogram: String, completion: @escaping (_ success: Bool, _ authId: String?, _ error: String?) -> ()){
+        router.request(.makeApplePayment(qrcode: qrCode, cryptogram: cryptogram)) { data, response, error in
+            
+            if let error = error {
+                completion(false, nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(false, nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+                let str = String(decoding: responseData, as: UTF8.self)
+                print(str)
+                
+                let apiResponse = try JSONDecoder().decode(PaymentResponse.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse.status, apiResponse.authId, nil)
+                }
+                else {
+                    completion(false, nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(false, nil, error.localizedDescription)
+            }
+        }
+    }
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {
         case 200...299: return .success

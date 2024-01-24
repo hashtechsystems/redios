@@ -50,6 +50,12 @@
 		A9E2ADDF29C1D5CE002738C0 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */; };
 		B087D0C12B453771000054CC /* SiteDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */; };
 		B087D0C22B453771000054CC /* SiteDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */; };
+		B0B0B58A2B5A4A6C0051C180 /* SavedCardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B5892B5A4A6C0051C180 /* SavedCardListViewController.swift */; };
+		B0B0B58D2B5A4A9C0051C180 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B58B2B5A4A9C0051C180 /* CardTableViewCell.swift */; };
+		B0B0B58E2B5A4A9C0051C180 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B58C2B5A4A9C0051C180 /* CardTableViewCell.xib */; };
+		B0B0B5912B5A4C7D0051C180 /* AddNewCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0B58F2B5A4C7D0051C180 /* AddNewCardTableViewCell.swift */; };
+		B0B0B5922B5A4C7D0051C180 /* AddNewCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B0B5902B5A4C7D0051C180 /* AddNewCardTableViewCell.xib */; };
+		B0BD29C82B5FBB020064990D /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD29C72B5FBB020064990D /* CreditCard.swift */; };
 		B0DC33CB2B317F1D00A333C0 /* TransactionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */; };
 		B0DC33CC2B317F1D00A333C0 /* TransactionHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */; };
 		B0DC33CE2B32E40900A333C0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC33CD2B32E40900A333C0 /* HistoryViewController.swift */; };
@@ -106,6 +112,12 @@
 		A9E2ADDE29C1D5CE002738C0 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteDetailTableViewCell.swift; sourceTree = "<group>"; };
 		B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiteDetailTableViewCell.xib; sourceTree = "<group>"; };
+		B0B0B5892B5A4A6C0051C180 /* SavedCardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardListViewController.swift; sourceTree = "<group>"; };
+		B0B0B58B2B5A4A9C0051C180 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		B0B0B58C2B5A4A9C0051C180 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
+		B0B0B58F2B5A4C7D0051C180 /* AddNewCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardTableViewCell.swift; sourceTree = "<group>"; };
+		B0B0B5902B5A4C7D0051C180 /* AddNewCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewCardTableViewCell.xib; sourceTree = "<group>"; };
+		B0BD29C72B5FBB020064990D /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryCell.swift; sourceTree = "<group>"; };
 		B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryCell.xib; sourceTree = "<group>"; };
 		B0DC33CD2B32E40900A333C0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +178,7 @@
 				71343849286768DB005D0EBD /* ProfileViewController.swift */,
 				713438472866E5C6005D0EBD /* MapViewController.swift */,
 				714581562889207000634022 /* ChargerDetailsViewController.swift */,
+				B0B0B5892B5A4A6C0051C180 /* SavedCardListViewController.swift */,
 				7145815828892F4E00634022 /* StopChargingViewController.swift */,
 				716362402897E174003ADFF6 /* SiteDetailsViewController.swift */,
 				711EAF7C2897F2550092B29C /* ScannerViewController.swift */,
@@ -201,6 +214,10 @@
 				B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */,
 				B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */,
 				B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */,
+				B0B0B58B2B5A4A9C0051C180 /* CardTableViewCell.swift */,
+				B0B0B58C2B5A4A9C0051C180 /* CardTableViewCell.xib */,
+				B0B0B58F2B5A4C7D0051C180 /* AddNewCardTableViewCell.swift */,
+				B0B0B5902B5A4C7D0051C180 /* AddNewCardTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +256,7 @@
 				719746A52892792B001490C0 /* Site.swift */,
 				B0DC33CF2B32EABE00A333C0 /* Histroy.swift */,
 				B0DC33D12B3AD97100A333C0 /* Stations.swift */,
+				B0BD29C72B5FBB020064990D /* CreditCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,8 +371,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7134383A2866D03F005D0EBD /* LaunchScreen.storyboard in Resources */,
+				B0B0B58E2B5A4A9C0051C180 /* CardTableViewCell.xib in Resources */,
 				B087D0C22B453771000054CC /* SiteDetailTableViewCell.xib in Resources */,
 				71CF94D9289CCF06002186EA /* Aldrich-Regular.ttf in Resources */,
+				B0B0B5922B5A4C7D0051C180 /* AddNewCardTableViewCell.xib in Resources */,
 				713438372866D03F005D0EBD /* Assets.xcassets in Resources */,
 				713438352866D038005D0EBD /* Main.storyboard in Resources */,
 				B0DC33CC2B317F1D00A333C0 /* TransactionHistoryCell.xib in Resources */,
@@ -425,11 +445,14 @@
 				713C9E952891046200F8F3AE /* Router.swift in Sources */,
 				B0DC33D02B32EABE00A333C0 /* Histroy.swift in Sources */,
 				713C9E932891046200F8F3AE /* NetworkHeaders.swift in Sources */,
+				B0BD29C82B5FBB020064990D /* CreditCard.swift in Sources */,
 				713C9E962891046200F8F3AE /* NetworkLogger.swift in Sources */,
 				719746A62892792B001490C0 /* Site.swift in Sources */,
 				B0DC33CE2B32E40900A333C0 /* HistoryViewController.swift in Sources */,
+				B0B0B5912B5A4C7D0051C180 /* AddNewCardTableViewCell.swift in Sources */,
 				713C9E9928910A4600F8F3AE /* User.swift in Sources */,
 				A9E2ADDB29C19A9A002738C0 /* ForgetPasswordViewController.swift in Sources */,
+				B0B0B58A2B5A4A6C0051C180 /* SavedCardListViewController.swift in Sources */,
 				71F5D91C28B3D8E100B66482 /* AuthorizePaymentViewController.swift in Sources */,
 				71EDDD14289CBF5200B9DA84 /* RegistrationViewController.swift in Sources */,
 				7134384E28676D6F005D0EBD /* NavigationBar.swift in Sources */,
@@ -444,6 +467,7 @@
 				713438482866E5C6005D0EBD /* MapViewController.swift in Sources */,
 				7134385328677252005D0EBD /* UIControl+Extension.swift in Sources */,
 				713C9E8A2891046200F8F3AE /* NetworkManager.swift in Sources */,
+				B0B0B58D2B5A4A9C0051C180 /* CardTableViewCell.swift in Sources */,
 				713C9E9B28910AB200F8F3AE /* UserDefault+Extension.swift in Sources */,
 				714CEF752899551A00528ACF /* Url+Extension.swift in Sources */,
 				711EAF7D2897F2550092B29C /* ScannerViewController.swift in Sources */,
@@ -598,7 +622,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.9;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -643,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.9;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;

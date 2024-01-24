@@ -27,7 +27,6 @@ class MapViewController: BaseViewController {
             controller.delegate = self
             self.present(controller, animated: true)
         }
-        
         mapview.delegate = self
         mapview.mapType = .standard
         mapview.userTrackingMode = .follow

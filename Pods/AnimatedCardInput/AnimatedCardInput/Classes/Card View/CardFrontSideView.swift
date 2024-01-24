@@ -77,12 +77,12 @@ final class CardFrontSideView: CardSideView {
     /// Text Field for Validity Date input.
     internal lazy var validityDateField: CustomInputField = {
         let textField = CustomInputField(
-            digitsLimit: 4,
-            chunkLengths: [2, 2]
+            digitsLimit: 6,
+            chunkLengths: [2, 4]
         )
         textField.validatesDateInput = true
         textField.separator = "/"
-        textField.customPlaceholder = "MM/YY"
+        textField.customPlaceholder = "MM/YYYY"
         textField.font = .systemFont(ofSize: 14)
         textField.keyboardType = .decimalPad
         textField.inputAccessoryView = {

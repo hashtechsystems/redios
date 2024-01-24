@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardTableViewCell" rowHeight="75" id="h68-21-PQb" customClass="CardTableViewCell" customModule="REDE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h68-21-PQb" id="hTt-mu-CzF">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8el-HK-NvB">
+                        <rect key="frame" x="8" y="8" width="391" height="59"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="xxxx xxxx xxxx 1234" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTR-e0-Dbk">
+                                <rect key="frame" x="80" y="8" width="283" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Valid untill 12/24" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOz-mD-q0b">
+                                <rect key="frame" x="80" y="34" width="283" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditcard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="udC-Gs-1WP">
+                                <rect key="frame" x="8" y="10" width="60" height="39"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="2tM-H7-nHD"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="Rwo-Mu-zCy">
+                                <rect key="frame" x="371" y="23.666666666666668" width="12" height="12.000000000000004"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="W66-wM-ec1"/>
+                                    <constraint firstAttribute="height" constant="12" id="e0V-yg-4SN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Rwo-Mu-zCy" secondAttribute="trailing" constant="8" id="0Hi-cq-XvV"/>
+                            <constraint firstAttribute="bottom" secondItem="udC-Gs-1WP" secondAttribute="bottom" constant="8" id="4kg-x6-ZZG"/>
+                            <constraint firstItem="kTR-e0-Dbk" firstAttribute="top" secondItem="8el-HK-NvB" secondAttribute="top" constant="8" id="HvT-dh-ZA3"/>
+                            <constraint firstItem="kTR-e0-Dbk" firstAttribute="leading" secondItem="udC-Gs-1WP" secondAttribute="trailing" constant="12" id="JBS-PQ-JqR"/>
+                            <constraint firstItem="udC-Gs-1WP" firstAttribute="top" secondItem="8el-HK-NvB" secondAttribute="top" constant="8" id="MgY-wk-rCq"/>
+                            <constraint firstItem="pOz-mD-q0b" firstAttribute="leading" secondItem="kTR-e0-Dbk" secondAttribute="leading" id="Mz8-Oj-Edz"/>
+                            <constraint firstItem="pOz-mD-q0b" firstAttribute="trailing" secondItem="kTR-e0-Dbk" secondAttribute="trailing" id="Ped-nO-9B9"/>
+                            <constraint firstAttribute="bottom" secondItem="pOz-mD-q0b" secondAttribute="bottom" constant="8" id="b7U-GC-L3R"/>
+                            <constraint firstItem="Rwo-Mu-zCy" firstAttribute="centerY" secondItem="8el-HK-NvB" secondAttribute="centerY" id="gWT-jx-YSA"/>
+                            <constraint firstItem="Rwo-Mu-zCy" firstAttribute="leading" secondItem="kTR-e0-Dbk" secondAttribute="trailing" constant="8" id="iFa-59-67C"/>
+                            <constraint firstItem="udC-Gs-1WP" firstAttribute="leading" secondItem="8el-HK-NvB" secondAttribute="leading" constant="8" id="iOX-N9-BDO"/>
+                            <constraint firstItem="pOz-mD-q0b" firstAttribute="top" secondItem="kTR-e0-Dbk" secondAttribute="bottom" constant="8" id="nCU-yJ-98z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="8el-HK-NvB" secondAttribute="trailing" constant="8" id="EDf-4a-dyy"/>
+                    <constraint firstAttribute="bottom" secondItem="8el-HK-NvB" secondAttribute="bottom" constant="8" id="Twu-tD-fb2"/>
+                    <constraint firstItem="8el-HK-NvB" firstAttribute="top" secondItem="hTt-mu-CzF" secondAttribute="top" constant="8" id="laJ-e5-LPp"/>
+                    <constraint firstItem="8el-HK-NvB" firstAttribute="leading" secondItem="hTt-mu-CzF" secondAttribute="leading" constant="8" id="rPP-Zu-yo3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="v30-lc-yCV"/>
+            <connections>
+                <outlet property="lblCard" destination="kTR-e0-Dbk" id="jIr-cz-7jO"/>
+                <outlet property="lblExp" destination="pOz-mD-q0b" id="Ziq-UY-jfG"/>
+                <outlet property="vwMain" destination="8el-HK-NvB" id="mNr-nD-ntv"/>
+            </connections>
+            <point key="canvasLocation" x="84.732824427480907" y="18.661971830985916"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="creditcard" catalog="system" width="128" height="88"/>
+        <image name="next" width="20" height="20"/>
+    </resources>
+</document>

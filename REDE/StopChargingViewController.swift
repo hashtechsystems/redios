@@ -91,18 +91,25 @@ class StopChargingViewController: BaseViewController {
         }
         
         if let item = data?.sampledValue?.filter({ $0.measurand?.elementsEqual("Power.Active.Import") ?? false}).first{
-            guard let value = item.value, let current = Float(value) else {
+            guard let value = item.value, var current = Float(value) else {
                 self.lblCurrent.text = ""
                 return
             }
-            let amphere = current/1000
+            //Changed
+            if current > 0 {
+                let amphere = current/1000
+                self.lblCurrent.text  = String(format: "%.2f KW", amphere)
+            }else{
+                self.lblCurrent.text = "0"
+            }
             
-            if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
-                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.280))
-            }
-            else {
-                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.480))
-            }
+            
+//            if details.chargerType?.lowercased().elementsEqual("ac") ?? false {
+//                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.280))
+//            }
+//            else {
+//                self.lblCurrent.text = String(format:"%.2f kW", (amphere * 0.480))
+//            }
         }
         else{
             self.lblCurrent.text = ""

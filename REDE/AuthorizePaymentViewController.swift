@@ -7,7 +7,7 @@
 
 import UIKit
 import AnimatedCardInput
-
+import SVProgressHUD
 protocol AuthorizePaymentDelegate{
     func creditCardData(data: CreditCardData?)
 }
@@ -16,12 +16,13 @@ class AuthorizePaymentViewController: BaseViewController {
     
     @IBOutlet weak var viewScanner: UIView!
     var delegate: AuthorizePaymentDelegate?
-    
+    var isSaveCard = false
     private let cardView: CardView = {
         let view = CardView(
             cardNumberDigitsLimit: 16,
             cardNumberChunkLengths: [4, 4, 4, 4],
             CVVNumberDigitsLimit: 3
+            
         )
 
         view.frontSideCardColor = #colorLiteral(red: 0.2156862745, green: 0.2156862745, blue: 0.2156862745, alpha: 1)
@@ -47,6 +48,17 @@ class AuthorizePaymentViewController: BaseViewController {
         return view
     }()
 
+    private let buttonSave : UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Save Card", for: .normal)
+        button.setImage(UIImage(named: "unchecked"), for: .normal)
+        button.setImage(UIImage(named: "checkbox"), for: .selected)
+        button.setTitleColor(.black, for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(saveButtonTapped(_:)), for: .touchUpInside)
+        return button
+    }()
     private let retrieveButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("   Done   ", for: .normal)
@@ -72,7 +84,9 @@ class AuthorizePaymentViewController: BaseViewController {
         [
             cardView,
             inputsView,
+            buttonSave,
             retrieveButton
+            
         ].forEach(viewScanner.addSubview)
 
         NSLayoutConstraint.activate([
@@ -84,9 +98,13 @@ class AuthorizePaymentViewController: BaseViewController {
             inputsView.leadingAnchor.constraint(equalTo: viewScanner.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             inputsView.trailingAnchor.constraint(equalTo: viewScanner.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
+            buttonSave.heightAnchor.constraint(equalToConstant: 44),
+            buttonSave.centerXAnchor.constraint(equalTo: viewScanner.centerXAnchor),
+            buttonSave.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 24),
+            
             retrieveButton.heightAnchor.constraint(equalToConstant: 44),
             retrieveButton.centerXAnchor.constraint(equalTo: viewScanner.centerXAnchor),
-            retrieveButton.topAnchor.constraint(equalTo: inputsView.bottomAnchor, constant: 24),
+            retrieveButton.topAnchor.constraint(equalTo: buttonSave.bottomAnchor, constant: 24),
         ])
         
         inputsView.isHidden = true
@@ -97,6 +115,10 @@ class AuthorizePaymentViewController: BaseViewController {
         cardView.currentInput = .cardNumber
     }
 
+    @objc private func saveButtonTapped(_ sender : UIButton){
+        sender.isSelected = !sender.isSelected
+        isSaveCard = !isSaveCard
+    }
     @objc private func retrieveTapped() {
         let data = cardView.creditCardData
         
@@ -110,8 +132,37 @@ class AuthorizePaymentViewController: BaseViewController {
             self.showAlert(title: "RED E", message: "Please enter CVV")
         }
         else{
-            self.delegate?.creditCardData(data: data)
-            self.dismiss(animated: true)
+            if isSaveCard{
+                SVProgressHUD.show()
+                saveCardDetails()
+            }else{
+                self.delegate?.creditCardData(data: data)
+                self.dismiss(animated: true)
+            }
+            
+        }
+    }
+    
+    func saveCardDetails(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+        }
+        let data = cardView.creditCardData
+        let arr = data.validityDate.components(separatedBy: "/")
+        guard arr.count == 2, let month = arr.first, let year = arr.last else{
+            return
+        }
+        NetworkManager().SaveCardDetails(cardNumber: data.cardNumber, year: year, month: month) { response, error in
+            if error != nil {
+                
+            }else{
+                DispatchQueue.main.async {
+                    self.delegate?.creditCardData(data: data)
+                    self.dismiss(animated: true)
+                }
+                
+
+            }
         }
     }
 }

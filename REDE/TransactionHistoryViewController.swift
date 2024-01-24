@@ -34,9 +34,18 @@ class TransactionHistoryViewController: BaseViewController {
         self.lblStatus.text = "Successful"
         
         self.lblDate.text = "\(details.createdAt ?? "") \(details.zone ?? "UTC")"
+       
         
         self.lblDuration.text = "\(details.duration ?? "")"
         
+        /*        self.lblEnergy.text = "0.00 kWh"
+         
+         if let diff = details.meterDiff {
+             let value = diff / 1000.00
+             self.lblEnergy.text = "\(value) kWh"
+         }
+         
+         */
         self.lblEnergy.text = "\((details.meterDiff ?? 0.0) / 1000.00) kWh"
         
         if details.price_plan_details != nil{

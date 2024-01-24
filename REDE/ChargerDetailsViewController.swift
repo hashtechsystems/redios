@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import PassKit
+//import PassKit
 import SVProgressHUD
 import AnimatedCardInput
 import AuthorizeNetAccept
-import PassKit
 
+import PassKit
+import Alamofire
 class ChargerDetailsViewController: BaseViewController {
     
     @objc let SupportedPaymentNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
@@ -21,7 +22,7 @@ class ChargerDetailsViewController: BaseViewController {
     //    private let kClientKey  = "2NU5ph424e5PjZ57p76PquLtBj9MT2smPCKpm43NEFhZ4gr8358zpG5dtBJSy2Qf"
     
     let kClientKey  = "5nKXgA5vg93r5A95drWZy246Ja32rS85nQv2N8HahH2Dum94B63HR3M8wsA5eBs2"
-    let kClientName = "8eeT945T5"
+    let kClientName = "8eeT945T5" // This is API Login ID
     let kClientTransationKey  = "7aBFH3a37p49nc92"
     let ApplePayMerchantID = "merchant.redecharge.com"
     let kAuthorisedAPI =  "https://api.authorize.net/" //"https://apitest.authorize.net/"
@@ -52,13 +53,13 @@ class ChargerDetailsViewController: BaseViewController {
         self.navbar.isRightButtonHidden = true
         self.fetchChargerDetails()
         
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        let width = UIScreen.main.bounds.width
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-//        layout.itemSize = CGSize(width: 128, height: 142)
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
-//        collectionConnectors.collectionViewLayout = layout
+        //        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        //        let width = UIScreen.main.bounds.width
+        //        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        //        layout.itemSize = CGSize(width: 128, height: 142)
+        //        layout.minimumInteritemSpacing = 0
+        //        layout.minimumLineSpacing = 0
+        //        collectionConnectors.collectionViewLayout = layout
         
         guard let flowLayout = collectionConnectors.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.minimumInteritemSpacing = margin
@@ -120,8 +121,9 @@ extension ChargerDetailsViewController {
         }
         
         if self.chargerStation?.pricePlanId != nil {
-            self.openCardPayment()
+            //            self.openCardPayment()
 //            self.openActionSheet()
+            self.getCardList()
         }
         else{
             self.startCharging()
@@ -138,7 +140,8 @@ extension ChargerDetailsViewController {
         }
         let CardAction = UIAlertAction(title: "Credit Card/Debit Card", style: UIAlertAction.Style.default) {
             UIAlertAction in
-            self.openCardPayment()
+            self.getCardList()
+//            self.openCardPayment()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
             UIAlertAction in
@@ -321,47 +324,84 @@ extension ChargerDetailsViewController : AuthorizePaymentDelegate{
                 SVProgressHUD.dismiss()
                 self.showAlert(title: "RED E", message: output){
                     if self.chargerStation?.pricePlanId != nil {
-                        self.openCardPayment()
+                        //self.openCardPayment()
+                        self.getCardList()
                     }
                 }
             }
         }
-        
-        /*let supportedNetworks = [ PKPaymentNetwork.amex, PKPaymentNetwork.masterCard, PKPaymentNetwork.visa ]
-         
-         if PKPaymentAuthorizationViewController.canMakePayments() == false {
-         let alert = UIAlertController(title: "Apple Pay is not available", message: nil, preferredStyle: .alert)
-         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-         return self.present(alert, animated: true, completion: nil)
-         }
-         
-         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: supportedNetworks) == false {
-         let alert = UIAlertController(title: "No Apple Pay payment methods available", message: nil, preferredStyle: .alert)
-         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-         return self.present(alert, animated: true, completion: nil)
-         }
-         
-         let request = PKPaymentRequest()
-         request.currencyCode = "USD"
-         request.countryCode = "US"
-         request.merchantIdentifier = "merchant.rede.network"
-         request.supportedNetworks = SupportedPaymentNetworks
-         // DO NOT INCLUDE PKMerchantCapability.capabilityEMV
-         request.merchantCapabilities = PKMerchantCapability.capability3DS
-         
-         request.paymentSummaryItems = [
-         PKPaymentSummaryItem(label: "Total", amount: 1.00)
-         ]
-         
-         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
-         applePayController?.delegate = self
-         
-         self.present(applePayController!, animated: true, completion: nil)*/
+    }
+}
+extension ChargerDetailsViewController : SavedCardListDelegate{
+    func OpenCardView() {
+        self.openCardPayment()
+    }
+    
+    func payWithCard(id: Int) {
+        self.chargeSelectedCard(id: id)
+    }
+}
+
+//MARK: Save Card Info Flow
+extension ChargerDetailsViewController{
+    // Create this method to charge customer using saved credit card id and call server api to send selected credit card Id.
+    func chargeSelectedCard(id : Int){
+        SVProgressHUD.show()
+        NetworkManager().ChargeCustomerWithSavedCard(id: id, qrcode: self.qrCode ?? "") { response, error in
+            if let authId = response?.authId {
+                self.authId = authId
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.startCharging()
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error){}
+                    }
+                }
+            }
+        }
+    }
+    
+    func openSavedCardList(list : [CreditCard]){
+        guard let controller = UIViewController.instantiateVC(viewController: SavedCardListViewController.self) else { return }
+        controller.cardList = list
+        controller.delegate = self
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    // Get all saved credit card list from server
+    func getCardList(){
+        SVProgressHUD.show()
+        NetworkManager().getSavedCardList { response, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            guard let data = response else{
+                return
+            }
+            if data.count == 0{
+                DispatchQueue.main.async {
+                    self.openCardPayment()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    self.openSavedCardList(list: data)
+                }
+            }
+        }
     }
 }
 
 extension ChargerDetailsViewController{
-    
+
     func makePayment(cardNumber: String, expirationMonth: String, expirationYear: String, token: String, connectorId: Int){
         
         guard let qrCode = self.qrCode else{
@@ -390,7 +430,8 @@ extension ChargerDetailsViewController{
                     else{
                         self.showAlert(title: "RED E", message: error){
                             if self.chargerStation?.pricePlanId != nil {
-                                self.openCardPayment()
+//                                self.openCardPayment()
+                                self.getCardList()
                             }
                         }
                     }
@@ -411,9 +452,9 @@ extension ChargerDetailsViewController{
             guard let transaction = transaction, transaction.transactionId > 0 else {
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-//                    self.showAlert(title: "RED E", message: "Some error occurred"){
-//                        self.gotoLastScreen()
-//                    }
+                    //                    self.showAlert(title: "RED E", message: "Some error occurred"){
+                    //                        self.gotoLastScreen()
+                    //                    }
                     
                     let alert = UIAlertController(title: "RED E", message: "Some error occurred", preferredStyle: .alert)
                     
@@ -481,9 +522,9 @@ extension ChargerDetailsViewController{
                 }
                 else{
                     if (transaction.connectorStatus?.uppercased().elementsEqual("CHARGING") ?? false)
-                                || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false)
-                                || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false)
-                    ||
+                        || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false)
+                        || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEV") ?? false)
+                        ||
                         (transaction.connectorStatus?.uppercased().elementsEqual("PREPARING") ?? false){
                         self.gotoStopCharging()
                     }
@@ -542,29 +583,8 @@ extension ChargerDetailsViewController{
         }
     }
 }
-
-
-extension String {
-    
-    func fromBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-        
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
-    
-}
-
-
+//MARK: Apple Pay
 extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
-        
-    
-    
     func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController) {
         print("paymentAuthorizationViewControllerDidFinish called")
     }
@@ -573,13 +593,13 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
         print("paymentAuthorizationViewController delegates called")
         // completion(PKPaymentAuthorizationStatus.success)
         if payment.token.paymentData.count > 0 {
-            let base64str = self.base64forData(payment.token.paymentData)
-            let message = String(format: "Data Value: %@", base64str)
-            let alert = UIAlertController(title: "Authorization Success", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//            let base64str = self.base64forData(payment.token.paymentData)
+//            let message = String(format: "Data Value: %@", base64str)
+//            let alert = UIAlertController(title: "Authorization Success", message: "", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             completion(PKPaymentAuthorizationStatus.success)
             //call api
-            CallCreateCustApplePayProfile(payment: payment)
+            self.MakeApplePayment(payment: payment)
         } else {
             let alert = UIAlertController(title: "Authorization Failed!", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -606,87 +626,36 @@ extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDele
         return paymentString!
     }
     
-    func CallCreateCustApplePayProfile(payment: PKPayment){
-//        let tempDict = cartDetailsFetch?.value(forKey: "data") as! Dictionary <String, Any>
-//        let addressData = UserDefaults.standard.value(forKey: "CheckOutAddress") as? Dictionary <String,Any>
-//        let firstName = addressData!["first_name"] ?? ""
-//        let lastName = addressData!["last_name"] ?? ""
-//        let address1: String = addressData!["addres1"] as! String
-//        let address2: String = addressData!["addres2"] as! String
-//        let addressString = NSString(format: "%@,%@", address1,address2)
-//        let city = addressData!["city_name"] ?? ""
-//        let state = addressData!["state"] ?? ""
-//        let zip = addressData!["pincode"] ?? ""
-//        let country = ""
-//        _ = addressData!["mobile"] ?? ""
-        let base64str = payment.token.paymentData.base64EncodedString()
-        
-        print("Data value: \(base64str)")
-        
-        let totalPay = "1.00" //tempDict["total"] as? String ?? "0.0"
-        let savecardJson = "{\r\n \"createTransactionRequest\": {\r\n \"merchantAuthentication\": {\r\n \"name\": \"\("Constants.kClientName")\",\r\n \"transactionKey\": \"\(kClientTransationKey)\" },\r\n \"transactionRequest\": {\r\n \"transactionType\": \"authCaptureTransaction\",\r\n \"amount\": \"\(1.00)\",\r\n \"payment\": {\r\n \"opaqueData\":{\r\n \"dataDescriptor\": \"COMMON.APPLE.INAPP.PAYMENT\",\r\n \"dataValue\": \"\(base64str)\" } }, \r\n \"order\" : {\r\n \"invoiceNumber\" : \"\(1001)\", \r\n \"description\" : \"OrderFromiOS\"}, \r\n \"billTo\": {\r\n \"firstName\": \"\("Riddhi")\",\r\n \"lastName\": \"\("M")\",\r\n \"company\": \"\("company")\",\r\n \"address\": \"\("Adani Pratham")\",\r\n \"city\": \"\("Ahmedabad")\",\r\n \"state\": \"\("Gujarat")\",\r\n \"zip\": \"\("382481")\",\r\n \"country\": \"\("IN")\"},\r\n \"shipTo\": {\r\n \"firstName\": \"\("Riddhi")\",\r\n \"lastName\": \"\("M")\",\r\n \"company\": \"\("company")\",\r\n \"address\": \"\("Adani Pratham")\",\r\n \"city\": \"\("Ahmedabad")\",\r\n \"state\": \"\("Gujarat")\",\r\n \"zip\": \"\("382481")\",\r\n \"country\": \"\("IN")\"},\r\n \"customerIP\": \"\("")\"}} }"
-/*
-        // Send basic details to authorize.net api
-        let savecardJson = "{\r\n \"createTransactionRequest\": {\r\n \"merchantAuthentication\": {\r\n \"name\": \"\("Riddhi")\",\r\n \"transactionKey\": \"\(kClientTransationKey)\" },\r\n \"transactionRequest\": {\r\n \"transactionType\": \"authCaptureTransaction\",\r\n \"amount\": \"\(totalPay)\",\r\n \"payment\": {\r\n \"opaqueData\":{\r\n \"dataDescriptor\": \"COMMON.APPLE.INAPP.PAYMENT\",\r\n \"dataValue\": \"\(base64str)\" } }, \r\n \"order\" : {\r\n \"invoiceNumber\" : \"\(1)\", \r\n \"description\" : \"OrderFromiOS\"}}} }"
-       */
-        print("CallCreateCustApplePayProfile payment data : \(savecardJson)")
-        
-        let jsonData = Data(savecardJson.utf8)
-        let request = NSMutableURLRequest(url: NSURL(string: "\(kAuthorisedAPI)xml/v1/request.api")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "POST"
-        //request.allHTTPHeaderFields = headers
-        request.httpBody = jsonData as Data
-        request.timeoutInterval = 60
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error ?? "")
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse ?? "")
-                self.aryCreatePayProf = try! JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary as! [String : Any]
-                print("payment details from apple pay from error block :== \(self.aryCreatePayProf)")
-                self.showAlert(title: "RED E Error", message: "payment details from apple pay from error block :== \(self.aryCreatePayProf)")
-                //_ = "\(Constants.APP_URL+URLs.placeOrder.rawValue)"
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse!)
-                self.aryCreatePayProf = try! JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary as! [String : Any]
-                print("payment details from apple pay :== \(self.aryCreatePayProf)")
-                let messages = self.aryCreatePayProf["messages"] as! Dictionary<String,Any>
-                let arymessages = messages["message"]! as! NSArray
-                let message = arymessages[0] as! Dictionary<String,Any>
-                
-                if "\(message["code"]!)" == "I00001" || "\(message["code"]!)" == "1"
-                {
-                    guard let index = self.selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
-                        return
-                    }
-                    self.showAlert(title: "RED E", message: "\(message["text"]!)") {
-                        self.makePayment(cardNumber: "", expirationMonth: "", expirationYear: "", token: base64str, connectorId: connector.id)
-                    }
-                   
-
-                    //call your server api here for submit data to your server
+    func MakeApplePayment(payment: PKPayment)
+    {
+        SVProgressHUD.show()
+        let token = payment.token.paymentData.base64EncodedString()
+        NetworkManager().makeApplePayment(qrCode: self.qrCode ?? "", cryptogram: token) { success, authId, error in
+            if let authId = authId, success {
+                self.authId = authId
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self.startCharging()
                 }
-                else {
-                    DispatchQueue.main.async {
-                        self.showAlert(title: "RED E", message: "\(message["text"]!)")
-//                        self.view.makeToast("\(message["text"]!)", duration: 5.0, position: .bottom)
-                       // ACProgressHUD.shared.hideHUD()
+            }
+            else{
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    
+                    if (error?.elementsEqual("Your session has been expired.") ?? false){
+                        self.logout()
+                    }
+                    else{
+                        self.showAlert(title: "RED E", message: error){}
                     }
                 }
             }
-        })
-        dataTask.resume()
+        }
     }
 }
 
 
 extension ChargerDetailsViewController {
-    
     func shippingMethodCalculator() -> [PKShippingMethod] {
         // Calculate the pickup date.
         
@@ -698,7 +667,7 @@ extension ChargerDetailsViewController {
         
         let startComponents = calendar.dateComponents([.calendar, .year, .month, .day], from: shippingStart)
         let endComponents = calendar.dateComponents([.calendar, .year, .month, .day], from: shippingEnd)
-         
+        
         let shippingDelivery = PKShippingMethod(label: "Delivery", amount: NSDecimalNumber(string: "0.00"))
         shippingDelivery.dateComponentsRange = PKDateComponentsRange(start: startComponents, end: endComponents)
         shippingDelivery.detail = "Ticket sent to you address"
@@ -710,7 +679,7 @@ extension ChargerDetailsViewController {
         
         return [shippingDelivery, shippingCollection]
     }
-  func btnApplePayTapped() {
+    func btnApplePayTapped() {
         if PKPaymentAuthorizationViewController.canMakePayments() == false {
             let alert = UIAlertController(title: "Apple Pay is not available", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -721,40 +690,44 @@ extension ChargerDetailsViewController {
         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: SupportedPaymentNetworks) == false {
             openWalletApp()
         }
-//        let tempDict = cartDetailsFetch?.value(forKey: "data") as! Dictionary <String, Any>
+        //        let tempDict = cartDetailsFetch?.value(forKey: "data") as! Dictionary <String, Any>
         var totalPay : NSDecimalNumber?
         
         let request = PKPaymentRequest()
         request.currencyCode = "USD"
         request.countryCode = "US"
-        // Set your apple pay merchant id
         request.merchantIdentifier = ApplePayMerchantID
         request.supportedNetworks = SupportedPaymentNetworks
-        // DO NOT INCLUDE PKMerchantCapability.capabilityEMV
-      request.merchantCapabilities = PKMerchantCapability.capability3DS
-      request.shippingType = .delivery
-      request.shippingMethods = shippingMethodCalculator()
-      request.requiredShippingContactFields = [.name, .postalAddress]
-        //pass total value and currency code to apple payment request
-      let ticket = PKPaymentSummaryItem(label: "Festival Entry", amount: NSDecimalNumber(string: "1.00"), type: .final)
-      let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: "1.00"), type: .final)
-      let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(string: "1.99"), type: .final)
-      request.paymentSummaryItems = [ticket,tax,total]
-//        request.paymentSummaryItems = [
-//            PKPaymentSummaryItem(label: "Total", amount: 1.00)
-//        ]
+        request.merchantCapabilities = PKMerchantCapability.capability3DS
+        request.shippingType = .delivery
+        request.shippingMethods = shippingMethodCalculator()
+        request.requiredShippingContactFields = [.name, .postalAddress]
+        request.paymentSummaryItems = [
+            PKPaymentSummaryItem(label: "Total", amount: 2.00)
+        ]
         
         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
         applePayController?.delegate = self
-        
         self.present(applePayController!, animated: true, completion: nil)
     }
-    
-    
-    
     //opens wallet app
     func openWalletApp() {
         let library = PKPassLibrary()
         library.openPaymentSetup()
     }
+}
+extension String {
+    
+    func fromBase64() -> String? {
+        guard let data = Data(base64Encoded: self) else {
+            return nil
+        }
+        
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func toBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
+    
 }
