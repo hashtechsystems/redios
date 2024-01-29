@@ -211,9 +211,9 @@
 				7134384D28676D6F005D0EBD /* NavigationBar.swift */,
 				717A996D289FF41D00AD6646 /* ConnectorCell.swift */,
 				B0DC33C92B317F1D00A333C0 /* TransactionHistoryCell.swift */,
+				B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */,
 				B087D0BF2B453771000054CC /* SiteDetailTableViewCell.swift */,
 				B087D0C02B453771000054CC /* SiteDetailTableViewCell.xib */,
-				B0DC33CA2B317F1D00A333C0 /* TransactionHistoryCell.xib */,
 				B0B0B58B2B5A4A9C0051C180 /* CardTableViewCell.swift */,
 				B0B0B58C2B5A4A9C0051C180 /* CardTableViewCell.xib */,
 				B0B0B58F2B5A4C7D0051C180 /* AddNewCardTableViewCell.swift */,
@@ -622,7 +622,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.2;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -643,7 +643,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -667,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.2;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = ZBA7H6M94F;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -688,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rede;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

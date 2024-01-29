@@ -100,7 +100,7 @@ class ChargerDetailsViewController: BaseViewController {
                 lblSessionfee.text = "$\(plan.fixed_fee ?? 0)"
                 lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "$\(plan.variable_fee ?? 0) / KWH AC unit" : "NONE"
                 lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "$\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
-                lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "$\(plan.buffer_time ?? 0)" : "NONE"
+                lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "\(plan.buffer_time ?? 0)" : "NONE"
                 self.vwPriceInfo.isHidden = false
                 self.lblNoInfoFound.isHidden = true
             }else{
@@ -122,8 +122,7 @@ extension ChargerDetailsViewController {
         
         if self.chargerStation?.pricePlanId != nil {
             //            self.openCardPayment()
-//            self.openActionSheet()
-            self.getCardList()
+            self.openActionSheet()
         }
         else{
             self.startCharging()
@@ -702,8 +701,9 @@ extension ChargerDetailsViewController {
         request.shippingType = .delivery
         request.shippingMethods = shippingMethodCalculator()
         request.requiredShippingContactFields = [.name, .postalAddress]
+        let amount = self.chargerStation?.planPrice ?? 0
         request.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: "Total", amount: 2.00)
+            PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(value: amount))
         ]
         
         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)

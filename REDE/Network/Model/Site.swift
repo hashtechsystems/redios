@@ -137,6 +137,15 @@ struct ChargerStation: Codable {
         }
         return nil
     }
+    
+    var planPrice: Int? {
+        if chargerType?.uppercased().elementsEqual("AC") ?? false {
+            return site?.ac_price_plan?.auth_amount ?? 0
+        } else if chargerType?.uppercased().elementsEqual("DC") ?? false {
+            return site?.price_plan?.auth_amount ?? 0
+        }
+        return nil
+    }
 }
 
 // MARK: - Connector

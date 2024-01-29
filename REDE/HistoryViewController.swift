@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tblView : UITableView!
@@ -27,7 +27,11 @@ class HistoryViewController: UIViewController {
         getHistory()
     }
     func getHistory(){
+        SVProgressHUD.show()
         NetworkManager().getTransactionHistory { response, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
             guard let transaction = response else {
                 return
             }
@@ -55,6 +59,7 @@ extension HistoryViewController : UITableViewDelegate , UITableViewDataSource {
         cell.vwMain.layer.shadowRadius = 4
         cell.vwMain.layer.shadowOpacity = 0.3
         let obj = self.transactions[indexPath.row]
+        cell.lblId.text = "Transcation ID : \(obj.id ?? 0)"
         cell.lblSiteName.text = "Site Name : \(obj.site_name ?? "")"
         cell.lblChargerName.text = "Charger Name : \(obj.charger_name ?? "")"
         cell.lblAmount.text = "$\(obj.amount ?? 0)"

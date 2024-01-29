@@ -10,6 +10,7 @@ import UIKit
 class TransactionHistoryCell: UITableViewCell {
 
     @IBOutlet weak var vwMain : UIView!
+    @IBOutlet weak var lblId : UILabel!
     @IBOutlet weak var lblSiteName : UILabel!
     @IBOutlet weak var lblChargerName : UILabel!
     @IBOutlet weak var lblAmount : UILabel!
