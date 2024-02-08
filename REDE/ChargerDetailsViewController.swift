@@ -235,25 +235,32 @@ extension ChargerDetailsViewController: UICollectionViewDataSource, UICollection
         }else{
             cell?.imgView.image = UIImage.init(named: "ccs")
         }
-        
-        if let index = selectedCellIndex,  index == indexPath.item {
-            cell?.showCheck()
+        if connector?.status == "AVAILABLE" {
+            if let index = selectedCellIndex,  index == indexPath.item {
+                cell?.showCheck()
+            }
+            else{
+                cell?.hideCheck()
+            }
+        }else{
+            cell?.makeConnectorUnavailable()
         }
-        else{
-            cell?.hideCheck()
-        }
-        
         return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == selectedCellIndex {
-            selectedCellIndex = nil
+        let connector = self.chargerStation?.connectors[indexPath.row]
+        if connector?.status != "AVAILABLE" {
+            // Not available
+        }else{
+            if indexPath.item == selectedCellIndex {
+                selectedCellIndex = nil
+            }
+            else{
+                selectedCellIndex = indexPath.item
+            }
+            collectionView.reloadData()
         }
-        else{
-            selectedCellIndex = indexPath.item
-        }
-        collectionView.reloadData()
     }
 }
 

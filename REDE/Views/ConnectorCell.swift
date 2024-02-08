@@ -27,4 +27,10 @@ class ConnectorCell: UICollectionViewCell {
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.red.cgColor
     }
+    
+    public func makeConnectorUnavailable(){
+        self.checkImageView.image = nil
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.gray.cgColor
+    }
 }
