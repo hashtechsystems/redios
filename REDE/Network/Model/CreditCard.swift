@@ -47,5 +47,5 @@ struct CardChargedResponse: Codable {
     let ocppCbid: String?
     let transactionId: String?
     let authId: String?
-    
+    let message : String?
 }

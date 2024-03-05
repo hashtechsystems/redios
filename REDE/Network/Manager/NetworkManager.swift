@@ -683,6 +683,68 @@ struct NetworkManager {
         }
     }
     
+    func DeleteCardDetails(cardID: Int, completion: @escaping (_ response: Response?, _ error: String?) -> ()) {
+        router.request(.deleteCard(id: cardID)) { data, response, error in
+
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+
+                let apiResponse = try JSONDecoder().decode(Response.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse, nil)
+                }
+                else {
+                    completion(nil, "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func checkRfidForUser(siteId: Int, chargerId:Int, completion: @escaping (_ response: rfidResponse?, _ error: String?) -> ()) {
+        router.request(.checkrfid(site_id: siteId, charger_id: chargerId)) { data, response, error in
+
+            if let error = error {
+                completion(nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+
+                let apiResponse = try JSONDecoder().decode(rfidResponse.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse, nil)
+                }
+                else {
+                    completion(nil, "Unkown error occured. Error message not found.")
+                }
+            }catch {
+                //print(error)
+                completion(nil, error.localizedDescription)
+            }
+            
+        }
+    }
+    
     func ChargeCustomerWithSavedCard(id: Int, qrcode: String, completion: @escaping (_ response: CardChargedResponse?, _ error: String?) -> ()) {
         
         router.request(.chargeCustomer(id: id, qrcode: qrcode)) { data, response, error in
@@ -705,7 +767,7 @@ struct NetworkManager {
                     completion(apiResponse, nil)
                 }
                 else {
-                    completion(nil, "Unkown error occured. Error message not found.")
+                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
                 }
             }catch {
                 //print(error)

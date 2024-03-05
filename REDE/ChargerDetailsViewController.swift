@@ -47,7 +47,7 @@ class ChargerDetailsViewController: BaseViewController {
     private var selectedCellIndex: Int?
     private let margin: CGFloat = 4
     var tryAgainCount = 0
-    
+    var isChargingSlotFree = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
@@ -114,20 +114,18 @@ class ChargerDetailsViewController: BaseViewController {
 extension ChargerDetailsViewController {
     
     @IBAction func onClickConfirm(){
-        
-        guard let index = selectedCellIndex, let _ = self.chargerStation?.connectors[index] else {
+        guard let index = self.selectedCellIndex, let _ = self.chargerStation?.connectors[index] else {
             self.showAlert(title: "RED E", message: "Select a connector")
             return
         }
         
         if self.chargerStation?.pricePlanId != nil {
-            //            self.openCardPayment()
-            self.openActionSheet()
+            self.checkRfidForLoggedInUser()
         }
         else{
             self.startCharging()
         }
-        
+     
     }
     
     func openActionSheet(){
@@ -165,6 +163,7 @@ extension ChargerDetailsViewController {
         controller.chargerStation = self.chargerStation
         controller.transaction = self.transaction
         controller.authId = self.authId
+        controller.isChargingSlotFree = self.isChargingSlotFree
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -176,6 +175,18 @@ extension ChargerDetailsViewController {
 
 extension ChargerDetailsViewController {
     
+    func checkRfidForLoggedInUser(){
+        SVProgressHUD.show()
+        NetworkManager().checkRfidForUser(siteId: self.chargerStation?.siteID ?? 0, chargerId: self.chargerStation?.id ?? 0) { response, error in
+            SVProgressHUD.dismiss()
+            if response?.status ?? false {
+                self.isChargingSlotFree = true
+                self.startCharging()
+            }else{
+                self.openActionSheet()
+            }
+        }
+    }
     func fetchChargerDetails(){
         
         guard let qrCode = self.qrCode else { return }
@@ -493,11 +504,69 @@ extension ChargerDetailsViewController{
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self.transaction = transaction
-                if self.chargerStation?.pricePlanId != nil {
+                if self.chargerStation?.pricePlanId != nil && self.isChargingSlotFree != true{
                     self.updatePayment()
                 }else{
                     self.gotoStopCharging()
                 }
+                
+            }
+        }
+    }
+    
+    func startFreeCharging(){
+        guard let ocppCbid = self.chargerStation?.ocppCbid, let index = selectedCellIndex, let connector = self.chargerStation?.connectors[index] else {
+            return
+        }
+        
+        let authId = self.authId ?? ""
+        
+        SVProgressHUD.show()
+        NetworkManager().startCharging(ocppCbid: ocppCbid, sequenceNumber: connector.sequence_number, authId: authId) { transaction, error in
+            guard let transaction = transaction, transaction.transactionId > 0 else {
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    //                    self.showAlert(title: "RED E", message: "Some error occurred"){
+                    //                        self.gotoLastScreen()
+                    //                    }
+                    
+                    let alert = UIAlertController(title: "RED E", message: "Some error occurred", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction.init(title: "Try again", style: .default, handler: { _ in
+                        if self.tryAgainCount >= 3{
+                            
+                            if self.chargerStation?.pricePlanId != nil {
+                                self.mobilePaymentSettlement()
+                            }else{
+                                self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+                            }
+                            
+                        }else{
+                            self.tryAgainCount += 1
+                            self.startCharging()
+                        }
+                    }))
+                    alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { _ in
+                        if self.chargerStation?.pricePlanId != nil {
+                            self.mobilePaymentSettlement()
+                        }else{
+                            self.navigationController?.popToViewController(ofClass: DashboardViewController.self)
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.transaction = transaction
+                self.gotoStopCharging()
+//                if self.chargerStation?.pricePlanId != nil {
+//                    self.updatePayment()
+//                }else{
+//                    self.gotoStopCharging()
+//                }
                 
             }
         }

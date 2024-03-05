@@ -56,3 +56,14 @@ struct FetchProfileResponse: Codable {
     let data: User?
     let message: String?
 }
+
+struct Response: Codable {
+    let status: Bool
+    let message: String?
+}
+
+struct rfidResponse: Codable {
+    let status: Bool
+    let data: String?
+}
+

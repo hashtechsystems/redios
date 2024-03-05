@@ -32,6 +32,8 @@ public enum REDEApi {
     case getCardList
     case chargeCustomer(id : Int , qrcode : String)
     case makeApplePayment(qrcode : String,cryptogram:String)
+    case deleteCard(id:Int)
+    case checkrfid(site_id : Int,charger_id : Int)
 }
 
 extension REDEApi: EndPointType {
@@ -92,6 +94,10 @@ extension REDEApi: EndPointType {
             return url.appendingPathComponent("charge-customer-profile")
         case .makeApplePayment:
             return url.appendingPathComponent("make-apple-payment")
+        case .deleteCard:
+            return url.appendingPathComponent("delete-user-card")
+        case .checkrfid:
+            return url.appendingPathComponent("check-rfid")
         }
     }
     
@@ -141,6 +147,10 @@ extension REDEApi: EndPointType {
             return ["id":id,"qr_code":qrcode]
         case .makeApplePayment(let qrcode, let cryptogram):
             return ["qr_code":qrcode,"cryptogram":cryptogram]
+        case .deleteCard(let id):
+            return ["id":id]
+        case .checkrfid(let site_id,let charger_id):
+            return ["site_id":site_id,"charger_id":charger_id]
         }
         
     }
@@ -149,14 +159,14 @@ extension REDEApi: EndPointType {
         switch self {
         case .login, .register, .otp, .verifyOtp:
             return nil
-        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .resetPassword,.mobilepaymentsettlement,.transactionHistory,.saveCardInfo,.getCardList,.chargeCustomer,.makeApplePayment:
+        case .sites, .chargerDetails, .fetchProfile, .uploadProfilePic, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .resetPassword,.mobilepaymentsettlement,.transactionHistory,.saveCardInfo,.getCardList,.chargeCustomer,.makeApplePayment,.deleteCard,.checkrfid:
             return ["Authorization": "Bearer \(UserDefaults.standard.loggedInToken() ?? "")"]
         }
     }
     
     var httpEncoding: ParameterEncoding {
         switch self {
-        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword,.mobilepaymentsettlement,.transactionHistory,.saveCardInfo,.getCardList,.chargeCustomer,.makeApplePayment:
+        case .login, .sites, .fetchProfile, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .getTransactionDetails, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword,.mobilepaymentsettlement,.transactionHistory,.saveCardInfo,.getCardList,.chargeCustomer,.makeApplePayment,.deleteCard,.checkrfid:
             return .jsonEncoding
         case .uploadProfilePic:
             return .formData
@@ -165,7 +175,7 @@ extension REDEApi: EndPointType {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword,.mobilepaymentsettlement,.saveCardInfo,.chargeCustomer,.makeApplePayment:
+        case .login, .sites, .uploadProfilePic, .chargerDetails, .register, .startCharging, .stopCharging, .makePayment, .updatePayment, .updatePaymentWithTransaction, .deleteUser, .updateProfile, .otp, .verifyOtp, .resetPassword,.mobilepaymentsettlement,.saveCardInfo,.chargeCustomer,.makeApplePayment,.deleteCard,.checkrfid:
             return .post
         case .fetchProfile, .getTransactionDetails,.transactionHistory,.getCardList:
             return .get

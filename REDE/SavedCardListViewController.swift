@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 protocol SavedCardListDelegate{
     func OpenCardView()
     func payWithCard(id : Int)
@@ -69,6 +71,23 @@ extension SavedCardListViewController : UITableViewDelegate , UITableViewDataSou
         }
         
     }
+   
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            // Call edit action
+            let obj = self.cardList[indexPath.row]
+            self.deleteSavedCardAPI(cardID: obj.id)
+            // Reset state
+            success(true)
+        })
+        deleteAction.image = UIImage(systemName: "archivebox.fill")
+        deleteAction.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row >= cardList.count{
@@ -80,5 +99,27 @@ extension SavedCardListViewController : UITableViewDelegate , UITableViewDataSou
         self.navigationController?.popViewController(animated: true)
 
     }
+ 
+    func deleteSavedCardAPI(cardID : Int){
+        SVProgressHUD.show()
+        NetworkManager().DeleteCardDetails(cardID: cardID, completion: { response, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
+            guard let data = response else{
+                return
+            }
+            if data.status {
+                self.removeItemByID(id: cardID)
+                DispatchQueue.main.async {
+                    self.tblView.reloadData()
+                }
+            }
+        })
+    }
     
+    func removeItemByID(id: Int) {
+        cardList = cardList.filter { $0.id != id }
+        print(cardList.count)
+    }
 }

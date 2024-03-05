@@ -30,7 +30,7 @@ class StopChargingViewController: BaseViewController {
     var transaction: Transaction?
     var authId: String?
     var isCarPlugedIn: Bool = false
-    
+    var isChargingSlotFree : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isLeftButtonHidden = true
@@ -215,7 +215,7 @@ extension StopChargingViewController {
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("SUSPENDEDEVSE") ?? false)
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("UNAVAILABLE") ?? false)
                                 || (transaction.connectorStatus?.uppercased().elementsEqual("FAULTED") ?? false) {
-                        if self.chargerStation?.pricePlanId != nil && self.isCarPlugedIn {
+                        if self.chargerStation?.pricePlanId != nil && self.isCarPlugedIn && (self.isChargingSlotFree != true) {
                             self.updatePayment()
                         }
                         else{
