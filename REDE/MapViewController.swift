@@ -33,14 +33,9 @@ class MapViewController: BaseViewController {
         mapview.isZoomEnabled = true
         mapview.isScrollEnabled = true
         mapview.showsUserLocation = true
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        //locationManager.distanceFilter = 100
-        //locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestWhenInUseAuthorization()
-        
-        // Start updating location
         locationManager.startUpdatingLocation()
        // self.onQRDetection(code: "https://pay.rede.network/main/35293ea84dd5b7c3556381ceb1f06cd5")
     }
@@ -170,8 +165,33 @@ extension MapViewController : MKMapViewDelegate{
             annotationView?.annotation = annotation
         }
         
-        let pinImage = UIImage(named: "flag_red")
-        annotationView?.image = pinImage
+        var availableConnector = 0
+        if let site = (annotation as? SiteAnnotation)?.site {
+            for chargerStation in site.chargerStations ?? [] {
+                availableConnector += chargerStation.connectors.filter { $0.status == "AVAILABLE" }.count
+            }
+        }
+        
+        
+//        let index = site?.chargerStations?.count ?? 0
+//        for i in 0..<index{
+//            let allConnectors = site?.chargerStations?[i].connectors
+//            for i in 0..<(allConnectors?.count ?? 0){
+//                let conn = allConnectors?[i]
+//                if conn?.status == "AVAILABLE"{
+//                    availableConnector += 1
+//                }
+//            }
+//        }
+        
+        if availableConnector != 0{
+            let pinImage = UIImage(named: "ig_flag_green")
+            annotationView?.image = pinImage
+        }else{
+            let pinImage = UIImage(named: "ig_flag_orange")
+            annotationView?.image = pinImage
+        }
+        
         
         let rightButton = UIButton(type: .detailDisclosure)
         annotationView?.rightCalloutAccessoryView = rightButton
@@ -183,7 +203,8 @@ extension MapViewController : MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? SiteAnnotation {
             guard let controller = UIViewController.instantiateVC(viewController: SiteDetailsViewController.self) else { return }
-            controller.site = annotation.site
+//            controller.site = annotation.site
+            controller.id = annotation.site?.id ?? 0
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }

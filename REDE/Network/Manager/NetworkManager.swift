@@ -767,13 +767,43 @@ struct NetworkManager {
                     completion(apiResponse, nil)
                 }
                 else {
-                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+                    completion(nil, apiResponse.description ?? "Unkown error occured. Error message not found.")
                 }
             }catch {
                 //print(error)
                 completion(nil, error.localizedDescription)
             }
             
+        }
+    }
+    
+    func siteDetails(id:Int, completion: @escaping (_ response: Site?,_ error: String?) -> ()) {
+        router.request(.siteDetails(id: id)) { data, response, error in
+
+            if let error = error {
+                completion( nil, error.localizedDescription)
+                return
+            }
+            
+            guard let responseData = data else {
+                completion( nil, NetworkResponse.noData.rawValue)
+                return
+            }
+            
+            do {
+                let apiResponse = try JSONDecoder().decode(SiteDetailResponse.self, from: responseData)
+                
+                if apiResponse.status {
+                    completion(apiResponse.data, nil)
+                }
+                else {
+                    completion(nil, apiResponse.message ?? "Unkown error occured. Error message not found.")
+                }
+                
+            }catch {
+                print(error)
+                completion(nil, error.localizedDescription)
+            }
         }
     }
     

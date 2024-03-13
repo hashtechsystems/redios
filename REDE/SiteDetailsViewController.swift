@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class SiteDetailsViewController: BaseViewController {
     
     @IBOutlet weak var lblLocation: UILabel!
@@ -14,15 +14,31 @@ class SiteDetailsViewController: BaseViewController {
     @IBOutlet weak var tblChargers: UITableView!
     
     var site: Site?
-    
+    var id : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navbar.isRightButtonHidden = true
-        lblName.text = site?.name
-        lblLocation.text = site?.getFullAdress()
+        
         tblChargers.backgroundColor = .white
         tblChargers.separatorColor = UIColor.init(patternImage: UIImage.init(named: "dotted_line")!)
         tblChargers.register(UINib(nibName: "SiteDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "SiteDetailTableViewCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getSiteDetails()
+    }
+    
+    func getSiteDetails(){
+        SVProgressHUD.show()
+        NetworkManager().siteDetails(id: self.id) { response, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.site = response
+                self.lblName.text = self.site?.name
+                self.lblLocation.text = self.site?.getFullAdress()
+                self.tblChargers.reloadData()
+            }
+        }
     }
 }
 

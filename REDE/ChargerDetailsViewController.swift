@@ -178,12 +178,14 @@ extension ChargerDetailsViewController {
     func checkRfidForLoggedInUser(){
         SVProgressHUD.show()
         NetworkManager().checkRfidForUser(siteId: self.chargerStation?.siteID ?? 0, chargerId: self.chargerStation?.id ?? 0) { response, error in
-            SVProgressHUD.dismiss()
-            if response?.status ?? false {
-                self.isChargingSlotFree = true
-                self.startCharging()
-            }else{
-                self.openActionSheet()
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                if response?.status ?? false {
+                    self.isChargingSlotFree = true
+                    self.startCharging()
+                }else{
+                    self.openActionSheet()
+                }
             }
         }
     }
@@ -793,7 +795,7 @@ extension ChargerDetailsViewController {
     }
 }
 extension String {
-    
+        
     func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {
             return nil

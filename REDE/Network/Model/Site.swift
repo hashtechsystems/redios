@@ -14,6 +14,12 @@ struct SiteResponse: Codable {
 }
 
 // MARK: - Datum
+
+struct SiteDetailResponse: Codable {
+    let status: Bool
+    let data: Site?
+    let message: String?
+}
 struct Site: Codable {
     let id: Int
     let name, address, city, state: String
