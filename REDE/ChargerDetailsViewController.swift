@@ -11,11 +11,11 @@ import SVProgressHUD
 import AnimatedCardInput
 import AuthorizeNetAccept
 
-import PassKit
+//import PassKit
 import Alamofire
 class ChargerDetailsViewController: BaseViewController {
     
-    @objc let SupportedPaymentNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
+//    @objc let SupportedPaymentNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
     
     
     //    private let kClientName = "6938BCtt6n8"//"5KP3u95bQpv"
@@ -133,7 +133,7 @@ extension ChargerDetailsViewController {
         
         let applePayAction = UIAlertAction(title: "Apple Pay", style: UIAlertAction.Style.default) {
             UIAlertAction in
-            self.btnApplePayTapped()
+            //self.btnApplePayTapped()
         }
         let CardAction = UIAlertAction(title: "Credit Card/Debit Card", style: UIAlertAction.Style.default) {
             UIAlertAction in
@@ -184,7 +184,8 @@ extension ChargerDetailsViewController {
                     self.isChargingSlotFree = true
                     self.startCharging()
                 }else{
-                    self.openActionSheet()
+                    self.getCardList()
+//                    self.openActionSheet()
                 }
             }
         }
@@ -661,6 +662,7 @@ extension ChargerDetailsViewController{
     }
 }
 //MARK: Apple Pay
+/*
 extension ChargerDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController) {
         print("paymentAuthorizationViewControllerDidFinish called")
@@ -809,3 +811,4 @@ extension String {
     }
     
 }
+ */
