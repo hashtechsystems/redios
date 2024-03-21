@@ -42,7 +42,7 @@ class StopChargingViewController: BaseViewController {
     }
     
     func updateUI(details: inout TransactionDetails, amount: Double?){
-        self.lblAmount.text = "$\(details.amount ?? 0.0)"
+        self.lblAmount.text = "USD\(details.amount ?? 0.0)"
         self.lblDuration.text = "\(details.on_going_duration ?? "0.0")"
         self.lblSiteId.text = details.siteName ?? ""
         self.lblChargerStation.text = details.chargingStationName ?? ""

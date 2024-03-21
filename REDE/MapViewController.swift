@@ -37,7 +37,7 @@ class MapViewController: BaseViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-       // self.onQRDetection(code: "https://pay.rede.network/main/35293ea84dd5b7c3556381ceb1f06cd5")
+       // self.onQRDetection(code: "https://pay.rede.network/main/07f428d8158e8aa0954ff53bca799155")
     }
     
     @IBAction func onClickReCenter(){

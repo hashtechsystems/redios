@@ -62,7 +62,7 @@ extension HistoryViewController : UITableViewDelegate , UITableViewDataSource {
         cell.lblId.text = "Transcation ID : \(obj.id ?? 0)"
         cell.lblSiteName.text = "Site Name : \(obj.site_name ?? "")"
         cell.lblChargerName.text = "Charger Name : \(obj.charger_name ?? "")"
-        cell.lblAmount.text = "$\(obj.amount ?? 0)"
+        cell.lblAmount.text = "USD\(obj.amount ?? 0)"
         let Energy = String(format:"%.2f kW", ((obj.meter_diff ?? 0)/1000))
         cell.lblEnegeryDelivered.text = "Energy Delivered : \(Energy)"
         cell.lblDate.text = obj.created_at ?? ""

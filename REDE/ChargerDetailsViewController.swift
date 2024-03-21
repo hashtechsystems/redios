@@ -85,10 +85,10 @@ class ChargerDetailsViewController: BaseViewController {
         collectionConnectors.allowsSelection = true
         if chargerStation?.chargerType == "DC"{
             if let plan = chargerStation?.site?.price_plan{
-                lblSessionfee.text = "$\(plan.fixed_fee ?? 0)"
-                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "$\(plan.variable_fee ?? 0) / KWH DC unit" : "NONE"
-                lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "$\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
-                lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "$\(plan.buffer_time ?? 0)" : "NONE"
+                lblSessionfee.text = "USD \(plan.fixed_fee ?? 0)"
+                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "USD\(plan.variable_fee ?? 0) / \(plan.fee_type ?? "") DC unit" : "NONE"
+                lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "USD\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
+                lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "\(plan.buffer_time ?? 0)" : "NONE"
                 self.vwPriceInfo.isHidden = false
                 self.lblNoInfoFound.isHidden = true
             }else{
@@ -97,9 +97,9 @@ class ChargerDetailsViewController: BaseViewController {
             }
         }else{
             if let plan = chargerStation?.site?.ac_price_plan{
-                lblSessionfee.text = "$\(plan.fixed_fee ?? 0)"
-                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "$\(plan.variable_fee ?? 0) / KWH AC unit" : "NONE"
-                lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "$\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
+                lblSessionfee.text = "USD\(plan.fixed_fee ?? 0)"
+                lblvariablefee.text =  (plan.variable_fee ?? 0.0) > 0.0 ? "USD\(plan.variable_fee ?? 0) / \(plan.fee_type ?? "") AC unit" : "NONE"
+                lblparkingfee.text =  (plan.parking_fee ?? 0) > 0 ?  "USD\(plan.parking_fee ?? 0) / \(plan.parking_fee_unit ?? "")" : "NONE"
                 lblbuffertime.text =  (plan.buffer_time ?? 0) > 0 ? "\(plan.buffer_time ?? 0)" : "NONE"
                 self.vwPriceInfo.isHidden = false
                 self.lblNoInfoFound.isHidden = true

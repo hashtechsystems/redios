@@ -52,7 +52,7 @@ class TransactionHistoryViewController: BaseViewController {
             if ((details.amount ?? 0.0) == 0.0){
                 self.lblCost.text = "Free"
             }else{
-                self.lblCost.text = "$ \(details.amount ?? 0.0)"
+                self.lblCost.text = "USD \(details.amount ?? 0.0)"
             }
         }
         else{
@@ -77,7 +77,7 @@ class TransactionHistoryViewController: BaseViewController {
                 if (value < 0.01){
                     self.lblCost.text = "Free"
                 }else{
-                    self.lblCost.text = "$ \(amount ?? 0)"
+                    self.lblCost.text = "USD \(amount ?? 0)"
                 }
             }
             else{
